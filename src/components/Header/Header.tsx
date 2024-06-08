@@ -1,5 +1,6 @@
+import { headerItems } from '../../utils/constants';
+
 import './Header.css';
-import headerItems from '../utils/constants';
 
 const Header = () => {
   return (

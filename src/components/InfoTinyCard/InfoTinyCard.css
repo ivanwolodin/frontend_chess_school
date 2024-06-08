@@ -1,7 +1,3 @@
-.p {
-  margin: 0;
-}
-
 .infotiny__card {
   width: 100%;
   height: auto;
@@ -13,4 +9,16 @@
   .infotiny__card {
     max-height: 200px;
   }
+}
+
+.infotiny__card:hover {
+  background: url('http://dummyimage.com/100x100/eb00eb/fff');
+
+  /* background: url(http://placehold.it/300x300/00ff00); */
+
+  /* !*transform: rotateZ(360deg);*! */
+
+  /* transform: rotateZ(360deg); */
+
+  /* cursor: pointer; */
 }

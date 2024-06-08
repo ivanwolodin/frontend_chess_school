@@ -1,3 +1,4 @@
 body {
-	font-family: 'Items', system-ui;
+  font-family: 'Items', system-ui;
+  background-image: url('../public/intro_brick.jpg');
 }
