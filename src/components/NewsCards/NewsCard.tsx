@@ -1,3 +1,5 @@
+import './NewsCards.css';
+
 // TODO: переписать через интерфейс
 const NewsCard = ({ title }: { title: string }) => {
   return (
