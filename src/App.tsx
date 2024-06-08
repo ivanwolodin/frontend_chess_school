@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import Intro from './components/Intro/Intro';
 import InfoTinyCards from './components/InfoTinyCards/InfoTinyCards';
 import HorizontalLine from './components/HorizontalLine/HorizontalLine';
+import NewsCards from './components/NewsCards/NewsCards';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Intro />
       <InfoTinyCards />
       <HorizontalLine />
+      <NewsCards />
     </div>
   );
 }
