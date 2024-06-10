@@ -7,7 +7,7 @@ import { newsData } from '../../utils/constants';
 import { useState, useEffect } from 'react';
 
 export default function NewsCards() {
-  const [slidesToShow, setSlidesToShow] = useState(3); 
+  const [slidesToShow, setSlidesToShow] = useState(3);
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,7 +21,7 @@ export default function NewsCards() {
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize(); 
+    handleResize();
 
     return () => {
       window.removeEventListener('resize', handleResize);
