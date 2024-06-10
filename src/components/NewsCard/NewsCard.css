@@ -7,12 +7,10 @@ p {
   display: flex;
   flex-direction: column;
   min-height: 600px;
-
-  /* vertical-align: bottom; */
-
-  /* height: 100%; */
   padding-right: 3%;
   padding-left: 3%;
+  color: #5b3718;
+  font-size: 1.2rem;
   border-left: 1px solid #f1f3f4;
 }
 
@@ -23,10 +21,9 @@ p {
 }
 
 .newscard__background {
-  position: relative;
-  height: 100%;
-
-  /* margin-top: auto; */
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
   background: #f3ebeb;
 }
 
@@ -48,4 +45,16 @@ p {
   margin-left: 50%;
   background: #e98112;
   border-radius: 50%;
+}
+
+.newscard__text {
+  padding-top: 20px;
+  text-align: justify;
+}
+
+.newscard__date {
+  margin-top: auto;
+  color: #e98112;
+  font-size: 1.1rem;
+  line-height: 1.9rem;
 }

@@ -8,8 +8,8 @@ const NewsCard = ({ title, src, text, date }: NewsCardProps) => {
       <div className="newscard__dot"></div>
       <div className="newscard__background">
         <h2 className="newscard__title">{title}</h2>
-        <p>{text}</p>
-        <p>{date}</p>
+        <p className="newscard__text">{text}</p>
+        <p className="newscard__date">{date}</p>
       </div>
     </div>
   );
