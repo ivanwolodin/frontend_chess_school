@@ -3,7 +3,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './NewsCards.css';
-import NewsCard from './NewsCard';
+import NewsCard from '../NewsCard/NewsCard';
+import { newsData } from '../../utils/constants';
 
 export default function NewsCards() {
   const settings = {
@@ -18,16 +19,20 @@ export default function NewsCards() {
   };
 
   return (
-    <div className="slider-container">
-      <Slider {...settings}>
-        <NewsCard title="1" />
-        <NewsCard title="2" />
-        <NewsCard title="3" />
-        <NewsCard title="4" />
-        <NewsCard title="5" />
-        <NewsCard title="6" />
-        <NewsCard title="7" />
-      </Slider>
+    <div className="news_cards">
+      <div className="slider-container">
+        <Slider {...settings}>
+          {newsData.map((item, index) => (
+            <NewsCard
+              key={index}
+              title={item.title}
+              src={item.src}
+              text={item.text}
+              date={item.date}
+            />
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 }

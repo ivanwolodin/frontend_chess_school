@@ -12,8 +12,7 @@ p {
   /* text-transform: uppercase; */
   font-family: 'Arial Narrow', sans-serif;
   line-height: 2rem;
-
-  /* background-image: url('../../../public/intro_brick.jpg'); */
+  background-image: url('../../../public/intro_brick.jpg');
 }
 
 .intro__logo {

@@ -1,23 +1,20 @@
-.news_cards {
+/* .news_cards {
   display: flex;
   flex-direction: row;
+  gap: 10px;
 }
-/*.news_card:first-child{*/
-/*  margin-left: 50px;*/
-/*}*/
 
 .slick-prev {
-  /*background-color: black;*/
   left: 3% !important;
   z-index: 1;
 }
+
 .slick-next {
   right: 3% !important;
   z-index: 1;
-}
-/*li::marker{*/
-/*  font-size: 1.8em;*/
-/*  line-height: 0.1;*/
-/*  width: 90px;*/
-/*  height: 90px;*/
-/*}*/
+} */
+
+/* .news_cards {
+  display: flex;
+  height: 100vh;
+}  */
