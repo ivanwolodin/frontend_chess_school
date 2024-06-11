@@ -7,7 +7,8 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: 600px;
+  height: 100vh;
+  max-height: 750px;
   padding-right: 3%;
   padding-left: 3%;
   color: #5b3718;
@@ -17,7 +18,9 @@ p {
 
 .newscard__image {
   width: 100%;
-  min-height: 300px;
+  max-height: 630px;
+  object-fit: cover;
+  object-position: top;
   background: no-repeat center center fixed;
 }
 

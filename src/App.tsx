@@ -6,6 +6,7 @@ import SliderNews from './components/SliderNews/SliderNews';
 import TeachersCards from './components/TeachersCards/TeachersCards';
 
 import './App.css';
+import VideoSection from './components/VideoSection/VideoSection';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <HorizontalLine />
       <SliderNews />
       <TeachersCards />
+      <VideoSection videoId="gor6dptvj1Q" />
     </div>
   );
 }
