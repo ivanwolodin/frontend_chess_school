@@ -14,13 +14,13 @@
 @media (width <= 1167px) {
   .videosection__youtube {
     min-width: 611px;
-  min-height: 322px;
+    min-height: 322px;
   }
 }
 
 @media (width <= 650px) {
   .videosection__youtube {
     min-width: 455px;
-  min-height: 300px;
+    min-height: 300px;
   }
 }

@@ -4,9 +4,10 @@ import InfoTinyCards from './components/InfoTinyCards/InfoTinyCards';
 import HorizontalLine from './components/HorizontalLine/HorizontalLine';
 import SliderNews from './components/SliderNews/SliderNews';
 import TeachersCards from './components/TeachersCards/TeachersCards';
+import VideoSection from './components/VideoSection/VideoSection';
+import AdmissionForm from './components/AdmissionForm/AdmissionForm';
 
 import './App.css';
-import VideoSection from './components/VideoSection/VideoSection';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <SliderNews />
       <TeachersCards />
       <VideoSection videoId="gor6dptvj1Q" />
+      <AdmissionForm />
     </div>
   );
 }
