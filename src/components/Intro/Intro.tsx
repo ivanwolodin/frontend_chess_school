@@ -2,7 +2,7 @@ import './Intro.css';
 
 const Intro = () => {
   return (
-    <div className="intro__general">
+    <section className="intro__general">
       <div className="intro__info">
         <div className="intro__info_general">
           <img className="intro__logo" src="/logo_small.png" alt="Логотип" />
@@ -59,7 +59,7 @@ const Intro = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

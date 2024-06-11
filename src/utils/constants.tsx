@@ -1,4 +1,8 @@
-import { InfoTinyCardProps, NewsCardProps } from './interfaces';
+import {
+  InfoTinyCardProps,
+  NewsCardProps,
+  TeacherCardProps,
+} from './interfaces';
 
 export const headerItems: string[] = [
   'ГЛАВНАЯ',
@@ -58,5 +62,44 @@ export const newsData: NewsCardProps[] = [
     src: 'https://шахматыпермь.рф/static/images/news/administration.jpg',
     text: 'В начале года состоялись Открытые Новогодние турниры по классическим шахматам. Наши ученики успешно проявили себя в первых турнирах в этом году!',
     date: '05.07.2024',
+  },
+];
+
+export const teachersData: TeacherCardProps[] = [
+  {
+    name: 'Терехин Анатолий Николаевич',
+    src: require('../assets/teachers_images/AN.jpg'),
+    position: 'Автор Программы ',
+    alt: 'Автор',
+  },
+  {
+    name: 'Антонова Оксана Павловна',
+    src: require('../assets/teachers_images/Oksana.jpg'),
+    position: 'Исполнительный директор',
+    alt: 'Директор',
+  },
+  {
+    name: 'Бахарев Андрей Иванович',
+    src: require('../assets/teachers_images/Andrey.jpg'),
+    position: 'Старший тренер',
+    alt: 'Старший',
+  },
+  {
+    name: 'Громов Даниил Александрович',
+    src: require('../assets/teachers_images/Daniil.jpeg'),
+    position: 'Тренер по шахматам',
+    alt: 'Тренер',
+  },
+  {
+    name: 'Анисимов Всеволод Владимирович',
+    src: require('../assets/teachers_images/Seva.png'),
+    position: 'Тренер по шахматам',
+    alt: 'Тренер',
+  },
+  {
+    name: 'Громов Даниил Александрович',
+    src: require('../assets/teachers_images/Daniil.jpeg'),
+    position: 'Тренер по шахматам',
+    alt: 'Тренер',
   },
 ];

@@ -1,0 +1,44 @@
+p {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+.teachercard__general {
+  display: flex;
+  flex-direction: column;
+  place-content: center flex-end;
+  align-items: center;
+  align-self: center;
+}
+
+.teachercard__name {
+  margin-top: 20px;
+  margin-bottom: 9px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.teachercard__image {
+  width: 319px;
+  height: 430px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.teachercard__position {
+  /* position: absolute; */
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 36px;
+  padding: 10px 0;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  background: rgb(204 176 163 / 90%);
+}

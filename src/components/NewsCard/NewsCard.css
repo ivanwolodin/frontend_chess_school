@@ -6,6 +6,7 @@ p {
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   min-height: 600px;
   padding-right: 3%;
   padding-left: 3%;

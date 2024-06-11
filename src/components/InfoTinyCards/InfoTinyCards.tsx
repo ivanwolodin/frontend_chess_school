@@ -5,11 +5,11 @@ import './InfoTinyCards.css';
 
 const InfoTinyCards = () => {
   return (
-    <div className="infotiny__cards">
+    <section className="infotiny__cards">
       {tinyCardsData.map((card, index) => (
         <InfoTinyCard key={index} src={card.src} alt={card.alt} />
       ))}
-    </div>
+    </section>
   );
 };
 
