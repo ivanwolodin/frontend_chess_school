@@ -1,0 +1,31 @@
+.feedback-container {
+  width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: sans-serif;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+.feedback-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.feedback {
+  margin-bottom: 15px;
+}
+
+.feedback summary {
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.feedback p {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}

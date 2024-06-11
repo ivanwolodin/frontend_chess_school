@@ -6,6 +6,7 @@ import SliderNews from './components/SliderNews/SliderNews';
 import TeachersCards from './components/TeachersCards/TeachersCards';
 import VideoSection from './components/VideoSection/VideoSection';
 import AdmissionForm from './components/AdmissionForm/AdmissionForm';
+import YandexMap from './components/YandexMap/YandexMap';
 
 import './App.css';
 
@@ -20,6 +21,7 @@ function App() {
       <TeachersCards />
       <VideoSection videoId="gor6dptvj1Q" />
       <AdmissionForm />
+      <YandexMap />
     </div>
   );
 }
