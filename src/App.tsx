@@ -9,6 +9,7 @@ import AdmissionForm from './components/AdmissionForm/AdmissionForm';
 import YandexMap from './components/YandexMap/YandexMap';
 
 import './App.css';
+import Reviews from './components/Reviews/Reviews';
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
       <TeachersCards />
       <VideoSection videoId="gor6dptvj1Q" />
       <AdmissionForm />
+      <Reviews />
       <YandexMap />
+      <HorizontalLine />
     </div>
   );
 }

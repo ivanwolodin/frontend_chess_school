@@ -1,0 +1,38 @@
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.reviews__general {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.reviews__text {
+  position: relative;
+  display: block;
+  align-self: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #5b3718;
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: justify;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.reviews__author {
+  margin-top: 4px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  color: #43743f;
+  font-weight: bold;
+  font-size: 1.3rem;
+  font-family: 'Items', system-ui;
+  font-style: italic;
+  text-align: right;
+}
