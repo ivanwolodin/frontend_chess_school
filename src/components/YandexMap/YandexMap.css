@@ -1,11 +1,11 @@
-.yandexmap__general{
+.yandexmap__general {
   display: flex;
-  margin-left: 5%;
   margin-right: 5%;
+  margin-left: 5%;
 }
 
 .yandexmap__map {
-  width: 100%; 
-  min-height: 450px; 
-  margin: 20px 0 auto; 
+  width: 100%;
+  min-height: 450px;
+  margin: 20px 0 auto;
 }

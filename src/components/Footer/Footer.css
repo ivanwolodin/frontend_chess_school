@@ -1,0 +1,38 @@
+.footer__general {
+  min-height: 400px;
+  color: #5b3718;
+  font-size: 100%;
+  background-image: url('../../../public/intro_brick.jpg');
+}
+
+.footer__info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-right: 5%;
+  margin-left: 5%;
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.footer__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.footer__official {
+  padding: 0;
+  list-style-type: none;
+}
+
+.footer__working_time {
+  padding: 0;
+  list-style-type: none;
+}
+
+.footer__icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+}

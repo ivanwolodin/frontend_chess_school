@@ -7,9 +7,10 @@ import TeachersCards from './components/TeachersCards/TeachersCards';
 import VideoSection from './components/VideoSection/VideoSection';
 import AdmissionForm from './components/AdmissionForm/AdmissionForm';
 import YandexMap from './components/YandexMap/YandexMap';
+import Reviews from './components/Reviews/Reviews';
+import Footer from './components/Footer/Footer';
 
 import './App.css';
-import Reviews from './components/Reviews/Reviews';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Reviews />
       <YandexMap />
       <HorizontalLine />
+      <Footer />
     </div>
   );
 }
