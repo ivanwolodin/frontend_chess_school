@@ -35,6 +35,7 @@ export default function SliderNews() {
     speed: 500,
     slidesToShow,
     slidesToScroll: 1,
+    arrows: false,
     prevArrow: <button className="slick-prev">&#10094;</button>,
     nextArrow: <button className="slick-next">&#10095;</button>,
   };

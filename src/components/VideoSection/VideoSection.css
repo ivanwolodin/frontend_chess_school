@@ -24,3 +24,17 @@
     min-height: 300px;
   }
 }
+
+@media (width <= 468px) {
+  .videosection__youtube {
+    min-width: 355px;
+    min-height: 200px;
+  }
+}
+
+@media (width <= 395px) {
+  .videosection__youtube {
+    min-width: 155px;
+    min-height: 100px;
+  }
+}

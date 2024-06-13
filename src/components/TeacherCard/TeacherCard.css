@@ -75,6 +75,12 @@ h2 {
 
 @media (width <= 670px) {
   .teachercard__image {
-    min-width: 450px;
+    width: 400px;
+  }
+}
+
+@media (width <= 390px) {
+  .teachercard__image {
+    width: 200px;
   }
 }

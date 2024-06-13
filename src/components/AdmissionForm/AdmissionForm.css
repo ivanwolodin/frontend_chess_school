@@ -9,7 +9,6 @@
 .admissionform__general {
   width: 70%;
   margin: auto;
-  font-size: 1.3rem;
   font-family: sans-serif;
   border: 3px dotted #5a3617;
   border-radius: 5px;
@@ -84,9 +83,74 @@
 @media (width <= 780px) {
   .admissionform__block {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .admissionform__label {
+    align-self: center;
+    width: unset;
+    text-align: center;
+  }
+
+  .admissionform__input {
+    min-width: 500px;
   }
 
   .admissionform__button {
     width: 200px;
+  }
+}
+
+@media (width <= 780px) {
+  .admissionform__input {
+    min-width: 300px;
+  }
+}
+
+@media (width <= 520px) {
+  .admissionform__general {
+    /* font-size: 15px; */
+  }
+
+  .admissionform__button {
+    width: 200px;
+    margin-bottom: 40px;
+
+    /* font-size: 15px; */
+  }
+
+  .admissionform__input {
+    min-width: 150px;
+  }
+
+  .admissionform__title {
+    padding: 20px;
+  }
+}
+
+@media (width <= 470px) {
+  .admissionform__title {
+    /* padding-left: 100px;
+    padding-right: 100px; */
+  }
+}
+
+@media (width <= 440px) {
+  .admissionform__input {
+    min-width: 100px;
+  }
+
+  .admissionform__title {
+    padding: 10px;
+  }
+
+  .admissionform__button {
+    width: 170px;
+  }
+}
+
+@media (width <= 400px) {
+  .admissionform__wrapper{
+    padding: 20px;
   }
 }

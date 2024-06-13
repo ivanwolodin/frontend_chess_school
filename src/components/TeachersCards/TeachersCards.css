@@ -32,5 +32,6 @@ p {
 @media (width <= 670px) {
   .teachers__cards {
     grid-template-columns: 1fr;
+    margin: 90px 0 0;
   }
 }
