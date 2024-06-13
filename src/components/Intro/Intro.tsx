@@ -5,7 +5,7 @@ const Intro = () => {
     <section className="intro__general">
       <div className="intro__info">
         <div className="intro__info_general">
-          <img className="intro__logo" src="/logo_small.png" alt="Логотип" />
+          <img className="intro__logo" alt="Лого" />
           <div className="intro__info_official">
             <p>Лицензия на образовательную деятельность</p>
             <p>Сведения об образовательной организации</p>
@@ -28,14 +28,14 @@ const Intro = () => {
             <li>ДИСТАНЦИОННОЕ ОБУЧЕНИЕ</li>
             <li>ИНДИВИДУАЛЬНЫЕ ЗАНЯТИЯ</li>
             <li>КУРСЫ ПОВЫШЕНИЕ КВАЛИФИКАЦИИ</li>
-            <li className="intro__text_yellow_mixin intro__text_bottom_mixin">
-              Подробнее о программах и стоимости
-            </li>
           </ul>
+          <p className="intro__text_yellow_mixin ">
+            Подробнее о программах и стоимости
+          </p>
         </div>
         <div className="intro__info_news">
           <p className="intro__text_yellow_mixin">НОВОСТИ</p>
-          <ul>
+          <ul className="intro__list_news">
             <li>РАСПИСАНИЕ НА ЛЕТО</li>
             <li>РАСПИСАНИЕ НА МАЙ</li>
             <li>ПОЗДРАВЛЯЕМ НАШИХ УЧЕНИКОВ</li>

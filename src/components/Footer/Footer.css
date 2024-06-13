@@ -30,9 +30,9 @@
   list-style-type: none;
 }
 
-.footer__icons{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0;
+.footer__icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
 }

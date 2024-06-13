@@ -8,19 +8,9 @@ p {
   color: #5b3718;
   font-weight: bold;
   font-size: 1.4rem;
-
-  /* text-transform: uppercase; */
   font-family: 'Arial Narrow', sans-serif;
   line-height: 2rem;
   background-image: url('../../../public/intro_brick.jpg');
-}
-
-.intro__logo {
-  width: 100%;
-  max-width: 588px;
-  max-height: unset;
-  margin-right: 0;
-  margin-left: auto;
 }
 
 .intro__info {
@@ -35,7 +25,17 @@ p {
 .intro__info_general {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   min-width: 350px;
+}
+
+.intro__logo {
+  width: 600px;
+  height: 270px;
+  margin-left: auto;
+  background-image: url('../../../public/logo_small.png');
+  background-repeat: no-repeat;
+  border: 0;
 }
 
 .intro__info_official {
@@ -53,21 +53,32 @@ p {
 .intro__info_news {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .intro__programs_list {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin: 0;
+  margin-top: 15px;
+  margin-bottom: auto;
 }
 
 .intro__info_programs {
   display: flex;
   flex: 1;
   flex-direction: column;
+  justify-content: space-between;
   gap: 10px;
   max-width: 460px;
   padding-left: 100px;
+}
+
+.intro__list_news {
+  margin: 0;
+  margin-top: 15px;
+  margin-bottom: auto;
 }
 
 .intro__icons {
@@ -75,7 +86,7 @@ p {
   flex-direction: row;
   justify-content: space-between;
   max-width: 330px;
-  margin-bottom: auto;
+  margin: 0;
 }
 
 .intro__icon {
