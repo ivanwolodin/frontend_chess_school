@@ -16,3 +16,21 @@ p {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+@media (width <= 1330px) {
+  .teachers__cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width <= 972px) {
+  .teachers__cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (width <= 670px) {
+  .teachers__cards {
+    grid-template-columns: 1fr;
+  }
+}
