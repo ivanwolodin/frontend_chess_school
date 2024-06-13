@@ -7,7 +7,7 @@ p {
   margin: 0;
   color: #5b3718;
   font-weight: bold;
-  font-size: 1.4rem;
+  /* font-size: 1.4rem; */
   font-family: 'Arial Narrow', sans-serif;
   line-height: 2rem;
   background-image: url('../../../public/intro_brick.jpg');
@@ -44,7 +44,7 @@ p {
   justify-content: flex-end;
   padding-top: 100px;
   color: #5b3718;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
   font-family: 'Arial Narrow', sans-serif;
   text-align: right;
   cursor: pointer;
