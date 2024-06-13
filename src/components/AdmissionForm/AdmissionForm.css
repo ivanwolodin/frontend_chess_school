@@ -150,7 +150,7 @@
 }
 
 @media (width <= 400px) {
-  .admissionform__wrapper{
+  .admissionform__wrapper {
     padding: 20px;
   }
 }
