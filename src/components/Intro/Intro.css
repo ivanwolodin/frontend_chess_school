@@ -7,8 +7,6 @@ p {
   margin: 0;
   color: #5b3718;
   font-weight: bold;
-
-  /* font-size: 1.4rem; */
   font-family: 'Arial Narrow', sans-serif;
   line-height: 2rem;
   background-image: url('../../../public/intro_brick.jpg');
@@ -19,8 +17,8 @@ p {
   grid-template-columns: 1fr 460px 1fr;
   grid-auto-rows: min-content;
   gap: 1rem;
-  padding-top: 250px;
-  padding-bottom: 250px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .intro__info_general {
@@ -45,8 +43,6 @@ p {
   justify-content: flex-end;
   padding-top: 100px;
   color: #5b3718;
-
-  /* font-size: 1.2rem; */
   font-family: 'Arial Narrow', sans-serif;
   text-align: right;
   cursor: pointer;
@@ -63,7 +59,6 @@ p {
   flex-direction: column;
   gap: 10px;
   margin: 0;
-  margin-top: 15px;
   margin-bottom: auto;
 }
 
@@ -72,14 +67,12 @@ p {
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
-  gap: 10px;
   max-width: 460px;
   padding-left: 100px;
 }
 
 .intro__list_news {
   margin: 0;
-  margin-top: 15px;
   margin-bottom: auto;
 }
 
@@ -109,8 +102,6 @@ p {
 @media (width <= 1640px) {
   .intro__logo {
     width: 500px;
-
-    /* height: 170px; */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

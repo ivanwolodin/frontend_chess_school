@@ -108,15 +108,9 @@
 }
 
 @media (width <= 520px) {
-  .admissionform__general {
-    /* font-size: 15px; */
-  }
-
   .admissionform__button {
     width: 200px;
     margin-bottom: 40px;
-
-    /* font-size: 15px; */
   }
 
   .admissionform__input {
@@ -125,13 +119,6 @@
 
   .admissionform__title {
     padding: 20px;
-  }
-}
-
-@media (width <= 470px) {
-  .admissionform__title {
-    /* padding-left: 100px;
-    padding-right: 100px; */
   }
 }
 
