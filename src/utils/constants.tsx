@@ -2,6 +2,7 @@ import {
   InfoTinyCardProps,
   NewsCardProps,
   TeacherCardProps,
+  WeAreTrustedByProps,
 } from './interfaces';
 
 export const headerItems: string[] = [
@@ -101,5 +102,48 @@ export const teachersData: TeacherCardProps[] = [
     src: require('../assets/teachers_images/Daniil.jpeg'),
     position: 'Тренер по шахматам',
     alt: 'Тренер',
+  },
+];
+
+export const partnersData: WeAreTrustedByProps[] = [
+  {
+    name: 'Education Institute',
+    src: require('../assets/our_partners_logos/education_dev_institute.png'),
+    text: 'Обучение педагогов',
+  },
+  {
+    name: 'Delovar',
+    src: require('../assets/our_partners_logos/delovar.png'),
+    text: 'Корпоративное обучение',
+  },
+  {
+    name: 'Ped',
+    src: require('../assets/our_partners_logos/perm_ped.png'),
+    text: 'Обучение педагогов',
+  },
+  {
+    name: 'PSU',
+    src: require('../assets/our_partners_logos/psu.png'),
+    text: 'Лекции и сеанс',
+  },
+  {
+    name: 'Parma Tech',
+    src: require('../assets/our_partners_logos/Logo_Parmalogica.png'),
+    text: 'Корпоративный турнир',
+  },
+  {
+    name: 'Advocates',
+    src: require('../assets/our_partners_logos/advocates.gif'),
+    text: 'Корпоративный турнир',
+  },
+  {
+    name: 'Sibur',
+    src: require('../assets/our_partners_logos/sibur.png'),
+    text: 'Корпоративное обучение',
+  },
+  {
+    name: 'Lukoil',
+    src: require('../assets/our_partners_logos/lukoil_inzhiniring.jpeg'),
+    text: 'Корпоративное обучение',
   },
 ];

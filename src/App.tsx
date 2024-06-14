@@ -9,6 +9,8 @@ import AdmissionForm from './components/AdmissionForm/AdmissionForm';
 import YandexMap from './components/YandexMap/YandexMap';
 import Reviews from './components/Reviews/Reviews';
 import Footer from './components/Footer/Footer';
+import CookieNotification from './components/CookieNotification/CookieNotification';
+import WeAreTrustedBy from './components/WeAreTrustedBy/WeAreTrustedBy';
 
 import './App.css';
 
@@ -22,11 +24,13 @@ function App() {
       <SliderNews />
       <TeachersCards />
       <VideoSection videoId="gor6dptvj1Q" />
+      <WeAreTrustedBy />
       <AdmissionForm />
       <Reviews />
       <YandexMap />
       <HorizontalLine />
       <Footer />
+      <CookieNotification />
     </div>
   );
 }

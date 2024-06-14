@@ -10,14 +10,16 @@ const Intro = () => {
             <p>Лицензия на образовательную деятельность</p>
             <p>Сведения об образовательной организации</p>
             <p className="intro__text_yellow_mixin">239-30-06</p>
-            <p className="intro__text_yellow_mixin">8(902)632-42-93</p>
+            <p className="intro__text_yellow_mixin">8 902-632-42-93</p>
             <p className="intro__text_yellow_mixin">
               г. Пермь, ул. Куйбышева, 54
             </p>
           </div>
         </div>
         <div className="intro__info_programs">
-          <p className="intro__text_yellow_mixin">ПРОГРАММЫ</p>
+          <p className="intro__text_yellow_mixin intro__titles_mixin">
+            ПРОГРАММЫ
+          </p>
           <ul className="intro__programs_list">
             <li>
               КОМПЛЕКСНОЕ ИНТЕЛЛЕКТУАЛЬНОЕ РАЗВИТИЕ <br /> Шахматы, логика,
@@ -34,7 +36,9 @@ const Intro = () => {
           </p>
         </div>
         <div className="intro__info_news intro__info_news_mixin">
-          <p className="intro__text_yellow_mixin">НОВОСТИ</p>
+          <p className="intro__text_yellow_mixin intro__titles_mixin">
+            НОВОСТИ
+          </p>
           <ul className="intro__list_news">
             <li>РАСПИСАНИЕ НА ЛЕТО</li>
             <li>РАСПИСАНИЕ НА МАЙ</li>

@@ -60,6 +60,12 @@ p {
   gap: 10px;
   margin: 0;
   margin-bottom: auto;
+  font-size: 1.3rem;
+}
+
+.intro__titles_mixin {
+  padding-left: 40px;
+  font-size: 1.3rem;
 }
 
 .intro__info_programs {
@@ -72,6 +78,7 @@ p {
 }
 
 .intro__list_news {
+  font-size: 1.3rem;
   margin: 0;
   margin-bottom: auto;
 }

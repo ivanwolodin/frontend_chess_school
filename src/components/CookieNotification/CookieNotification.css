@@ -1,0 +1,25 @@
+.cookie__notification {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: #f0f0f0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.cookie__text {
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.cookie__button {
+  margin-top: 20px;
+}
+
+.cookie__privacy_policy {
+  color: unset;
+  cursor: pointer;
+}
