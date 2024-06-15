@@ -1,10 +1,12 @@
+import { useState, useEffect } from 'react';
+
 import Slider from 'react-slick';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './SliderNews.css';
-import NewsCard from '../NewsCard/NewsCard';
 import { newsData } from '../../../utils/constants';
-import { useState, useEffect } from 'react';
+import NewsCard from '../NewsCard/NewsCard';
 
 export default function SliderNews() {
   const [slidesToShow, setSlidesToShow] = useState(3);

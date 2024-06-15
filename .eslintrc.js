@@ -1,5 +1,8 @@
 module.exports = {
 	parser: '@typescript-eslint/parser',
+	plugins: [
+		'import',
+	],
 	parserOptions: {
 		ecmaVersion: 2020,
 		sourceType: 'module',
@@ -31,5 +34,24 @@ module.exports = {
 		'react/jsx-uses-react': 'off',
 		'react/react-in-jsx-scope': 'off',
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
+		'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal'],
+        pathGroups: [
+          {
+            pattern: '{react,react-dom/**}',
+            group: 'external',
+            position: 'before',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['react'],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
 	},
 }
