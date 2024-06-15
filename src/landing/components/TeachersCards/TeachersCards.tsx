@@ -1,4 +1,4 @@
-import { teachersData } from '../../utils/constants';
+import { teachersData } from '../../../utils/constants';
 import TeacherCard from '../TeacherCard/TeacherCard';
 import './TeachersCards.css';
 

@@ -1,4 +1,4 @@
-import { headerItems } from '../../utils/constants';
+import { headerItems } from '../../../utils/constants';
 
 import './Header.css';
 

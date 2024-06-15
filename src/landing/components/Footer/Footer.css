@@ -2,7 +2,7 @@
   min-height: 400px;
   color: #5b3718;
   font-size: 100%;
-  background-image: url('../../../public/intro_brick.jpg');
+  background-image: url('../../../../public/intro_brick.jpg');
 }
 
 .footer__info {

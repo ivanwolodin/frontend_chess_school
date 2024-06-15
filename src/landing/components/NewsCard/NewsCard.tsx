@@ -1,4 +1,4 @@
-import { NewsCardProps } from '../../utils/interfaces';
+import { NewsCardProps } from '../../../utils/interfaces';
 import './NewsCard.css';
 
 const NewsCard = ({ title, src, text, date }: NewsCardProps) => {

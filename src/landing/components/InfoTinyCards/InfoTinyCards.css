@@ -4,7 +4,7 @@
   grid-auto-rows: min-content;
   gap: 0;
   padding-bottom: 150px;
-  background-image: url('../../../public/intro_brick.jpg');
+  background-image: url('../../../../public/intro_brick.jpg');
 }
 
 @media (width <= 1320px) {

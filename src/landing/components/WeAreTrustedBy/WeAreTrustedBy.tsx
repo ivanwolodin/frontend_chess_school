@@ -1,4 +1,4 @@
-import { partnersData } from '../../utils/constants';
+import { partnersData } from '../../../utils/constants';
 
 import './WeAreTrustedBy.css';
 

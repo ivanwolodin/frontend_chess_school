@@ -29,17 +29,17 @@ export default function Footer() {
           <ul className="footer__icons">
             <img
               className="footer__icon"
-              src={require('../../assets/icons/vk.png')}
+              src={require('../../../assets/icons/vk.png')}
               alt="vk"
             />
             <img
               className="footer__icon"
-              src={require('../../assets/icons/y.png')}
+              src={require('../../../assets/icons/y.png')}
               alt="y"
             />
             <img
               className="footer__icon"
-              src={require('../../assets/icons/taplink.jpg')}
+              src={require('../../../assets/icons/taplink.jpg')}
               alt="taplink"
             />
           </ul>
@@ -51,12 +51,12 @@ export default function Footer() {
           <div className="footer__admins_icon">
             <img
               className="footer__perm_icon"
-              src={require('../../assets/icons/perm_department.png')}
+              src={require('../../../assets/icons/perm_department.png')}
               alt="Департамент Перми иконка"
             />
             <img
               className="footer__rcf_icon"
-              src={require('../../assets/icons/rcf_icon.jpeg')}
+              src={require('../../../assets/icons/rcf_icon.jpeg')}
               alt="РШФ иконка"
             />
           </div>
@@ -83,7 +83,7 @@ export default function Footer() {
         </div>
         <img
           className="footer__visa_icon"
-          src={require('../../assets/icons/icons_cards.png')}
+          src={require('../../../assets/icons/icons_cards.png')}
           alt="vk"
         />
       </div>

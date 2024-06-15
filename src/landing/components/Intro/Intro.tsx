@@ -47,17 +47,17 @@ const Intro = () => {
           <ul className="intro__icons">
             <img
               className="intro__icon"
-              src={require('../../assets/icons/vk.png')}
+              src={require('../../../assets/icons/vk.png')}
               alt="vk"
             />
             <img
               className="intro__icon"
-              src={require('../../assets/icons/y.png')}
+              src={require('../../../assets/icons/y.png')}
               alt="y"
             />
             <img
               className="intro__icon"
-              src={require('../../assets/icons/taplink.jpg')}
+              src={require('../../../assets/icons/taplink.jpg')}
               alt="taplink"
             />
           </ul>

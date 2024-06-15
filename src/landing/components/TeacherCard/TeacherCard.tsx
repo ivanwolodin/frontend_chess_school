@@ -1,4 +1,4 @@
-import { TeacherCardProps } from '../../utils/interfaces';
+import { TeacherCardProps } from '../../../utils/interfaces';
 
 import './TeacherCard.css';
 

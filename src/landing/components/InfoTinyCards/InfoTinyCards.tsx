@@ -1,4 +1,4 @@
-import { tinyCardsData } from '../../utils/constants';
+import { tinyCardsData } from '../../../utils/constants';
 import InfoTinyCard from '../InfoTinyCard/InfoTinyCard';
 
 import './InfoTinyCards.css';

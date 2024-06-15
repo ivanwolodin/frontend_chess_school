@@ -3,7 +3,7 @@
   padding: 100px;
   background:
     linear-gradient(rgb(237 230 230 / 50%), rgb(237 230 230 / 80%)),
-    url('../../../public/chess_pieces.jpeg') repeat;
+    url('../../../../public/chess_pieces.jpeg') repeat;
 }
 
 .admissionform__general {

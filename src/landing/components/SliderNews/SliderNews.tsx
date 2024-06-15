@@ -3,7 +3,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './SliderNews.css';
 import NewsCard from '../NewsCard/NewsCard';
-import { newsData } from '../../utils/constants';
+import { newsData } from '../../../utils/constants';
 import { useState, useEffect } from 'react';
 
 export default function SliderNews() {

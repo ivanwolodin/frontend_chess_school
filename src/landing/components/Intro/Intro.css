@@ -9,7 +9,7 @@ p {
   font-weight: bold;
   font-family: 'Arial Narrow', sans-serif;
   line-height: 2rem;
-  background-image: url('../../../public/intro_brick.jpg');
+  background-image: url('../../../../public/intro_brick.jpg');
 }
 
 .intro__info {
@@ -32,7 +32,7 @@ p {
   width: 600px;
   height: 270px;
   margin-left: auto;
-  background-image: url('../../../public/logo_small.png');
+  background-image: url('../../../../public/logo_small.png');
   background-repeat: no-repeat;
   border: 0;
 }
@@ -78,9 +78,9 @@ p {
 }
 
 .intro__list_news {
-  font-size: 1.3rem;
   margin: 0;
   margin-bottom: auto;
+  font-size: 1.3rem;
 }
 
 .intro__icons {
