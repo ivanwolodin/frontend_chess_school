@@ -1,16 +1,16 @@
-import Header from './landing/components/Header/Header';
-import Intro from './landing/components/Intro/Intro';
-import InfoTinyCards from './landing/components/InfoTinyCards/InfoTinyCards';
-import HorizontalLine from './landing/components/HorizontalLine/HorizontalLine';
-import SliderNews from './landing/components/SliderNews/SliderNews';
-import TeachersCards from './landing/components/TeachersCards/TeachersCards';
-import VideoSection from './landing/components/VideoSection/VideoSection';
-import AdmissionForm from './landing/components/AdmissionForm/AdmissionForm';
-import YandexMap from './landing/components/YandexMap/YandexMap';
-import Reviews from './landing/components/Reviews/Reviews';
-import Footer from './landing/components/Footer/Footer';
-import CookieNotification from './landing/components/CookieNotification/CookieNotification';
-import WeAreTrustedBy from './landing/components/WeAreTrustedBy/WeAreTrustedBy';
+import Header from './components/landing/Header/Header';
+import Intro from './components/landing/Intro/Intro';
+import InfoTinyCards from './components/landing/InfoTinyCards/InfoTinyCards';
+import HorizontalLine from './components/landing/HorizontalLine/HorizontalLine';
+import SliderNews from './components/landing/SliderNews/SliderNews';
+import TeachersCards from './components/landing/TeachersCards/TeachersCards';
+import VideoSection from './components/landing/VideoSection/VideoSection';
+import AdmissionForm from './components/landing/AdmissionForm/AdmissionForm';
+import YandexMap from './components/landing/YandexMap/YandexMap';
+import Reviews from './components/landing/Reviews/Reviews';
+import Footer from './components/landing/Footer/Footer';
+import CookieNotification from './components/landing/CookieNotification/CookieNotification';
+import WeAreTrustedBy from './components/landing/WeAreTrustedBy/WeAreTrustedBy';
 
 import './App.css';
 
