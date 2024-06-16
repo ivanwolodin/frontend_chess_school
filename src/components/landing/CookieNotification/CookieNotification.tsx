@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import './CookieNotification.css'; // Импорт CSS-файла
+import { useState, useEffect } from 'react';
+import './CookieNotification.css';
 
 function CookieNotification() {
   const [showCookieNotice, setShowCookieNotice] = useState(true);
@@ -29,7 +29,7 @@ function CookieNotification() {
     >
       <p className="cookie__text">
         Посещая страницы Сайта, заполняя формы ввода данных, Вы выражаете своё
-        согласие с{' '}
+        согласие с {}
         <a
           className="cookie__privacy_policy"
           href="https://xn--80aap0acqiny2a2bq.xn--p1ai/documents/privacypolicy.pdf"
