@@ -18,7 +18,7 @@ const SignIn = () => {
       <Header />
       <div className="signin__general">
         <div className="signin__form-container">
-          <h2 className="signin__title">Вход в ЛК</h2>
+          <h2 className="signin__title"> &#128526 Вход в ЛК &#128526 </h2>
           <form onSubmit={handleSubmit} className="signin__form">
             <div className="signin__input-group">
               <label htmlFor="login" className="signin__label">
