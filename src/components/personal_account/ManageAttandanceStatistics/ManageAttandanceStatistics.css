@@ -1,0 +1,66 @@
+.manage-attendance {
+  display: flex;
+}
+
+.manage-attendance__groups {
+  width: 200px;
+  border-right: 1px solid #cccccc;
+}
+
+.manage-attendance__group {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.manage-attendance__group:hover {
+  background-color: #f0f0f0;
+}
+
+.manage-attendance__details {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.manage-attendance__students {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.manage-attendance__student {
+  padding: 5px 0;
+}
+
+.manage-attendance__calendar {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.manage-attendance__date {
+  width: 150px;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #cccccc;
+}
+
+.manage-attendance__status {
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.manage-attendance__status.present {
+  color: white;
+  background-color: green;
+}
+
+.manage-attendance__status.absent {
+  color: white;
+  background-color: red;
+}
+
+.manage-attendance__status.sick {
+  color: black;
+  background-color: yellow;
+}

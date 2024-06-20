@@ -24,3 +24,16 @@ export interface WeAreTrustedByProps {
   src: string;
   text: string;
 }
+
+export interface SidebarMainMenuItems {
+  icon:
+    | 'bar-chart'
+    | 'calendar'
+    | 'book-2'
+    | 'service'
+    | 'diamond'
+    | 'shopping-cart'
+    | 'ink-bottle'
+    | 'global';
+  label: string;
+}

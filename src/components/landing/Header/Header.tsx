@@ -14,7 +14,11 @@ const Header = () => {
         <li className="header__item">НОВОСТИ </li>
         <li className="header__item">СОРЕВНОВАНИЯ </li>
         <li className="header__item">О ШКОЛЕ </li>
-        <li className="header__item">ГРАФИК</li>
+        <li className="header__item">
+          <Link className="header__link" to="/side_bar">
+            График
+          </Link>
+        </li>
         <li className="header__item">ПОСТУПЛЕНИЕ</li>
         <li className="header__item">
           <Link className="header__link" to="/log_in">

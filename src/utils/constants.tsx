@@ -1,5 +1,6 @@
 import {
   InfoTinyCardProps,
+  SidebarMainMenuItems,
   NewsCardProps,
   TeacherCardProps,
   WeAreTrustedByProps,
@@ -146,4 +147,27 @@ export const partnersData: WeAreTrustedByProps[] = [
     src: require('../assets/our_partners_logos/lukoil_inzhiniring.jpeg'),
     text: 'Корпоративное обучение',
   },
+];
+
+export const TeachersMenuItems: SidebarMainMenuItems[] = [
+  { icon: 'bar-chart', label: 'Дэшборд' },
+  { icon: 'calendar', label: 'Расписание' },
+  { icon: 'book-2', label: 'Домашние задания' },
+  { icon: 'service', label: 'Персональные данные' },
+];
+
+export const StudentsMenuItems: SidebarMainMenuItems[] = [
+  { icon: 'bar-chart', label: 'Дэшборд' },
+  { icon: 'calendar', label: 'Расписание' },
+  { icon: 'book-2', label: 'Домашние задания' },
+  { icon: 'service', label: 'Оплаты' },
+];
+
+export const SuperAdminMenuItems: SidebarMainMenuItems[] = [
+  { icon: 'bar-chart', label: 'Дэшборд' },
+  { icon: 'calendar', label: 'Расписание' },
+  { icon: 'book-2', label: 'Занести ученика' },
+  { icon: 'service', label: 'Статистика оплат' },
+  { icon: 'book-2', label: 'Ответить на вопрос' },
+  { icon: 'ink-bottle', label: 'Добавить новость' },
 ];

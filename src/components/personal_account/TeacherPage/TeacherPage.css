@@ -1,0 +1,4 @@
+.teacherpage__general {
+  display: flex;
+  flex-direction: row;
+}
