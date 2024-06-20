@@ -1,0 +1,6 @@
+.manageattendance__general {
+  flex-grow: 1;
+  background: url('../../../../assets/personal_account_images/attendance.jpg')
+    no-repeat center center;
+  background-size: cover;
+}

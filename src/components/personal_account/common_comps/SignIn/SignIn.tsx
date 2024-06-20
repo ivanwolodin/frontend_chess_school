@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Header from '../../landing/Header/Header';
+import Header from '../../../landing/Header/Header';
 import './SignIn.css';
 
 const SignIn = () => {

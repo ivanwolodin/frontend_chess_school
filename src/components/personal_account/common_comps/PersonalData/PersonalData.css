@@ -1,0 +1,6 @@
+.personaldata__general {
+  flex-grow: 1;
+  background: url('../../../../assets/personal_account_images/personal_data.jpg')
+    no-repeat center center;
+  background-size: cover;
+}

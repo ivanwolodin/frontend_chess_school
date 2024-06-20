@@ -15,8 +15,8 @@ import WeAreTrustedBy from './components/landing/WeAreTrustedBy/WeAreTrustedBy';
 import YandexMap from './components/landing/YandexMap/YandexMap';
 // import SideBar from './components/personal_account/SideBar/SideBar';
 // import SignIn from './components/personal_account/SignIn/SignIn';
-import SignIn from './components/personal_account/SignIn/SignIn';
-import TeacherPage from './components/personal_account/TeacherPage/TeacherPage';
+import SignIn from './components/personal_account/common_comps/SignIn/SignIn';
+import MainTeacherPage from './components/personal_account/TeacherPage/MainTeacherPage/MainTeacherPage';
 
 function App() {
   return (
@@ -45,7 +45,7 @@ function App() {
             }
           />
           <Route path="/log_in" element={<SignIn />} />
-          <Route path="/side_bar" element={<TeacherPage />} />
+          <Route path="/side_bar" element={<MainTeacherPage />} />
         </Routes>
       </BrowserRouter>
     </>

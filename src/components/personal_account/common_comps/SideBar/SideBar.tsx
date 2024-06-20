@@ -7,7 +7,7 @@ import { Icon } from './SideBarComponents/Icon';
 import { SidebarHeader } from './SideBarComponents/SidebarHeader';
 import ToggleButton from './SideBarComponents/ToggleButton/ToggleButton';
 import { Typography } from './SideBarComponents/Typography';
-import { SideBarProps } from '../../../utils/interfaces';
+import { SideBarProps } from '../../../../utils/interfaces';
 
 const SideBar: React.FC<SideBarProps> = ({
   menuItems,
