@@ -12,6 +12,11 @@ export interface NewsCardProps {
   // alt: string;
 }
 
+export interface SideBarProps {
+  menuItems: SidebarMainMenuItems[];
+  handleElementChoice: (item: string) => void;
+}
+
 export interface TeacherCardProps {
   name: string;
   src: string;

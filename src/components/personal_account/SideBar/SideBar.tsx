@@ -7,12 +7,22 @@ import { Icon } from './SideBarComponents/Icon';
 import { SidebarHeader } from './SideBarComponents/SidebarHeader';
 import ToggleButton from './SideBarComponents/ToggleButton/ToggleButton';
 import { Typography } from './SideBarComponents/Typography';
-import { SidebarMainMenuItems } from '../../../utils/interfaces';
+import { SideBarProps } from '../../../utils/interfaces';
 
-const SideBar: React.FC<{ menuItems: SidebarMainMenuItems[] }> = ({
+const SideBar: React.FC<SideBarProps> = ({
   menuItems,
+  handleElementChoice,
 }) => {
   const [collapsed, setCollapsed] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [selectedItemName, setSelectedItemName] = useState<string | null>(
+    'Дэшборд',
+  );
+
+  const handleSelectedItemClick = (itemName: string) => {
+    setSelectedItemName(itemName);
+    handleElementChoice(itemName);
+  };
 
   return (
     <section
@@ -52,7 +62,11 @@ const SideBar: React.FC<{ menuItems: SidebarMainMenuItems[] }> = ({
             </Typography>
           </div>
           {menuItems.map((item, key) => (
-            <MenuItem key={key} icon={<Icon name={item.icon}></Icon>}>
+            <MenuItem
+              key={key}
+              icon={<Icon name={item.icon}></Icon>}
+              onClick={() => handleSelectedItemClick(item.label)}
+            >
               {item.label}
             </MenuItem>
           ))}
