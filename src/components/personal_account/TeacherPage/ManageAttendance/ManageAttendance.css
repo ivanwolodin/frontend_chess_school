@@ -2,6 +2,7 @@
   display: flex;
   flex-grow: 1;
   flex-direction: column;
+  text-shadow: 0 0 2px #ffffff;
   background: url('../../../../assets/personal_account_images/attendance.jpg')
     no-repeat center center;
   background-size: cover;
@@ -11,7 +12,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 900px;
+  max-width: 500px;
   margin-top: 50px;
   color: black;
   font-weight: bold;
@@ -34,7 +35,6 @@
   align-self: center;
   margin-bottom: 20px;
   font-size: 25px;
-  text-shadow: 0 0 2px #ffffff;
   border-bottom: 3px solid black;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .manageattendance__group_item:hover {
-  color: orange;
+  color: white;
 }
 
 .manageattendance__month_controls {
@@ -81,4 +81,64 @@
   align-self: center;
   font-size: 24px;
   text-shadow: 0 0 2px #ffffff;
+}
+
+.manageattendance__group_item_selected {
+  color: white;
+}
+
+.manageattendance__group_info {
+  display: flex;
+  min-height: 300px;
+  margin-top: 40px;
+  margin-right: 80px;
+  margin-left: 80px;
+  background: rgb(255 255 255 / 25%);
+  border-radius: 30px;
+}
+
+.manageattendance__preload_img {
+  z-index: 99;
+  width: 150px;
+  height: 90px;
+  margin: auto;
+  background: url('../../../../assets/icons/book_icon.png') no-repeat center;
+}
+
+@media (width <= 600px) {
+  .manageattendance__group_info {
+    min-height: 200px;
+  }
+}
+
+@media (width <= 560px) {
+  .manageattendance__group_info {
+    min-height: 100px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 0;
+  }
+}
+
+@media (width <= 478px) {
+  .manageattendance__group_info {
+    min-height: 80px;
+    margin-right: 4px;
+    margin-left: 4px;
+    padding: 0;
+  }
+}
+
+@media (width <= 450px) {
+  .manageattendance__month_controls_monthtitle {
+    font-size: 14px;
+  }
+
+  .manageattendance__group_item {
+    font-size: 13px;
+  }
+
+  .manageattendance__title {
+    font-size: 14px;
+  }
 }
