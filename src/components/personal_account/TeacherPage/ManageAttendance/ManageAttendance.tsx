@@ -3,20 +3,68 @@ import './ManageAttendance.css';
 
 const ManageAttendance: React.FC = () => {
   const [width, setWidth] = useState<number>(400); // Изначальная ширина
-  const [groupTitle, setGroupTitle] = useState<string>(''); // Заголовок группы
+  // const [groupTitle, setGroupTitle] = useState<string>(''); // Заголовок группы
   const containerRef = useRef<HTMLDivElement>(null);
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
+  const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
+  const handleLeftArrowClick = () => {
+    setCurrentMonth((prevMonth) => (prevMonth === 0 ? 11 : prevMonth - 1));
+  };
+
+  const handleRightArrowClick = () => {
+    setCurrentMonth((prevMonth) => (prevMonth === 11 ? 0 : prevMonth + 1));
+  };
+
+  const handleItemClick = (item: string) => {
+    setSelectedItem(item);
+  };
+
+  const handleKeyDownDiv = (
+    event: React.KeyboardEvent<HTMLDivElement>,
+    action: () => void,
+  ) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      action();
+    }
+  };
+
+  // const handleKeyDownLi = (
+  //   event: React.KeyboardEvent<HTMLLIElement>,
+  //   action: () => void,
+  // ) => {
+  //   if (event.key === 'Enter' || event.key === ' ') {
+  //     event.preventDefault();
+  //     action();
+  //   }
+  // };
   const items = [
-    'Группа 1',
-    'Группа 2',
-    'Группа 3',
-    'Группа 4',
-    'Группа 5',
-    'Группа 6',
-    'Группа 7',
-    'Группа 8',
-    'Группа 9',
-    'Группа 10',
+    'СпецВТЧТ5',
+    'АТ12',
+    'АТ13',
+    'СпецВТЧТ3',
+    'АТВтЧт1',
+    'АТВтЧт16',
+    'АТ_ПТ14',
+    'АТ_ПТ16',
+    'СпецВТЧТ2',
+    'СпецВТЧТ1',
+  ];
+
+  const months = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь',
   ];
 
   const handleMouseDown = (
@@ -38,9 +86,9 @@ const ManageAttendance: React.FC = () => {
     document.addEventListener('mouseup', handleMouseUp);
   };
 
-  const handleItemClick = (item: string) => {
-    setGroupTitle(item);
-  };
+  // const handleItemClick = (item: string) => {
+  //   setGroupTitle(item);
+  // };
 
   return (
     <div className="manageattendance__general">
@@ -66,9 +114,34 @@ const ManageAttendance: React.FC = () => {
           onMouseDown={handleMouseDown}
         ></button>
       </div>
-      <div className="manageattendance__details">
-        <div className="manageattendance__group_title">{groupTitle}</div>
-        {/* Здесь можно добавить таблицу или другие детали */}
+      <div className="manageattendance__month_controls">
+        <div className="manageattendance__month_arrows">
+          <div
+            className="manageattendance__month_controls_leftarrow"
+            onClick={handleLeftArrowClick}
+            onKeyDown={(event) => handleKeyDownDiv(event, handleLeftArrowClick)}
+            tabIndex={0}
+            role="button"
+            aria-label="Previous month"
+          ></div>
+          <p className="manageattendance__month_controls_monthtitle">
+            {months[currentMonth]}
+          </p>
+          <div
+            className="manageattendance__month_controls_rightarrow"
+            onClick={handleRightArrowClick}
+            onKeyDown={(event) =>
+              handleKeyDownDiv(event, handleRightArrowClick)
+            }
+            tabIndex={0}
+            role="button"
+            aria-label="Next month"
+          ></div>
+        </div>
+        <div className="manageattendance__group_info">
+          {selectedItem}
+          <div className="manageattendance__preload_img"></div>
+        </div>
       </div>
     </div>
   );
