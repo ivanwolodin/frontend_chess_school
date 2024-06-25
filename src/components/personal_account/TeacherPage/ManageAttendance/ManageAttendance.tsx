@@ -1,9 +1,86 @@
 import React, { useState, useRef } from 'react';
 import './ManageAttendance.css';
+interface AttendanceRecord {
+  attended: string[];
+  spravka: string[];
+  unattended: string[];
+}
+
+interface MonthData {
+  [key: string]: AttendanceRecord;
+}
+
+interface GroupData {
+  [key: string]: MonthData;
+}
+
+interface AttendanceData {
+  [key: string]: GroupData;
+}
+
+const attendanceData: AttendanceData = {
+  АТ1: {
+    Июнь: {
+      'Володин Иван': {
+        attended: ['1', '2', '6', '15'],
+        spravka: ['20'],
+        unattended: [],
+      },
+      'Ильин Вова': {
+        attended: ['6', '2', '3', '19'],
+        spravka: ['24'],
+        unattended: ['30'],
+      },
+      'Сотина Алиса': {
+        attended: ['6', '2', '3', '19'],
+        spravka: ['24'],
+        unattended: ['30'],
+      },
+    },
+    Июль: {
+      'Володин Иван': {
+        attended: ['1'],
+        spravka: [],
+        unattended: [],
+      },
+      'Ильин Вова': {
+        attended: [],
+        spravka: [],
+        unattended: [],
+      },
+    },
+    Август: {
+      'Володин Иван': {
+        attended: ['1'],
+        spravka: [],
+        unattended: [],
+      },
+      'Ильин Вова': {
+        attended: [],
+        spravka: [],
+        unattended: [],
+      },
+      'Сахарова Алиса': {
+        attended: [],
+        spravka: [],
+        unattended: [],
+      },
+      'Гиря Оля': {
+        attended: [],
+        spravka: [],
+        unattended: [],
+      },
+    },
+  },
+  АТ2: {
+    Июнь: {},
+    Июль: {},
+    Август: {},
+  },
+};
 
 const ManageAttendance: React.FC = () => {
-  const [width, setWidth] = useState<number>(400); // Изначальная ширина
-  // const [groupTitle, setGroupTitle] = useState<string>(''); // Заголовок группы
+  const [width, setWidth] = useState<number>(400);
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -30,27 +107,7 @@ const ManageAttendance: React.FC = () => {
     }
   };
 
-  // const handleKeyDownLi = (
-  //   event: React.KeyboardEvent<HTMLLIElement>,
-  //   action: () => void,
-  // ) => {
-  //   if (event.key === 'Enter' || event.key === ' ') {
-  //     event.preventDefault();
-  //     action();
-  //   }
-  // };
-  const items = [
-    'СпецВТЧТ5',
-    'АТ12',
-    'АТ13',
-    'СпецВТЧТ3',
-    'АТВтЧт1',
-    'АТВтЧт16',
-    'АТ_ПТ14',
-    'АТ_ПТ16',
-    'СпецВТЧТ2',
-    'СпецВТЧТ1',
-  ];
+  const items = Object.keys(attendanceData);
 
   const months = [
     'Январь',
@@ -86,9 +143,17 @@ const ManageAttendance: React.FC = () => {
     document.addEventListener('mouseup', handleMouseUp);
   };
 
-  // const handleItemClick = (item: string) => {
-  //   setGroupTitle(item);
-  // };
+  const getAttendanceForSelectedItem = () => {
+    if (!selectedItem) return null;
+
+    const selectedMonth = months[currentMonth];
+    const groupData = attendanceData[selectedItem];
+    if (!groupData || !groupData[selectedMonth]) return null;
+
+    return groupData[selectedMonth];
+  };
+
+  const attendanceInfo = getAttendanceForSelectedItem();
 
   return (
     <div className="manageattendance__general">
@@ -138,9 +203,61 @@ const ManageAttendance: React.FC = () => {
             aria-label="Next month"
           ></div>
         </div>
-        <div className="manageattendance__group_info">
-          {selectedItem}
-          <div className="manageattendance__preload_img"></div>
+        <div
+          className={`${selectedItem === null ? 'manageattendance__group_info' : ''}`}
+        >
+          {selectedItem && (
+            <>
+              <h3>
+                {selectedItem} - {months[currentMonth]}
+              </h3>
+              {attendanceInfo ? (
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Имя</th>
+                      <th>Посещено</th>
+                      <th>Справка</th>
+                      <th>Пропущено</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {Object.keys(attendanceInfo).map((name) => (
+                      <tr key={name}>
+                        <td>{name}</td>
+                        <td>
+                          {attendanceInfo[name].attended.map((day) => (
+                            <span key={day} className="attended">
+                              {day}
+                            </span>
+                          ))}
+                        </td>
+                        <td>
+                          {attendanceInfo[name].spravka.map((day) => (
+                            <span key={day} className="spravka">
+                              {day}
+                            </span>
+                          ))}
+                        </td>
+                        <td>
+                          {attendanceInfo[name].unattended.map((day) => (
+                            <span key={day} className="unattended">
+                              {day}
+                            </span>
+                          ))}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              ) : (
+                <p>Нет данных за этот месяц.</p>
+              )}
+            </>
+          )}
+          <div
+            className={`${selectedItem === null ? 'manageattendance__preload_img' : ''}`}
+          ></div>
         </div>
       </div>
     </div>

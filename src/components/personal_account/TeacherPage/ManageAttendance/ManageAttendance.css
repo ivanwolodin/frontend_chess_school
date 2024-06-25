@@ -79,6 +79,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border: 5px solid rgb(223 162 19 / 89.1%);
 }
 
 .manageattendance__month_controls_leftarrow {
