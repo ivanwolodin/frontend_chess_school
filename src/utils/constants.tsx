@@ -197,7 +197,7 @@ export const attendanceData: AttendanceData = {
         unattended: [],
       },
       'Ильин Вова': {
-        attended: ['24'],
+        attended: ['24', '19'],
         spravka: ['1', '2', '6', '15'],
         unattended: ['3', '24', '30'],
       },
@@ -242,12 +242,12 @@ export const attendanceData: AttendanceData = {
         spravka: [],
         unattended: [],
       },
-      full: [],
+      full: ['1'],
     },
   },
   АТ2: {
-    Июнь: {},
-    Июль: {},
-    Август: {},
+    Июнь: { full: [] },
+    Июль: { full: [] },
+    Август: { full: [] },
   },
 };

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 
 import './ManageAttendance.css';
 import { attendanceData, months } from '../../../../utils/constants';
-import { StudentAttendance } from '../../../../utils/interfaces';
+import AttendanceTable from '../AttendanceTable/AttendanceTable';
 
 const ManageAttendance: React.FC = () => {
   const [width, setWidth] = useState<number>(400);
@@ -20,16 +20,6 @@ const ManageAttendance: React.FC = () => {
 
   const handleItemClick = (item: string) => {
     setSelectedItem(item);
-  };
-
-  const handleKeyDownDiv = (
-    event: React.KeyboardEvent<HTMLDivElement>,
-    action: () => void,
-  ) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      action();
-    }
   };
 
   const items = Object.keys(attendanceData);
@@ -94,7 +84,7 @@ const ManageAttendance: React.FC = () => {
           <div
             className="manageattendance__month_controls_leftarrow"
             onClick={handleLeftArrowClick}
-            onKeyDown={(event) => handleKeyDownDiv(event, handleLeftArrowClick)}
+            onKeyDown={() => {}}
             tabIndex={0}
             role="button"
             aria-label="Previous month"
@@ -105,9 +95,7 @@ const ManageAttendance: React.FC = () => {
           <div
             className="manageattendance__month_controls_rightarrow"
             onClick={handleRightArrowClick}
-            onKeyDown={(event) =>
-              handleKeyDownDiv(event, handleRightArrowClick)
-            }
+            onKeyDown={() => {}}
             tabIndex={0}
             role="button"
             aria-label="Next month"
@@ -122,49 +110,9 @@ const ManageAttendance: React.FC = () => {
                 {selectedItem} - {months[currentMonth]}
               </h3>
               {attendanceInfo ? (
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Имя</th>
-                      <th>Посещено</th>
-                      <th>Справка</th>
-                      <th>Пропущено</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {Object.keys(attendanceInfo).map((name) => {
-                      const studentData = attendanceInfo[
-                        name
-                      ] as StudentAttendance;
-                      return name !== 'full' ? (
-                        <tr key={name}>
-                          <td>{name}</td>
-                          <td>
-                            {studentData.attended.map((day: string) => (
-                              <span key={day} className="attended">
-                                {day}
-                              </span>
-                            ))}
-                          </td>
-                          <td>
-                            {studentData.spravka.map((day: string) => (
-                              <span key={day} className="spravka">
-                                {day}
-                              </span>
-                            ))}
-                          </td>
-                          <td>
-                            {studentData.unattended.map((day: string) => (
-                              <span key={day} className="unattended">
-                                {day}
-                              </span>
-                            ))}
-                          </td>
-                        </tr>
-                      ) : null;
-                    })}
-                  </tbody>
-                </table>
+                <AttendanceTable
+                  {...attendanceData[selectedItem][months[currentMonth]]}
+                />
               ) : (
                 <p>Нет данных за этот месяц.</p>
               )}

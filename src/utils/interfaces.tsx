@@ -49,11 +49,12 @@ export interface StudentAttendance {
   unattended: string[];
 }
 
-interface MonthData {
+export interface MonthData {
+  full: string[];
   [studentName: string]: StudentAttendance | string[];
 }
 
-interface ClassData {
+export interface ClassData {
   [month: string]: MonthData;
 }
 
