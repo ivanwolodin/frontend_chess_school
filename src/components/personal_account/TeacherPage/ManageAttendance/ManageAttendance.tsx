@@ -1,83 +1,8 @@
 import React, { useState, useRef } from 'react';
+
 import './ManageAttendance.css';
-interface AttendanceRecord {
-  attended: string[];
-  spravka: string[];
-  unattended: string[];
-}
-
-interface MonthData {
-  [key: string]: AttendanceRecord;
-}
-
-interface GroupData {
-  [key: string]: MonthData;
-}
-
-interface AttendanceData {
-  [key: string]: GroupData;
-}
-
-const attendanceData: AttendanceData = {
-  АТ1: {
-    Июнь: {
-      'Володин Иван': {
-        attended: ['1', '2', '6', '15'],
-        spravka: ['20'],
-        unattended: [],
-      },
-      'Ильин Вова': {
-        attended: ['6', '2', '3', '19'],
-        spravka: ['24'],
-        unattended: ['30'],
-      },
-      'Сотина Алиса': {
-        attended: ['6', '2', '3', '19'],
-        spravka: ['24'],
-        unattended: ['30'],
-      },
-    },
-    Июль: {
-      'Володин Иван': {
-        attended: ['1'],
-        spravka: [],
-        unattended: [],
-      },
-      'Ильин Вова': {
-        attended: [],
-        spravka: [],
-        unattended: [],
-      },
-    },
-    Август: {
-      'Володин Иван': {
-        attended: ['1'],
-        spravka: [],
-        unattended: [],
-      },
-      'Ильин Вова': {
-        attended: [],
-        spravka: [],
-        unattended: [],
-      },
-      'Сахарова Алиса': {
-        attended: [],
-        spravka: [],
-        unattended: [],
-      },
-      'Гиря Оля': {
-        attended: [],
-        spravka: [],
-        unattended: [],
-      },
-    },
-  },
-  АТ2: {
-    Июнь: {},
-    Июль: {},
-    Август: {},
-  },
-};
+import { attendanceData, months } from '../../../../utils/constants';
+import { StudentAttendance } from '../../../../utils/interfaces';
 
 const ManageAttendance: React.FC = () => {
   const [width, setWidth] = useState<number>(400);
@@ -108,21 +33,6 @@ const ManageAttendance: React.FC = () => {
   };
 
   const items = Object.keys(attendanceData);
-
-  const months = [
-    'Январь',
-    'Февраль',
-    'Март',
-    'Апрель',
-    'Май',
-    'Июнь',
-    'Июль',
-    'Август',
-    'Сентябрь',
-    'Октябрь',
-    'Ноябрь',
-    'Декабрь',
-  ];
 
   const handleMouseDown = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -222,32 +132,37 @@ const ManageAttendance: React.FC = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {Object.keys(attendanceInfo).map((name) => (
-                      <tr key={name}>
-                        <td>{name}</td>
-                        <td>
-                          {attendanceInfo[name].attended.map((day) => (
-                            <span key={day} className="attended">
-                              {day}
-                            </span>
-                          ))}
-                        </td>
-                        <td>
-                          {attendanceInfo[name].spravka.map((day) => (
-                            <span key={day} className="spravka">
-                              {day}
-                            </span>
-                          ))}
-                        </td>
-                        <td>
-                          {attendanceInfo[name].unattended.map((day) => (
-                            <span key={day} className="unattended">
-                              {day}
-                            </span>
-                          ))}
-                        </td>
-                      </tr>
-                    ))}
+                    {Object.keys(attendanceInfo).map((name) => {
+                      const studentData = attendanceInfo[
+                        name
+                      ] as StudentAttendance;
+                      return name !== 'full' ? (
+                        <tr key={name}>
+                          <td>{name}</td>
+                          <td>
+                            {studentData.attended.map((day: string) => (
+                              <span key={day} className="attended">
+                                {day}
+                              </span>
+                            ))}
+                          </td>
+                          <td>
+                            {studentData.spravka.map((day: string) => (
+                              <span key={day} className="spravka">
+                                {day}
+                              </span>
+                            ))}
+                          </td>
+                          <td>
+                            {studentData.unattended.map((day: string) => (
+                              <span key={day} className="unattended">
+                                {day}
+                              </span>
+                            ))}
+                          </td>
+                        </tr>
+                      ) : null;
+                    })}
                   </tbody>
                 </table>
               ) : (

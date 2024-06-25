@@ -153,3 +153,15 @@
     width: 300px;
   }
 }
+
+table {
+  margin-top: 16px;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #cccccc;
+}

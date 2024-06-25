@@ -42,3 +42,21 @@ export interface SidebarMainMenuItems {
     | 'global';
   label: string;
 }
+
+export interface StudentAttendance {
+  attended: string[];
+  spravka: string[];
+  unattended: string[];
+}
+
+interface MonthData {
+  [studentName: string]: StudentAttendance | string[];
+}
+
+interface ClassData {
+  [month: string]: MonthData;
+}
+
+export interface AttendanceData {
+  [className: string]: ClassData;
+}

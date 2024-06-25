@@ -4,6 +4,7 @@ import {
   NewsCardProps,
   TeacherCardProps,
   WeAreTrustedByProps,
+  AttendanceData,
 } from './interfaces';
 
 export const headerItems: string[] = [
@@ -14,6 +15,21 @@ export const headerItems: string[] = [
   'ГРАФИК',
   'ПОСТУПЛЕНИЕ',
   'ЛИЧНЫЙ КАБИНЕТ',
+];
+
+export const months = [
+  'Январь',
+  'Февраль',
+  'Март',
+  'Апрель',
+  'Май',
+  'Июнь',
+  'Июль',
+  'Август',
+  'Сентябрь',
+  'Октябрь',
+  'Ноябрь',
+  'Декабрь',
 ];
 
 export const tinyCardsData: InfoTinyCardProps[] = [
@@ -171,3 +187,67 @@ export const SuperAdminMenuItems: SidebarMainMenuItems[] = [
   { icon: 'book-2', label: 'Ответить на вопрос' },
   { icon: 'ink-bottle', label: 'Добавить новость' },
 ];
+
+export const attendanceData: AttendanceData = {
+  АТ1: {
+    Июнь: {
+      'Володин Иван': {
+        attended: ['1', '2', '3', '6', '15'],
+        spravka: ['24', '30', '19'],
+        unattended: [],
+      },
+      'Ильин Вова': {
+        attended: ['24'],
+        spravka: ['1', '2', '6', '15'],
+        unattended: ['3', '24', '30'],
+      },
+      'Сотина Алиса': {
+        attended: ['19', '24', '30'],
+        spravka: ['3'],
+        unattended: ['1', '2', '6', '15'],
+      },
+      full: ['1', '2', '3', '6', '15', '19', '24', '30'],
+    },
+    Июль: {
+      'Володин Иван': {
+        attended: ['1'],
+        spravka: [],
+        unattended: [],
+      },
+      'Ильин Вова': {
+        attended: [],
+        spravka: [],
+        unattended: [],
+      },
+      full: ['1'],
+    },
+    Август: {
+      'Володин Иван': {
+        attended: ['1'],
+        spravka: [],
+        unattended: [],
+      },
+      'Ильин Вова': {
+        attended: [],
+        spravka: [],
+        unattended: [],
+      },
+      'Сахарова Алиса': {
+        attended: [],
+        spravka: [],
+        unattended: [],
+      },
+      'Гиря Оля': {
+        attended: [],
+        spravka: [],
+        unattended: [],
+      },
+      full: [],
+    },
+  },
+  АТ2: {
+    Июнь: {},
+    Июль: {},
+    Август: {},
+  },
+};
