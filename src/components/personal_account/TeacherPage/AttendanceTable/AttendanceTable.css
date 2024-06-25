@@ -1,0 +1,110 @@
+/* AttendanceTable.css */
+
+.attendance__general {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.attendance__table {
+  overflow-x: auto;
+}
+
+.attendance__student_name {
+  background-color: rgb(255 255 255 / 70%);
+}
+
+.attendance__date {
+  background-color: rgb(255 255 255 / 70%);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #cccccc;
+}
+
+th.empty-cell {
+  background-color: #f0f0f0;
+}
+
+td.name-cell {
+  font-weight: bold;
+}
+
+.status-cell {
+  position: relative;
+  cursor: pointer;
+}
+
+.status-cell:hover {
+  background-color: #f0f0f0;
+}
+
+.status-text {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 1;
+  display: none;
+  padding: 5px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  transform: translateX(-50%);
+}
+
+.status-cell:hover .status-text {
+  display: block;
+}
+
+.attended {
+  background-color: #c8e6c9; /* Light green */
+}
+
+.spravka {
+  background-color: #fff9c4; /* Light yellow */
+}
+
+.unattended {
+  background-color: #ffcdd2; /* Light red */
+}
+
+.attendance__save_button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  color: #ffffff;
+  font-size: 16px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.attendance__save_button:hover {
+  background-color: rgb(216 216 121);
+}
+
+.attendance__cell {
+  padding: 5px;
+  background-color: grey;
+}
+
+.attendance__cell_attended {
+  background-color: #80c360;
+}
+
+.attendance__cell_spravka {
+  background-color: #ef9e24;
+}
+
+.attendance__cell_unattended {
+  background-color: #fa5332;
+}

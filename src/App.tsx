@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 
 import AdmissionForm from './components/landing/AdmissionForm/AdmissionForm';
 import CookieNotification from './components/landing/CookieNotification/CookieNotification';
@@ -21,10 +21,10 @@ import MainTeacherPage from './components/personal_account/TeacherPage/MainTeach
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route
-            path="/frontend_chess_school"
+            path="/"
             element={
               <>
                 <Header />
@@ -47,7 +47,7 @@ function App() {
           <Route path="/log_in" element={<SignIn />} />
           <Route path="/side_bar" element={<MainTeacherPage />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
