@@ -1,6 +1,9 @@
 .modal {
   min-width: 1000px;
   min-height: 500px;
+  max-height: 80vh; /* Ограничьте максимальную высоту */
+  padding: 20px;
+  overflow-y: auto; /* Добавьте вертикальную прокрутку */
   font-size: 12px;
   background-color: white;
   border-radius: 40px;

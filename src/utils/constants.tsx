@@ -281,6 +281,31 @@ export const attendanceData: AttendanceData = {
         spravka: ['3'],
         unattended: ['1', '2', '6', '15'],
       },
+      'Ильwewefeин Вова': {
+        attended: ['24', '19'],
+        spravka: ['1', '2', '6', '15'],
+        unattended: ['3', '24', '30'],
+      },
+      'Сотиw2eна Алиса': {
+        attended: ['19', '24', '30'],
+        spravka: ['3'],
+        unattended: ['1', '2', '6', '15'],
+      },
+      'Вол22eодин Иван': {
+        attended: ['1', '2', '3', '6', '15'],
+        spravka: ['24', '30', '19'],
+        unattended: [],
+      },
+      'Ильeи2222н Вова': {
+        attended: ['24', '19'],
+        spravka: ['1', '2', '6', '15'],
+        unattended: ['3', '24', '30'],
+      },
+      'Сотинa2222sdfа Алиса': {
+        attended: ['19', '24', '30'],
+        spravka: ['3'],
+        unattended: ['1', '2', '6', '15'],
+      },
       full: ['1', '2', '3', '6', '15', '19', '24', '30'],
     },
     Июль: {
@@ -294,7 +319,37 @@ export const attendanceData: AttendanceData = {
         spravka: [],
         unattended: [],
       },
-      full: ['1'],
+      'Володeeeeeин Иван': {
+        attended: ['1', '2', '3', '6', '15'],
+        spravka: ['24', '30', '19'],
+        unattended: [],
+      },
+      'Ильeeeeeин Вова': {
+        attended: ['24', '19'],
+        spravka: ['1', '2', '6', '15'],
+        unattended: ['3', '24', '30'],
+      },
+      'Сотweweeeeина Алиса': {
+        attended: ['19', '24', '30'],
+        spravka: ['3'],
+        unattended: ['1', '2', '6', '15'],
+      },
+      'Волоweweдин Иван': {
+        attended: ['1', '2', '3', '6', '15'],
+        spravka: ['24', '30', '19'],
+        unattended: [],
+      },
+      'Ильweweин Вова': {
+        attended: ['24', '19'],
+        spravka: ['1', '2', '6', '15'],
+        unattended: ['3', '24', '30'],
+      },
+      'Сотиweна Алиса': {
+        attended: ['19', '24', '30'],
+        spravka: ['3'],
+        unattended: ['1', '2', '6', '15'],
+      },
+      full: ['1', '2', '3', '6', '15', '19', '24', '30'],
     },
     Август: {
       'Володин Иван': {
