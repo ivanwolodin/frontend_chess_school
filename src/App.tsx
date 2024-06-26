@@ -24,7 +24,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path="/frontend_chess_school"
+            path="/"
             element={
               <>
                 <Header />
