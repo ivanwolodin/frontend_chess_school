@@ -1,5 +1,3 @@
-/* AttendanceTable.css */
-
 .attendance__general {
   width: 100%;
   max-width: 800px;
@@ -11,11 +9,13 @@
 }
 
 .attendance__student_name {
-  background-color: rgb(255 255 255 / 70%);
+  background-color: lightblue;
+  border: 3px solid #171717ca;
 }
 
 .attendance__date {
-  background-color: rgb(255 255 255 / 70%);
+  background-color: lightblue;
+  border: 3px solid #171717ca;
 }
 
 table {
@@ -37,6 +37,7 @@ th.empty-cell {
 
 td.name-cell {
   font-weight: bold;
+  background-color: black;
 }
 
 .status-cell {
@@ -66,15 +67,15 @@ td.name-cell {
 }
 
 .attended {
-  background-color: #c8e6c9; /* Light green */
+  background-color: #c8e6c9;
 }
 
 .spravka {
-  background-color: #fff9c4; /* Light yellow */
+  background-color: #fff9c4;
 }
 
 .unattended {
-  background-color: #ffcdd2; /* Light red */
+  background-color: #ffcdd2;
 }
 
 .attendance__save_button {

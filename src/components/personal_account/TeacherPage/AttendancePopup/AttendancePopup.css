@@ -31,12 +31,12 @@
 
 .modal > .close {
   position: absolute;
-  top: -10px;
+  top: -40px;
   right: -10px;
   display: block;
-  padding: 2px 5px;
-  font-size: 24px;
-  line-height: 20px;
+  padding: 0 5px 5px;
+  font-size: 34px;
+  line-height: 30px;
   background: #ffffff;
   border: 1px solid #cfcece;
   border-radius: 18px;
@@ -110,16 +110,4 @@
   .manageattendance__month_controls {
     width: 300px;
   }
-}
-
-table {
-  margin-top: 16px;
-  border-collapse: collapse;
-}
-
-table th,
-table td {
-  padding: 8px;
-  text-align: center;
-  border: 1px solid #cccccc;
 }
