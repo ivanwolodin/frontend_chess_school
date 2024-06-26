@@ -25,6 +25,7 @@ table {
 
 th,
 td {
+  min-width: 30px;
   padding: 8px;
   font-size: 20px;
   text-align: center;

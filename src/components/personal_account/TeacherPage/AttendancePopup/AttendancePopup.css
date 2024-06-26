@@ -6,6 +6,7 @@
   overflow-y: auto; /* Добавьте вертикальную прокрутку */
   font-size: 12px;
   background-color: white;
+  border: 3px solid black;
   border-radius: 40px;
 }
 
@@ -98,6 +99,12 @@
   align-self: center;
   font-size: 24px;
   text-shadow: 0 0 2px #ffffff;
+}
+
+.attendancepopup__no_data {
+  margin-top: 30px;
+  font-size: 20px;
+  text-align: center;
 }
 
 @media (width <= 995px) {

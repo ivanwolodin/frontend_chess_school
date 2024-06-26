@@ -79,7 +79,9 @@ const AttendancePopup: React.FC<AttendancePopupProps> = ({
                 {...attendanceData[selectedItem][months[currentMonth]]}
               />
             ) : (
-              <p>Нет данных за этот месяц.</p>
+              <p className="attendancepopup__no_data">
+                Нет данных за этот месяц.
+              </p>
             )}
           </>
         )}

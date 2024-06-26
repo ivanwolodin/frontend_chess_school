@@ -72,9 +72,7 @@ const ManageAttendance: React.FC = () => {
         ></button>
       </div>
       <div className="manageattendance__month_controls">
-        <div
-          className={`${selectedItem === null ? 'manageattendance__group_info' : ''}`}
-        >
+        <div className="manageattendance__group_info">
           <AttendancePopup
             open={open}
             selectedItem={selectedItem}
@@ -83,9 +81,7 @@ const ManageAttendance: React.FC = () => {
             handleLeftArrowClick={handleLeftArrowClick}
             handleRightArrowClick={handleRightArrowClick}
           />
-          <div
-            className={`${selectedItem === null ? 'manageattendance__preload_img' : ''}`}
-          ></div>
+          <div className="manageattendance__preload_img"></div>
         </div>
       </div>
     </div>

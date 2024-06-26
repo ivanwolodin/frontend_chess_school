@@ -241,7 +241,7 @@ export const attendanceData: AttendanceData = {
         spravka: ['24', '30', '19'],
         unattended: [],
       },
-      'Ильeeeeeин Вова': {
+      'Ильeeecdddddddeeин Вова': {
         attended: ['24', '19'],
         spravka: ['1', '2', '6', '15'],
         unattended: ['3', '24', '30'],
