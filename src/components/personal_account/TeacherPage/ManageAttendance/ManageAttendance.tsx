@@ -1,15 +1,16 @@
 import React, { useState, useRef } from 'react';
 
 import './ManageAttendance.css';
-import { attendanceData, months } from '../../../../utils/constants';
-import AttendanceTable from '../AttendanceTable/AttendanceTable';
+import { attendanceData } from '../../../../utils/constants';
+import AttendancePopup from '../AttendancePopup/AttendancePopup';
 
 const ManageAttendance: React.FC = () => {
   const [width, setWidth] = useState<number>(400);
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
-
+  const [open, setOpen] = useState(false);
+  const closeModal = () => setOpen(false);
   const handleLeftArrowClick = () => {
     setCurrentMonth((prevMonth) => (prevMonth === 0 ? 11 : prevMonth - 1));
   };
@@ -20,6 +21,7 @@ const ManageAttendance: React.FC = () => {
 
   const handleItemClick = (item: string) => {
     setSelectedItem(item);
+    setOpen(true);
   };
 
   const items = Object.keys(attendanceData);
@@ -43,20 +45,10 @@ const ManageAttendance: React.FC = () => {
     document.addEventListener('mouseup', handleMouseUp);
   };
 
-  const getAttendanceForSelectedItem = () => {
-    if (!selectedItem) return null;
-
-    const selectedMonth = months[currentMonth];
-    const groupData = attendanceData[selectedItem];
-    if (!groupData || !groupData[selectedMonth]) return null;
-
-    return groupData[selectedMonth];
-  };
-
-  const attendanceInfo = getAttendanceForSelectedItem();
-
   return (
-    <div className="manageattendance__general">
+    <div
+      className={`${open ? 'manageattendance__general manageattendance__general_blur' : 'manageattendance__general'}`}
+    >
       <div
         ref={containerRef}
         className="manageattendance__container"
@@ -80,47 +72,16 @@ const ManageAttendance: React.FC = () => {
         ></button>
       </div>
       <div className="manageattendance__month_controls">
-        <div className="manageattendance__month_arrows">
-          <div
-            className="manageattendance__month_controls_leftarrow"
-            onClick={handleLeftArrowClick}
-            onKeyDown={() => {}}
-            tabIndex={0}
-            role="button"
-            aria-label="Previous month"
-          ></div>
-          <p className="manageattendance__month_controls_monthtitle">
-            {months[currentMonth]}
-          </p>
-          <div
-            className="manageattendance__month_controls_rightarrow"
-            onClick={handleRightArrowClick}
-            onKeyDown={() => {}}
-            tabIndex={0}
-            role="button"
-            aria-label="Next month"
-          ></div>
-        </div>
-        <div
-          className={`${selectedItem === null ? 'manageattendance__group_info' : ''}`}
-        >
-          {selectedItem && (
-            <>
-              <h3>
-                {selectedItem} - {months[currentMonth]}
-              </h3>
-              {attendanceInfo ? (
-                <AttendanceTable
-                  {...attendanceData[selectedItem][months[currentMonth]]}
-                />
-              ) : (
-                <p>Нет данных за этот месяц.</p>
-              )}
-            </>
-          )}
-          <div
-            className={`${selectedItem === null ? 'manageattendance__preload_img' : ''}`}
-          ></div>
+        <div className="manageattendance__group_info">
+          <AttendancePopup
+            open={open}
+            selectedItem={selectedItem}
+            currentMonth={currentMonth}
+            closeModal={closeModal}
+            handleLeftArrowClick={handleLeftArrowClick}
+            handleRightArrowClick={handleRightArrowClick}
+          />
+          <div className="manageattendance__preload_img"></div>
         </div>
       </div>
     </div>

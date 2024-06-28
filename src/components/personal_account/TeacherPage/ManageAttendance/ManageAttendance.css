@@ -68,61 +68,13 @@
   font-size: 24px;
 }
 
-.manageattendance__month_controls {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 700px;
-  height: 40px;
-}
-
-.manageattendance__month_arrows {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border: 5px solid rgb(223 162 19 / 89.1%);
-}
-
-.manageattendance__month_controls_leftarrow {
-  min-width: 48px;
-  padding-top: 40px;
-  padding-left: 80px;
-  background: url('../../../../assets/icons/left_arrow.png') no-repeat center
-    center;
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-.manageattendance__month_controls_rightarrow {
-  min-width: 48px;
-  padding-top: 40px;
-  padding-right: 80px;
-  background: url('../../../../assets/icons/right_arrow.png') no-repeat center
-    center;
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-.manageattendance__month_controls_leftarrow:hover {
-  opacity: 1;
-}
-
-.manageattendance__month_controls_rightarrow:hover {
-  opacity: 1;
-}
-
-.manageattendance__month_controls_monthtitle {
-  align-self: center;
-  font-size: 24px;
-  text-shadow: 0 0 2px #ffffff;
-}
-
 .manageattendance__group_item_selected {
   color: white;
 }
 
 .manageattendance__group_info {
   display: flex;
+  min-width: 600px;
   min-height: 300px;
   margin-top: 40px;
   margin-right: 80px;
@@ -143,26 +95,7 @@
   background: yellow;
 }
 
-@media (width <= 995px) {
-  .manageattendance__month_controls {
-    width: 500px;
-  }
-}
-
-@media (width <= 781px) {
-  .manageattendance__month_controls {
-    width: 300px;
-  }
-}
-
-table {
-  margin-top: 16px;
-  border-collapse: collapse;
-}
-
-table th,
-table td {
-  padding: 8px;
-  text-align: center;
-  border: 1px solid #cccccc;
+.manageattendance__general_blur {
+  background: gray;
+  opacity: 0.3;
 }
