@@ -40,7 +40,7 @@ function CookieNotification() {
         </a>
       </p>
       <button className="cookie__button" onClick={handleCloseNotice}>
-        Закрыть
+        Хорошо
       </button>
     </div>
   );
