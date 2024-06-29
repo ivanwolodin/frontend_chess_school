@@ -13,6 +13,14 @@ const PersonalDataTable: React.FC<PersonalDataTableProps> = ({ data }) => {
   const handleRowClicked = (row: PersonalTableRowData) => {
     alert(`Имя: ${row.name}, Возраст: ${row.fat}`);
   };
+  const conditionalRowStyles = [
+    {
+      when: (row: PersonalTableRowData) => row.fat > 9,
+      style: {
+        backgroundColor: 'lightblue',
+      },
+    },
+  ];
 
   return (
     <div className="personaldatatable__general">
@@ -23,7 +31,9 @@ const PersonalDataTable: React.FC<PersonalDataTableProps> = ({ data }) => {
         columns={personalDataColumnsSettings}
         pagination
         paginationPerPage={10}
+        paginationRowsPerPageOptions={[10]}
         onRowClicked={handleRowClicked}
+        conditionalRowStyles={conditionalRowStyles}
       />
     </div>
   );
