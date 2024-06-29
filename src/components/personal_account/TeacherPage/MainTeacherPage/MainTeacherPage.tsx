@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { TeachersMenuItems } from '../../../../utils/constants';
-import PersonalData from '../../common_comps/PersonalData/PersonalData';
+import { TeachersMenuItems, personalData } from '../../../../utils/constants';
+import PersonalDataTable from '../../common_comps/PersonalData/PersonalDataTable';
 import SideBar from '../../common_comps/SideBar/SideBar';
 import Dashboard from '../Dashboard/Dashboard';
 import ManageAttendance from '../ManageAttendance/ManageAttendance';
@@ -29,7 +29,9 @@ const MainTeacherPage = () => {
         {selectedItemName === 'Расписание' && <ManageAttendance />}
         {selectedItemName === 'Дэшборд' && <Dashboard />}
         {selectedItemName === 'Домашние задания' && <ManageHomework />}
-        {selectedItemName === 'Персональные данные' && <PersonalData />}
+        {selectedItemName === 'Персональные данные' && (
+          <PersonalDataTable data={personalData} />
+        )}
       </div>
     </>
   );

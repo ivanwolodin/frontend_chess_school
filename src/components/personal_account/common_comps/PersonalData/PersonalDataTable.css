@@ -1,6 +1,13 @@
-.personaldata__general {
+.personaldatatable__general {
   flex-grow: 1;
   background: url('../../../../assets/personal_account_images/personal_data.jpg')
     no-repeat center center;
   background-size: cover;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 30px;
+}
+
+.personaldatatable__data {
+  opacity: 0.8;
 }

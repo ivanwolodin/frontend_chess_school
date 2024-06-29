@@ -61,3 +61,19 @@ export interface ClassData {
 export interface AttendanceData {
   [className: string]: ClassData;
 }
+
+export interface PersonalTableRowData {
+  name: string;
+  type: string;
+  calories: number;
+  fat: number;
+  carbs: number;
+  protein: number;
+  sodium: number;
+  calcium: number;
+  iron: number;
+}
+
+export interface PersonalDataTableProps {
+  data: PersonalTableRowData[];
+}
