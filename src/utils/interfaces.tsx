@@ -63,6 +63,7 @@ export interface AttendanceData {
 }
 
 export interface PersonalTableRowData {
+  id?: number;
   name: string;
   type: string;
   calories: number;
