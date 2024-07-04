@@ -159,7 +159,7 @@
 @media (width <= 585px) {
   th,
   td {
-    min-width: 19px;
+    min-width: 0;
     font-size: 10px;
   }
 
@@ -169,5 +169,31 @@
 
   .attendancepopup__month_controls_monthtitle {
     font-size: 15px;
+  }
+}
+
+@media (width <= 585px) {
+  .modal {
+    min-width: 300px;
+  }
+
+  table {
+    width: 95%;
+  }
+}
+
+@media (width <= 400px) {
+  .attendancepopup__group_title {
+    padding-top: 0;
+  }
+
+  .modal {
+    width: auto;
+    height: auto;
+    padding: 0;
+  }
+
+  table {
+    width: 85%;
   }
 }

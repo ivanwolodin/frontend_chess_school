@@ -72,19 +72,14 @@ const ManageAttendance: React.FC = () => {
           onMouseDown={handleMouseDown}
         ></button>
       </div>
-      <div className="manageattendance__month_controls">
-        <div className="manageattendance__group_info">
-          <AttendancePopup
-            open={open}
-            selectedItem={selectedItem}
-            currentMonth={currentMonth}
-            closeModal={closeModal}
-            handleLeftArrowClick={handleLeftArrowClick}
-            handleRightArrowClick={handleRightArrowClick}
-          />
-          <div className="manageattendance__preload_img"></div>
-        </div>
-      </div>
+      <AttendancePopup
+        open={open}
+        selectedItem={selectedItem}
+        currentMonth={currentMonth}
+        closeModal={closeModal}
+        handleLeftArrowClick={handleLeftArrowClick}
+        handleRightArrowClick={handleRightArrowClick}
+      />
     </div>
   );
 };
