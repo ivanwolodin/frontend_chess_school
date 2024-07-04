@@ -3,17 +3,9 @@ import React from 'react';
 import Popup from 'reactjs-popup';
 
 import { attendanceData, months } from '../../../../utils/constants';
+import { AttendancePopupProps } from '../../../../utils/interfaces';
 import AttendanceTable from '../AttendanceTable/AttendanceTable';
 import './AttendancePopup.css';
-
-interface AttendancePopupProps {
-  open: boolean;
-  selectedItem: string | null;
-  currentMonth: number;
-  closeModal: () => void;
-  handleLeftArrowClick: () => void;
-  handleRightArrowClick: () => void;
-}
 
 const AttendancePopup: React.FC<AttendancePopupProps> = ({
   open,

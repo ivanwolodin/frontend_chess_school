@@ -1,9 +1,9 @@
 .modal {
   min-width: 1000px;
   min-height: 500px;
-  max-height: 80vh; /* Ограничьте максимальную высоту */
+  max-height: 80vh;
   padding: 20px;
-  overflow-y: auto; /* Добавьте вертикальную прокрутку */
+  overflow-y: auto;
   font-size: 12px;
   background-color: white;
   border: 3px solid black;
@@ -107,6 +107,13 @@
   text-align: center;
 }
 
+@media (width <= 1070px) {
+  .modal {
+    min-width: 700px;
+    min-height: 500px;
+  }
+}
+
 @media (width <= 995px) {
   .manageattendance__month_controls {
     width: 500px;
@@ -116,5 +123,51 @@
 @media (width <= 781px) {
   .manageattendance__month_controls {
     width: 300px;
+  }
+}
+
+@media (width <= 760px) {
+  .modal {
+    min-width: 400px;
+    min-height: 300px;
+  }
+}
+
+@media (width <= 730px) {
+  .attendancepopup__group_title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 19px;
+  }
+
+  .attendancepopup__month_controls_monthtitle {
+    font-size: 20px;
+  }
+
+  th,
+  td {
+    font-size: 15px;
+  }
+}
+
+@media (width <= 760px) {
+  .modal > .close {
+    right: 0;
+  }
+}
+
+@media (width <= 585px) {
+  th,
+  td {
+    min-width: 19px;
+    font-size: 10px;
+  }
+
+  .attendancepopup__group_title {
+    font-size: 17px;
+  }
+
+  .attendancepopup__month_controls_monthtitle {
+    font-size: 15px;
   }
 }

@@ -30,10 +30,11 @@ const ManageAttendance: React.FC = () => {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
     const startX = e.clientX;
+    const containerWidth = containerRef.current?.offsetWidth || 0;
 
     const handleMouseMove = (e: MouseEvent) => {
       const newWidth = width + (e.clientX - startX);
-      setWidth(newWidth);
+      setWidth(Math.min(newWidth, containerWidth));
     };
 
     const handleMouseUp = () => {

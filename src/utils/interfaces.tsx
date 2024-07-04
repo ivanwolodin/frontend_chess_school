@@ -78,3 +78,11 @@ export interface PersonalTableRowData {
 export interface PersonalDataTableProps {
   data: PersonalTableRowData[];
 }
+export interface AttendancePopupProps {
+  open: boolean;
+  selectedItem: string | null;
+  currentMonth: number;
+  closeModal: () => void;
+  handleLeftArrowClick: () => void;
+  handleRightArrowClick: () => void;
+}
