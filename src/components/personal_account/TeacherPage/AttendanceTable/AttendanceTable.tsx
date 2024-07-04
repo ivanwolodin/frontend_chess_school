@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import './AttendanceTable.css';
 import { StudentAttendance, MonthData } from '../../../../utils/interfaces';
@@ -6,8 +6,21 @@ import { StudentAttendance, MonthData } from '../../../../utils/interfaces';
 interface Props extends MonthData {}
 
 const AttendanceTable: React.FC<Props> = ({ full, ...studentData }) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [selectedCell, setSelectedCell] = useState<{
+    studentName: string;
+    day: string;
+  } | null>(null);
   const handleCellClick = (studentName: string, day: string) => {
-    console.log(`Clicked cell for ${studentName} on day ${day}`);
+    const className = getCellClassName(studentName, day);
+    if (className !== 'attendance__cell') {
+      console.log(`Clicked cell for ${studentName} on day ${day}`);
+      setIsDropdownOpen(true);
+      setSelectedCell({ studentName: studentName, day: day });
+      console.log(`selectedCell = ${selectedCell?.day}`);
+      console.log(`isDropdownOpen = ${isDropdownOpen}`);
+    }
   };
 
   const isStudentAttendance = (
@@ -29,11 +42,27 @@ const AttendanceTable: React.FC<Props> = ({ full, ...studentData }) => {
     }
     return 'attendance__cell';
   };
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="attendance__general">
       <div className="attendance__table">
-        <table>
+        <table className="attendance__register">
           <thead>
             <tr>
               <th> </th>
@@ -53,7 +82,27 @@ const AttendanceTable: React.FC<Props> = ({ full, ...studentData }) => {
                     key={colIndex}
                     className={getCellClassName(studentName, day)}
                     onClick={() => handleCellClick(studentName, day)}
-                  ></td>
+                  >
+                    {isDropdownOpen &&
+                      selectedCell &&
+                      selectedCell.studentName === studentName &&
+                      selectedCell.day === day && (
+                        <div ref={dropdownRef} className="attendance__dropdown">
+                          <div className="item">
+                            <div className="square green"></div>
+                            <div>Посетил</div>
+                          </div>
+                          <div className="item">
+                            <div className="square red"></div>
+                            <div>Пропустил</div>
+                          </div>
+                          <div className="item">
+                            <div className="square yellow"></div>
+                            <div>Болел</div>
+                          </div>
+                        </div>
+                      )}
+                  </td>
                 ))}
               </tr>
             ))}

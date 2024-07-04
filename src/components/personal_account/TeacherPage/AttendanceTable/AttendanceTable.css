@@ -2,10 +2,18 @@
   width: 100%;
   max-width: 800px;
   margin: 20px auto;
+
+  /* position: relative; */
 }
 
 .attendance__table {
-  overflow-x: auto;
+  /* overflow-x: auto; */
+  overflow: hidden;
+}
+
+.attendance__register {
+  position: relative; /* This ensures it does not interfere with z-index */
+  z-index: auto;
 }
 
 .attendance__student_name {
@@ -102,12 +110,57 @@ td.name-cell {
 
 .attendance__cell_attended {
   background-color: #80c360;
+  cursor: pointer;
 }
 
 .attendance__cell_spravka {
   background-color: #ef9e24;
+  cursor: pointer;
 }
 
 .attendance__cell_unattended {
   background-color: #fa5332;
+  cursor: pointer;
+}
+
+.attendance__dropdown {
+  position: absolute; /* or position: fixed; */
+  z-index: 1000;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #cccccc;
+  border: 3px solid black;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
+}
+
+
+.item {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  padding-left: 2px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: lightgrey;
+}
+
+.square {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.green {
+  background-color: #80c360;
+}
+
+.red {
+  background-color: #fa5332;
+}
+
+.yellow {
+  background-color: #ef9e24;
 }
