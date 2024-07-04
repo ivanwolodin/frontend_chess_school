@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Popup from 'reactjs-popup';
 
@@ -15,11 +15,13 @@ const AttendancePopup: React.FC<AttendancePopupProps> = ({
   handleLeftArrowClick,
   handleRightArrowClick,
 }) => {
+  const [attendance, setAttendance] = useState(attendanceData);
+
   const getAttendanceForSelectedItem = () => {
     if (!selectedItem) return null;
 
     const selectedMonth = months[currentMonth];
-    const groupData = attendanceData[selectedItem];
+    const groupData = attendance[selectedItem];
     if (!groupData || !groupData[selectedMonth]) return null;
 
     return groupData[selectedMonth];
@@ -68,7 +70,7 @@ const AttendancePopup: React.FC<AttendancePopupProps> = ({
           <>
             {attendanceInfo ? (
               <AttendanceTable
-                {...attendanceData[selectedItem][months[currentMonth]]}
+                {...attendance[selectedItem][months[currentMonth]]}
               />
             ) : (
               <p className="attendancepopup__no_data">

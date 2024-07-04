@@ -1,4 +1,7 @@
-import React from 'react';
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { useState } from 'react';
 
 import './AttendanceTable.css';
 import { StudentAttendance, MonthData } from '../../../../utils/interfaces';
@@ -6,8 +9,46 @@ import { StudentAttendance, MonthData } from '../../../../utils/interfaces';
 interface Props extends MonthData {}
 
 const AttendanceTable: React.FC<Props> = ({ full, ...studentData }) => {
+  const [isLiOpened, setLiOpened] = useState(false);
+  const [selectedCell, setSelectedCell] = useState<{
+    studentName: string;
+    day: string;
+  } | null>(null);
+
   const handleCellClick = (studentName: string, day: string) => {
-    console.log(`Clicked cell for ${studentName} on day ${day}`);
+    const className = getCellClassName(studentName, day);
+    if (className !== 'attendance__cell') {
+      setSelectedCell({ studentName, day });
+    }
+  };
+
+  const handleStatusChange = (status: string) => {
+    if (selectedCell) {
+      const { studentName, day } = selectedCell;
+      const studentAttendance = studentData[studentName] as StudentAttendance;
+      if (studentAttendance) {
+        // Update the attendance status
+        studentAttendance.attended = studentAttendance.attended.filter(
+          (d: string) => d !== day,
+        );
+        studentAttendance.spravka = studentAttendance.spravka.filter(
+          (d: string) => d !== day,
+        );
+        studentAttendance.unattended = studentAttendance.unattended.filter(
+          (d: string) => d !== day,
+        );
+
+        if (status === 'attended') {
+          studentAttendance.attended.push(day);
+        } else if (status === 'spravka') {
+          studentAttendance.spravka.push(day);
+        } else if (status === 'unattended') {
+          studentAttendance.unattended.push(day);
+        }
+      }
+      setSelectedCell(null);
+      setLiOpened(!isLiOpened);
+    }
   };
 
   const isStudentAttendance = (
@@ -45,18 +86,42 @@ const AttendanceTable: React.FC<Props> = ({ full, ...studentData }) => {
             </tr>
           </thead>
           <tbody>
-            {Object.keys(studentData).map((studentName, rowIndex) => (
-              <tr key={rowIndex}>
-                <td className="attendance__student_name">{studentName}</td>
-                {full.map((day, colIndex) => (
-                  <td
-                    key={colIndex}
-                    className={getCellClassName(studentName, day)}
-                    onClick={() => handleCellClick(studentName, day)}
-                  ></td>
-                ))}
-              </tr>
-            ))}
+            {Object.keys(studentData).map((studentName, rowIndex) => {
+              const studentAttendance = studentData[studentName];
+              if (!isStudentAttendance(studentAttendance)) return null;
+              return (
+                <tr key={rowIndex}>
+                  <td className="attendance__student_name">{studentName}</td>
+                  {full.map((day, colIndex) => (
+                    <td
+                      key={colIndex}
+                      className={getCellClassName(studentName, day)}
+                      onClick={() => handleCellClick(studentName, day)}
+                    >
+                      {selectedCell &&
+                        selectedCell.studentName === studentName &&
+                        selectedCell.day === day && (
+                          <div
+                            className={`${isLiOpened ? '' : 'attendance__dropdown'}`}
+                          >
+                            <div onClick={() => handleStatusChange('attended')}>
+                              Посетил
+                            </div>
+                            <div
+                              onClick={() => handleStatusChange('unattended')}
+                            >
+                              Пропустил
+                            </div>
+                            <div onClick={() => handleStatusChange('spravka')}>
+                              Болел
+                            </div>
+                          </div>
+                        )}
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

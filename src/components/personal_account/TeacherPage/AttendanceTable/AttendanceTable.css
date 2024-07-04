@@ -111,3 +111,19 @@ td.name-cell {
 .attendance__cell_unattended {
   background-color: #fa5332;
 }
+
+.attendance__dropdown {
+  position: absolute;
+  z-index: 1000;
+  background: white;
+  border: 1px solid #cccccc;
+}
+
+.attendance__dropdown div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.attendance__dropdown div:hover {
+  background: #f0f0f0;
+}
