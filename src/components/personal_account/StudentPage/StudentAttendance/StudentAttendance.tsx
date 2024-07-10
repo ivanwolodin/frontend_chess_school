@@ -55,6 +55,7 @@ const StudentAttendance: React.FC = () => {
   return (
     <>
       <div className="studentattendance__general">
+        <h1 className="studentattendance__title">Статистика посещений</h1>
         <Calendar
           className="studentattendance__calendar"
           locale={'ru-RU'}
