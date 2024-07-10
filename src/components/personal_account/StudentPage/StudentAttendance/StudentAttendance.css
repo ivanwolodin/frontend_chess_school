@@ -6,3 +6,38 @@
     no-repeat center center;
   background-size: cover;
 }
+
+.studentattendance__calendar {
+  background-color: antiquewhite;
+  z-index: 1;
+  opacity: 0.84;
+}
+
+.attended {
+  background-color: #80c360;
+  border: 3px;
+  border-radius: 50%;
+}
+
+.spravka {
+  background-color: #ef9e24;
+  border-radius: 50%;
+}
+
+.unattended {
+  background-color: #fa5332;
+  border-radius: 50%;
+}
+
+.day{
+  border-radius: 50%;
+}
+
+.react-calendar__navigation{
+  font-size: 25px;
+}
+
+.react-calendar__tile--now {
+  background: unset;
+  border: 2px solid #04AA6D; 
+}
