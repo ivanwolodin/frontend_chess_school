@@ -14,6 +14,7 @@ import VideoSection from './components/landing/VideoSection/VideoSection';
 import WeAreTrustedBy from './components/landing/WeAreTrustedBy/WeAreTrustedBy';
 import YandexMap from './components/landing/YandexMap/YandexMap';
 import SignIn from './components/personal_account/common_comps/SignIn/SignIn';
+import MainStudentPage from './components/personal_account/StudentPage/MainStudentPage/MainStudentPage';
 import MainTeacherPage from './components/personal_account/TeacherPage/MainTeacherPage/MainTeacherPage';
 
 function App() {
@@ -43,7 +44,8 @@ function App() {
             }
           />
           <Route path="/log_in" element={<SignIn />} />
-          <Route path="/side_bar" element={<MainTeacherPage />} />
+          <Route path="/teacher" element={<MainTeacherPage />} />
+          <Route path="/student" element={<MainStudentPage />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,0 +1,8 @@
+.studentattendance__general {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  background: url('../../../../assets/personal_account_images/attendance.jpg')
+    no-repeat center center;
+  background-size: cover;
+}

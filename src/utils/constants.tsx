@@ -176,9 +176,9 @@ export const TeachersMenuItems: SidebarMainMenuItems[] = [
 ];
 
 export const StudentsMenuItems: SidebarMainMenuItems[] = [
-  { icon: 'bar-chart', label: 'Дэшборд', disabled: true },
+  { icon: 'bar-chart', label: 'Обратная связь', disabled: true },
   { icon: 'calendar', label: 'Расписание', disabled: false },
-  { icon: 'book-2', label: 'Домашние задания', disabled: false },
+  { icon: 'book-2', label: 'Домашние задания', disabled: true },
   { icon: 'service', label: 'Оплаты', disabled: false },
 ];
 

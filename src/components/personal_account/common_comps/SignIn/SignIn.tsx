@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import Header from '../../../landing/Header/Header';
 import './SignIn.css';
 
 const SignIn = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('Логин:', login);
-    console.log('Пароль:', password);
+    if (login === 'student' && password === 'student') {
+      navigate('/student');
+    } else if (login === 'teacher' && password === 'teacher') {
+      navigate('/teacher');
+    } else {
+      console.log('Неверный логин или пароль');
+    }
   };
 
   return (
