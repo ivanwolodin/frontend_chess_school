@@ -88,16 +88,16 @@ const AttendanceTable: React.FC<Props> = ({ full, ...studentData }) => {
                       selectedCell.studentName === studentName &&
                       selectedCell.day === day && (
                         <div ref={dropdownRef} className="attendance__dropdown">
-                          <div className="item">
-                            <div className="square green"></div>
+                          <div className="attendance__item">
+                            <div className="attendance__square attendance__cell_attended"></div>
                             <div>Посетил</div>
                           </div>
-                          <div className="item">
-                            <div className="square red"></div>
+                          <div className="attendance__item">
+                            <div className="attendance__square attendance__cell_unattended"></div>
                             <div>Пропустил</div>
                           </div>
-                          <div className="item">
-                            <div className="square yellow"></div>
+                          <div className="attendance__item">
+                            <div className="attendance__square attendance__cell_spravka"></div>
                             <div>Болел</div>
                           </div>
                         </div>

@@ -6,13 +6,9 @@
   /* position: relative; */
 }
 
-.attendance__table {
-  /* overflow-x: auto; */
-  overflow: hidden;
-}
 
 .attendance__register {
-  position: relative; /* This ensures it does not interfere with z-index */
+  position: relative; 
   z-index: auto;
 }
 
@@ -125,7 +121,7 @@ td.name-cell {
 
 .attendance__dropdown {
   position: absolute; /* or position: fixed; */
-  z-index: 1000;
+  z-index: 100000;
   flex-direction: column;
   background-color: white;
   border: 1px solid #cccccc;
@@ -134,7 +130,7 @@ td.name-cell {
 }
 
 
-.item {
+.attendance__item {
   display: flex;
   align-items: center;
   padding-right: 10px;
@@ -143,24 +139,12 @@ td.name-cell {
   cursor: pointer;
 }
 
-.item:hover {
+.attendance__item:hover {
   background-color: lightgrey;
 }
 
-.square {
+.attendance__square {
   width: 20px;
   height: 20px;
   margin-right: 10px;
-}
-
-.green {
-  background-color: #80c360;
-}
-
-.red {
-  background-color: #fa5332;
-}
-
-.yellow {
-  background-color: #ef9e24;
 }
