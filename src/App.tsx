@@ -13,8 +13,6 @@ import TeachersCards from './components/landing/TeachersCards/TeachersCards';
 import VideoSection from './components/landing/VideoSection/VideoSection';
 import WeAreTrustedBy from './components/landing/WeAreTrustedBy/WeAreTrustedBy';
 import YandexMap from './components/landing/YandexMap/YandexMap';
-// import SideBar from './components/personal_account/SideBar/SideBar';
-// import SignIn from './components/personal_account/SignIn/SignIn';
 import SignIn from './components/personal_account/common_comps/SignIn/SignIn';
 import MainTeacherPage from './components/personal_account/TeacherPage/MainTeacherPage/MainTeacherPage';
 

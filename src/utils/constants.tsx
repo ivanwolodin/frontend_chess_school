@@ -169,26 +169,26 @@ export const partnersData: WeAreTrustedByProps[] = [
 ];
 
 export const TeachersMenuItems: SidebarMainMenuItems[] = [
-  { icon: 'bar-chart', label: 'Дэшборд' },
-  { icon: 'calendar', label: 'Расписание' },
-  { icon: 'book-2', label: 'Домашние задания' },
-  { icon: 'service', label: 'Персональные данные' },
+  { icon: 'bar-chart', label: 'Дэшборд', disabled: true },
+  { icon: 'calendar', label: 'Расписание', disabled: false },
+  { icon: 'book-2', label: 'Домашние задания', disabled: true },
+  { icon: 'service', label: 'Персональные данные', disabled: false },
 ];
 
 export const StudentsMenuItems: SidebarMainMenuItems[] = [
-  { icon: 'bar-chart', label: 'Дэшборд' },
-  { icon: 'calendar', label: 'Расписание' },
-  { icon: 'book-2', label: 'Домашние задания' },
-  { icon: 'service', label: 'Оплаты' },
+  { icon: 'bar-chart', label: 'Дэшборд', disabled: true },
+  { icon: 'calendar', label: 'Расписание', disabled: false },
+  { icon: 'book-2', label: 'Домашние задания', disabled: false },
+  { icon: 'service', label: 'Оплаты', disabled: false },
 ];
 
 export const SuperAdminMenuItems: SidebarMainMenuItems[] = [
-  { icon: 'bar-chart', label: 'Дэшборд' },
-  { icon: 'calendar', label: 'Расписание' },
-  { icon: 'book-2', label: 'Занести ученика' },
-  { icon: 'service', label: 'Статистика оплат' },
-  { icon: 'book-2', label: 'Ответить на вопрос' },
-  { icon: 'ink-bottle', label: 'Добавить новость' },
+  { icon: 'bar-chart', label: 'Дэшборд', disabled: false },
+  { icon: 'calendar', label: 'Расписание', disabled: false },
+  { icon: 'book-2', label: 'Занести ученика', disabled: false },
+  { icon: 'service', label: 'Статистика оплат', disabled: false },
+  { icon: 'book-2', label: 'Ответить на вопрос', disabled: false },
+  { icon: 'ink-bottle', label: 'Добавить новость', disabled: false },
 ];
 
 export const attendanceData: AttendanceData = {

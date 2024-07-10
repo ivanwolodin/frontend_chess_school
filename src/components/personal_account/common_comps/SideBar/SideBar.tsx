@@ -66,6 +66,7 @@ const SideBar: React.FC<SideBarProps> = ({
               key={key}
               icon={<Icon name={item.icon}></Icon>}
               onClick={() => handleSelectedItemClick(item.label)}
+              disabled={item.disabled}
             >
               {item.label}
             </MenuItem>
@@ -85,10 +86,10 @@ const SideBar: React.FC<SideBarProps> = ({
               Дополнительно
             </Typography>
           </div>
-          <MenuItem disabled icon={<Icon name="global" />}>
+          <MenuItem disabled={true} icon={<Icon name="global" />}>
             Lichess
           </MenuItem>
-          <MenuItem disabled icon={<Icon name="diamond" />}>
+          <MenuItem disabled={true} icon={<Icon name="diamond" />}>
             Сменить пароль
           </MenuItem>
         </Menu>

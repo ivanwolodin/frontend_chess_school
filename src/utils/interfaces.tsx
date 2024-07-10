@@ -41,6 +41,7 @@ export interface SidebarMainMenuItems {
     | 'ink-bottle'
     | 'global';
   label: string;
+  disabled: boolean;
 }
 
 export interface StudentAttendance {
