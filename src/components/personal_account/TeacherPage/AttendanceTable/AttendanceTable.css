@@ -2,13 +2,10 @@
   width: 100%;
   max-width: 800px;
   margin: 20px auto;
-
-  /* position: relative; */
 }
 
-
 .attendance__register {
-  position: relative; 
+  position: relative;
   z-index: auto;
 }
 
@@ -45,61 +42,7 @@ td.name-cell {
   background-color: black;
 }
 
-.status-cell {
-  position: relative;
-  cursor: pointer;
-}
-
-.status-cell:hover {
-  background-color: #f0f0f0;
-}
-
-.status-text {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  z-index: 1;
-  display: none;
-  padding: 5px;
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
-  transform: translateX(-50%);
-}
-
-.status-cell:hover .status-text {
-  display: block;
-}
-
-.attended {
-  background-color: #c8e6c9;
-}
-
-.spravka {
-  background-color: #fff9c4;
-}
-
-.unattended {
-  background-color: #ffcdd2;
-}
-
-.attendance__save_button {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  color: #ffffff;
-  font-size: 16px;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.attendance__save_button:hover {
-  background-color: rgb(216 216 121);
-}
-
-.attendance__cell {
+.attendance__cell_inactive {
   padding: 5px;
   background-color: grey;
 }
@@ -129,7 +72,6 @@ td.name-cell {
   box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
 }
 
-
 .attendance__item {
   display: flex;
   align-items: center;
@@ -147,4 +89,26 @@ td.name-cell {
   width: 20px;
   height: 20px;
   margin-right: 10px;
+}
+
+.attendance__save_button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  color: #ffffff;
+  font-size: 16px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.attendance__save_button_disabled {
+  background-color: gray;
+  cursor: auto;
+}
+
+.attendance__save_button:hover:enabled {
+  background-color: rgb(216 216 121);
+  cursor: pointer;
 }
