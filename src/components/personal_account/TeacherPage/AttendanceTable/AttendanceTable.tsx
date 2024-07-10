@@ -12,6 +12,12 @@ const AttendanceTable: React.FC<MonthData> = ({ full, ...studentData }) => {
   const [attendanceData, setAttendanceData] = useState(studentData);
   const [isSaveButtonActive, setIsSaveButtonActive] = useState(false);
 
+  useEffect(() => {
+    if (JSON.stringify(attendanceData) !== JSON.stringify(studentData)) {
+      setAttendanceData(studentData);
+    }
+  }, [attendanceData, studentData]);
+
   const handleCellClick = (studentName: string, day: string) => {
     const className = getCellClassName(studentName, day);
     if (className !== 'attendance__cell_inactive') {
@@ -48,7 +54,6 @@ const AttendanceTable: React.FC<MonthData> = ({ full, ...studentData }) => {
           studentAttendance.spravka.push(selectedCell.day);
         }
 
-        // TODO: сделать честную проверку
         setIsSaveButtonActive(true);
         setIsDropdownOpen(false);
         return updatedData;
@@ -184,7 +189,11 @@ const AttendanceTable: React.FC<MonthData> = ({ full, ...studentData }) => {
         </table>
       </div>
       <button
-        className={`${isSaveButtonActive ? 'attendance__save_button' : 'attendance__save_button attendance__save_button_disabled'}`}
+        className={`${
+          isSaveButtonActive
+            ? 'attendance__save_button'
+            : 'attendance__save_button attendance__save_button_disabled'
+        }`}
         onClick={handleSaveButtonClick}
         disabled={!isSaveButtonActive}
       >
