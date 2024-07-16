@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Popup from 'reactjs-popup';
+import { Popup } from 'reactjs-popup';
 
 import { attendanceData, months } from '../../../../utils/constants';
 import { AttendancePopupProps } from '../../../../utils/interfaces';

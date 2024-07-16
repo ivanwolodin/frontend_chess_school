@@ -87,3 +87,7 @@ export interface AttendancePopupProps {
   handleLeftArrowClick: () => void;
   handleRightArrowClick: () => void;
 }
+export interface PaymentInfoPopupProps {
+  open: boolean;
+  closeModal: () => void;
+}
