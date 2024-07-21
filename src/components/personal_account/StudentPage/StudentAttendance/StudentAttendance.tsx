@@ -55,6 +55,16 @@ const StudentAttendance: React.FC = () => {
   return (
     <>
       <div className="studentattendance__general">
+        <div className="studentattendance__additional_info">
+          <p className="studentattendance__name">
+            Добрый день, <b>Василий Иванов!</b>
+          </p>
+          <p className="studentattendance__payment_sum">
+            В настоящий момент у Вас есть задолженность в размере{' '}
+            <b>6700 рублей</b> &#129402;
+          </p>
+          <button className="studentattendance__exit"> Выйти из ЛК </button>
+        </div>
         <h1 className="studentattendance__title">Статистика посещений</h1>
         <Calendar
           className="studentattendance__calendar"

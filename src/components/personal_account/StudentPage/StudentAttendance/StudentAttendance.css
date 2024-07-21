@@ -1,5 +1,30 @@
 /* stylelint-disable selector-class-pattern */
 
+.studentattendance__additional_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+  background-color: #a2d6f9;
+}
+
+.studentattendance__exit {
+  margin-right: 20px;
+
+  /* margin-left: auto; */
+  padding: 5px;
+  background-color: pink;
+  cursor: pointer;
+}
+
+.studentattendance__name {
+  margin-left: 20px;
+}
+
+.studentattendance__payment_sum {
+  align-self: center;
+}
+
 .studentattendance__general {
   display: flex;
   flex-grow: 1;
