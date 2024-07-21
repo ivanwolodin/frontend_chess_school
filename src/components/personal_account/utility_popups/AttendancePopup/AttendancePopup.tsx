@@ -4,7 +4,7 @@ import { Popup } from 'reactjs-popup';
 
 import { attendanceData, months } from '../../../../utils/constants';
 import { AttendancePopupProps } from '../../../../utils/interfaces';
-import AttendanceTable from '../AttendanceTable/AttendanceTable';
+import AttendanceTable from '../../TeacherPage/ManageAttendance/AttendanceTable/AttendanceTable';
 import './AttendancePopup.css';
 
 const AttendancePopup: React.FC<AttendancePopupProps> = ({

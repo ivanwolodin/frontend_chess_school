@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 
 import './ManageAttendance.css';
 import { attendanceData } from '../../../../utils/constants';
-import AttendancePopup from '../AttendancePopup/AttendancePopup';
+import AttendancePopup from '../../utility_popups/AttendancePopup/AttendancePopup';
 
 const ManageAttendance: React.FC = () => {
   const [width, setWidth] = useState<number>(400);
@@ -47,40 +47,42 @@ const ManageAttendance: React.FC = () => {
   };
 
   return (
-    <div
-      className={`${open ? 'manageattendance__general manageattendance__general_blur' : 'manageattendance__general'}`}
-    >
+    <>
       <div
-        ref={containerRef}
-        className="manageattendance__container"
-        style={{ width: `${width}px` }}
+        className={`${open ? 'manageattendance__general manageattendance__general_blur' : 'manageattendance__general'}`}
       >
-        <div className="manageattendance__title">Список групп</div>
-        <div className="manageattendance__group_list">
-          {items.map((item, index) => (
-            <button
-              key={index}
-              className="manageattendance__group_item"
-              onClick={() => handleItemClick(item)}
-            >
-              {item}
-            </button>
-          ))}
+        <div
+          ref={containerRef}
+          className="manageattendance__container"
+          style={{ width: `${width}px` }}
+        >
+          <div className="manageattendance__title">Список групп</div>
+          <div className="manageattendance__group_list">
+            {items.map((item, index) => (
+              <button
+                key={index}
+                className="manageattendance__group_item"
+                onClick={() => handleItemClick(item)}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+          <button
+            className="manageattendance__vertical_line"
+            onMouseDown={handleMouseDown}
+          ></button>
         </div>
-        <button
-          className="manageattendance__vertical_line"
-          onMouseDown={handleMouseDown}
-        ></button>
+        <AttendancePopup
+          open={open}
+          selectedItem={selectedItem}
+          currentMonth={currentMonth}
+          closeModal={closeModal}
+          handleLeftArrowClick={handleLeftArrowClick}
+          handleRightArrowClick={handleRightArrowClick}
+        />
       </div>
-      <AttendancePopup
-        open={open}
-        selectedItem={selectedItem}
-        currentMonth={currentMonth}
-        closeModal={closeModal}
-        handleLeftArrowClick={handleLeftArrowClick}
-        handleRightArrowClick={handleRightArrowClick}
-      />
-    </div>
+    </>
   );
 };
 

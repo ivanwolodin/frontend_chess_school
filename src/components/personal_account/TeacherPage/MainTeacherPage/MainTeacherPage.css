@@ -1,6 +1,10 @@
 .teacherpage__general {
   display: flex;
   flex-direction: row;
+}
+
+.teacherpage__maincontent {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 100%;
 }

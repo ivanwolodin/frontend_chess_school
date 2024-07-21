@@ -1,3 +1,30 @@
-p {
-  padding: 0;
+.paymentpopup__general {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 25px;
+}
+
+.paymentpopup__info {
+  padding-bottom: 50px;
+  font-size: 35px;
+}
+
+.paymentpopup__input {
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.paymentpopup__payment_sum {
+  padding-top: 10px;
+}
+
+.paymentpopup__confirm_button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #a2d6f9;
+  border-radius: 10px;
+  cursor: pointer;
 }

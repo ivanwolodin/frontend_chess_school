@@ -1,0 +1,8 @@
+.teacherpersonaldata__general {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  background: url('../../../../assets/personal_account_images/personal_data.jpg')
+    no-repeat center center;
+  background-size: cover;
+}

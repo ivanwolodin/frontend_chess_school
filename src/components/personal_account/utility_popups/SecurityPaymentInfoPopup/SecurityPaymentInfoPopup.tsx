@@ -9,11 +9,13 @@ const SecurityPaymentInfoPopup: React.FC<PaymentInfoPopupProps> = ({
 }) => {
   return (
     <Popup open={open} onClose={closeModal} closeOnEscape={true}>
-      <div className="modal">
+      <div className="modal" style={{ backgroundColor: 'wheat' }}>
         <button className="close" onClick={closeModal}>
           &times;
         </button>
-        Тут слова про безопасность платежа на!
+        <p className="statisticspaymentpopup__info">
+          Здесь появится статистика всех Ваших платежей
+        </p>
       </div>
     </Popup>
   );

@@ -4,3 +4,21 @@
     no-repeat center center;
   background-size: cover;
 }
+
+.studentpayment__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.studentpayment__button {
+  max-width: 200px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.studentpayment__button:hover {
+  background-color: rgb(227 227 48);
+}

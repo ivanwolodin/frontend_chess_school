@@ -1,0 +1,36 @@
+.additionalhorizontalinfoline__additional_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background-color: #a2d6f9;
+}
+
+.additionalhorizontalinfoline__exit {
+  margin-right: 20px;
+  padding: 7px;
+  background-color: pink;
+  cursor: pointer;
+}
+
+.additionalhorizontalinfoline__name {
+  margin-left: 20px;
+  text-align: center;
+}
+
+.additionalhorizontalinfoline__payment_sum {
+  align-self: center;
+  text-align: center;
+}
+
+@media (width <= 730px) {
+  .additionalhorizontalinfoline__additional_info {
+    flex-direction: column;
+    height: 160px;
+  }
+
+  .additionalhorizontalinfoline__exit {
+    margin-bottom: 10px;
+  }
+}

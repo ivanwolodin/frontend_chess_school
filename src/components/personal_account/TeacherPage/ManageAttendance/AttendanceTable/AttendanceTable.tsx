@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import './AttendanceTable.css';
-import { StudentAttendance, MonthData } from '../../../../utils/interfaces';
+import { StudentAttendance, MonthData } from '../../../../../utils/interfaces';
 
 const AttendanceTable: React.FC<MonthData> = ({ full, ...studentData }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

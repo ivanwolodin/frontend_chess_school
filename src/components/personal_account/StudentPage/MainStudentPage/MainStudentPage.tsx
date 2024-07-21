@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { StudentsMenuItems } from '../../../../utils/constants';
+import AdditionalHorizontalInfoLine from '../../common_comps/AdditionalHorizontalInfoLine/AdditionalHorizontalInfoLine';
 import SideBar from '../../common_comps/SideBar/SideBar';
 import StudentAttendance from '../StudentAttendance/StudentAttendance';
 import StudentPayment from '../StudentPayment/StudentPayment';
@@ -19,13 +20,16 @@ const MainStudentPage = () => {
 
   return (
     <>
-      <div className="teacherpage__general">
+      <div className="studentpage__general">
         <SideBar
           menuItems={StudentsMenuItems}
           handleElementChoice={handleSelectedItemClick}
         />
-        {selectedItemName === 'Расписание' && <StudentAttendance />}
-        {selectedItemName === 'Оплаты' && <StudentPayment />}
+        <div className="studentpage__content">
+          <AdditionalHorizontalInfoLine />
+          {selectedItemName === 'Расписание' && <StudentAttendance />}
+          {selectedItemName === 'Оплаты' && <StudentPayment />}
+        </div>
       </div>
     </>
   );

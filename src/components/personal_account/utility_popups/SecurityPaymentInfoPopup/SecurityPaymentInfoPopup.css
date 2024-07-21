@@ -1,3 +1,9 @@
 .securitypaymentinfopopup__general {
   padding: 0;
 }
+
+.statisticspaymentpopup__info {
+  display: flex;
+  align-self: center;
+  font-size: 25px;
+}
