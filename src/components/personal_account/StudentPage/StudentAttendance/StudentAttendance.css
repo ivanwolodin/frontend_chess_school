@@ -56,3 +56,15 @@
 .react-calendar {
   border: 2px solid black;
 }
+
+@media (width <= 430px) {
+  .studentattendance__title {
+    padding: 0;
+    text-align: center;
+  }
+
+  .studentattendance__calendar {
+    margin: 0;
+    padding: 0;
+  }
+}

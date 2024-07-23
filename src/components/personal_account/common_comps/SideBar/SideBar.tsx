@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 
@@ -12,6 +12,8 @@ import { SideBarProps } from '../../../../utils/interfaces';
 const SideBar: React.FC<SideBarProps> = ({
   menuItems,
   handleElementChoice,
+  toggled,
+  handleSideBarToggle,
 }) => {
   const [collapsed, setCollapsed] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -22,7 +24,14 @@ const SideBar: React.FC<SideBarProps> = ({
   const handleSelectedItemClick = (itemName: string) => {
     setSelectedItemName(itemName);
     handleElementChoice(itemName);
+    handleSideBarToggle(!toggled);
   };
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [toggledSideBar, setToggledSideBar] = useState(toggled);
+
+  useEffect(() => {
+    setToggledSideBar(toggled);
+  }, [toggled]);
 
   return (
     <section
@@ -36,6 +45,9 @@ const SideBar: React.FC<SideBarProps> = ({
         backgroundColor="#a2d6f9"
         collapsed={collapsed}
         style={{ borderRadius: '5px' }}
+        onBackdropClick={() => handleSideBarToggle(!toggled)}
+        toggled={toggledSideBar}
+        breakPoint="all"
       >
         <SidebarHeader
           rtl={false}

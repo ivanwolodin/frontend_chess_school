@@ -17,6 +17,12 @@ const MainStudentPage = () => {
     setSelectedItemName(itemName);
     console.log('Нажато:' + itemName);
   };
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [toggled, setToggled] = useState(true);
+
+  const handleSideBarToggle = () => {
+    setToggled(!toggled);
+  };
 
   return (
     <>
@@ -24,9 +30,11 @@ const MainStudentPage = () => {
         <SideBar
           menuItems={StudentsMenuItems}
           handleElementChoice={handleSelectedItemClick}
+          toggled={toggled}
+          handleSideBarToggle={handleSideBarToggle}
         />
         <div className="studentpage__content">
-          <AdditionalHorizontalInfoLine />
+          <AdditionalHorizontalInfoLine setToggled={handleSideBarToggle} />
           {selectedItemName === 'Расписание' && <StudentAttendance />}
           {selectedItemName === 'Оплаты' && <StudentPayment />}
         </div>

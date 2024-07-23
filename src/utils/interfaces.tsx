@@ -15,6 +15,8 @@ export interface NewsCardProps {
 export interface SideBarProps {
   menuItems: SidebarMainMenuItems[];
   handleElementChoice: (item: string) => void;
+  toggled: boolean;
+  handleSideBarToggle: (item: boolean) => void;
 }
 
 export interface TeacherCardProps {

@@ -19,15 +19,22 @@ const MainTeacherPage = () => {
     setSelectedItemName(itemName);
     console.log('Нажато:' + itemName);
   };
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [toggled, setToggled] = useState(true);
 
+  const handleSideBarToggle = () => {
+    setToggled(!toggled);
+  };
   return (
     <div className="teacherpage__general">
       <SideBar
         menuItems={TeachersMenuItems}
         handleElementChoice={handleSelectedItemClick}
+        toggled={toggled}
+        handleSideBarToggle={handleSideBarToggle}
       />
       <div className="teacherpage__maincontent">
-        <AdditionalHorizontalInfoLine />
+        <AdditionalHorizontalInfoLine setToggled={handleSideBarToggle} />
         {selectedItemName === 'Расписание' && <ManageAttendance />}
         {selectedItemName === 'Дэшборд' && <Dashboard />}
         {selectedItemName === 'Домашние задания' && <ManageHomework />}
