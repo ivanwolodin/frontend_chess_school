@@ -1,8 +1,5 @@
+import { AdditionalHorizontalInfoLineProps } from '../../../../utils/interfaces';
 import './AdditionalHorizontalInfoLine.css';
-
-interface AdditionalHorizontalInfoLineProps {
-  setToggled: () => void;
-}
 
 const AdditionalHorizontalInfoLine: React.FC<
   AdditionalHorizontalInfoLineProps

@@ -17,8 +17,7 @@ const MainStudentPage = () => {
     setSelectedItemName(itemName);
     console.log('Нажато:' + itemName);
   };
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [toggled, setToggled] = useState(true);
+  const [toggled, setToggled] = useState(false);
 
   const handleSideBarToggle = () => {
     setToggled(!toggled);

@@ -26,7 +26,6 @@ const SideBar: React.FC<SideBarProps> = ({
     handleElementChoice(itemName);
     handleSideBarToggle(!toggled);
   };
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [toggledSideBar, setToggledSideBar] = useState(toggled);
 
   useEffect(() => {
