@@ -56,6 +56,14 @@
   cursor: pointer;
 }
 
-.signin__button:hover {
+/* .signin__button:hover {
   background-color: #0056b3;
+} */
+
+.signin__button_disabled {
+  background-color: #cccccc;
+}
+
+.signin__info {
+  margin-top: 10px;
 }

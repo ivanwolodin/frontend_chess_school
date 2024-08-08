@@ -38,6 +38,7 @@ const SignIn = () => {
                 value={login}
                 onChange={(e) => setLogin(e.target.value)}
                 className="signin__input"
+                disabled
               />
             </div>
             <div className="signin__input-group">
@@ -50,11 +51,18 @@ const SignIn = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="signin__input"
+                disabled
               />
             </div>
-            <button type="submit" className="signin__button">
+            <button
+              type="submit"
+              className="signin__button signin__button_disabled"
+            >
               Войти
             </button>
+            <p className="signin__info">
+              Пока вход не доступен, но мы скоро вернёмся !{' '}
+            </p>
           </form>
         </div>
       </div>

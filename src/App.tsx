@@ -7,6 +7,7 @@ import Header from './components/landing/Header/Header';
 import HorizontalLine from './components/landing/HorizontalLine/HorizontalLine';
 import InfoTinyCards from './components/landing/InfoTinyCards/InfoTinyCards';
 import Intro from './components/landing/Intro/Intro';
+import NewYearAdmission from './components/landing/NewYearAdmission/NewYearAdmission';
 import Reviews from './components/landing/Reviews/Reviews';
 import SliderNews from './components/landing/SliderNews/SliderNews';
 import TeachersCards from './components/landing/TeachersCards/TeachersCards';
@@ -27,6 +28,7 @@ function App() {
             element={
               <>
                 <Header />
+                <NewYearAdmission />
                 <Intro />
                 <InfoTinyCards />
                 <HorizontalLine />
