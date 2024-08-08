@@ -45,6 +45,7 @@
   padding: 10px;
   border: 1px solid #cccccc;
   border-radius: 3px;
+  min-width: 190px;
 }
 
 .admissionform__button {
@@ -114,7 +115,7 @@
   }
 
   .admissionform__input {
-    min-width: 150px;
+    min-width: 200px;
   }
 
   .admissionform__title {
@@ -124,7 +125,7 @@
 
 @media (width <= 440px) {
   .admissionform__input {
-    min-width: 100px;
+    min-width: 190px;
   }
 
   .admissionform__title {

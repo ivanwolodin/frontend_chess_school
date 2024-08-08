@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import './AdmissionForm.css';
+import { sendDataToServer } from '../../../api/api';
 
 const AdmissionForm: React.FC = () => {
+  const [showResult, setShowResult] = useState(false);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,7 +14,7 @@ const AdmissionForm: React.FC = () => {
     phone: '',
   });
 
-  const [showResult, setShowResult] = useState(false);
+  const [resultMessage, setResultMessage] = useState('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -19,12 +23,12 @@ const AdmissionForm: React.FC = () => {
     });
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const result = await sendDataToServer(formData);
+    setResultMessage(result);
     setShowResult(true);
-    setTimeout(() => {
-      setShowResult(false);
-    }, 2000);
     setFormData({
       name: '',
       email: '',
@@ -33,6 +37,12 @@ const AdmissionForm: React.FC = () => {
       phone: '',
     });
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setResultMessage('');
+    }, 3000);
+  }, [resultMessage]);
 
   return (
     <section className="admissionform__wrapper">
@@ -44,6 +54,7 @@ const AdmissionForm: React.FC = () => {
               Контактное имя:
             </label>
             <input
+              required
               className="admissionform__input"
               type="text"
               id="name"
@@ -57,6 +68,7 @@ const AdmissionForm: React.FC = () => {
               Email:
             </label>
             <input
+              required
               className="admissionform__input"
               type="email"
               id="email"
@@ -70,6 +82,7 @@ const AdmissionForm: React.FC = () => {
               Имя ребенка:
             </label>
             <input
+              required
               className="admissionform__input"
               type="text"
               id="childName"
@@ -83,8 +96,9 @@ const AdmissionForm: React.FC = () => {
               Год рождения:
             </label>
             <input
+              required
               className="admissionform__input"
-              type="number"
+              type="date"
               id="birthYear"
               name="birthYear"
               value={formData.birthYear}
@@ -96,8 +110,9 @@ const AdmissionForm: React.FC = () => {
               Телефон:
             </label>
             <input
+              required
               className="admissionform__input"
-              type="tel"
+              type="number"
               id="phone"
               name="phone"
               value={formData.phone}
@@ -110,9 +125,7 @@ const AdmissionForm: React.FC = () => {
         </button>
         {showResult && (
           <div className="admissionform__result">
-            <p className="admissionform__feedback">
-              Ваша заявка принята! {formData.name}
-            </p>
+            <p className="admissionform__feedback">{resultMessage}</p>
           </div>
         )}
       </form>
