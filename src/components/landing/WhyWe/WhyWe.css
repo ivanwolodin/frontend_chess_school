@@ -1,0 +1,50 @@
+.why-we {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.why-we__title {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.why-we__subtitle {
+  margin-bottom: 2rem;
+  color: #555555;
+  font-size: 1.2rem;
+}
+
+.why-we__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.why-we__card {
+  width: calc(50% - 10px);
+  max-width: 300px;
+  padding: 20px;
+  text-align: left;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
+}
+
+.why-we__card-title {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.why-we__card-text {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (width <= 768px) {
+  .why-we__card {
+    width: 100%;
+  }
+}

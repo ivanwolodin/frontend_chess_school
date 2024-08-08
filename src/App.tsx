@@ -13,6 +13,7 @@ import SliderNews from './components/landing/SliderNews/SliderNews';
 import TeachersCards from './components/landing/TeachersCards/TeachersCards';
 import VideoSection from './components/landing/VideoSection/VideoSection';
 import WeAreTrustedBy from './components/landing/WeAreTrustedBy/WeAreTrustedBy';
+import WhyWe from './components/landing/WhyWe/WhyWe';
 import YandexMap from './components/landing/YandexMap/YandexMap';
 import SignIn from './components/personal_account/common_comps/SignIn/SignIn';
 import MainStudentPage from './components/personal_account/StudentPage/MainStudentPage/MainStudentPage';
@@ -29,6 +30,7 @@ function App() {
               <>
                 <Header />
                 <NewYearAdmission />
+                <WhyWe />
                 <Intro />
                 <InfoTinyCards />
                 <HorizontalLine />
