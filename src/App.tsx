@@ -9,6 +9,7 @@ import InfoTinyCards from './components/landing/InfoTinyCards/InfoTinyCards';
 import Intro from './components/landing/Intro/Intro';
 import NewYearAdmission from './components/landing/NewYearAdmission/NewYearAdmission';
 import Reviews from './components/landing/Reviews/Reviews';
+import ScheduleCommercial from './components/landing/ScheduleCommercial/ScheduleCommercial';
 import SliderNews from './components/landing/SliderNews/SliderNews';
 import TeachersCards from './components/landing/TeachersCards/TeachersCards';
 import VideoSection from './components/landing/VideoSection/VideoSection';
@@ -31,6 +32,7 @@ function App() {
                 <Header />
                 <NewYearAdmission />
                 <WhyWe />
+                <ScheduleCommercial />
                 <Intro />
                 <InfoTinyCards />
                 <HorizontalLine />

@@ -1,0 +1,80 @@
+.schedule-commercial {
+  padding: 40px 0;
+  text-align: center;
+  background-color: #f2f2f2;
+}
+
+.schedule-commercial__background {
+  margin: 60px;
+  background-color: white;
+}
+
+.schedule-commercial__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.schedule-commercial__image {
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 20px;
+}
+
+.schedule-commercial__text {
+  max-width: 500px;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.schedule-commercial__text-small {
+  margin-bottom: 10px;
+  color: #555555;
+
+  /* margin-left: 20px; */
+  color: gray;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.schedule-commercial__text-big {
+  /* margin-left: 20px; */
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.schedule-commercial__text-description {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.schedule-commercial__button {
+  margin-bottom: 50px;
+  padding: 12px 20px;
+  color: white;
+  font-size: 1rem;
+  background-color: #ff8562;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+@media (width <= 768px) {
+  .schedule-commercial__container {
+    flex-direction: column-reverse;
+  }
+
+  .schedule-commercial__text {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .schedule-commercial__image {
+    margin-bottom: 20px;
+  }
+}
