@@ -42,10 +42,10 @@
 
 .admissionform__input {
   box-sizing: border-box;
+  min-width: 190px;
   padding: 10px;
   border: 1px solid #cccccc;
   border-radius: 3px;
-  min-width: 190px;
 }
 
 .admissionform__button {
