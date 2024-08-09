@@ -11,14 +11,7 @@ const NewYearAdmission = () => {
   };
   return (
     <section className="newyearadmission__general">
-      <div className="newyearadmission__about_chess">
-        <div className="newyearadmission__logo"></div>
-        <p className="newyearadmission__general_text">
-          Изучите наш сайт, чтобы познакомиться с шахматной игрой, узнать о
-          шахматных стратегиях, турнирах и возможностях обучения в нашей
-          шахматной школе.
-        </p>
-      </div>
+      <div className="newyearadmission__about_chess"></div>
       <div className="newyearadmission__main_content">
         <div className="newyearadmission__yellow">
           <div className="newyearadmission__admission_info">

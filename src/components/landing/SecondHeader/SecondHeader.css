@@ -1,0 +1,46 @@
+.second-header__general {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+}
+
+.second-header__icons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  list-style-type: none;
+}
+
+.second-header__icon{
+    width: 30px;
+    height: 26px;
+    cursor: pointer;
+}
+
+.second-header__logo {
+  content: url('../../../../public/logo_little.png');
+  max-width: 400px;
+}
+
+.second-header__icon:hover{
+    transform: scale(1.5);
+    transition: all .2s ease-in-out 0s;
+}
+
+@media (width <= 1150px) {
+    .second-header__general {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .second-header__logo{
+        order: -1;
+    }
+    .second-header__quotation{
+        margin-top: 40px;
+    }
+    .second-header__icons{
+        margin-top: 20px;
+    }
+}

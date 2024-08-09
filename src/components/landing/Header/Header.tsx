@@ -27,9 +27,9 @@ const Header = () => {
         <li className="header__item">О ШКОЛЕ</li>
         <li className="header__item">График</li>
         <li className="header__item">ПОСТУПЛЕНИЕ</li>
-        <li className="header__item">
+        <li className="header__item header__log_in rotate">
           <Link className="header__link" to="/log_in">
-            ЛИЧНЫЙ КАБИНЕТ
+            ВОЙТИ
           </Link>
         </li>
       </ul>

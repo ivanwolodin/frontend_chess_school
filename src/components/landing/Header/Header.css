@@ -46,6 +46,20 @@
   cursor: pointer;
 }
 
+.header__log_in {
+  animation-name: rotation-circle;
+}
+
+.rotate {
+  animation: rotation-circle 5.5s ease-in infinite;
+}
+
+@keyframes rotation-circle {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .header__item:hover {
   color: white;
 }

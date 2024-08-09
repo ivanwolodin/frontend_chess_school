@@ -10,6 +10,7 @@ import Intro from './components/landing/Intro/Intro';
 import NewYearAdmission from './components/landing/NewYearAdmission/NewYearAdmission';
 import Reviews from './components/landing/Reviews/Reviews';
 import ScheduleCommercial from './components/landing/ScheduleCommercial/ScheduleCommercial';
+import SecondHeader from './components/landing/SecondHeader/SecondHeader';
 import SliderNews from './components/landing/SliderNews/SliderNews';
 import TeachersCards from './components/landing/TeachersCards/TeachersCards';
 import VideoSection from './components/landing/VideoSection/VideoSection';
@@ -30,6 +31,7 @@ function App() {
             element={
               <>
                 <Header />
+                <SecondHeader />
                 <NewYearAdmission />
                 <WhyWe />
                 <ScheduleCommercial />

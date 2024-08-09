@@ -1,12 +1,6 @@
 .newyearadmission__general {
   display: flex;
   flex-direction: column;
-
-  /* padding-top: 100px; */
-
-  /* padding-right: 60px; */
-
-  /* padding-left: 60px; */
 }
 
 .newyearadmission__logo {
@@ -31,7 +25,6 @@
 }
 
 .newyearadmission__general_text {
-  /* margin-left: auto; */
   padding-left: 100px;
 }
 
@@ -50,13 +43,7 @@
 .newyearadmission__main_content {
   display: flex;
   flex-direction: row;
-
-  /* align-items: center; */
   justify-content: center;
-
-  /* align-items: center; */
-
-  /* align-content: center; */
   padding: 60px;
 }
 
@@ -133,9 +120,6 @@
   }
 
   .newyearadmission__comercial_girl {
-    /* max-width: 40px; */
-
-    /* max-width: unset; */
     min-width: 340px;
     height: 280px;
   }
@@ -146,7 +130,6 @@
   }
 
   .newyearadmission__comercial_text {
-    /* text-align: center; */
     margin-left: 10px;
   }
 
