@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import InfoPopup from '../InfoPopup/InfoPopup';
+
 import './ScheduleCommercial.css';
 
 function ScheduleCommercial() {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowPopup(true);
+  };
+
   return (
     <section className="schedule-commercial">
       <div className="schedule-commercial__container">
@@ -21,12 +30,23 @@ function ScheduleCommercial() {
               нашу школу, когда вы будете свободны от работы, учебы и других
               занятий.
             </p>
-            <button className="schedule-commercial__button">
+            <button
+              className="schedule-commercial__button"
+              onClick={handleButtonClick}
+            >
               Посмотреть расписание
             </button>
           </div>
         </div>
       </div>
+
+      {showPopup && (
+        <InfoPopup
+          onClose={() => setShowPopup(false)}
+          title="Расписание"
+          text="Пока расписание еще не готово, но мы работаем над ним! Следите за обновлениями!"
+        />
+      )}
     </section>
   );
 }

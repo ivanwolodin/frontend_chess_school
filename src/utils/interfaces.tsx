@@ -97,3 +97,8 @@ export interface PaymentInfoPopupProps {
 export interface AdditionalHorizontalInfoLineProps {
   setToggled: () => void;
 }
+export interface InfoPopupProps {
+  onClose: () => void;
+  title: string;
+  text: string;
+}

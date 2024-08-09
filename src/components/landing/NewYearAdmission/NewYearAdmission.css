@@ -74,6 +74,9 @@
 .newyearadmission__button {
   color: #9a452d;
   font-size: 20px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
   cursor: pointer;
 }
 

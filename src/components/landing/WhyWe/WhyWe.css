@@ -97,13 +97,15 @@
 }
 
 @media (width <= 750px) {
-  .why-we__cards{
+  .why-we__cards {
     padding: 15px;
   }
+
   .why-we__card {
     width: 100%;
   }
 }
+
 @media (width <= 500px) {
   .why-we__ulist {
     grid-template-columns: 1fr;

@@ -1,6 +1,14 @@
+import { useState } from 'react';
+
+import InfoPopup from '../InfoPopup/InfoPopup';
 import './NewYearAdmission.css';
 
 const NewYearAdmission = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowPopup(true);
+  };
   return (
     <section className="newyearadmission__general">
       <div className="newyearadmission__about_chess">
@@ -22,13 +30,23 @@ const NewYearAdmission = () => {
               мышление, научит обобщать и сравнивать, поможет сформировать такие
               качества, как усидчивость, внимательность и организованность.
             </p>
-            <div className="newyearadmission__button">
+            <button
+              className="newyearadmission__button"
+              onClick={handleButtonClick}
+            >
               ЗАПИСАТЬСЯ В ШКОЛУ &#8594;
-            </div>
+            </button>
           </div>
         </div>
         <div className="newyearadmission__comercial_girl"></div>
       </div>
+      {showPopup && (
+        <InfoPopup
+          onClose={() => setShowPopup(false)}
+          title="Запись"
+          text="Записаться можно по номеру 2393006. Ждём Вас!"
+        />
+      )}
     </section>
   );
 };
