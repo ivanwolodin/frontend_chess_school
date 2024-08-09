@@ -94,6 +94,10 @@
   .why-we__coach {
     order: -1;
   }
+
+  .why-we__cup {
+    order: 2;
+  }
 }
 
 @media (width <= 750px) {
