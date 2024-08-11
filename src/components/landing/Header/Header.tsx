@@ -24,7 +24,9 @@ const Header = () => {
         </li>
         <li className="header__item">НОВОСТИ</li>
         <li className="header__item">СОРЕВНОВАНИЯ</li>
-        <li className="header__item">О ШКОЛЕ</li>
+        <Link className="header__link" to="/about">
+          О ШКОЛЕ
+        </Link>
         <li className="header__item">График</li>
         <li className="header__item">ПОСТУПЛЕНИЕ</li>
         <li className="header__item rotate">

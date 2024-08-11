@@ -47,8 +47,8 @@
 }
 
 .header__log_in {
-  animation-name: rotation-circle;
   color: #d61818;
+  animation-name: rotation-circle;
 }
 
 .rotate {
