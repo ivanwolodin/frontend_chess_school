@@ -29,6 +29,7 @@ const AboutSchool = () => {
       <HorizontalLine />
       <SliderNews />
       <WeAreTrustedBy />
+      <HorizontalLine />
       <YandexMap />
       <HorizontalLine />
       <Footer />

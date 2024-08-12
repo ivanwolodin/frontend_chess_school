@@ -1,6 +1,7 @@
 .wearetrustedby__general {
   display: flex;
   flex-direction: column;
+  margin-top: 150px;
 }
 
 .wearetrustedby__title {
