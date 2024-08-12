@@ -19,6 +19,10 @@
   cursor: pointer;
 }
 
+.second-header__icon_y {
+  scale: 1.4;
+}
+
 .second-header__logo {
   content: url('../../../../public/logo_little.png');
   max-width: 400px;
