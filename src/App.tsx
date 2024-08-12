@@ -9,6 +9,7 @@ import Footer from './components/landing/Footer/Footer';
 import Header from './components/landing/Header/Header';
 import NewYearAdmission from './components/landing/NewYearAdmission/NewYearAdmission';
 import Reviews from './components/landing/Reviews/Reviews';
+import Schedule from './components/landing/Schedule/Schedule';
 import ScheduleCommercial from './components/landing/ScheduleCommercial/ScheduleCommercial';
 import SecondHeader from './components/landing/SecondHeader/SecondHeader';
 import SignIn from './components/landing/SignIn/SignIn';
@@ -49,6 +50,7 @@ function App() {
           />
           <Route path="/log_in" element={<SignIn />} />
           <Route path="/about" element={<AboutSchool />} />
+          <Route path="/schedule" element={<Schedule />} />
         </Routes>
       </BrowserRouter>
     </>

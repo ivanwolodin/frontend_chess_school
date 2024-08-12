@@ -737,3 +737,90 @@ export const personalDataColumnsSettings: TableColumn<PersonalTableRowData>[] =
       hide: 'md' as unknown as Media,
     },
   ];
+export const scheduleData = [
+  {
+    group: 'Школьники',
+    times: [
+      { day: 'ПН', time: '10:00' },
+      { day: 'ВТ', time: '10:00' },
+      { day: 'СР', time: '10:00' },
+      { day: 'ЧТ', time: '10:00' },
+      { day: 'ПТ', time: '10:00' },
+      { day: 'СБ', time: '12:00' },
+      { day: 'ВС', time: '12:00' },
+    ],
+  },
+  {
+    group: 'Школьники',
+    times: [
+      { day: 'ПН', time: '13:00' },
+      { day: 'ВТ', time: '14:30' },
+      { day: 'СР', time: '13:00' },
+      { day: 'ЧТ', time: '14:30' },
+    ],
+  },
+  {
+    group: 'Школьники',
+    times: [
+      { day: 'ПН', time: '16:00' },
+      { day: 'ВТ', time: '16:30' },
+      { day: 'СР', time: '16:00' },
+      { day: 'ЧТ', time: '16:30' },
+      { day: 'ПТ', time: '16:00' },
+    ],
+  },
+  {
+    group: 'Школьники',
+    times: [
+      { day: 'ПН', time: '17:00' },
+      { day: 'СР', time: '17:00' },
+      { day: 'ПТ', time: '17:00' },
+    ],
+  },
+  {
+    group: 'Школьники',
+    times: [
+      { day: 'ПН', time: '18:30' },
+      { day: 'ВТ', time: '18:30' },
+      { day: 'СР', time: '18:30' },
+      { day: 'ЧТ', time: '18:30' },
+      { day: 'ПТ', time: '18:30' },
+    ],
+  },
+  {
+    group: 'Дошкольники',
+    times: [
+      { day: 'ПТ', time: '16:30' },
+      { day: 'СБ', time: '10:00' },
+      { day: 'ВС', time: '10:00' },
+    ],
+  },
+  {
+    group: 'Дошкольники',
+    times: [
+      { day: 'ПН', time: '18:30' },
+      { day: 'ВТ', time: '18:30' },
+      { day: 'СР', time: '18:30' },
+      { day: 'ЧТ', time: '18:30' },
+      { day: 'ПТ', time: '18:30' },
+    ],
+  },
+  {
+    group: 'Он-лайн занятия',
+    times: [
+      { day: 'ВТ', time: '13:30' },
+      { day: 'ЧТ', time: '13:30' },
+    ],
+  },
+  {
+    group: 'Взрослые',
+    times: [
+      { day: 'СБ', time: '14:00' },
+      { day: 'ВС', time: '14:00' },
+    ],
+  },
+  {
+    group: 'Соревнования',
+    times: [{ day: 'ВС', time: '11:00' }],
+  },
+];

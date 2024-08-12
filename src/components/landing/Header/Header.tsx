@@ -35,7 +35,11 @@ const Header = () => {
             О ШКОЛЕ
           </Link>
         </li>
-        <li className="header__item">График</li>
+        <li className="header__item">
+          <Link className="header__link" to="/schedule">
+            График
+          </Link>
+        </li>
         <li className="header__item">ПОСТУПЛЕНИЕ</li>
         <li className="header__item rotate">
           <Link className="header__link" to="/log_in">

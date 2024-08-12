@@ -14,6 +14,7 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({ scrollRef }) => {
     childName: '',
     birthYear: '',
     phone: '',
+    additionalText: '',
   });
 
   const [resultMessage, setResultMessage] = useState('');
@@ -37,6 +38,7 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({ scrollRef }) => {
       childName: '',
       birthYear: '',
       phone: '',
+      additionalText: '',
     });
   };
 
@@ -121,7 +123,21 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({ scrollRef }) => {
               onChange={handleChange}
             />
           </div>
+          <div className="admissionform__block">
+            <label className="admissionform__label" htmlFor="phone">
+              Дополнительно:
+            </label>
+            <input
+              className="admissionform__input"
+              type="text"
+              id="additional"
+              name="additional"
+              value={formData.additionalText}
+              onChange={handleChange}
+            />
+          </div>
         </div>
+
         <button type="submit" className="admissionform__button">
           Оставить заявку
         </button>

@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import InfoPopup from '../InfoPopup/InfoPopup';
+import { useNavigate } from 'react-router-dom';
 
 import './ScheduleCommercial.css';
 
 function ScheduleCommercial() {
-  const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    setShowPopup(true);
+    navigate('/schedule');
   };
 
   return (
@@ -39,14 +39,6 @@ function ScheduleCommercial() {
           </div>
         </div>
       </div>
-
-      {showPopup && (
-        <InfoPopup
-          onClose={() => setShowPopup(false)}
-          title="Расписание"
-          text="Пока расписание еще не готово, но мы работаем над ним! Следите за обновлениями!"
-        />
-      )}
     </section>
   );
 }
