@@ -51,6 +51,10 @@
   animation-name: rotation-circle;
 }
 
+.header__log_in:hover {
+  color: blue;
+}
+
 .rotate {
   animation: rotation-circle 5.5s ease-in infinite;
 }
@@ -72,6 +76,13 @@
 
 .header__link:hover {
   color: white;
+}
+
+.header__item_disabled {
+  font-weight: bold;
+  line-height: 50px;
+  text-transform: uppercase;
+  cursor: not-allowed;
 }
 
 @media (width <= 1200px) {

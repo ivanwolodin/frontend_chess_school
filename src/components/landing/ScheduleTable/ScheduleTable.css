@@ -52,6 +52,12 @@
   cursor: pointer;
 }
 
-.cell-link{
+.cell-link {
   text-decoration: underline;
+}
+
+@media (width <= 570px) {
+  .schedule-table__general {
+    display: block;
+  }
 }

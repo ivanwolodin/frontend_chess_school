@@ -1,5 +1,3 @@
-import { MutableRefObject } from 'react';
-
 export interface InfoTinyCardProps {
   src: string;
   alt: string;
@@ -107,7 +105,8 @@ export interface InfoPopupProps {
 }
 
 export interface AdmissionFormProps {
-  scrollRef: MutableRefObject<HTMLDivElement | null>;
+  scrollRef?: React.RefObject<HTMLElement>;
+  text?: string;
 }
 export interface NewYearAdmissionProps {
   scrollToForm: () => void;

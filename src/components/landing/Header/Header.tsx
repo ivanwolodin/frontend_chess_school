@@ -28,8 +28,8 @@ const Header = () => {
             ГЛАВНАЯ
           </Link>
         </li>
-        <li className="header__item">НОВОСТИ</li>
-        <li className="header__item">СОРЕВНОВАНИЯ</li>
+        <li className="header__item_disabled">НОВОСТИ</li>
+        <li className="header__item_disabled">СОРЕВНОВАНИЯ</li>
         <li className="header__item">
           <Link className="header__link" to="/about">
             О ШКОЛЕ
