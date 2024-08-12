@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-import './AdmissionForm.css';
 import { sendDataToServer } from '../../../api/api';
+import { AdmissionFormProps } from '../../../utils/interfaces';
 
-const AdmissionForm: React.FC = () => {
+import './AdmissionForm.css';
+
+const AdmissionForm: React.FC<AdmissionFormProps> = ({ scrollRef }) => {
   const [showResult, setShowResult] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -45,7 +47,7 @@ const AdmissionForm: React.FC = () => {
   }, [resultMessage]);
 
   return (
-    <section className="admissionform__wrapper">
+    <section ref={scrollRef} className="admissionform__wrapper">
       <form className="admissionform__general" onSubmit={handleSubmit}>
         <h2 className="admissionform__title">ПОСТУПИТЬ</h2>
         <div className="admissionform__info">

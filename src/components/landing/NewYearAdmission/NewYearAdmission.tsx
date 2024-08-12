@@ -1,14 +1,15 @@
 import { useState } from 'react';
 
+import { NewYearAdmissionProps } from '../../../utils/interfaces';
 import InfoPopup from '../InfoPopup/InfoPopup';
+
 import './NewYearAdmission.css';
 
-const NewYearAdmission = () => {
+const NewYearAdmission: React.FC<NewYearAdmissionProps> = ({
+  scrollToForm,
+}) => {
   const [showPopup, setShowPopup] = useState(false);
 
-  const handleButtonClick = () => {
-    setShowPopup(true);
-  };
   return (
     <section className="newyearadmission__general">
       <div className="newyearadmission__about_chess"></div>
@@ -23,10 +24,7 @@ const NewYearAdmission = () => {
               мышление, научит обобщать и сравнивать, поможет сформировать такие
               качества, как усидчивость, внимательность и организованность.
             </p>
-            <button
-              className="newyearadmission__button"
-              onClick={handleButtonClick}
-            >
+            <button className="newyearadmission__button" onClick={scrollToForm}>
               ЗАПИСАТЬСЯ В ШКОЛУ &#8594;
             </button>
           </div>

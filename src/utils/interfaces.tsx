@@ -1,3 +1,5 @@
+import { MutableRefObject } from "react";
+
 export interface InfoTinyCardProps {
   src: string;
   alt: string;
@@ -77,7 +79,6 @@ export interface PersonalTableRowData {
   calcium: number;
   iron: number;
 }
-
 export interface PersonalDataTableProps {
   data: PersonalTableRowData[];
 }
@@ -93,12 +94,21 @@ export interface PaymentInfoPopupProps {
   open: boolean;
   closeModal: () => void;
 }
-
 export interface AdditionalHorizontalInfoLineProps {
   setToggled: () => void;
+}
+export interface ExecuteScrollProps {
+  executeScroll: () => void;
 }
 export interface InfoPopupProps {
   onClose: () => void;
   title: string;
   text: string;
+}
+
+export interface AdmissionFormProps {
+  scrollRef: MutableRefObject<HTMLDivElement | null>;
+}
+export interface NewYearAdmissionProps {
+  scrollToForm: () => void;
 }

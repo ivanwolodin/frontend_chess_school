@@ -1,0 +1,69 @@
+.signin__general {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('https://xn--80aap0acqiny2a2bq.xn--p1ai/static/images/pa_backgrounds/log_in.jpg')
+    no-repeat center center;
+  background-size: cover;
+}
+
+.signin__form-container {
+  padding: 30px;
+  text-align: center;
+  background-color: rgb(255 255 255 / 80%);
+  border-radius: 10px;
+}
+
+.signin__title {
+  margin-bottom: 20px;
+  color: #5b3718;
+  font-size: 24px;
+}
+
+.signin__form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.signin__input-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.signin__label {
+  margin-bottom: 5px;
+  color: #5b3718;
+  font-weight: bold;
+}
+
+.signin__input {
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+.signin__button {
+  padding: 10px 20px;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* .signin__button:hover {
+  background-color: #0056b3;
+} */
+
+.signin__button_disabled {
+  background-color: #cccccc;
+}
+
+.signin__info {
+  margin-top: 10px;
+}
