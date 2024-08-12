@@ -106,8 +106,13 @@ export interface InfoPopupProps {
 
 export interface AdmissionFormProps {
   scrollRef?: React.RefObject<HTMLElement>;
-  text?: string;
+  cellData?: {
+    group: string;
+    day: string;
+    time: string;
+  };
 }
+
 export interface NewYearAdmissionProps {
   scrollToForm: () => void;
 }

@@ -5,7 +5,10 @@ import { AdmissionFormProps } from '../../../utils/interfaces';
 
 import './AdmissionForm.css';
 
-const AdmissionForm: React.FC<AdmissionFormProps> = ({ scrollRef }) => {
+const AdmissionForm: React.FC<AdmissionFormProps> = ({
+  scrollRef,
+  cellData,
+}) => {
   const [showResult, setShowResult] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -41,6 +44,15 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({ scrollRef }) => {
       additionalText: '',
     });
   };
+
+  useEffect(() => {
+    if (cellData) {
+      setFormData({
+        ...formData,
+        additionalText: `${cellData.group} ${cellData.day} ${cellData.time}`,
+      });
+    }
+  }, [cellData]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -124,14 +136,14 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({ scrollRef }) => {
             />
           </div>
           <div className="admissionform__block">
-            <label className="admissionform__label" htmlFor="phone">
+            <label className="admissionform__label" htmlFor="additional">
               Дополнительно:
             </label>
             <input
-              className="admissionform__input"
+              className="admissionform__input admissionform__input_text"
               type="text"
               id="additional"
-              name="additional"
+              name="additionalText"
               value={formData.additionalText}
               onChange={handleChange}
             />

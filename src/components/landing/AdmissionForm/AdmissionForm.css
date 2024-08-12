@@ -48,6 +48,13 @@
   border-radius: 3px;
 }
 
+.admissionform__input_text {
+  min-height: 150px;
+  text-align: left;
+  text-align: justify;
+  vertical-align: text-top;
+}
+
 .admissionform__button {
   display: block;
   width: 300px;
