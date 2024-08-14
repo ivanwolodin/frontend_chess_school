@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import AdmissionForm from '../AdmissionForm/AdmissionForm';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import Prices from '../Prices/Prices';
 import ScheduleTable from '../ScheduleTable/ScheduleTable';
 
 import './Schedule.css';
@@ -35,10 +36,16 @@ const Schedule = () => {
     setScrollToAdmissionForm(true);
   };
 
+  const handlePriceClick = (group: string, day: string, time: string) => {
+    setCellData({ group, day, time });
+    setScrollToAdmissionForm(true);
+  };
+
   return (
     <>
       <Header />
       <ScheduleTable onCellClick={handleCellClick} />
+      <Prices handlePriceClick={handlePriceClick} />
       <AdmissionForm scrollRef={scrollRef} cellData={cellData} />
       <Footer />
     </>

@@ -40,7 +40,11 @@ const Header = () => {
             График
           </Link>
         </li>
-        <li className="header__item">ПОСТУПЛЕНИЕ</li>
+        <li className="header__item">
+          <Link className="header__link" to="/schedule">
+            ПОСТУПЛЕНИЕ
+          </Link>
+        </li>
         <li className="header__item rotate">
           <Link className="header__link" to="/log_in">
             <span className="header__log_in">ВОЙТИ</span>

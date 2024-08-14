@@ -26,7 +26,7 @@
 
 .wearetrustedby__logo_icon:hover {
   cursor: pointer;
-  transform: scale(1.1); /* Увеличиваем размер при наведении */
+  transform: scale(1.1);
 }
 
 @media (width <= 860px) {

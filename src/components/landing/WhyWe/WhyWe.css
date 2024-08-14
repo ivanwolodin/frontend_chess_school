@@ -72,7 +72,7 @@
 
 .why-we__license {
   min-height: 404px;
-  background: url('../../../assets/why_we_imgs/license.jpeg');
+  background: url('../../../assets/why_we_imgs/license_1.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -82,7 +82,7 @@
   min-height: 404px;
   background: url('../../../assets/why_we_imgs/cup.png');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: right;
   background-size: cover;
 }
 
