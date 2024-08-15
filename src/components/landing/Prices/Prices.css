@@ -23,7 +23,7 @@
 
 .prices__card {
   flex: 1 0 300px;
-  min-width: 250px; 
+  min-width: 250px;
   max-width: 400px;
   padding: 24px;
   text-align: center;
@@ -94,6 +94,6 @@
   }
 
   .prices__card {
-    flex: 1 0 100%; 
+    flex: 1 0 100%;
   }
 }
