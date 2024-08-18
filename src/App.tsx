@@ -2,6 +2,7 @@ import { useRef } from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import AboutPrograms from './components/landing/AboutPrograms/AboutPrograms';
 import AboutSchool from './components/landing/AboutSchool/AboutSchool';
 import AdmissionForm from './components/landing/AdmissionForm/AdmissionForm';
 import CookieNotification from './components/landing/CookieNotification/CookieNotification';
@@ -39,6 +40,7 @@ function App() {
                 />
                 <WhyWe />
                 <ScheduleCommercial />
+                <AboutPrograms />
                 <TeachersCards />
                 <VideoSection videoId="gor6dptvj1Q" />
                 <AdmissionForm scrollRef={admissionFormRef} />

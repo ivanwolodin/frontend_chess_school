@@ -1,0 +1,99 @@
+.about-programs__title {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+}
+
+.about-programs__subtitle {
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+.about-programs__card {
+  margin-top: 50px;
+}
+
+.about-programs__cards {
+  padding-right: 150px;
+  padding-left: 150px;
+}
+
+.about-programs__card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  /* column-gap: 50px; */
+}
+
+.about-programs__card-image {
+  max-width: 460px;
+  max-height: 345px;
+}
+
+.about-programs__card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 460px;
+  max-height: 345px;
+}
+
+.about-programs__card-title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.about-programs__card-button {
+  margin-top: 30px;
+  width: 200px;
+  min-height: 60px;
+  background-color: #ff8562;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.about-programs__card-button:hover {
+  background-color: yellowgreen;
+}
+
+@media (width <= 1250px) {
+  .about-programs__card-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-programs__card-image_inverted {
+    order: -1;
+  }
+
+  .about-programs__card-info {
+    align-items: center;
+    gap: 30px;
+    width: 600px;
+    max-width: unset;
+    max-height: unset;
+    margin-top: 20px;
+  }
+
+  .about-programs__card-image {
+    width: 600px;
+    max-width: unset;
+    height: 100%;
+    max-height: unset;
+  }
+}
+
+@media (width <= 650px) {
+  .about-programs__card-info {
+    width: 300px;
+  }
+
+  .about-programs__card-image {
+    width: 300px;
+  }
+}
