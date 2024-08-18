@@ -51,3 +51,9 @@
     margin-top: 20px;
   }
 }
+
+@media (width <= 450px) {
+  .second-header__logo {
+    max-width: 350px;
+  }
+}
