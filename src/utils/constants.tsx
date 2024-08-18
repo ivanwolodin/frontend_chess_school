@@ -118,10 +118,10 @@ export const teachersData: TeacherCardProps[] = [
     alt: 'Тренер',
   },
   {
-    name: 'Громов Даниил Александрович',
-    src: require('../assets/teachers_images/Daniil.jpeg'),
-    position: 'Тренер по шахматам',
-    alt: 'Тренер',
+    name: 'Тиунова Татьяна Леонидовна',
+    src: require('../assets/teachers_images/TL.jpg'),
+    position: 'Педагог-психолог',
+    alt: 'Психолог',
   },
 ];
 
