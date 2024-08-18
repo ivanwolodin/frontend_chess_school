@@ -803,6 +803,7 @@ export const scheduleData = [
     group: 'Дошкольники',
     times: [
       { day: 'ПТ', time: '16:30' },
+      { day: 'СР', time: '16:30' },
       { day: 'СБ', time: '10:00' },
       { day: 'ВС', time: '10:00' },
     ],
@@ -815,24 +816,24 @@ export const scheduleData = [
       { day: 'СР', time: '18:30' },
       { day: 'ЧТ', time: '18:30' },
       { day: 'ПТ', time: '18:30' },
+      { day: 'СБ', time: '12:00' },
+      { day: 'ВС', time: '12:00' },
     ],
   },
   {
-    group: 'Он-лайн занятия',
+    group: 'Онлайн занятия',
     times: [
       { day: 'ВТ', time: '13:30' },
       { day: 'ЧТ', time: '13:30' },
-    ],
-  },
-  {
-    group: 'Взрослые',
-    times: [
-      { day: 'СБ', time: '14:00' },
       { day: 'ВС', time: '14:00' },
     ],
   },
   {
-    group: 'Соревнования',
+    group: 'Взрослые',
     times: [{ day: 'ВС', time: '11:00' }],
+  },
+  {
+    group: 'Соревнования',
+    times: [{ day: 'СБ', time: '14:00' }],
   },
 ];
