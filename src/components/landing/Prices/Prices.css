@@ -32,13 +32,13 @@
 }
 
 .prices__card_yellow {
-  color: #333333;
-  background-color: #ffd900a4;
+  color: white;
+  background-color: #f2b90b;
 }
 
 .prices__card_blue {
   color: #ffffff;
-  background-color: #007bff8a;
+  background-color: #489bff;
 }
 
 .prices__card-header {
@@ -85,7 +85,7 @@
 }
 
 .prices__card-button:hover {
-  background-color: #bf7f1e;
+  background-color: #d4a867;
 }
 
 @media (width <= 768px) {

@@ -28,16 +28,15 @@ const Header = () => {
             ГЛАВНАЯ
           </Link>
         </li>
-        <li className="header__item_disabled">НОВОСТИ</li>
-        <li className="header__item_disabled">СОРЕВНОВАНИЯ</li>
         <li className="header__item">
           <Link className="header__link" to="/about">
             О ШКОЛЕ
           </Link>
         </li>
+        <li className="header__item_disabled">Программы</li>
         <li className="header__item">
           <Link className="header__link" to="/schedule">
-            График
+            Расписание
           </Link>
         </li>
         <li className="header__item">
