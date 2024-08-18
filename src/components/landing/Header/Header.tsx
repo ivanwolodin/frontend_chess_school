@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
+
 import './Header.css';
 
 const Header = () => {
@@ -33,16 +35,20 @@ const Header = () => {
             О ШКОЛЕ
           </Link>
         </li>
-        <li className="header__item_disabled">Программы</li>
+        <li className="header__item_disabled">
+          <HashLink className="header__link" smooth to="/#programs">
+            Программы
+          </HashLink>
+        </li>
         <li className="header__item">
           <Link className="header__link" to="/schedule">
             Расписание
           </Link>
         </li>
         <li className="header__item">
-          <Link className="header__link" to="/schedule">
+          <HashLink className="header__link" smooth to="/#admissionForm">
             ПОСТУПЛЕНИЕ
-          </Link>
+          </HashLink>
         </li>
         <li className="header__item rotate">
           <Link className="header__link" to="/log_in">

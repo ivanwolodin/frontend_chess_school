@@ -6,7 +6,7 @@ import './AboutPrograms.css';
 
 const AboutPrograms = () => {
   return (
-    <section className="about-programs">
+    <section className="about-programs" id="programs">
       <h2 className="about-programs__title">Мы предлагаем</h2>
       <p className="about-programs__subtitle">
         Занятия шахматами, включающие в себя полный цикл профессионального

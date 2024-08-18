@@ -83,7 +83,11 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
   }, [resultMessage]);
 
   return (
-    <section ref={scrollRef} className="admissionform__wrapper">
+    <section
+      ref={scrollRef}
+      className="admissionform__wrapper"
+      id="admissionForm"
+    >
       <form className="admissionform__general" onSubmit={handleSubmit}>
         <h2 className="admissionform__title">ПОСТУПИТЬ</h2>
         <div className="admissionform__info">
