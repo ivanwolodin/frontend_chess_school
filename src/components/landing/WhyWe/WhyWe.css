@@ -7,7 +7,7 @@
 .why-we__title {
   margin-bottom: 1rem;
   font-weight: bold;
-  font-size: 2.5rem;
+  font-size: 40px;
 }
 
 .why-we__subtitle {
@@ -107,6 +107,12 @@
 
   .why-we__card {
     width: 100%;
+  }
+}
+
+@media (width <= 700px) {
+  .why-we__title {
+    font-size: 30px;
   }
 }
 
