@@ -16,13 +16,17 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
     email: '',
     childName: '',
     birthYear: '',
+    level: 'Не умеет играть',
     phone: '',
+    prefferableConnection: 'e-mail',
     additionalText: '',
   });
 
   const [resultMessage, setResultMessage] = useState('');
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
@@ -40,7 +44,9 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
       email: '',
       childName: '',
       birthYear: '',
+      level: '',
       phone: '',
+      prefferableConnection: '',
       additionalText: '',
     });
   };
@@ -74,6 +80,7 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
               className="admissionform__input"
               type="text"
               id="name"
+              placeholder="Елена Владимировна"
               name="name"
               value={formData.name}
               onChange={handleChange}
@@ -87,6 +94,7 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
               required
               className="admissionform__input"
               type="email"
+              placeholder="example@mail.ru"
               id="email"
               name="email"
               value={formData.email}
@@ -101,11 +109,31 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
               required
               className="admissionform__input"
               type="text"
+              placeholder="Ваня"
               id="childName"
               name="childName"
               value={formData.childName}
               onChange={handleChange}
             />
+          </div>
+          <div className="admissionform__block">
+            <label htmlFor="level" className="admissionform__label">
+              Шахматный уровень:
+            </label>
+            <select
+              className="admissionform__input"
+              id="level"
+              name="level"
+              value={formData.level}
+              onChange={handleChange}
+            >
+              <option value="Не умеет играть" selected>
+                Не умеет играть
+              </option>
+              <option value="Новичок">Новичок</option>
+              <option value="Средний">Средний</option>
+              <option value="Продвинутый">Продвинутый</option>
+            </select>
           </div>
           <div className="admissionform__block">
             <label className="admissionform__label" htmlFor="birthYear">
@@ -114,7 +142,10 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
             <input
               required
               className="admissionform__input"
-              type="date"
+              type="number"
+              placeholder="1994"
+              min="1917"
+              max="2024"
               id="birthYear"
               name="birthYear"
               value={formData.birthYear}
@@ -130,10 +161,31 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
               className="admissionform__input"
               type="number"
               id="phone"
+              placeholder="8 999 999 99 99"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
             />
+          </div>
+          <div className="admissionform__block">
+            <label
+              htmlFor="prefferableConnection"
+              className="admissionform__label"
+            >
+              Предпочтительный способ связи:
+            </label>
+            <select
+              className="admissionform__input"
+              id="prefferableConnection"
+              name="prefferableConnection"
+              value={formData.prefferableConnection}
+              onChange={handleChange}
+            >
+              <option value="почта" selected>
+                e-mail
+              </option>
+              <option value="телефон">телефон</option>
+            </select>
           </div>
           <div className="admissionform__block">
             <label className="admissionform__label" htmlFor="additional">
@@ -144,6 +196,7 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
               type="text"
               id="additional"
               name="additionalText"
+              placeholder="Доп. инфо"
               value={formData.additionalText}
               onChange={handleChange}
             />
