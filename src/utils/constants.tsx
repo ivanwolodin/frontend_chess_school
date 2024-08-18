@@ -89,7 +89,7 @@ export const newsData: NewsCardProps[] = [
 export const teachersData: TeacherCardProps[] = [
   {
     name: 'Терехин Анатолий Николаевич',
-    src: require('../assets/teachers_images/AN.jpg'),
+    src: require('../assets/teachers_images/AN_2.jpeg'),
     position: 'Автор Программы ',
     alt: 'Автор',
   },
@@ -98,6 +98,12 @@ export const teachersData: TeacherCardProps[] = [
     src: require('../assets/teachers_images/Oksana.jpg'),
     position: 'Исполнительный директор',
     alt: 'Директор',
+  },
+  {
+    name: 'Володина Елена Владимировна',
+    src: require('../assets/teachers_images/EV.jpeg'),
+    position: 'Администратор ',
+    alt: 'Администратор',
   },
   {
     name: 'Бахарев Андрей Иванович',
@@ -122,6 +128,12 @@ export const teachersData: TeacherCardProps[] = [
     src: require('../assets/teachers_images/TL.jpg'),
     position: 'Педагог-психолог',
     alt: 'Психолог',
+  },
+  {
+    name: 'Володин Иван Валерьевич',
+    src: require('../assets/teachers_images/IV.jpeg'),
+    position: 'Программист',
+    alt: 'Программист',
   },
 ];
 
