@@ -24,7 +24,6 @@
 }
 
 .second-header__logo {
-  content: url('../../../../public/logo_little.png');
   max-width: 400px;
 }
 

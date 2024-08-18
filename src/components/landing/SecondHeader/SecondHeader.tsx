@@ -1,3 +1,5 @@
+import logo from '../../../../src/assets/logo/logo_little.png';
+
 import './SecondHeader.css';
 
 const quotes = [
@@ -70,7 +72,7 @@ const SecondHeader = () => {
           />
         </a>
       </div>
-      <img className="second-header__logo" alt="logo"></img>
+      <img className="second-header__logo" src={logo} alt="logo"></img>
       <div className="second-header__quotation">{randomQuote}</div>
     </section>
   );
