@@ -23,9 +23,8 @@
 .about-programs__card-content {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-
-  /* column-gap: 50px; */
+  justify-content: space-evenly;
+  column-gap: 200px;
 }
 
 .about-programs__card-image {
@@ -48,9 +47,9 @@
 }
 
 .about-programs__card-button {
-  margin-top: 30px;
   width: 200px;
   min-height: 60px;
+  margin-top: 30px;
   background-color: #ff8562;
   border: none;
   border-radius: 30px;
