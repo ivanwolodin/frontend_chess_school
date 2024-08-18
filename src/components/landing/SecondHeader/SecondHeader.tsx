@@ -1,6 +1,17 @@
 import './SecondHeader.css';
 
+const quotes = [
+  'Шахматы – это спорт для ума!',
+  'Шахматы развивают логику, стратегическое мышление и концентрацию.',
+  'В шахматах нет места случайности, только ум и воля к победе.',
+  'Шахматы – это искусство, наука и спорт в одном.',
+  'Шахматы - игра, которая учит нас думать наперед.',
+];
+
 const SecondHeader = () => {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  const randomQuote = quotes[randomIndex];
+
   return (
     <section className="second-header__general">
       <div className="second-header__icons">
@@ -60,9 +71,7 @@ const SecondHeader = () => {
         </a>
       </div>
       <img className="second-header__logo" alt="logo"></img>
-      <div className="second-header__quotation">
-        Шахматы – это не просто игра, это спорт для ума!
-      </div>
+      <div className="second-header__quotation">{randomQuote}</div>
     </section>
   );
 };
