@@ -15,7 +15,7 @@ import ScheduleCommercial from './components/landing/ScheduleCommercial/Schedule
 import SecondHeader from './components/landing/SecondHeader/SecondHeader';
 import SignIn from './components/landing/SignIn/SignIn';
 import TeachersCards from './components/landing/TeachersCards/TeachersCards';
-// import VideoSection from './components/landing/VideoSection/VideoSection';
+import VideoSection from './components/landing/VideoSection/VideoSection';
 import WhyWe from './components/landing/WhyWe/WhyWe';
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
                 <ScheduleCommercial />
                 <AboutPrograms scrollToForm={handleScrollToForm} />
                 <TeachersCards />
-                {/* <VideoSection videoId="gor6dptvj1Q" /> */}
+                <VideoSection videoId="gor6dptvj1Q" />
                 <AdmissionForm
                   scrollRef={admissionFormRef}
                   cellData={{ group: selectedProgram, day: '', time: '' }}

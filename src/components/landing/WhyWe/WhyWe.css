@@ -52,43 +52,23 @@
 
 .why-we__img {
   margin: 0;
-}
-
-.why-we__coach {
   min-height: 404px;
-  background: url('../../../assets/why_we_imgs/expirienced_coaches.jpg');
+  width: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-}
-
-.why-we__kate {
-  min-height: 404px;
-  background: url('../../../assets/why_we_imgs/kate.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.why-we__license {
-  min-height: 404px;
-  background: url('../../../assets/why_we_imgs/license_1.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
-.why-we__cup {
-  min-height: 404px;
-  background: url('../../../assets/why_we_imgs/cup.png');
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: cover;
+  object-fit: cover;
 }
 
 @media (width <= 1000px) {
   .why-we__ulist {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .why-we__img{
+    min-height: unset;
+    width: 100%;
+    max-height: 300px;
   }
 
   .why-we__coach {

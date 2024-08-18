@@ -1,3 +1,8 @@
+import cup from '../../../assets/why_we_imgs/cup.png';
+import coach from '../../../assets/why_we_imgs/expirienced_coaches.jpg';
+import kate from '../../../assets/why_we_imgs/kate.png';
+import license from '../../../assets/why_we_imgs/license_1.jpg';
+
 import './WhyWe.css';
 
 function WhyWe() {
@@ -17,7 +22,9 @@ function WhyWe() {
               и специализацию.
             </p>
           </li>
-          <li className="why-we__img why-we__coach"></li>
+          <li className="why-we__coach">
+            <img className="why-we__img" src={coach} alt="logo"></img>
+          </li>
           <li>
             <h3 className="why-we__card-title">Программы обучения</h3>
             <p className="why-we__card-text">
@@ -27,8 +34,12 @@ function WhyWe() {
               логика, память, развивающие игры.
             </p>
           </li>
-          <li className="why-we__img why-we__kate"></li>
-          <li className="why-we__img why-we__license"></li>
+          <li>
+            <img className="why-we__img" src={kate} alt="logo"></img>
+          </li>
+          <li>
+            <img className="why-we__img" src={license} alt="logo"></img>
+          </li>
           <li>
             <h3 className="why-we__card-title">
               Лицензия на образовательную деятельность
@@ -38,7 +49,9 @@ function WhyWe() {
               дает родителям возможность получить налоговый вычет по НДФЛ.
             </p>
           </li>
-          <li className="why-we__cup why-we__img"></li>
+          <li className="why-we__cup">
+            <img className="why-we__img" src={cup} alt="logo"></img>
+          </li>
           <li>
             <h3 className="why-we__card-title">Нам есть чем гордится</h3>
             <p className="why-we__card-text">

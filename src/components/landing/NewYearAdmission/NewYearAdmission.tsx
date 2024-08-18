@@ -25,7 +25,6 @@ const NewYearAdmission: React.FC<NewYearAdmissionProps> = ({
             </button>
           </div>
         </div>
-        {/* <div className="newyearadmission__comercial_girl"></div> */}
         <img
           className="newyearadmission__comercial_girl"
           src={zlata}
