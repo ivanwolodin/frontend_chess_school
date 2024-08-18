@@ -69,7 +69,7 @@ const AboutPrograms = () => {
             <img
               src={schoolImage}
               alt="Школьники"
-              className="about-programs__card-image about-programs__card-image_inverted"
+              className="about-programs__card-image about-programs__card-image_inverted about-programs__card-info_adjust"
             />
           </div>
         </div>
@@ -81,7 +81,7 @@ const AboutPrograms = () => {
               alt="Взрослые"
               className="about-programs__card-image"
             />
-            <div className="about-programs__card-info">
+            <div className="about-programs__card-info about-programs__card-info_adjust">
               <h3 className="about-programs__card-title">Для взрослых</h3>
               <p>
                 Сделайте ход к лучшей версии себя!
