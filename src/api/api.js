@@ -12,12 +12,12 @@ export const sendDataToServer = async (data) => {
       },
     );
     if (response.ok) {
-      return 'Ваша заявка принята!';
+      return true;
     } else {
-      return 'Что-то сломалось';
+      return false;
     }
   } catch (error) {
     console.error('Ошибка отправки данных:', error);
-    return 'Что-то сломалось';
+    return false;
   }
 };

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { sendDataToServer } from '../../../api/api';
 import { AdmissionFormProps } from '../../../utils/interfaces';
+import InfoPopup from '../InfoPopup/InfoPopup';
 
 import './AdmissionForm.css';
 
@@ -9,6 +10,10 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
   scrollRef,
   cellData,
 }) => {
+  const [showPopup, setShowPopup] = useState(false);
+  const [titlePopup, setTitlePopup] = useState('Принято! 😊');
+  const [textPopup, setTextPopup] = useState('Скоро мы с Вами свяжемся');
+
   const [showResult, setShowResult] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -37,7 +42,18 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
     event.preventDefault();
 
     const result = await sendDataToServer(formData);
-    setResultMessage(result);
+    if (result) {
+      setResultMessage('Заявка принята');
+      setTitlePopup('Принято! 😊');
+      setTextPopup('Скоро мы с Вами свяжемся');
+      setShowPopup(true);
+    } else {
+      setResultMessage('Что-то сломалось');
+      setTitlePopup('Что-то пошло не так! 😭');
+      setTextPopup('Попробуйте отправить заявку еще раз.. 🙏');
+      setShowPopup(true);
+    }
+
     setShowResult(true);
     setFormData({
       name: '',
@@ -212,6 +228,13 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
           </div>
         )}
       </form>
+      {showPopup && (
+        <InfoPopup
+          onClose={() => setShowPopup(false)}
+          title={titlePopup}
+          text={textPopup}
+        />
+      )}
     </section>
   );
 };

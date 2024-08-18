@@ -1,15 +1,10 @@
-import { useState } from 'react';
-
 import { NewYearAdmissionProps } from '../../../utils/interfaces';
-import InfoPopup from '../InfoPopup/InfoPopup';
 
 import './NewYearAdmission.css';
 
 const NewYearAdmission: React.FC<NewYearAdmissionProps> = ({
   scrollToForm,
 }) => {
-  const [showPopup, setShowPopup] = useState(false);
-
   return (
     <section className="newyearadmission__general">
       <div className="newyearadmission__about_chess"></div>
@@ -31,13 +26,6 @@ const NewYearAdmission: React.FC<NewYearAdmissionProps> = ({
         </div>
         <div className="newyearadmission__comercial_girl"></div>
       </div>
-      {showPopup && (
-        <InfoPopup
-          onClose={() => setShowPopup(false)}
-          title="Запись"
-          text="Записаться можно по номеру 2393006. Ждём Вас!"
-        />
-      )}
     </section>
   );
 };
