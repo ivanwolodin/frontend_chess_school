@@ -73,10 +73,10 @@
   height: 450px;
   margin-top: -50px;
   margin-left: -50px;
-  background: url('../../../assets/comercial_imgs/zlata.jpeg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
+  object-fit: cover;
 }
 
 @media (width <= 985px) {
