@@ -5,11 +5,12 @@
 }
 
 .schedule-commercial__background {
-  /* margin: 60px; */
-  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  /* margin: 60px; */
+  background-color: white;
 }
 
 .schedule-commercial__container {
