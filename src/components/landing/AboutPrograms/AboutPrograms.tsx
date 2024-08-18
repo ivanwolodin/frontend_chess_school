@@ -1,14 +1,12 @@
+import { Link } from 'react-router-dom';
+
 import adultImage from '../../../assets/programs/adultImageProgram.png';
 import childImage from '../../../assets/programs/childImageProgram.jpg';
 import schoolImage from '../../../assets/programs/schoolImageProgram.jpg';
 
 import './AboutPrograms.css';
 
-interface AboutProgramsProps {
-  scrollToForm: (programName: string) => void;
-}
-
-const AboutPrograms: React.FC<AboutProgramsProps> = ({ scrollToForm }) => {
+const AboutPrograms = () => {
   return (
     <section className="about-programs" id="programs">
       <h2 className="about-programs__title">Мы предлагаем</h2>
@@ -41,12 +39,9 @@ const AboutPrograms: React.FC<AboutProgramsProps> = ({ scrollToForm }) => {
                 <br /> <br />
                 Занятия проводятся: два раза или один раз в неделю.
               </p>
-              <button
-                className="about-programs__card-button"
-                onClick={() => scrollToForm('Дети 4-6')}
-              >
+              <Link className="about-programs__card-button" to="/schedule">
                 Выбрать
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -73,12 +68,9 @@ const AboutPrograms: React.FC<AboutProgramsProps> = ({ scrollToForm }) => {
                 личностному росту детей, формируя важные социальные и
                 эмоциональные компетенции.
               </p>
-              <button
-                className="about-programs__card-button"
-                onClick={() => scrollToForm('Школьники')}
-              >
+              <Link className="about-programs__card-button" to="/schedule">
                 Выбрать
-              </button>
+              </Link>
             </div>
             <img
               src={schoolImage}
@@ -111,12 +103,9 @@ const AboutPrograms: React.FC<AboutProgramsProps> = ({ scrollToForm }) => {
                 <br /> <br />
                 Занятия проводятся в группе от 6 человек в воскресенье в 11.00.
               </p>
-              <button
-                className="about-programs__card-button"
-                onClick={() => scrollToForm('Взрослые')}
-              >
+              <Link className="about-programs__card-button" to="/schedule">
                 Выбрать
-              </button>
+              </Link>
             </div>
           </div>
         </div>

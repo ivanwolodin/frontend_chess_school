@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -20,13 +20,7 @@ import WhyWe from './components/landing/WhyWe/WhyWe';
 
 function App() {
   const admissionFormRef = useRef<HTMLDivElement | null>(null);
-  const [selectedProgram, setSelectedProgram] = useState<string>('');
-  const handleScrollToForm = (programName: string) => {
-    setSelectedProgram(programName);
-    admissionFormRef.current?.scrollIntoView({
-      behavior: 'smooth',
-    });
-  };
+
   return (
     <>
       <BrowserRouter>
@@ -46,13 +40,10 @@ function App() {
                 />
                 <WhyWe />
                 <ScheduleCommercial />
-                <AboutPrograms scrollToForm={handleScrollToForm} />
+                <AboutPrograms />
                 <TeachersCards />
                 <VideoSection videoId="gor6dptvj1Q" />
-                <AdmissionForm
-                  scrollRef={admissionFormRef}
-                  cellData={{ group: selectedProgram, day: '', time: '' }}
-                />
+                <AdmissionForm scrollRef={admissionFormRef} />
                 <Reviews />
                 <Footer />
                 <CookieNotification />

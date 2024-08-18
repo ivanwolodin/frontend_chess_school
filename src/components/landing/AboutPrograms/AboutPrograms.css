@@ -61,6 +61,10 @@
   min-height: 60px;
   margin-top: 30px;
   color: white;
+  line-height: 65px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
   background-color: #ff8562;
   border: none;
   border-radius: 30px;
