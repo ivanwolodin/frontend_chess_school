@@ -23,6 +23,10 @@
 .about-programs__card-content {
   display: flex;
   flex-direction: row;
+  place-content: center center;
+  align-items: center;
+  align-self: center;
+
   /* justify-content: space-evenly; */
   column-gap: 150px;
 }
@@ -48,7 +52,7 @@
   font-size: 24px;
 }
 
-.about-programs__card-info_adjust{
+.about-programs__card-info_adjust {
   margin-left: -100px;
 }
 
