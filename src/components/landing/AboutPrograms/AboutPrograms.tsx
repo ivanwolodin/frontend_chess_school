@@ -4,7 +4,11 @@ import schoolImage from '../../../assets/programs/schoolImageProgram.jpg';
 
 import './AboutPrograms.css';
 
-const AboutPrograms = () => {
+interface AboutProgramsProps {
+  scrollToForm: (programName: string) => void;
+}
+
+const AboutPrograms: React.FC<AboutProgramsProps> = ({ scrollToForm }) => {
   return (
     <section className="about-programs" id="programs">
       <h2 className="about-programs__title">Мы предлагаем</h2>
@@ -37,7 +41,12 @@ const AboutPrograms = () => {
                 <br /> <br />
                 Занятия проводятся: два раза или один раз в неделю.
               </p>
-              <button className="about-programs__card-button">Выбрать</button>
+              <button
+                className="about-programs__card-button"
+                onClick={() => scrollToForm('Дети 4-6')}
+              >
+                Выбрать
+              </button>
             </div>
           </div>
         </div>
@@ -64,7 +73,12 @@ const AboutPrograms = () => {
                 личностному росту детей, формируя важные социальные и
                 эмоциональные компетенции.
               </p>
-              <button className="about-programs__card-button">Выбрать</button>
+              <button
+                className="about-programs__card-button"
+                onClick={() => scrollToForm('Школьники')}
+              >
+                Выбрать
+              </button>
             </div>
             <img
               src={schoolImage}
@@ -97,7 +111,12 @@ const AboutPrograms = () => {
                 <br /> <br />
                 Занятия проводятся в группе от 6 человек в воскресенье в 11.00.
               </p>
-              <button className="about-programs__card-button">Выбрать</button>
+              <button
+                className="about-programs__card-button"
+                onClick={() => scrollToForm('Взрослые')}
+              >
+                Выбрать
+              </button>
             </div>
           </div>
         </div>
