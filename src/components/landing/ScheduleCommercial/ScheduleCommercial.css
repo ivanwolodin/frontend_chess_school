@@ -7,6 +7,9 @@
 .schedule-commercial__background {
   /* margin: 60px; */
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .schedule-commercial__container {
