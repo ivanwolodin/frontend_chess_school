@@ -37,13 +37,14 @@
   flex-direction: column;
   justify-content: space-between;
   max-width: 460px;
-  max-height: 345px;
+  /* max-height: 345px; */
 }
 
 .about-programs__card-title {
   margin: 0;
   font-weight: bold;
   font-size: 24px;
+  margin-bottom: 30px;
 }
 
 .about-programs__card-button {
