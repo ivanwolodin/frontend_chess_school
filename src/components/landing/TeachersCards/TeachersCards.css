@@ -2,6 +2,19 @@ p {
   margin: 0;
 }
 
+.teachers__cards_title {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+}
+
+.teachers__cards_subtitle {
+  margin-top: 50px;
+  text-align: center;
+}
+
 .teachers__cards {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
