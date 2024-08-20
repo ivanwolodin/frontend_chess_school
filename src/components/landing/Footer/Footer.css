@@ -16,8 +16,18 @@
 }
 
 .footer__icon {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.footer__icon:hover {
+  transform: scale(1.5);
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.footer__privacypolicy_link {
+  color: #5b3718;
 }
 
 .footer__official {

@@ -45,21 +45,35 @@ const Intro = () => {
             <li>ПОЗДРАВЛЯЕМ НАШИХ УЧЕНИКОВ</li>
           </ul>
           <ul className="intro__icons">
-            <img
-              className="intro__icon"
-              src={require('../../../assets/icons/vk.png')}
-              alt="vk"
-            />
-            <img
-              className="intro__icon"
-              src={require('../../../assets/icons/y.png')}
-              alt="y"
-            />
-            <img
-              className="intro__icon"
-              src={require('../../../assets/icons/taplink.jpg')}
-              alt="taplink"
-            />
+            <a
+              href="https://vk.com/chessschool59"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className="intro__icon"
+                src={require('../../../assets/icons/vk_i.png')}
+                alt="VK"
+              />
+            </a>
+            <a href="https://invite.viber.com/?g2=AQAbJcB6hTfkBEp%2BEofyabJtKo%2BbdNfEFMf%2FjBrCctwSX%2BFC1WUfwq7eKNLM%2B7nO&lang=ru">
+              <img
+                className="intro__icon"
+                src={require('../../../assets/icons/viber_i.png')}
+                alt="Viber"
+              />
+            </a>
+            <a
+              href="https://t.me/chessschool59"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className="intro__icon"
+                src={require('../../../assets/icons/tg_i.png')}
+                alt="Telegram"
+              />
+            </a>
           </ul>
         </div>
       </div>

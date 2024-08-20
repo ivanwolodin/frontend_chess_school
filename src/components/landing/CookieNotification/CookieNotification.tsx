@@ -32,7 +32,7 @@ function CookieNotification() {
         согласие с {}
         <a
           className="cookie__privacy_policy"
-          href="https://xn--80aap0acqiny2a2bq.xn--p1ai/documents/privacypolicy.pdf"
+          href="https://storage.yandexcloud.net/chessschoolfrontendfiles/privacypolicy.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >

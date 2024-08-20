@@ -27,21 +27,35 @@ export default function Footer() {
           <p>СОЦИАЛЬНЫЕ СЕТИ </p>
 
           <ul className="footer__icons">
-            <img
-              className="footer__icon"
-              src={require('../../../assets/icons/vk.png')}
-              alt="vk"
-            />
-            <img
-              className="footer__icon"
-              src={require('../../../assets/icons/y.png')}
-              alt="y"
-            />
-            <img
-              className="footer__icon"
-              src={require('../../../assets/icons/taplink.jpg')}
-              alt="taplink"
-            />
+            <a
+              href="https://vk.com/chessschool59"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className="footer__icon"
+                src={require('../../../assets/icons/vk_i.png')}
+                alt="VK"
+              />
+            </a>
+            <a href="https://invite.viber.com/?g2=AQAbJcB6hTfkBEp%2BEofyabJtKo%2BbdNfEFMf%2FjBrCctwSX%2BFC1WUfwq7eKNLM%2B7nO&lang=ru">
+              <img
+                className="footer__icon"
+                src={require('../../../assets/icons/viber_i.png')}
+                alt="Viber"
+              />
+            </a>
+            <a
+              href="https://t.me/chessschool59"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className="footer__icon"
+                src={require('../../../assets/icons/tg_i.png')}
+                alt="Telegram"
+              />
+            </a>
           </ul>
         </div>
       </div>
@@ -72,7 +86,15 @@ export default function Footer() {
           <p>
             {' '}
             Посещая страницы Сайта, заполняя формы ввода данных, пользователь
-            выражает своё согласие с Политикой конфиденциальности.
+            выражает своё согласие с{' '}
+            <a
+              className="footer__privacypolicy_link"
+              target="_blank"
+              href="https://storage.yandexcloud.net/chessschoolfrontendfiles/privacypolicy.pdf"
+              rel="noreferrer"
+            >
+              Политикой конфиденциальности.
+            </a>
           </p>
           <br />
           <p>

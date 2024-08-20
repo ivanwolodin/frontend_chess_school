@@ -92,8 +92,14 @@ p {
 }
 
 .intro__icon {
-  width: 33px;
-  height: 33px;
+  width: 30px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.intro__icon:hover {
+  transform: scale(1.5);
+  transition: all 0.2s ease-in-out 0s;
 }
 
 .intro__text_yellow_mixin {
