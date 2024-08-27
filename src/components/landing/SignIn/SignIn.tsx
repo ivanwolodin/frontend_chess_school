@@ -19,6 +19,7 @@ const SignIn = () => {
 
   const navigate = useNavigate();
   useEffect(() => {
+    // лучше здесь расшелушивать access_token
     const role = localStorage.getItem('role');
     if (role === 'student') {
       navigate('/student');
@@ -26,7 +27,7 @@ const SignIn = () => {
     if (role === 'teacher') {
       navigate('/teacher');
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <>

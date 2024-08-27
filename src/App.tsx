@@ -19,12 +19,14 @@ import VideoSection from './components/landing/VideoSection/VideoSection';
 import WhyWe from './components/landing/WhyWe/WhyWe';
 import { AuthProvider } from './components/personal_account/AuthContext/AuthContext';
 import PrivateWrapper from './components/personal_account/PrivateWrapper/PrivateWrapper';
-// import ProtectedRoute from './components/personal_account/ProtectedRoute/ProtectedRoute';
 import MainStudentPage from './components/personal_account/StudentPage/MainStudentPage/MainStudentPage';
 import MainTeacherPage from './components/personal_account/TeacherPage/MainTeacherPage/MainTeacherPage';
 
 function App() {
   const admissionFormRef = useRef<HTMLDivElement | null>(null);
+
+  const storedRole = localStorage.getItem('role');
+  const roleToUse = storedRole ? storedRole : 'defaultRole';
 
   return (
     <>
@@ -62,7 +64,7 @@ function App() {
             <Route
               path="/student"
               element={
-                <PrivateWrapper>
+                <PrivateWrapper role={roleToUse === 'student' ? roleToUse : ''}>
                   <MainStudentPage />
                 </PrivateWrapper>
               }
@@ -70,7 +72,7 @@ function App() {
             <Route
               path="/teacher"
               element={
-                <PrivateWrapper>
+                <PrivateWrapper role={roleToUse === 'teacher' ? roleToUse : ''}>
                   <MainTeacherPage />
                 </PrivateWrapper>
               }
