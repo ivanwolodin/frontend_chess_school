@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
+import { useAuth } from '../../personal_account/AuthContext/AuthContext';
 import Header from '../Header/Header';
 import './SignIn.css';
 
 const SignIn = () => {
-  const [login, setLogin] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const [loginFrom, setLoginForm] = useState('');
+  const [passwordForm, setPasswordForm] = useState('');
+  // const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (login === 'student' && password === 'student') {
-      navigate('/student');
-    } else if (login === 'teacher' && password === 'teacher') {
-      navigate('/teacher');
-    } else {
-      console.log('Неверный логин или пароль');
-    }
+    login({ name: loginFrom, password: passwordForm, role: loginFrom });
+    //   // login({ username, password });
+    //   if (login === 'student' && password === 'student') {
+    //     navigate('/student');
+    //   } else if (login === 'teacher' && password === 'teacher') {
+    //     navigate('/teacher');
+    //   } else {
+    //     console.log('Неверный логин или пароль');
+    //   }
   };
 
   return (
@@ -35,10 +39,9 @@ const SignIn = () => {
               <input
                 type="text"
                 id="login"
-                value={login}
-                onChange={(e) => setLogin(e.target.value)}
+                value={loginFrom}
+                onChange={(e) => setLoginForm(e.target.value)}
                 className="signin__input"
-                disabled
               />
             </div>
             <div className="signin__input-group">
@@ -48,16 +51,11 @@ const SignIn = () => {
               <input
                 type="password"
                 id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="signin__input"
-                disabled
+                value={passwordForm}
+                onChange={(e) => setPasswordForm(e.target.value)}
               />
             </div>
-            <button
-              type="submit"
-              className="signin__button signin__button_disabled"
-            >
+            <button type="submit" className="signin__button">
               Войти
             </button>
             <p className="signin__info">

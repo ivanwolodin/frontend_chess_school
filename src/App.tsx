@@ -17,6 +17,11 @@ import SignIn from './components/landing/SignIn/SignIn';
 import TeachersCards from './components/landing/TeachersCards/TeachersCards';
 import VideoSection from './components/landing/VideoSection/VideoSection';
 import WhyWe from './components/landing/WhyWe/WhyWe';
+import { AuthProvider } from './components/personal_account/AuthContext/AuthContext';
+import PrivateWrapper from './components/personal_account/ProtectedRoute/ProtectedRoute';
+// import ProtectedRoute from './components/personal_account/ProtectedRoute/ProtectedRoute';
+import MainStudentPage from './components/personal_account/StudentPage/MainStudentPage/MainStudentPage';
+import MainTeacherPage from './components/personal_account/TeacherPage/MainTeacherPage/MainTeacherPage';
 
 function App() {
   const admissionFormRef = useRef<HTMLDivElement | null>(null);
@@ -24,36 +29,54 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Header />
-                <SecondHeader />
-                <NewYearAdmission
-                  scrollToForm={() =>
-                    admissionFormRef.current?.scrollIntoView({
-                      behavior: 'smooth',
-                    })
-                  }
-                />
-                <WhyWe />
-                <ScheduleCommercial />
-                <AboutPrograms />
-                <TeachersCards />
-                <VideoSection videoId="gor6dptvj1Q" />
-                <AdmissionForm scrollRef={admissionFormRef} />
-                <Reviews />
-                <Footer />
-                <CookieNotification />
-              </>
-            }
-          />
-          <Route path="/log_in" element={<SignIn />} />
-          <Route path="/about" element={<AboutSchool />} />
-          <Route path="/schedule" element={<Schedule />} />
-        </Routes>
+        <AuthProvider>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Header />
+                  <SecondHeader />
+                  <NewYearAdmission
+                    scrollToForm={() =>
+                      admissionFormRef.current?.scrollIntoView({
+                        behavior: 'smooth',
+                      })
+                    }
+                  />
+                  <WhyWe />
+                  <ScheduleCommercial />
+                  <AboutPrograms />
+                  <TeachersCards />
+                  <VideoSection videoId="gor6dptvj1Q" />
+                  <AdmissionForm scrollRef={admissionFormRef} />
+                  <Reviews />
+                  <Footer />
+                  <CookieNotification />
+                </>
+              }
+            />
+            <Route path="/log_in" element={<SignIn />} />
+            <Route path="/about" element={<AboutSchool />} />
+            <Route path="/schedule" element={<Schedule />} />
+            <Route
+              path="/student"
+              element={
+                <PrivateWrapper>
+                  <MainStudentPage />
+                </PrivateWrapper>
+              }
+            />
+            <Route
+              path="/teacher"
+              element={
+                <PrivateWrapper>
+                  <MainTeacherPage />
+                </PrivateWrapper>
+              }
+            />
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </>
   );
