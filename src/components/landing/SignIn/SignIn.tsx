@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../personal_account/AuthContext/AuthContext';
 import Header from '../Header/Header';
@@ -9,21 +9,24 @@ import './SignIn.css';
 const SignIn = () => {
   const [loginFrom, setLoginForm] = useState('');
   const [passwordForm, setPasswordForm] = useState('');
-  // const navigate = useNavigate();
+
   const { login } = useAuth();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     login({ name: loginFrom, password: passwordForm, role: loginFrom });
-    //   // login({ username, password });
-    //   if (login === 'student' && password === 'student') {
-    //     navigate('/student');
-    //   } else if (login === 'teacher' && password === 'teacher') {
-    //     navigate('/teacher');
-    //   } else {
-    //     console.log('Неверный логин или пароль');
-    //   }
   };
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    const role = localStorage.getItem('role');
+    if (role === 'student') {
+      navigate('/student');
+    }
+    if (role === 'teacher') {
+      navigate('/teacher');
+    }
+  }, []);
 
   return (
     <>

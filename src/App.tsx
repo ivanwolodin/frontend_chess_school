@@ -18,7 +18,7 @@ import TeachersCards from './components/landing/TeachersCards/TeachersCards';
 import VideoSection from './components/landing/VideoSection/VideoSection';
 import WhyWe from './components/landing/WhyWe/WhyWe';
 import { AuthProvider } from './components/personal_account/AuthContext/AuthContext';
-import PrivateWrapper from './components/personal_account/ProtectedRoute/ProtectedRoute';
+import PrivateWrapper from './components/personal_account/PrivateWrapper/PrivateWrapper';
 // import ProtectedRoute from './components/personal_account/ProtectedRoute/ProtectedRoute';
 import MainStudentPage from './components/personal_account/StudentPage/MainStudentPage/MainStudentPage';
 import MainTeacherPage from './components/personal_account/TeacherPage/MainTeacherPage/MainTeacherPage';
@@ -56,9 +56,9 @@ function App() {
                 </>
               }
             />
-            <Route path="/log_in" element={<SignIn />} />
             <Route path="/about" element={<AboutSchool />} />
             <Route path="/schedule" element={<Schedule />} />
+            <Route path="/log_in" element={<SignIn />} />
             <Route
               path="/student"
               element={

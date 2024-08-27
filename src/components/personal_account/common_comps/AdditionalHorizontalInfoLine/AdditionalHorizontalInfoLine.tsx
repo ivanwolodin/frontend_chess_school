@@ -1,11 +1,16 @@
 import { AdditionalHorizontalInfoLineProps } from '../../../../utils/interfaces';
+import { useAuth } from '../../AuthContext/AuthContext';
 import './AdditionalHorizontalInfoLine.css';
 
 const AdditionalHorizontalInfoLine: React.FC<
   AdditionalHorizontalInfoLineProps
 > = ({ setToggled }) => {
+  const { logout } = useAuth();
   const handleClick = () => {
     setToggled();
+  };
+  const handleLogout = () => {
+    logout();
   };
   return (
     <>
@@ -22,7 +27,10 @@ const AdditionalHorizontalInfoLine: React.FC<
             {'    '}В настоящий момент у Вас есть задолженность в размере{' '}
             <b>6700 рублей</b> &#129402;
           </p>
-          <button className="additionalhorizontalinfoline__exit">
+          <button
+            className="additionalhorizontalinfoline__exit"
+            onClick={handleLogout}
+          >
             {' '}
             Выйти из ЛК{' '}
           </button>

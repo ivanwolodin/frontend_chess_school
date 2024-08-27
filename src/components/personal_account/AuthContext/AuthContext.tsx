@@ -8,8 +8,8 @@ import React, {
 
 import { useNavigate } from 'react-router-dom';
 
+// добавить два интерфейса. Один - для студента, другой - для преподавателя
 interface User {
-  // Define the user object shape according to your needs
   name: string;
   password: string;
   role: string;
@@ -28,8 +28,28 @@ export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const navigate = useNavigate();
 
   const login = (userData: User) => {
+    // здесь сделать запрос к АПИ
+    // userData = axios(volodin.site/auth/login)
+    // if userData{
+    //   localStorage.setItem('access_token', userData.access_token)
+    //   if (userData.role === student){
+    //      userInfo<student> = userData
+    //      localStorage.setItem('name', userData.name)
+    //      localStorage.setItem('email', userData.email)
+    //      localStorage.setItem('sumToPay', userData.sum_to_pay)
+    //      localStorage.setItem('attendanceInfo', userData.attendance_info)
+    //      localStorage.setItem('feedback', userData.feddback)
+    //   }
+    //   if (userData..role === teacher){
+    //      userInfo<teacher> = userData
+    //      localStorage.setItem('name', userData.name)
+    //      localStorage.setItem('email', userData.email)
+    //      localStorage.setItem('groupsName', userData.groups_name)
+    //      localStorage.setItem('attendanceInfo', userData.attendance_info)
+    //   }
+    // }
     setUser(userData);
-    localStorage.setItem('role', userData.role);
+    localStorage.setItem('role', userData.name);
     if (userData.role === 'student') {
       navigate('/student');
     }
@@ -39,7 +59,8 @@ export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
   };
 
   const logout = () => {
-    setUser(null);
+    localStorage.removeItem('role');
+    navigate('/');
   };
 
   return (
