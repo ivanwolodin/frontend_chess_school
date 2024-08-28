@@ -58,7 +58,6 @@ function App() {
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/log_in" element={<SignIn />} />
             <Route path="/personal_account" element={<PrivateWrapper />} />
-            <Route path="/personal_account" element={<PrivateWrapper />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </AuthProvider>

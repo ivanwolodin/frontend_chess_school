@@ -53,6 +53,7 @@ const SignIn = () => {
                 id="password"
                 value={passwordForm}
                 onChange={(e) => setPasswordForm(e.target.value)}
+                className="signin__input"
               />
             </div>
             <button type="submit" className="signin__button">

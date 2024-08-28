@@ -6,6 +6,7 @@ import React, {
   FC,
 } from 'react';
 
+import { isExpired, decodeToken } from 'react-jwt';
 import { useNavigate } from 'react-router-dom';
 
 // TODO: two more interfaces
@@ -49,7 +50,19 @@ export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
     //   }
     // }
     setUser(userData);
+
+    // teacher
+    // const token =
+    //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidGVhY2hlciIsIm5hbWUiOiJcdTA0MjNcdTA0NDdcdTA0MzhcdTA0NDJcdTA0MzVcdTA0M2JcdTA0NGMgXHUwNDIzXHUwNDQ3XHUwNDM4XHUwNDQyXHUwNDM1XHUwNDNiXHUwNDRjIn0.zeU2aqXETsiiL7bmtN9XU11mrvy-TxGxROF_QyyEYDk';
+    // student
+    const token =
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3R1ZGVudCIsIm5hbWUiOiJcdTA0MjFcdTA0NDJcdTA0NDNcdTA0MzRcdTA0MzVcdTA0M2RcdTA0NDIgXHUwNDIxXHUwNDQyXHUwNDQzXHUwNDM0XHUwNDM1XHUwNDNkXHUwNDQyIn0.FmbykkEIFWnEFw4uv8YBCsau2mJhTlar2GH-S4dT3OM';
+    const myDecodedToken = decodeToken(token);
+    const isMyTokenExpired = isExpired(token);
+    console.log(myDecodedToken);
+    console.log(isMyTokenExpired);
     localStorage.setItem('role', userData.name);
+
     if (userData.role === 'student') {
       navigate('/personal_account');
     }
