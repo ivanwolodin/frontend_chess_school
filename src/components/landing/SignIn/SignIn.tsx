@@ -5,8 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../personal_account/AuthContext/AuthContext';
 import Header from '../Header/Header';
 import './SignIn.css';
+import InfoPopup from '../InfoPopup/InfoPopup';
 
 const SignIn = () => {
+  const [showPopup, setShowPopup] = useState(false);
+  // const [titlePopup, setTitlePopup] = useState('Принято! 😊');
+  // const [textPopup, setTextPopup] = useState('Скоро мы с Вами свяжемся');
+
   const [loginFrom, setLoginForm] = useState('');
   const [passwordForm, setPasswordForm] = useState('');
 
@@ -15,6 +20,11 @@ const SignIn = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     login({ username: loginFrom, password: passwordForm });
+  };
+
+  const handleResetPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setShowPopup(true);
   };
 
   const navigate = useNavigate();
@@ -60,10 +70,26 @@ const SignIn = () => {
               Войти
             </button>
             <p className="signin__info">
-              Пока вход не доступен, но мы скоро вернёмся !{' '}
+              Логин и пароль придут на почту после подписания договора
             </p>
           </form>
+          <button
+            type="button"
+            className="signin__reset"
+            onClick={handleResetPassword}
+          >
+            Восстановить пароль
+          </button>
         </div>
+        {showPopup && (
+          <InfoPopup
+            onClose={() => setShowPopup(false)}
+            title={'Сброс пароля'}
+            text={
+              'Мы работаем над этим функционалом. Пока пароль можно сбросить, написав нам на почту: admin@шахматыпермь.рф'
+            }
+          />
+        )}
       </div>
     </>
   );

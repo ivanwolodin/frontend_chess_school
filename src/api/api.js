@@ -1,4 +1,4 @@
-export const sendDataToServer = async (data) => {
+export const sendNewStudentRequest = async (data) => {
   console.log(data);
   try {
     const response = await fetch(

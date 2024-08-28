@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { sendDataToServer } from '../../../api/api';
+import { sendNewStudentRequest } from '../../../api/api';
 import { AdmissionFormProps } from '../../../utils/interfaces';
 import InfoPopup from '../InfoPopup/InfoPopup';
 
@@ -41,7 +41,7 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const result = await sendDataToServer(formData);
+    const result = await sendNewStudentRequest(formData);
     if (result) {
       setResultMessage('Заявка принята');
       setTitlePopup('Принято! 😊');
