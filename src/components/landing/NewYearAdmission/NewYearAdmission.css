@@ -67,6 +67,10 @@
   cursor: pointer;
 }
 
+.newyearadmission__button:hover {
+  color: green;
+}
+
 .newyearadmission__comercial_girl {
   z-index: 0;
   min-width: 540px;

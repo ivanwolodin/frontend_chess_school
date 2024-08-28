@@ -19,7 +19,10 @@ const SignIn = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    login({ username: loginFrom, password: passwordForm });
+    if (loginFrom == 'student' && passwordForm == 'student') {
+      login({ username: loginFrom, password: passwordForm });
+    }
+    return;
   };
 
   const handleResetPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -52,6 +55,7 @@ const SignIn = () => {
                 value={loginFrom}
                 onChange={(e) => setLoginForm(e.target.value)}
                 className="signin__input"
+                required
               />
             </div>
             <div className="signin__input-group">
@@ -64,6 +68,7 @@ const SignIn = () => {
                 value={passwordForm}
                 onChange={(e) => setPasswordForm(e.target.value)}
                 className="signin__input"
+                required
               />
             </div>
             <button type="submit" className="signin__button">
