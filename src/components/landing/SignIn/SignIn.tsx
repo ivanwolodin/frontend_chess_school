@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
+import { sendBackendRequest } from '../../../api/api';
 import { useAuth } from '../../personal_account/AuthContext/AuthContext';
 import Header from '../Header/Header';
 import './SignIn.css';
@@ -17,11 +18,26 @@ const SignIn = () => {
 
   const { login } = useAuth();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     if (loginFrom == 'student' && passwordForm == 'student') {
       login({ username: loginFrom, password: passwordForm });
+
+      const data = {
+        grant_type: 'password',
+        username: loginFrom,
+        password: passwordForm,
+        scope: '',
+        client_id: 'your_client_id',
+        client_secret: 'your_client_secret',
+      };
+
+      const result = await sendBackendRequest(data);
+
+      console.log(result);
     }
+
     return;
   };
 
