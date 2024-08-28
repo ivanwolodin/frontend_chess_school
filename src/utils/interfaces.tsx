@@ -116,3 +116,22 @@ export interface AdmissionFormProps {
 export interface NewYearAdmissionProps {
   scrollToForm: () => void;
 }
+export interface AuthContextProps {
+  login: (userData: UserLoginData) => void;
+  logout: () => void;
+}
+
+export interface UserLoginData {
+  username: string;
+  password: string;
+}
+
+export interface TokenData {
+  name: string;
+  email: string;
+  role: 'student' | 'teacher';
+  attendanceInfo: StudentAttendance;
+  groupsName?: string[];
+  sumToPay?: number;
+  feedback?: string[];
+}

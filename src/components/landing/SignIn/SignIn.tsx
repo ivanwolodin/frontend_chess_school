@@ -14,7 +14,7 @@ const SignIn = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    login({ name: loginFrom, password: passwordForm, role: loginFrom });
+    login({ username: loginFrom, password: passwordForm });
   };
 
   const navigate = useNavigate();
