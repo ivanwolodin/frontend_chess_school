@@ -20,13 +20,10 @@ const SignIn = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const role = localStorage.getItem('role');
-    if (role === 'student') {
-      navigate('/student');
+    if (role) {
+      navigate('/personal_account');
     }
-    if (role === 'teacher') {
-      navigate('/teacher');
-    }
-  }, []);
+  });
 
   return (
     <>

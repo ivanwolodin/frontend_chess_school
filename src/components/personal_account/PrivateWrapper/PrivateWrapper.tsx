@@ -1,14 +1,18 @@
 import { Navigate } from 'react-router-dom';
 
-import { useAuth } from '../AuthContext/AuthContext';
+import MainStudentPage from '../StudentPage/MainStudentPage/MainStudentPage';
+import MainTeacherPage from '../TeacherPage/MainTeacherPage/MainTeacherPage';
 
-const PrivateWrapper = ({ children }: { children: JSX.Element }) => {
-  const auth = useAuth();
+const PrivateWrapper = () => {
   const storedRole = localStorage.getItem('role');
-  if (storedRole) {
-    return storedRole ? children : <Navigate to="/" />;
+  if (storedRole && storedRole === 'teacher') {
+    return <MainTeacherPage />;
   }
-  return auth?.user ? children : <Navigate to="/log_in" replace />;
+  if (storedRole && storedRole === 'student') {
+    return <MainStudentPage />;
+  }
+
+  return <Navigate to="/" />;
 };
 
 export default PrivateWrapper;

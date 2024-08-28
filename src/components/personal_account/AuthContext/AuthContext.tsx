@@ -8,7 +8,7 @@ import React, {
 
 import { useNavigate } from 'react-router-dom';
 
-// добавить два интерфейса. Один - для студента, другой - для преподавателя
+// TODO: two more interfaces
 interface User {
   name: string;
   password: string;
@@ -28,7 +28,7 @@ export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const navigate = useNavigate();
 
   const login = (userData: User) => {
-    // здесь сделать запрос к АПИ
+    // Here will be an API request
     // userData = axios(volodin.site/auth/login)
     // if userData{
     //   localStorage.setItem('access_token', userData.access_token)
@@ -51,10 +51,7 @@ export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
     setUser(userData);
     localStorage.setItem('role', userData.name);
     if (userData.role === 'student') {
-      navigate('/student');
-    }
-    if (userData.role === 'teacher') {
-      navigate('/teacher');
+      navigate('/personal_account');
     }
   };
 
