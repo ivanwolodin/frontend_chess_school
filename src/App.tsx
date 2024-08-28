@@ -9,6 +9,7 @@ import CookieNotification from './components/landing/CookieNotification/CookieNo
 import Footer from './components/landing/Footer/Footer';
 import Header from './components/landing/Header/Header';
 import NewYearAdmission from './components/landing/NewYearAdmission/NewYearAdmission';
+import NotFoundPage from './components/landing/NotFoundPage/NotFoundPage';
 import Reviews from './components/landing/Reviews/Reviews';
 import Schedule from './components/landing/Schedule/Schedule';
 import ScheduleCommercial from './components/landing/ScheduleCommercial/ScheduleCommercial';
@@ -58,6 +59,7 @@ function App() {
             <Route path="/log_in" element={<SignIn />} />
             <Route path="/personal_account" element={<PrivateWrapper />} />
             <Route path="/personal_account" element={<PrivateWrapper />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>
