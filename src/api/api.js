@@ -2,7 +2,7 @@ export const sendNewStudentRequest = async (data) => {
   console.log(data);
   try {
     const response = await fetch(
-      'https://ivanwolodin.pythonanywhere.com/api/v1/general/student_request',
+      'https://volodin.site/api/v1/general/student_request',
       {
         method: 'POST',
         headers: {
