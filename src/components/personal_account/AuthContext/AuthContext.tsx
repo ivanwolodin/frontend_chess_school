@@ -29,7 +29,6 @@ export const AuthProvider: FC<{
     });
 
     if (!accessToken) {
-      console.error('Не удалось получить access token');
       return;
     }
 
@@ -37,23 +36,27 @@ export const AuthProvider: FC<{
 
     if (decodedToken?.role === 'student') {
       const user_data = await apiService.sendGetMeRequest(accessToken);
+
       localStorage.setItem('name', user_data.name);
       localStorage.setItem('email', user_data.email);
       localStorage.setItem(
         'attendanceInfo',
         JSON.stringify(user_data.attendanceInfo),
       );
-      localStorage.setItem('sumToPay', JSON.stringify(user_data.sumToPay));
+
+      localStorage.setItem('sumToPay', JSON.stringify(user_data.sum_to_pay));
       localStorage.setItem('feedback', JSON.stringify(user_data.feedback));
       localStorage.setItem('role', 'student');
     } else if (decodedToken?.role === 'teacher') {
       const user_data = await apiService.sendGetMeRequest(accessToken);
+
       localStorage.setItem('name', user_data.name);
       localStorage.setItem('email', user_data.email);
       localStorage.setItem(
         'attendanceInfo',
-        JSON.stringify(user_data.attendanceInfo),
+        JSON.stringify(user_data.attendance_info),
       );
+
       localStorage.setItem('groupsName', JSON.stringify(user_data.groupsName));
       localStorage.setItem('role', 'teacher');
     }

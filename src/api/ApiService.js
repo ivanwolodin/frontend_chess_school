@@ -12,27 +12,21 @@ class ApiService {
   }
 
   async sendNewStudentRequest(data) {
-    console.log(data);
-    try {
-      await fetch(`${this._serverUrl}/general/student_request`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-      return true;
-    } catch (error) {
-      return false;
-    }
+    await this.sendRequest('general/student_request', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    return true;
   }
 
   async sendRequest(path, options) {
     try {
-      const response = await fetch(`${this.apiUrl}/${path}`, options);
+      const response = await fetch(`${this._serverUrl}/${path}`, options);
 
       if (!response.ok) {
-        // Вывод ошибки в консоль и возврат объекта с ошибкой, вместо выброса исключения
         console.error(
           `Ошибка запроса: ${response.status} ${response.statusText}`,
         );
@@ -55,23 +49,6 @@ class ApiService {
     }
   }
 
-  async sendBackendRequest(data) {
-    const response = await this.sendRequest('auth/invoke_token_stub', {
-      method: 'POST',
-      headers: {
-        accept: 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: new URLSearchParams(data).toString(),
-    });
-
-    if (response.error) {
-      return false;
-    }
-
-    return response.ok;
-  }
-
   async sendLoginRequest(loginData) {
     const response = await this.sendRequest('auth/login', {
       method: 'POST',
@@ -83,7 +60,7 @@ class ApiService {
     });
 
     if (response.error) {
-      return null; // Возвращаем null в случае ошибки
+      return null;
     }
 
     const { access_token } = response;
@@ -102,7 +79,7 @@ class ApiService {
     });
 
     if (response.error) {
-      return null; // Возвращаем null в случае ошибки
+      return null;
     }
 
     return response;

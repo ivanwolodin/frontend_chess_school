@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import { sendBackendRequest } from '../../../api/api';
+import Loader from '../../general/Loader/Loader';
 import { useAuth } from '../../personal_account/AuthContext/AuthContext';
 import Header from '../Header/Header';
 import './SignIn.css';
@@ -10,9 +10,10 @@ import InfoPopup from '../InfoPopup/InfoPopup';
 
 const SignIn = () => {
   const [showPopup, setShowPopup] = useState(false);
-  // const [titlePopup, setTitlePopup] = useState('Принято! 😊');
-  // const [textPopup, setTextPopup] = useState('Скоро мы с Вами свяжемся');
+  const [titlePopup, setTitlePopup] = useState('');
+  const [textPopup, setTextPopup] = useState('');
 
+  const [loading, setLoading] = useState(false);
   const [loginFrom, setLoginForm] = useState('');
   const [passwordForm, setPasswordForm] = useState('');
 
@@ -20,29 +21,27 @@ const SignIn = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setLoading(true);
+    await login({ username: loginFrom, password: passwordForm });
 
-    if (loginFrom == 'student' && passwordForm == 'student') {
-      login({ username: loginFrom, password: passwordForm });
-
-      const data = {
-        grant_type: 'password',
-        username: loginFrom,
-        password: passwordForm,
-        scope: '',
-        client_id: 'your_client_id',
-        client_secret: 'your_client_secret',
-      };
-
-      const result = await sendBackendRequest(data);
-
-      console.log(result);
+    if (!localStorage.getItem('name')) {
+      setShowPopup(false);
+      setTitlePopup('Не можем вас найти! 🧐');
+      setTextPopup('Пользователя с таким логином и паролем нет в нашей базе');
+      setShowPopup(true);
     }
+
+    setLoading(false);
 
     return;
   };
 
   const handleResetPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    setTitlePopup('Сброс пароля');
+    setTextPopup(
+      'Мы работаем над этим функционалом. Пока пароль можно сбросить, написав нам на почту: admin@шахматыпермь.рф',
+    );
     setShowPopup(true);
   };
 
@@ -105,12 +104,11 @@ const SignIn = () => {
         {showPopup && (
           <InfoPopup
             onClose={() => setShowPopup(false)}
-            title={'Сброс пароля'}
-            text={
-              'Мы работаем над этим функционалом. Пока пароль можно сбросить, написав нам на почту: admin@шахматыпермь.рф'
-            }
+            title={titlePopup}
+            text={textPopup}
           />
         )}
+        {loading && <Loader />}
       </div>
     </>
   );

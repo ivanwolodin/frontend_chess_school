@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { AdmissionFormProps } from '../../../utils/interfaces';
-import Loader from '../../Loader/Loader';
+import Loader from '../../general/Loader/Loader';
 import InfoPopup from '../InfoPopup/InfoPopup';
 
 import './AdmissionForm.css';
