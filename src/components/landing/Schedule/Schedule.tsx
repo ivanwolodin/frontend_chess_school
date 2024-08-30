@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
+import ApiService from '../../../api/ApiService';
 import AdmissionForm from '../AdmissionForm/AdmissionForm';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
@@ -8,7 +9,10 @@ import ScheduleTable from '../ScheduleTable/ScheduleTable';
 
 import './Schedule.css';
 
-const Schedule = () => {
+interface ScheduleProps {
+  apiService: ApiService;
+}
+const Schedule: React.FC<ScheduleProps> = ({ apiService }) => {
   const [scrollToAdmissionForm, setScrollToAdmissionForm] = useState(false);
   const [cellData, setCellData] = useState({ group: '', day: '', time: '' });
   const scrollRef = useRef<HTMLElement>(null);
@@ -46,7 +50,11 @@ const Schedule = () => {
       <Header />
       <ScheduleTable onCellClick={handleCellClick} />
       <Prices handlePriceClick={handlePriceClick} />
-      <AdmissionForm scrollRef={scrollRef} cellData={cellData} />
+      <AdmissionForm
+        scrollRef={scrollRef}
+        cellData={cellData}
+        apiService={apiService}
+      />
       <Footer />
     </>
   );

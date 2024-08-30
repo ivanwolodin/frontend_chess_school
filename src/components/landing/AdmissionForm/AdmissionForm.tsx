@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import { sendNewStudentRequest } from '../../../api/api';
 import { AdmissionFormProps } from '../../../utils/interfaces';
 import InfoPopup from '../InfoPopup/InfoPopup';
 
@@ -9,6 +8,7 @@ import './AdmissionForm.css';
 const AdmissionForm: React.FC<AdmissionFormProps> = ({
   scrollRef,
   cellData,
+  apiService,
 }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [titlePopup, setTitlePopup] = useState('Принято! 😊');
@@ -41,12 +41,22 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const result = await sendNewStudentRequest(formData);
+    const result = await apiService.sendNewStudentRequest(formData);
     if (result) {
       setResultMessage('Заявка принята');
       setTitlePopup('Принято! 😊');
       setTextPopup('Скоро мы с Вами свяжемся');
       setShowPopup(true);
+      setFormData({
+        name: '',
+        email: '',
+        childName: '',
+        birthYear: '',
+        level: '',
+        phone: '',
+        prefferableConnection: '',
+        additionalText: '',
+      });
     } else {
       setResultMessage('Что-то сломалось');
       setTitlePopup('Что-то пошло не так! 😭');
@@ -55,16 +65,6 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
     }
 
     setShowResult(true);
-    setFormData({
-      name: '',
-      email: '',
-      childName: '',
-      birthYear: '',
-      level: '',
-      phone: '',
-      prefferableConnection: '',
-      additionalText: '',
-    });
   };
 
   useEffect(() => {

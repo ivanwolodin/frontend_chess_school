@@ -1,3 +1,5 @@
+import Api from '../api/ApiService';
+
 export interface InfoTinyCardProps {
   src: string;
   alt: string;
@@ -105,6 +107,7 @@ export interface InfoPopupProps {
 }
 
 export interface AdmissionFormProps {
+  apiService: Api;
   scrollRef?: React.RefObject<HTMLElement>;
   cellData?: {
     group: string;
@@ -127,11 +130,8 @@ export interface UserLoginData {
 }
 
 export interface TokenData {
+  sub: string;
   name: string;
-  email: string;
   role: 'student' | 'teacher';
-  attendanceInfo: StudentAttendance;
-  groupsName?: string[];
-  sumToPay?: number;
-  feedback?: string[];
+  exp: string;
 }

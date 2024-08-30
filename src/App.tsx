@@ -2,6 +2,7 @@ import { useRef } from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import ApiService from './api/ApiService';
 import AboutPrograms from './components/landing/AboutPrograms/AboutPrograms';
 import AboutSchool from './components/landing/AboutSchool/AboutSchool';
 import AdmissionForm from './components/landing/AdmissionForm/AdmissionForm';
@@ -23,11 +24,12 @@ import PrivateWrapper from './components/personal_account/PrivateWrapper/Private
 
 function App() {
   const admissionFormRef = useRef<HTMLDivElement | null>(null);
+  const apiService = new ApiService();
 
   return (
     <>
       <BrowserRouter>
-        <AuthProvider>
+        <AuthProvider apiService={apiService}>
           <Routes>
             <Route
               path="/"
@@ -47,7 +49,10 @@ function App() {
                   <AboutPrograms />
                   <TeachersCards />
                   <VideoSection videoId="gor6dptvj1Q" />
-                  <AdmissionForm scrollRef={admissionFormRef} />
+                  <AdmissionForm
+                    scrollRef={admissionFormRef}
+                    apiService={apiService}
+                  />
                   <Reviews />
                   <Footer />
                   <CookieNotification />
@@ -55,7 +60,10 @@ function App() {
               }
             />
             <Route path="/about" element={<AboutSchool />} />
-            <Route path="/schedule" element={<Schedule />} />
+            <Route
+              path="/schedule"
+              element={<Schedule apiService={apiService} />}
+            />
             <Route path="/log_in" element={<SignIn />} />
             <Route path="/personal_account" element={<PrivateWrapper />} />
             <Route path="*" element={<NotFoundPage />} />
