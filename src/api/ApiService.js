@@ -25,7 +25,7 @@ class ApiService {
   async sendRequest(path, options) {
     try {
       const response = await fetch(`${this._serverUrl}/${path}`, options);
-
+      console.log(response);
       if (!response.ok) {
         console.error(
           `Ошибка запроса: ${response.status} ${response.statusText}`,
@@ -62,7 +62,7 @@ class ApiService {
     if (response.error) {
       return null;
     }
-
+    console.log(response);
     const { access_token } = response;
     console.log('Access Token:', access_token);
 
