@@ -54,8 +54,9 @@ class ApiService {
       method: 'POST',
       headers: {
         accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: JSON.stringify(loginData),
+      body: new URLSearchParams(loginData).toString(),
     });
 
     if (response.error) {
