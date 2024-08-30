@@ -24,6 +24,7 @@ class ApiService {
 
   async sendRequest(path, options) {
     try {
+      console.log(`${this._serverUrl}/${path}`);
       const response = await fetch(`${this._serverUrl}/${path}`, options);
       console.log(response);
       if (!response.ok) {
