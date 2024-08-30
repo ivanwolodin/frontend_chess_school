@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { AdmissionFormProps } from '../../../utils/interfaces';
+import Loader from '../../Loader/Loader';
 import InfoPopup from '../InfoPopup/InfoPopup';
 
 import './AdmissionForm.css';
@@ -15,6 +16,7 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
   const [textPopup, setTextPopup] = useState('Скоро мы с Вами свяжемся');
 
   const [showResult, setShowResult] = useState(false);
+  const [loading, setLoading] = useState(false); // Новое состояние для отслеживания загрузки
 
   const [formData, setFormData] = useState({
     name: '',
@@ -41,7 +43,11 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    setLoading(true);
+
     const result = await apiService.sendNewStudentRequest(formData);
+    setLoading(false);
+
     if (result) {
       setResultMessage('Заявка принята');
       setTitlePopup('Принято! 😊');
@@ -52,9 +58,9 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
         email: '',
         childName: '',
         birthYear: '',
-        level: '',
+        level: 'Не умеет играть',
         phone: '',
-        prefferableConnection: '',
+        prefferableConnection: 'e-mail',
         additionalText: '',
       });
     } else {
@@ -222,10 +228,10 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
             />
           </div>
         </div>
-
         <button type="submit" className="admissionform__button">
           Оставить заявку
         </button>
+        {loading && <Loader />} {/* Отображаем Loader во время загрузки */}
         {showResult && (
           <div className="admissionform__result">
             <p className="admissionform__feedback">{resultMessage}</p>
