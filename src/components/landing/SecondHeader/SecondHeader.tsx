@@ -42,7 +42,7 @@ const SecondHeader = () => {
             alt="Viber"
           />
         </a>
-        <a href="tel:+7342293006">
+        <a href="tel:+73422293006">
           <img
             className="second-header__icon"
             src={require('../../../assets/icons/phone_i.png')}
