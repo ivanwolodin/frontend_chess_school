@@ -49,6 +49,7 @@
 .studentpayment__icon {
   width: 130px;
   height: 130px;
+  transition: scale 0.4s ease-out 1ms;
 }
 
 .studentpayment__button_text {
@@ -57,4 +58,8 @@
 
 .studentpayment__button:hover {
   background-color: rgb(227 227 48 / 80.9%);
+}
+
+.studentpayment__icon:hover{
+  scale: 1.3;
 }

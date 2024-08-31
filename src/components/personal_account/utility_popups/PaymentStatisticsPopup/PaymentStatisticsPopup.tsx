@@ -1,9 +1,9 @@
 import { Popup } from 'reactjs-popup';
 
-import './SecurityPaymentInfoPopup.css';
+import './PaymentStatisticsPopup.css';
 import { PaymentInfoPopupProps } from '../../../../utils/interfaces';
 
-const SecurityPaymentInfoPopup: React.FC<PaymentInfoPopupProps> = ({
+const PaymentStatisticsPopup: React.FC<PaymentInfoPopupProps> = ({
   open,
   closeModal,
 }) => {
@@ -33,4 +33,4 @@ const SecurityPaymentInfoPopup: React.FC<PaymentInfoPopupProps> = ({
     </Popup>
   );
 };
-export default SecurityPaymentInfoPopup;
+export default PaymentStatisticsPopup;
