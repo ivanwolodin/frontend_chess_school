@@ -74,9 +74,9 @@
 
 @media (width <= 760px) {
   .studentattendance__calendar {
+    width: 400px;
     padding: 20px;
     font-size: 20px;
-    width: 400px;
   }
 
   .react-calendar__navigation {
@@ -90,8 +90,6 @@
   .react-calendar__navigation__label {
     font-size: 20px;
   }
-  
-
 }
 
 @media (width <= 430px) {

@@ -6,6 +6,13 @@
   padding: 20px 50px 10px;
 }
 
+.second-header__nav_info{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
 .second-header__icons {
   display: flex;
   flex-direction: row;
