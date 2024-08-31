@@ -18,11 +18,11 @@
 
 .react-calendar__navigation__label {
   color: red;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .react-calendar__navigation__arrow {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .react-calendar__navigation__arrow:hover {
@@ -31,14 +31,10 @@
 
 .studentattendance__calendar {
   z-index: 1;
-  width: 800px;
+  width: 600px;
   margin-left: 50px;
   padding: 90px;
-  font-size: 40px;
-
-  /* background-color: #edd33e51; */
-
-  /* background-color: antiquewhite; */
+  font-size: 30px;
   opacity: 0.64;
 
   /* height: 600px; */
@@ -47,28 +43,18 @@
 .attended {
   background-color: #80c360;
   border: 3px;
-
-  /* border-radius: 50%; */
 }
 
 .spravka {
   background-color: #ef9e24;
-
-  /* border-radius: 50%; */
 }
 
 .unattended {
   background-color: #fa5332;
-
-  /* border-radius: 50%; */
-}
-
-.day {
-  /* border-radius: 50%; */
 }
 
 .react-calendar__navigation {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .react-calendar__tile--now {
@@ -78,6 +64,34 @@
 
 .react-calendar {
   border: none;
+}
+
+@media (width <= 990px) {
+  .studentattendance__general {
+    padding-left: 100px;
+  }
+}
+
+@media (width <= 760px) {
+  .studentattendance__calendar {
+    padding: 20px;
+    font-size: 20px;
+    width: 400px;
+  }
+
+  .react-calendar__navigation {
+    font-size: 10px;
+  }
+
+  .react-calendar__navigation__arrow {
+    font-size: 20px;
+  }
+
+  .react-calendar__navigation__label {
+    font-size: 20px;
+  }
+  
+
 }
 
 @media (width <= 430px) {
