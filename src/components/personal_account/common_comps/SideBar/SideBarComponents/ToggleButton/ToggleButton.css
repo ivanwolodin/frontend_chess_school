@@ -12,11 +12,11 @@
 
 .toggle-button.on {
   color: white;
-  background-color: #4caf50;
+  background-color: #edb716;
 }
 
 .toggle-button.off {
   /* margin-left: 70px; */
   color: white;
-  background-color: #4caf50;
+  background-color: #edb716;
 }

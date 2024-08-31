@@ -1,5 +1,8 @@
+import { useState } from 'react';
+
 import { AdditionalHorizontalInfoLineProps } from '../../../../utils/interfaces';
 import { useAuth } from '../../AuthContext/AuthContext';
+
 import './AdditionalHorizontalInfoLine.css';
 
 const AdditionalHorizontalInfoLine: React.FC<
@@ -43,21 +46,48 @@ const AdditionalHorizontalInfoLine: React.FC<
     );
   }
 
+  const [menuIcon, setMenuIcon] = useState(
+    require('../../../../assets/icons/home.png'),
+  );
+  const [exitIcon, setExitIcon] = useState(
+    require('../../../../assets/icons/exit.png'),
+  );
+
   return (
     <div className="additionalhorizontalinfoline__general">
       <div className="additionalhorizontalinfoline__additional_info">
         <button
           className="additionalhorizontalinfoline__toggle_button"
           onClick={handleClick}
+          onMouseEnter={() =>
+            setMenuIcon(require('../../../../assets/icons/home2.png'))
+          }
+          onMouseLeave={() =>
+            setMenuIcon(require('../../../../assets/icons/home.png'))
+          }
         >
-          &#9776;
+          <img
+            className="additionalhorizontalinfoline__menu_icon"
+            src={menuIcon}
+            alt="btn"
+          />
         </button>
         {message}
         <button
           className="additionalhorizontalinfoline__exit"
           onClick={handleLogout}
+          onMouseEnter={() =>
+            setExitIcon(require('../../../../assets/icons/exit2.png'))
+          }
+          onMouseLeave={() =>
+            setExitIcon(require('../../../../assets/icons/exit.png'))
+          }
         >
-          Выйти из ЛК
+          <img
+            className="additionalhorizontalinfoline__exit_icon"
+            src={exitIcon}
+            alt="btn"
+          />
         </button>
       </div>
     </div>

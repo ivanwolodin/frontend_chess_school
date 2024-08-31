@@ -1,3 +1,65 @@
+.security__popup {
+  /* min-width: 300px; */
+  max-width: 400px;
+  min-height: 200px;
+  max-height: 80vh;
+  padding: 20px;
+  overflow-y: auto;
+  font-size: 12px;
+  background: conic-gradient(
+      from 90deg at 1px 1px,
+      #00000000 90deg,
+      rgb(0 0 255 / 24.2%) 0
+    )
+    0 0/50px 50px;
+  background-color: white;
+  background-color: aliceblue;
+
+  /* border: 3px solid black; */
+  border-radius: 40px;
+  opacity: 0.8;
+}
+
+.security__popup > .header {
+  width: 100%;
+  padding: 5px;
+  font-size: 18px;
+  text-align: center;
+  border-bottom: 1px solid gray;
+}
+
+.security__popup > .content {
+  width: 100%;
+  padding: 10px 5px;
+}
+
+.security__popup > .actions {
+  width: 100%;
+  margin: auto;
+  padding: 10px 5px;
+  text-align: center;
+}
+
+.security__popup > .close {
+  position: absolute;
+  top: -40px;
+  right: -10px;
+  display: block;
+  padding: 0 5px 5px;
+  font-size: 34px;
+  line-height: 30px;
+  background: #ffffff;
+  border: 1px solid #cfcece;
+  border-radius: 18px;
+  cursor: pointer;
+}
+
+.popup-content {
+  /* width: 100px; */
+
+  /* width: 50%; */
+}
+
 .securitypaymentinfopopup__general {
   padding: 0;
 }
@@ -5,5 +67,20 @@
 .statisticspaymentpopup__info {
   display: flex;
   align-self: center;
-  font-size: 25px;
+  font-size: 20px;
+
+  /* padding-top: 60px; */
+  text-align: center;
+}
+
+.statisticspaymentpopup__buttom_elem {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}
+
+.statisticspaymentpopup__buttom_icon {
+  width: 130px;
+  height: 130px;
+  opacity: 0.7;
 }

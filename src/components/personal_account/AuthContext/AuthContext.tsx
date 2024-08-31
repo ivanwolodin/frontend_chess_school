@@ -43,7 +43,7 @@ export const AuthProvider: FC<{
       localStorage.setItem('email', user_data.email);
       localStorage.setItem(
         'attendanceInfo',
-        JSON.stringify(user_data.attendanceInfo),
+        JSON.stringify(user_data.attendance_info),
       );
 
       localStorage.setItem('sumToPay', JSON.stringify(user_data.sum_to_pay));

@@ -4,21 +4,44 @@
   display: flex;
   flex-grow: 1;
   flex-direction: column;
+  padding-left: 300px;
   background: url('../../../../assets/personal_account_images/attendance.jpg')
     no-repeat center center;
   background-size: cover;
+  border: none;
 }
 
 .studentattendance__title {
   padding-left: 80px;
+  color: white;
+}
+
+.react-calendar__navigation__label {
+  color: red;
+  font-size: 40px;
+}
+
+.react-calendar__navigation__arrow {
+  font-size: 40px;
+}
+
+.react-calendar__navigation__arrow:hover {
+  color: red;
 }
 
 .studentattendance__calendar {
   z-index: 1;
+  width: 800px;
   margin-left: 50px;
-  padding: 10px;
-  background-color: antiquewhite;
-  opacity: 0.84;
+  padding: 90px;
+  font-size: 40px;
+
+  /* background-color: #edd33e51; */
+
+  /* background-color: antiquewhite; */
+  opacity: 0.64;
+
+  /* height: 600px; */
 }
 
 .attended {
@@ -54,7 +77,7 @@
 }
 
 .react-calendar {
-  border: 2px solid black;
+  border: none;
 }
 
 @media (width <= 430px) {

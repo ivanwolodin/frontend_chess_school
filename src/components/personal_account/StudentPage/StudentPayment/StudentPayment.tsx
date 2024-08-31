@@ -22,18 +22,46 @@ const StudentPayment = () => {
   return (
     <div className="studentpayment__general">
       <div className="studentpayment__buttons">
-        <button
-          className="studentpayment__button"
-          onClick={handleSecurityPopupClick}
-        >
-          Статистика платежей
-        </button>
-        <button
-          className="studentpayment__button"
-          onClick={handlePaymentPopupClick}
-        >
-          Сделать платеж
-        </button>
+        <div className="studentpayment__item">
+          <button
+            className="studentpayment__button"
+            onClick={handleSecurityPopupClick}
+          >
+            <img
+              className="studentpayment__icon"
+              src={require('../../../../assets/icons/history_payments.png')}
+              alt="btn"
+            />
+            {/*  */}
+          </button>
+          <p className="studentpayment__button_text">Статистика платежей</p>
+        </div>
+        <div className="studentpayment__item">
+          <button
+            className="studentpayment__button"
+            onClick={handlePaymentPopupClick}
+          >
+            <img
+              className="studentpayment__icon"
+              src={require('../../../../assets/icons/new_payment.png')}
+              alt="btn"
+            />
+          </button>
+          <p className="studentpayment__button_text">Новая оплата</p>
+        </div>
+        <div className="studentpayment__item">
+          <button
+            className="studentpayment__button"
+            onClick={handlePaymentPopupClick}
+          >
+            <img
+              className="studentpayment__icon"
+              src={require('../../../../assets/icons/secure_payment.png')}
+              alt="btn"
+            />
+          </button>
+          <p className="studentpayment__button_text">Безопасность платежа</p>
+        </div>
       </div>
       <SecurityPaymentInfoPopup
         open={openSecurityPopup}

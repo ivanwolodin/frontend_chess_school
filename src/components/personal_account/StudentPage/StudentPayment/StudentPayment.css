@@ -1,24 +1,60 @@
 .studentpayment__general {
   flex-grow: 1;
-  background: url('../../../../assets/personal_account_images/dashboard.jpg')
+  padding-left: 300px;
+  background: url('../../../../assets/personal_account_images/personal_data.jpg')
     no-repeat center center;
   background-size: cover;
 }
 
 .studentpayment__buttons {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 20px;
+
+  /* flex-direction: column; */
+  flex-direction: row;
+  gap: 50px;
+  margin-top: 200px;
   margin-left: 10px;
 }
 
 .studentpayment__button {
-  max-width: 200px;
+  /* max-width: 300px; */
+
+  /* min-width: 10px; */
+  width: 220px;
+  height: 220px;
+
+  /* max-height: 160px; */
   padding: 20px;
+
+  /* display: inline-flex; */
+
+  /* align-items: center; */
+  text-align: center;
+  background-color: transparent;
+
+  /* background-color: #c6dce7; */
+  border: none;
+  border-radius: 50%;
   cursor: pointer;
 }
 
+.studentpayment__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* gap: 10px; */
+}
+
+.studentpayment__icon {
+  width: 130px;
+  height: 130px;
+}
+
+.studentpayment__button_text {
+  font-size: 20px;
+}
+
 .studentpayment__button:hover {
-  background-color: rgb(227 227 48);
+  background-color: rgb(227 227 48 / 80.9%);
 }

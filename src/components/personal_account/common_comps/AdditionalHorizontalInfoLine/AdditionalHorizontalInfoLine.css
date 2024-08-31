@@ -3,12 +3,14 @@
   align-items: flex-end;
   margin-left: 10px;
   padding: 0;
-  padding-bottom: 5px;
+
+  /* padding-bottom: 5px; */
   font-size: 40px;
   text-align: center;
   vertical-align: baseline;
   background-color: transparent;
-  background-color: white;
+
+  /* background-color: white; */
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
@@ -20,19 +22,39 @@
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  background-color: #a2d6f9;
+
+  /* background-color: #ecb515; */
+  background: #ebb40e
+    linear-gradient(0deg, #feca3a 20%, #e9b209 50%, #cb9a08 80%);
+}
+
+.additionalhorizontalinfoline__menu_icon {
+  width: 60px;
+  height: 60px;
 }
 
 .additionalhorizontalinfoline__exit {
-  margin-right: 20px;
+  background-color: transparent;
+
+  /* margin-right: 20px;
   padding: 7px;
-  background-color: pink;
+  background-color: pink; */
+  border: none;
   cursor: pointer;
+}
+
+.additionalhorizontalinfoline__exit_icon {
+  width: 40px;
+  height: 45px;
+  padding-top: 5px;
 }
 
 .additionalhorizontalinfoline__name {
   /* margin-left: 20px; */
   margin-left: 0;
+  color: #543215;
+
+  /* color: white; */
   text-align: center;
 }
 

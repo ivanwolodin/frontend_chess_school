@@ -41,7 +41,8 @@ const SideBar: React.FC<SideBarProps> = ({
       }}
     >
       <Sidebar
-        backgroundColor="#a2d6f9"
+        className="sidebar__general"
+        backgroundColor="#f9f9f9"
         collapsed={collapsed}
         style={{ borderRadius: '5px' }}
         onBackdropClick={() => handleSideBarToggle(!toggled)}
