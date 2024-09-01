@@ -24,9 +24,9 @@ class ApiService {
 
   async sendRequest(path, options) {
     try {
-      console.log(`${this._serverUrl}/${path}`);
+      // console.log(`${this._serverUrl}/${path}`);
       const response = await fetch(`${this._serverUrl}/${path}`, options);
-      console.log(response);
+      // console.log(response);
       if (!response.ok) {
         console.error(
           `Ошибка запроса: ${response.status} ${response.statusText}`,
@@ -63,16 +63,16 @@ class ApiService {
     if (response.error) {
       return null;
     }
-    console.log(response);
+    // console.log(response);
     const { access_token } = response;
-    console.log('Access Token:', access_token);
+    // console.log('Access Token:', access_token);
 
     return access_token;
   }
 
-  async sendGetMeRequest(access_token) {
-    const response = await this.sendRequest('general/me/stub', {
-      method: 'POST',
+  async sendGetStudentRequest(access_token) {
+    const response = await this.sendRequest('student', {
+      method: 'GET',
       headers: {
         accept: 'application/json',
         Authorization: `Bearer ${access_token}`,

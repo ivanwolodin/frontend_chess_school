@@ -27,8 +27,8 @@ export const AuthProvider: FC<{
       client_id: 'your_client_id',
       client_secret: 'your_client_secret',
     });
-    console.log('access token');
-    console.log(accessToken);
+    // console.log('access token');
+    // console.log(accessToken);
     if (!accessToken) {
       return;
     }
@@ -36,11 +36,11 @@ export const AuthProvider: FC<{
     const decodedToken = decodeToken<TokenData>(accessToken);
 
     if (decodedToken?.role === 'student') {
-      const user_data = await apiService.sendGetMeRequest(accessToken);
-      console.log('user_data');
-      console.log(user_data);
+      const user_data = await apiService.sendGetStudentRequest(accessToken);
+      // console.log('user_data');
+      // console.log(user_data);
       localStorage.setItem('name', user_data.name);
-      localStorage.setItem('email', user_data.email);
+      // localStorage.setItem('email', user_data.email);
       localStorage.setItem(
         'attendanceInfo',
         JSON.stringify(user_data.attendance_info),
@@ -50,10 +50,10 @@ export const AuthProvider: FC<{
       localStorage.setItem('feedback', JSON.stringify(user_data.feedback));
       localStorage.setItem('role', 'student');
     } else if (decodedToken?.role === 'teacher') {
-      const user_data = await apiService.sendGetMeRequest(accessToken);
+      const user_data = await apiService.sendGetStudentRequest(accessToken);
 
       localStorage.setItem('name', user_data.name);
-      localStorage.setItem('email', user_data.email);
+      // localStorage.setItem('email', user_data.email);
       localStorage.setItem(
         'attendanceInfo',
         JSON.stringify(user_data.attendance_info),

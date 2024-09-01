@@ -58,7 +58,6 @@ const StudentAttendance: React.FC = () => {
   };
   useEffect(() => {
     const attendanceData = localStorage.getItem('attendanceInfo');
-    console.log(attendanceData);
     if (attendanceData) {
       const parsedData: MonthData = JSON.parse(attendanceData);
       setDays(parsedData);

@@ -9,7 +9,9 @@ const PaymentPopup: React.FC<PaymentInfoPopupProps> = ({
   open,
   closeModal,
 }) => {
-  const [enteredAmount, setEnteredAmount] = useState('5400.00');
+  const [enteredAmount, setEnteredAmount] = useState<string>(
+    localStorage.getItem('sumToPay') || '5600',
+  );
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEnteredAmount(event.target.value);
   };

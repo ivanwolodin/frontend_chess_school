@@ -17,7 +17,7 @@ const MainTeacherPage = () => {
 
   const handleSelectedItemClick = (itemName: string) => {
     setSelectedItemName(itemName);
-    console.log('Нажато:' + itemName);
+    // console.log('Нажато:' + itemName);
   };
   const [toggled, setToggled] = useState(false);
 
