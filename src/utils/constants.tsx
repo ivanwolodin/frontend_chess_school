@@ -758,8 +758,8 @@ export const scheduleData = [
       { day: 'СР', time: '10:00' },
       { day: 'ЧТ', time: '10:00' },
       { day: 'ПТ', time: '10:00' },
-      { day: 'СБ', time: '12:00' },
-      { day: 'ВС', time: '12:00' },
+      { day: 'СБ', time: '10:00' },
+      { day: 'ВС', time: '10:00' },
     ],
   },
   {
@@ -769,16 +769,25 @@ export const scheduleData = [
       { day: 'ВТ', time: '14:30' },
       { day: 'СР', time: '13:00' },
       { day: 'ЧТ', time: '14:30' },
+      { day: 'СБ', time: '12:00' },
+      { day: 'ВС', time: '12:00' },
     ],
   },
   {
     group: 'Школьники',
     times: [
       { day: 'ПН', time: '16:00' },
-      { day: 'ВТ', time: '16:30' },
+      { day: 'ВТ', time: '16:00' },
       { day: 'СР', time: '16:00' },
-      { day: 'ЧТ', time: '16:30' },
+      { day: 'ЧТ', time: '16:00' },
       { day: 'ПТ', time: '16:00' },
+    ],
+  },
+  {
+    group: 'Школьники',
+    times: [
+      { day: 'ВТ', time: '16:30' },
+      { day: 'ЧТ', time: '16:30' },
     ],
   },
   {
