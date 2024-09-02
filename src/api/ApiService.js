@@ -85,6 +85,42 @@ class ApiService {
 
     return response;
   }
+
+  async getPaymentUrl(sumToPay) {
+    const response = await this.sendRequest('student/make_payment', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      },
+      body: JSON.stringify({ sum_to_pay: sumToPay }),
+    });
+
+    if (response.error) {
+      return null;
+    }
+
+    return response;
+  }
+
+  async validatePaymentStatus(orderId) {
+    const response = await this.sendRequest(
+      `student/validate_payment?idempotence_our_order_number=${orderId}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      },
+    );
+
+    if (response.error) {
+      return null;
+    }
+
+    return response;
+  }
 }
 
 export default ApiService;

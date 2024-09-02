@@ -93,6 +93,7 @@ export interface AttendancePopupProps {
 export interface PaymentInfoPopupProps {
   open: boolean;
   closeModal: () => void;
+  apiService?: Api;
 }
 export interface AdditionalHorizontalInfoLineProps {
   setToggled: () => void;

@@ -8,6 +8,7 @@ import { PaymentInfoPopupProps } from '../../../../utils/interfaces';
 const PaymentPopup: React.FC<PaymentInfoPopupProps> = ({
   open,
   closeModal,
+  apiService,
 }) => {
   const [enteredAmount, setEnteredAmount] = useState<string>(
     localStorage.getItem('sumToPay') || '5600',
@@ -16,8 +17,16 @@ const PaymentPopup: React.FC<PaymentInfoPopupProps> = ({
     setEnteredAmount(event.target.value);
   };
 
-  const handlePaymentClick = () => {
-    console.log('I am doing payment!');
+  const handlePaymentClick = async () => {
+    const paymentUrl = await apiService?.getPaymentUrl(enteredAmount);
+    const urlToRedicrect = paymentUrl ?? '';
+    if (urlToRedicrect) {
+      window.open(urlToRedicrect);
+    } else {
+      alert(
+        'В данный момент функционал оплат недоступен. Мы работаем над восстановлением',
+      );
+    }
   };
 
   return (
@@ -53,4 +62,5 @@ const PaymentPopup: React.FC<PaymentInfoPopupProps> = ({
     </Popup>
   );
 };
+
 export default PaymentPopup;

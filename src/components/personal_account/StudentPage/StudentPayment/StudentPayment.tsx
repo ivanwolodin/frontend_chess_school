@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 
+import ApiService from '../../../../api/ApiService';
 import PaymentPopup from '../../utility_popups/PaymentPopup/PaymentPopup';
 import PaymentSecurityInfoPopup from '../../utility_popups/PaymentSecurityInfoPopup/PaymentSecurityInfoPopup';
 import PaymentStatisticsPopup from '../../utility_popups/PaymentStatisticsPopup/PaymentStatisticsPopup';
 
 import './StudentPayment.css';
 
-const StudentPayment = () => {
+interface StudentPaymentProps {
+  apiService: ApiService;
+}
+
+const StudentPayment: React.FC<StudentPaymentProps> = ({ apiService }) => {
   const [openNewPaymentPopup, setNewPaymentPopup] = useState<boolean>(false);
   const [openPaymentPopup, setPaymentPopup] = useState<boolean>(false);
   const [openSecurityInfoPopup, setSecurityInfoPopup] =
@@ -76,7 +81,11 @@ const StudentPayment = () => {
         open={openNewPaymentPopup}
         closeModal={closePaymentStatisticsModal}
       />
-      <PaymentPopup open={openPaymentPopup} closeModal={closePaymentModal} />
+      <PaymentPopup
+        open={openPaymentPopup}
+        closeModal={closePaymentModal}
+        apiService={apiService}
+      />
       <PaymentSecurityInfoPopup
         open={openSecurityInfoPopup}
         closeModal={closePaymentSecurityInfoModal}

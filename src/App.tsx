@@ -65,7 +65,10 @@ function App() {
               element={<Schedule apiService={apiService} />}
             />
             <Route path="/log_in" element={<SignIn />} />
-            <Route path="/personal_account" element={<PrivateWrapper />} />
+            <Route
+              path="/personal_account"
+              element={<PrivateWrapper apiService={apiService} />}
+            />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </AuthProvider>
