@@ -1,9 +1,11 @@
 import { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
 import { Popup } from 'reactjs-popup';
 
 import './PaymentPopup.css';
 import { PaymentInfoPopupProps } from '../../../../utils/interfaces';
+import { isTokenValid } from '../../../../utils/usefulFunctions';
 
 const PaymentPopup: React.FC<PaymentInfoPopupProps> = ({
   open,
@@ -16,16 +18,25 @@ const PaymentPopup: React.FC<PaymentInfoPopupProps> = ({
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEnteredAmount(event.target.value);
   };
-
+  const navigate = useNavigate();
   const handlePaymentClick = async () => {
-    const paymentUrl = await apiService?.getPaymentUrl(enteredAmount);
-    const urlToRedicrect = paymentUrl ?? '';
-    if (urlToRedicrect) {
-      window.open(urlToRedicrect);
+    const accessToken = localStorage.getItem('accessToken');
+
+    if (isTokenValid(accessToken)) {
+      const paymentUrl = await apiService?.getPaymentUrl(enteredAmount);
+      const urlToRedirect = paymentUrl ?? '';
+
+      if (urlToRedirect) {
+        window.open(urlToRedirect);
+      } else {
+        alert(
+          'В данный момент функционал оплат недоступен. Мы работаем над восстановлением',
+        );
+      }
     } else {
-      alert(
-        'В данный момент функционал оплат недоступен. Мы работаем над восстановлением',
-      );
+      alert('Авторизуйтесь, пожалуйста, заново');
+      localStorage.clear();
+      navigate('/log_in');
     }
   };
 
