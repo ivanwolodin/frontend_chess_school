@@ -27,8 +27,6 @@ export const AuthProvider: FC<{
       client_id: 'your_client_id',
       client_secret: 'your_client_secret',
     });
-    // console.log('access token');
-    // console.log(accessToken);
     if (!accessToken) {
       return;
     }
@@ -37,8 +35,6 @@ export const AuthProvider: FC<{
 
     if (decodedToken?.role === 'student') {
       const user_data = await apiService.sendGetStudentRequest(accessToken);
-      // console.log('user_data');
-      // console.log(user_data);
       localStorage.setItem('name', user_data.name);
       // localStorage.setItem('email', user_data.email);
       localStorage.setItem(
