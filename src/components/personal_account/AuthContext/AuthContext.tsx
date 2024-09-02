@@ -9,6 +9,7 @@ import {
   TokenData,
   UserLoginData,
 } from '../../../utils/interfaces';
+import { saveUserDataToLocalStorage } from '../../../utils/usefulFunctions';
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
@@ -35,16 +36,7 @@ export const AuthProvider: FC<{
 
     if (decodedToken?.role === 'student') {
       const user_data = await apiService.sendGetStudentRequest(accessToken);
-      localStorage.setItem('name', user_data.name);
-      // localStorage.setItem('email', user_data.email);
-      localStorage.setItem(
-        'attendanceInfo',
-        JSON.stringify(user_data.attendance_info),
-      );
-
-      localStorage.setItem('sumToPay', JSON.stringify(user_data.sum_to_pay));
-      localStorage.setItem('feedback', JSON.stringify(user_data.feedback));
-      localStorage.setItem('role', 'student');
+      saveUserDataToLocalStorage(user_data);
     } else if (decodedToken?.role === 'teacher') {
       const user_data = await apiService.sendGetStudentRequest(accessToken);
 

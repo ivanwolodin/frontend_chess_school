@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import { Popup } from 'reactjs-popup';
 
 import './PaymentStatisticsPopup.css';
@@ -7,10 +9,20 @@ const PaymentStatisticsPopup: React.FC<PaymentInfoPopupProps> = ({
   open,
   closeModal,
 }) => {
+  const [payments, setPayments] = useState<
+    { amount: string; date: string }[] | null
+  >(null);
+
+  useEffect(() => {
+    const storedPayments = localStorage.getItem('payments');
+    if (storedPayments) {
+      setPayments(JSON.parse(storedPayments));
+    }
+  }, []);
+
   return (
     <Popup
       className="security__popup"
-      // contentStyle={{ width: '300px' }}
       open={open}
       onClose={closeModal}
       closeOnEscape={true}
@@ -19,9 +31,27 @@ const PaymentStatisticsPopup: React.FC<PaymentInfoPopupProps> = ({
         <button className="close" onClick={closeModal}>
           &times;
         </button>
-        <p className="statisticspaymentpopup__info">
-          Здесь появится статистика всех Ваших платежей
-        </p>
+
+        {payments && payments.length > 0 ? (
+          <>
+            <p className="statisticspaymentpopup__info">Совершенные оплаты</p>
+            <ul className="payment-list">
+              {payments.map((payment, index) => (
+                <li className="payment-list__item" key={index}>
+                  Сумма:{' '}
+                  <span className="payment-list__amount">{payment.amount}</span>
+                  , Дата:{' '}
+                  <span className="payment-list__date">{payment.date}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <p className="statisticspaymentpopup__info">
+            Здесь появится статистика всех Ваших платежей
+          </p>
+        )}
+
         <div className="statisticspaymentpopup__buttom_elem">
           <img
             className="statisticspaymentpopup__buttom_icon"
@@ -33,4 +63,5 @@ const PaymentStatisticsPopup: React.FC<PaymentInfoPopupProps> = ({
     </Popup>
   );
 };
+
 export default PaymentStatisticsPopup;

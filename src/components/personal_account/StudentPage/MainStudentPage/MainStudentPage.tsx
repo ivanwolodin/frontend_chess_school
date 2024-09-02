@@ -4,7 +4,10 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 
 import ApiService from '../../../../api/ApiService';
 import { StudentsMenuItems } from '../../../../utils/constants';
-import { isTokenValid } from '../../../../utils/usefulFunctions';
+import {
+  isTokenValid,
+  saveUserDataToLocalStorage,
+} from '../../../../utils/usefulFunctions';
 import Loader from '../../../general/Loader/Loader';
 import InfoPopup from '../../../landing/InfoPopup/InfoPopup';
 import AdditionalHorizontalInfoLine from '../../common_comps/AdditionalHorizontalInfoLine/AdditionalHorizontalInfoLine';
@@ -52,6 +55,9 @@ const MainStudentPage: React.FC<MainStudentProps> = ({ apiService }) => {
           if (status) {
             setTitlePopup('Успешно');
             setTextPopup('Спасибо за совершенную оплату!');
+            const user_data =
+              await apiService.sendGetStudentRequest(accessToken);
+            saveUserDataToLocalStorage(user_data);
             setShowPopup(true);
             setLoading(false);
           } else {
