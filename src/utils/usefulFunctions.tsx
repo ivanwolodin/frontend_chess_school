@@ -31,7 +31,7 @@ interface UserData {
 
 export const saveUserDataToLocalStorage = (user_data: UserData) => {
   localStorage.setItem('name', user_data.name);
-  // localStorage.setItem('email', user_data.email); // Если нужно, раскомментируйте эту строку
+  // localStorage.setItem('email', user_data.email);
   localStorage.setItem(
     'attendanceInfo',
     JSON.stringify(user_data.attendance_info),
@@ -39,5 +39,5 @@ export const saveUserDataToLocalStorage = (user_data: UserData) => {
   localStorage.setItem('sumToPay', JSON.stringify(user_data.sum_to_pay));
   localStorage.setItem('feedback', JSON.stringify(user_data.feedback));
   localStorage.setItem('payments', JSON.stringify(user_data.payments));
-  localStorage.setItem('role', 'student');
+  // localStorage.setItem('role', 'student');
 };

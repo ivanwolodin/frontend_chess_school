@@ -7,7 +7,7 @@ import './AdditionalHorizontalInfoLine.css';
 
 const AdditionalHorizontalInfoLine: React.FC<
   AdditionalHorizontalInfoLineProps
-> = ({ setToggled }) => {
+> = ({ setToggled, userRole }) => {
   const { logout } = useAuth();
 
   const handleClick = () => {
@@ -18,18 +18,17 @@ const AdditionalHorizontalInfoLine: React.FC<
     logout();
   };
 
-  const role = localStorage.getItem('role');
   const name = localStorage.getItem('name');
   const sumToPay = Number(localStorage.getItem('sumToPay'));
 
   let message;
-  if (role === 'teacher') {
+  if (userRole.role === 'teacher') {
     message = (
       <p className="additionalhorizontalinfoline__name">
         Добрый день, <b>{name}</b>
       </p>
     );
-  } else if (role === 'student' && sumToPay > 0) {
+  } else if (userRole.role === 'student' && sumToPay > 0) {
     message = (
       <p className="additionalhorizontalinfoline__name">
         Добрый день, <b>{name}</b>
@@ -37,7 +36,7 @@ const AdditionalHorizontalInfoLine: React.FC<
         <b>{sumToPay} рублей</b> &#129402;
       </p>
     );
-  } else if (role === 'student' && sumToPay === 0) {
+  } else if (userRole.role === 'student' && sumToPay === 0) {
     message = (
       <p className="additionalhorizontalinfoline__name">
         Добрый день, <b>{name}</b>

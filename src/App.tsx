@@ -1,5 +1,6 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
+import { decodeToken } from 'react-jwt';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import ApiService from './api/ApiService';
@@ -21,15 +22,48 @@ import VideoSection from './components/landing/VideoSection/VideoSection';
 import WhyWe from './components/landing/WhyWe/WhyWe';
 import { AuthProvider } from './components/personal_account/AuthContext/AuthContext';
 import PrivateWrapper from './components/personal_account/PrivateWrapper/PrivateWrapper';
+import { TokenData, UserRole } from './utils/interfaces';
 
 function App() {
   const admissionFormRef = useRef<HTMLDivElement | null>(null);
   const apiService = new ApiService();
 
+  const initialRole = () => {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      const decodedToken = decodeToken<TokenData>(token);
+      return decodedToken?.role || 'unauthorized';
+    }
+    return 'unauthorized';
+  };
+
+  const [userRole, setUserRole] = useState<UserRole>({ role: initialRole() });
+
+  const handleUserRole = (role: UserRole) => {
+    setUserRole({ role: role.role });
+  };
+
+  const checkAndSetUserRole = () => {
+    // Можно вынести эту проверку на серверную часть
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      const decodedToken = decodeToken<TokenData>(token);
+      if (decodedToken?.role) {
+        handleUserRole({ role: decodedToken.role });
+      }
+    } else {
+      handleUserRole({ role: 'unauthorized' });
+    }
+  };
+
+  useEffect(() => {
+    checkAndSetUserRole();
+  }, []);
+
   return (
     <>
       <BrowserRouter>
-        <AuthProvider apiService={apiService}>
+        <AuthProvider apiService={apiService} handleUSerRole={handleUserRole}>
           <Routes>
             <Route
               path="/"
@@ -67,7 +101,9 @@ function App() {
             <Route path="/log_in" element={<SignIn />} />
             <Route
               path="/personal_account"
-              element={<PrivateWrapper apiService={apiService} />}
+              element={
+                <PrivateWrapper apiService={apiService} userRole={userRole} />
+              }
             />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

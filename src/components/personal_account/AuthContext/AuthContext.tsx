@@ -8,6 +8,7 @@ import {
   AuthContextProps,
   TokenData,
   UserLoginData,
+  UserRole,
 } from '../../../utils/interfaces';
 import { saveUserDataToLocalStorage } from '../../../utils/usefulFunctions';
 
@@ -16,7 +17,8 @@ const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 export const AuthProvider: FC<{
   children: ReactNode;
   apiService: ApiService;
-}> = ({ children, apiService }) => {
+  handleUSerRole: (role: UserRole) => void;
+}> = ({ children, apiService, handleUSerRole }) => {
   const navigate = useNavigate();
 
   const login = async (UserLoginData: UserLoginData) => {
@@ -33,13 +35,13 @@ export const AuthProvider: FC<{
     }
 
     const decodedToken = decodeToken<TokenData>(accessToken);
-
     if (decodedToken?.role === 'student') {
       const user_data = await apiService.sendGetStudentRequest(accessToken);
       saveUserDataToLocalStorage(user_data);
+      handleUSerRole({ role: 'student' });
     } else if (decodedToken?.role === 'teacher') {
       const user_data = await apiService.sendGetStudentRequest(accessToken);
-
+      handleUSerRole({ role: 'teacher' });
       localStorage.setItem('name', user_data.name);
       // localStorage.setItem('email', user_data.email);
       localStorage.setItem(

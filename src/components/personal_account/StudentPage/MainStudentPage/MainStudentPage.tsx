@@ -4,6 +4,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 
 import ApiService from '../../../../api/ApiService';
 import { StudentsMenuItems } from '../../../../utils/constants';
+import { UserRole } from '../../../../utils/interfaces';
 import {
   isTokenValid,
   saveUserDataToLocalStorage,
@@ -19,8 +20,12 @@ import './MainStudentPage.css';
 
 interface MainStudentProps {
   apiService: ApiService;
+  userRole: UserRole;
 }
-const MainStudentPage: React.FC<MainStudentProps> = ({ apiService }) => {
+const MainStudentPage: React.FC<MainStudentProps> = ({
+  apiService,
+  userRole,
+}) => {
   const [selectedItemName, setSelectedItemName] = useState<string | null>(
     'Расписание',
   );
@@ -96,7 +101,10 @@ const MainStudentPage: React.FC<MainStudentProps> = ({ apiService }) => {
           handleSideBarToggle={handleSideBarToggle}
         />
         <div className="studentpage__content">
-          <AdditionalHorizontalInfoLine setToggled={handleSideBarToggle} />
+          <AdditionalHorizontalInfoLine
+            setToggled={handleSideBarToggle}
+            userRole={userRole}
+          />
           {selectedItemName === 'Расписание' && <StudentAttendance />}
           {selectedItemName === 'Оплаты' && (
             <StudentPayment apiService={apiService} />

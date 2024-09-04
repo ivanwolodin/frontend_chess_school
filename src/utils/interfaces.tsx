@@ -97,6 +97,7 @@ export interface PaymentInfoPopupProps {
 }
 export interface AdditionalHorizontalInfoLineProps {
   setToggled: () => void;
+  userRole: UserRole;
 }
 export interface ExecuteScrollProps {
   executeScroll: () => void;
@@ -135,4 +136,8 @@ export interface TokenData {
   name: string;
   role: 'student' | 'teacher';
   exp: string;
+}
+
+export interface UserRole {
+  role: 'student' | 'teacher' | 'admin' | 'unauthorized';
 }
