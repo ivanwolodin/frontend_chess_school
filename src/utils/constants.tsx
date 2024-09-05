@@ -195,12 +195,12 @@ export const StudentsMenuItems: SidebarMainMenuItems[] = [
 ];
 
 export const SuperAdminMenuItems: SidebarMainMenuItems[] = [
-  { icon: 'bar-chart', label: 'Дэшборд', disabled: false },
-  { icon: 'calendar', label: 'Расписание', disabled: false },
+  // { icon: 'bar-chart', label: 'Дэшборд', disabled: false },
+  { icon: 'calendar', label: 'Расписание', disabled: true },
   { icon: 'book-2', label: 'Занести ученика', disabled: false },
-  { icon: 'service', label: 'Статистика оплат', disabled: false },
-  { icon: 'book-2', label: 'Ответить на вопрос', disabled: false },
-  { icon: 'ink-bottle', label: 'Добавить новость', disabled: false },
+  { icon: 'service', label: 'Оплаты', disabled: false },
+  { icon: 'book-2', label: 'Ответить на вопрос', disabled: true },
+  { icon: 'ink-bottle', label: 'Добавить новость', disabled: true },
 ];
 
 export const attendanceData: AttendanceData = {
