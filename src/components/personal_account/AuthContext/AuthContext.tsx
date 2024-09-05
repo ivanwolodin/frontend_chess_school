@@ -36,26 +36,33 @@ export const AuthProvider: FC<{
 
     const decodedToken = decodeToken<TokenData>(accessToken);
     if (decodedToken?.role === 'student') {
-      const user_data = await apiService.sendGetStudentRequest(accessToken);
-      saveUserDataToLocalStorage(user_data);
+      const userData = await apiService.sendGetStudentRequest(accessToken);
+      saveUserDataToLocalStorage(userData);
       handleUSerRole({ role: 'student' });
     } else if (decodedToken?.role === 'teacher') {
-      const user_data = await apiService.sendGetStudentRequest(accessToken);
+      const userData = await apiService.sendGetStudentRequest(accessToken);
       handleUSerRole({ role: 'teacher' });
-      localStorage.setItem('name', user_data.name);
+      localStorage.setItem('name', userData.name);
       // localStorage.setItem('email', user_data.email);
       localStorage.setItem(
         'attendanceInfo',
-        JSON.stringify(user_data.attendance_info),
+        JSON.stringify(userData.attendance_info),
       );
 
-      localStorage.setItem('groupsName', JSON.stringify(user_data.groupsName));
+      localStorage.setItem('groupsName', JSON.stringify(userData.groupsName));
       localStorage.setItem('role', 'teacher');
+    } else if (decodedToken?.role === 'admin') {
+      const userData = await apiService.sendGetAdminData(accessToken);
+      console.log(userData);
+      handleUSerRole({ role: 'admin' });
+      localStorage.setItem('name', decodedToken.name);
+      localStorage.setItem('groupsName', JSON.stringify(userData.groups));
+      localStorage.setItem('personalData', JSON.stringify(userData.students));
+
+      localStorage.setItem('accessToken', accessToken);
+
+      navigate('/personal_account');
     }
-
-    localStorage.setItem('accessToken', accessToken);
-
-    navigate('/personal_account');
   };
 
   const logout = () => {
