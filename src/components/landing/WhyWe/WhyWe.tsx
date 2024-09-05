@@ -55,7 +55,7 @@ function WhyWe() {
             <img className="why-we__img" src={cup} alt="logo"></img>
           </li>
           <li>
-            <h3 className="why-we__card-title">Нам есть чем гордится</h3>
+            <h3 className="why-we__card-title">Нам есть чем гордиться</h3>
             <p className="why-we__card-text">
               Выпускники нашей школы имеют высокие спортивные звания.
               Неоднократно завоевывали призовые места на Всероссийских и
