@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { PersonalDataTableProps } from '../../../../utils/interfaces';
-import PersonalDataTable from '../../common_comps/PersonalData/PersonalDataTable';
+import { PersonalDataTable } from '../../common_comps/PersonalData/PersonalDataTable';
 import RegisterNewStudentPopup from '../../utility_popups/RegisterNewStudentPopup/RegisterNewStudentPopup';
 
 import './ManageStudentRegistration.css';

@@ -8,6 +8,7 @@ import {
   WeAreTrustedByProps,
   AttendanceData,
   PersonalTableRowData,
+  GroupTableRowData,
 } from './interfaces';
 
 export const headerItems: string[] = [
@@ -199,7 +200,7 @@ export const SuperAdminMenuItems: SidebarMainMenuItems[] = [
   { icon: 'calendar', label: 'Расписание', disabled: true },
   { icon: 'book-2', label: 'Ученики', disabled: false },
   { icon: 'ink-bottle', label: 'Группы', disabled: false },
-  { icon: 'service', label: 'Оплаты', disabled: false },
+  { icon: 'service', label: 'Оплаты', disabled: true },
   { icon: 'book-2', label: 'Ответить на вопрос', disabled: true },
   { icon: 'ink-bottle', label: 'Добавить новость', disabled: true },
 ];
@@ -477,6 +478,39 @@ export const personalDataColumnsSettings: TableColumn<PersonalTableRowData>[] =
       hide: 'md' as unknown as Media,
     },
   ];
+export const groupsDataColumnsSettings: TableColumn<GroupTableRowData>[] = [
+  {
+    name: 'группа',
+    selector: (row: GroupTableRowData) => row.name,
+    sortable: true,
+    grow: 2,
+  },
+  {
+    name: 'расписание',
+    selector: (row: GroupTableRowData) => row.schedule,
+    sortable: true,
+    grow: 2,
+  },
+  {
+    name: 'учителя',
+    selector: (row: GroupTableRowData) => row.teachers,
+    sortable: true,
+    hide: 'sm' as unknown as Media,
+  },
+  {
+    name: 'доп. инфо',
+    selector: (row: GroupTableRowData) => row.additional_info,
+    sortable: true,
+    right: true,
+  },
+  {
+    name: 'количество учеников',
+    selector: (row: GroupTableRowData) => row.students_number,
+    sortable: true,
+    right: true,
+    hide: 'md' as unknown as Media,
+  },
+];
 export const scheduleData = [
   {
     group: 'Школьники',

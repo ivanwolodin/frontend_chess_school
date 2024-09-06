@@ -56,8 +56,12 @@ export const AuthProvider: FC<{
       console.log(userData);
       handleUSerRole({ role: 'admin' });
       localStorage.setItem('name', decodedToken.name);
-      localStorage.setItem('groupsName', JSON.stringify(userData.groups));
+      localStorage.setItem(
+        'only_groups_name',
+        JSON.stringify(userData.only_groups_name),
+      );
       localStorage.setItem('personalData', JSON.stringify(userData.students));
+      localStorage.setItem('groupData', JSON.stringify(userData.group_data));
 
       localStorage.setItem('accessToken', accessToken);
 

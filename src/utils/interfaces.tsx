@@ -82,6 +82,18 @@ export interface PersonalDataTableProps {
   data: PersonalTableRowData[];
 }
 
+export interface GroupTableRowData {
+  name: string;
+  schedule: string;
+  teachers: string;
+  additional_info: string;
+  students_number: string;
+}
+
+export interface GroupDataTableProps {
+  data: GroupTableRowData[];
+}
+
 export interface AttendancePopupProps {
   open: boolean;
   selectedItem: string | null;

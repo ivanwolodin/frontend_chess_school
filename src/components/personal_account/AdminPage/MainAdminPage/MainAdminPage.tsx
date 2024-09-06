@@ -10,6 +10,7 @@ import Loader from '../../../general/Loader/Loader';
 import InfoPopup from '../../../landing/InfoPopup/InfoPopup';
 import AdditionalHorizontalInfoLine from '../../common_comps/AdditionalHorizontalInfoLine/AdditionalHorizontalInfoLine';
 import SideBar from '../../common_comps/SideBar/SideBar';
+import ManageGroups from '../ManageGroups/ManageGroups';
 import ManageStudentRegistration from '../ManageStudentRegistration/ManageStudentRegistration';
 
 import './MainAdminPage.css';
@@ -52,10 +53,39 @@ const MainAdminPage: React.FC<MainAdminProps> = ({ apiService, userRole }) => {
       usual_price: 'string',
     },
   ]);
+  const [groups, setGroups] = useState([
+    {
+      name: 'string',
+      schedule: 'string',
+      teachers: 'string',
+      additional_info: 'string',
+      students_number: '1',
+    },
+  ]);
   useEffect(() => {
     const students_data = localStorage.getItem('personalData');
     if (students_data) {
       setStudents(JSON.parse(students_data));
+    }
+
+    const groups_data = localStorage.getItem('groupData');
+    if (groups_data) {
+      const parsedGroups = JSON.parse(groups_data);
+
+      const formattedGroups = Object.keys(parsedGroups).map((key) => {
+        const group = parsedGroups[key];
+        return {
+          name: key,
+          schedule: Object.entries(group.schedule)
+            .map(([day, time]) => `${day}: ${time}`)
+            .join(', '),
+          teachers: group.teacher_names.join(', '),
+          additional_info: JSON.stringify(group.additional_info), // если нужно
+          students_number: group.students_number,
+        };
+      });
+
+      setGroups(formattedGroups);
     }
   }, []);
 
@@ -76,6 +106,7 @@ const MainAdminPage: React.FC<MainAdminProps> = ({ apiService, userRole }) => {
           {selectedItemName === 'Ученики' && (
             <ManageStudentRegistration data={students} />
           )}
+          {selectedItemName === 'Группы' && <ManageGroups data={groups} />}
         </div>
         {/* {selectedItemName === 'Оплаты' && <ManageAttendance />} */}
         {/* {selectedItemName === 'Занести ученика' && <Dashboard />} */}

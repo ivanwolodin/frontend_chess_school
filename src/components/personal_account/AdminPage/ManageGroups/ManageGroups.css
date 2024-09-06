@@ -1,3 +1,6 @@
-p {
-  margin: 0;
+.managegroups__general {
+  flex-grow: 1;
+  background: url('../../../../assets/personal_account_images/homework.jpg')
+    no-repeat center center;
+  background-size: cover;
 }

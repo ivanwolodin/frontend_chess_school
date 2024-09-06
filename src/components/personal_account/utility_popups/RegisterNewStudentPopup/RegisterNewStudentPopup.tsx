@@ -56,7 +56,7 @@ const RegisterNewStudentPopup: React.FC<RegisterNewStudentPopupProps> = ({
   };
 
   useEffect(() => {
-    const storedGroups = localStorage.getItem('groups');
+    const storedGroups = localStorage.getItem('only_groups_name');
     if (storedGroups) {
       try {
         setGroups(JSON.parse(storedGroups));
@@ -212,6 +212,7 @@ const RegisterNewStudentPopup: React.FC<RegisterNewStudentPopupProps> = ({
               name="discount"
               value={formData.discount?.toString() || ''}
               onChange={handleChange}
+              disabled
             />
           </div>
 
