@@ -68,20 +68,20 @@ export interface AttendanceData {
 }
 
 export interface PersonalTableRowData {
-  id?: number;
+  id: string;
   name: string;
-  type: string;
-  calories: number;
-  fat: number;
-  carbs: number;
-  protein: number;
-  sodium: number;
-  calcium: number;
-  iron: number;
+  group: string;
+  parent_name: string;
+  phone: string;
+  email: string;
+  admission_date: string;
+  usual_price: string;
 }
+
 export interface PersonalDataTableProps {
   data: PersonalTableRowData[];
 }
+
 export interface AttendancePopupProps {
   open: boolean;
   selectedItem: string | null;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { PersonalDataTableProps } from '../../../../utils/interfaces';
-import PersonalDataTable from '../../common_comps/PersonalData/PersonalDataTable';
+import PersonalDataTable from '../PersonalData/PersonalDataTable';
 
 import './TeacherPersonalData.css';
 

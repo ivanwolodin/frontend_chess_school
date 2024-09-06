@@ -10,6 +10,7 @@ import Loader from '../../../general/Loader/Loader';
 import InfoPopup from '../../../landing/InfoPopup/InfoPopup';
 import AdditionalHorizontalInfoLine from '../../common_comps/AdditionalHorizontalInfoLine/AdditionalHorizontalInfoLine';
 import SideBar from '../../common_comps/SideBar/SideBar';
+import ManageStudentRegistration from '../ManageStudentRegistration/ManageStudentRegistration';
 
 import './MainAdminPage.css';
 
@@ -29,7 +30,7 @@ const MainAdminPage: React.FC<MainAdminProps> = ({ apiService, userRole }) => {
   const [textPopup, setTextPopup] = useState('');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedItemName, setSelectedItemName] = useState<string | null>(
-    'Расписание',
+    'Ученики',
   );
   const handleSelectedItemClick = (itemName: string) => {
     setSelectedItemName(itemName);
@@ -38,6 +39,25 @@ const MainAdminPage: React.FC<MainAdminProps> = ({ apiService, userRole }) => {
   const handleSideBarToggle = () => {
     setToggled(!toggled);
   };
+
+  const [students, setStudents] = useState([
+    {
+      id: '1',
+      name: 'string',
+      group: 'string',
+      parent_name: 'string',
+      phone: 'string',
+      email: 'string',
+      admission_date: 'string',
+      usual_price: 'string',
+    },
+  ]);
+  useEffect(() => {
+    const students_data = localStorage.getItem('personalData');
+    if (students_data) {
+      setStudents(JSON.parse(students_data));
+    }
+  }, []);
 
   return (
     <>
@@ -53,6 +73,9 @@ const MainAdminPage: React.FC<MainAdminProps> = ({ apiService, userRole }) => {
             setToggled={handleSideBarToggle}
             userRole={userRole}
           />
+          {selectedItemName === 'Ученики' && (
+            <ManageStudentRegistration data={students} />
+          )}
         </div>
         {/* {selectedItemName === 'Оплаты' && <ManageAttendance />} */}
         {/* {selectedItemName === 'Занести ученика' && <Dashboard />} */}

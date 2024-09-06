@@ -1,3 +1,16 @@
-p {
-  margin: 0;
+.managestudentregistration__general {
+  flex-grow: 1;
+  background: url('../../../../assets/personal_account_images/personal_data.jpg')
+    no-repeat center center;
+  background-size: cover;
+}
+
+.managestudentregistration__button {
+  display: block;
+  width: 200px;
+  height: 80px;
+  margin-top: 90px;
+  margin-right: auto;
+  margin-left: auto;
+  cursor: pointer;
 }
