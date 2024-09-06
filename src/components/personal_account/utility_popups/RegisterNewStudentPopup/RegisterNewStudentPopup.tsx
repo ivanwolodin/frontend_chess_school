@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
 import Popup from 'reactjs-popup';
+
+import ApiService from '../../../../api/ApiService';
+import { isTokenValid } from '../../../../utils/usefulFunctions';
+import Loader from '../../../general/Loader/Loader';
 import './RegisterNewStudentPopup.css';
 
 interface Student {
@@ -21,12 +26,17 @@ interface Student {
 interface RegisterNewStudentPopupProps {
   open: boolean;
   closeModal: () => void;
+  apiService: ApiService;
 }
 
 const RegisterNewStudentPopup: React.FC<RegisterNewStudentPopupProps> = ({
   open,
   closeModal,
+  apiService,
 }) => {
+  const navigate = useNavigate();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<Student>({
     name: '',
     group: '',
@@ -49,10 +59,28 @@ const RegisterNewStudentPopup: React.FC<RegisterNewStudentPopupProps> = ({
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
-    // Add form submission logic here
+    const accessToken = localStorage.getItem('accessToken');
+    if (isTokenValid(accessToken)) {
+      setLoading(true);
+      const student = await apiService.sendAddStudent(formData);
+      if (student) {
+        const personalData = localStorage.getItem('personalData');
+        const existingStudents = personalData ? JSON.parse(personalData) : [];
+        existingStudents.push(student);
+        localStorage.setItem('personalData', JSON.stringify(existingStudents));
+        alert('Ученик занесен!');
+      } else {
+        alert('Что-то не так!');
+      }
+      setLoading(false);
+      closeModal();
+    } else {
+      alert('Авторизуйтесь, пожалуйста, заново');
+      localStorage.clear();
+      navigate('/log_in');
+    }
   };
 
   useEffect(() => {
@@ -220,6 +248,7 @@ const RegisterNewStudentPopup: React.FC<RegisterNewStudentPopupProps> = ({
             Зарегистрировать
           </button>
         </form>
+        {loading && <Loader />}
       </div>
     </Popup>
   );

@@ -82,6 +82,11 @@ export interface PersonalDataTableProps {
   data: PersonalTableRowData[];
 }
 
+export interface ManageStudentRegistrationProps {
+  data: PersonalTableRowData[];
+  apiService: Api;
+}
+
 export interface GroupTableRowData {
   name: string;
   schedule: string;

@@ -80,7 +80,7 @@ const MainAdminPage: React.FC<MainAdminProps> = ({ apiService, userRole }) => {
             .map(([day, time]) => `${day}: ${time}`)
             .join(', '),
           teachers: group.teacher_names.join(', '),
-          additional_info: JSON.stringify(group.additional_info), // если нужно
+          additional_info: JSON.stringify(group.additional_info),
           students_number: group.students_number,
         };
       });
@@ -104,7 +104,10 @@ const MainAdminPage: React.FC<MainAdminProps> = ({ apiService, userRole }) => {
             userRole={userRole}
           />
           {selectedItemName === 'Ученики' && (
-            <ManageStudentRegistration data={students} />
+            <ManageStudentRegistration
+              data={students}
+              apiService={apiService}
+            />
           )}
           {selectedItemName === 'Группы' && <ManageGroups data={groups} />}
         </div>

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 
-import { PersonalDataTableProps } from '../../../../utils/interfaces';
+import { ManageStudentRegistrationProps } from '../../../../utils/interfaces';
 import { PersonalDataTable } from '../../common_comps/PersonalData/PersonalDataTable';
 import RegisterNewStudentPopup from '../../utility_popups/RegisterNewStudentPopup/RegisterNewStudentPopup';
 
 import './ManageStudentRegistration.css';
 
-const ManageStudentRegistration: React.FC<PersonalDataTableProps> = ({
+const ManageStudentRegistration: React.FC<ManageStudentRegistrationProps> = ({
   data,
+  apiService,
 }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -31,7 +32,11 @@ const ManageStudentRegistration: React.FC<PersonalDataTableProps> = ({
         </button>
       </div>
       {isPopupOpen && (
-        <RegisterNewStudentPopup open={isPopupOpen} closeModal={closePopup} />
+        <RegisterNewStudentPopup
+          open={isPopupOpen}
+          closeModal={closePopup}
+          apiService={apiService}
+        />
       )}
     </>
   );

@@ -10,7 +10,10 @@ import {
   UserLoginData,
   UserRole,
 } from '../../../utils/interfaces';
-import { saveUserDataToLocalStorage } from '../../../utils/usefulFunctions';
+import {
+  saveAdminDataToLocalStorage,
+  saveUserDataToLocalStorage,
+} from '../../../utils/usefulFunctions';
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
@@ -53,15 +56,8 @@ export const AuthProvider: FC<{
       localStorage.setItem('role', 'teacher');
     } else if (decodedToken?.role === 'admin') {
       const userData = await apiService.sendGetAdminData(accessToken);
-      console.log(userData);
       handleUSerRole({ role: 'admin' });
-      localStorage.setItem('name', decodedToken.name);
-      localStorage.setItem(
-        'only_groups_name',
-        JSON.stringify(userData.only_groups_name),
-      );
-      localStorage.setItem('personalData', JSON.stringify(userData.students));
-      localStorage.setItem('groupData', JSON.stringify(userData.group_data));
+      saveAdminDataToLocalStorage(userData);
 
       localStorage.setItem('accessToken', accessToken);
 

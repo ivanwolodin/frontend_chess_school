@@ -41,3 +41,20 @@ export const saveUserDataToLocalStorage = (user_data: UserData) => {
   localStorage.setItem('payments', JSON.stringify(user_data.payments));
   // localStorage.setItem('role', 'student');
 };
+
+interface AdminData {
+  name: string;
+  only_groups_name: [];
+  students: [];
+  group_data: [];
+}
+
+export const saveAdminDataToLocalStorage = (user_data: AdminData) => {
+  localStorage.setItem('name', 'Елена');
+  localStorage.setItem(
+    'only_groups_name',
+    JSON.stringify(user_data.only_groups_name),
+  );
+  localStorage.setItem('personalData', JSON.stringify(user_data.students));
+  localStorage.setItem('groupData', JSON.stringify(user_data.group_data));
+};
