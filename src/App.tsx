@@ -24,47 +24,43 @@ import VideoSection from './components/landing/VideoSection/VideoSection';
 import WhyWe from './components/landing/WhyWe/WhyWe';
 import { AuthProvider } from './components/personal_account/AuthContext/AuthContext';
 import PrivateWrapper from './components/personal_account/PrivateWrapper/PrivateWrapper';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { TokenData, UserRole } from './utils/interfaces';
 
 function App() {
   const admissionFormRef = useRef<HTMLDivElement | null>(null);
   const apiService = new ApiService();
 
-  // const initialRole = () => {
-  //   const token = localStorage.getItem('accessToken');
-  //   if (token) {
-  //     const decodedToken = decodeToken<TokenData>(token);
-  //     return decodedToken?.role || 'unauthorized';
-  //   }
-  //   return 'unauthorized';
-  // };
-
-  // const [userRole, setUserRole] = useState<UserRole>({ role: initialRole() });
-  const [userRole, setUserRole] = useState<UserRole>({ role: 'admin' });
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleUserRole = (role: UserRole) => {
-    // setUserRole({ role: role.role });
-    setUserRole({ role: 'admin' });
+  const initialRole = () => {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      const decodedToken = decodeToken<TokenData>(token);
+      return decodedToken?.role || 'unauthorized';
+    }
+    return 'unauthorized';
   };
 
-  // const checkAndSetUserRole = () => {
-  //   // Можно вынести эту проверку на серверную часть
-  //   const token = localStorage.getItem('accessToken');
-  //   if (token) {
-  //     const decodedToken = decodeToken<TokenData>(token);
-  //     if (decodedToken?.role) {
-  //       handleUserRole({ role: decodedToken.role });
-  //     }
-  //   } else {
-  //     handleUserRole({ role: 'unauthorized' });
-  //   }
-  // };
+  const [userRole, setUserRole] = useState<UserRole>({ role: initialRole() });
 
-  // useEffect(() => {
-  //   checkAndSetUserRole();
-  // }, []);
+  const handleUserRole = (role: UserRole) => {
+    setUserRole({ role: role.role });
+  };
+
+  const checkAndSetUserRole = () => {
+    // Можно вынести эту проверку на серверную часть
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      const decodedToken = decodeToken<TokenData>(token);
+      if (decodedToken?.role) {
+        handleUserRole({ role: decodedToken.role });
+      }
+    } else {
+      handleUserRole({ role: 'unauthorized' });
+    }
+  };
+
+  useEffect(() => {
+    checkAndSetUserRole();
+  }, []);
 
   return (
     <>

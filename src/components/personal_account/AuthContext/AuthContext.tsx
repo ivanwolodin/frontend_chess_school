@@ -42,6 +42,9 @@ export const AuthProvider: FC<{
       const userData = await apiService.sendGetStudentRequest(accessToken);
       saveUserDataToLocalStorage(userData);
       handleUSerRole({ role: 'student' });
+      localStorage.setItem('accessToken', accessToken);
+
+      navigate('/personal_account');
     } else if (decodedToken?.role === 'teacher') {
       const userData = await apiService.sendGetStudentRequest(accessToken);
       handleUSerRole({ role: 'teacher' });
@@ -54,6 +57,8 @@ export const AuthProvider: FC<{
 
       localStorage.setItem('groupsName', JSON.stringify(userData.groupsName));
       localStorage.setItem('role', 'teacher');
+
+      navigate('/personal_account');
     } else if (decodedToken?.role === 'admin') {
       const userData = await apiService.sendGetAdminData(accessToken);
       handleUSerRole({ role: 'admin' });
