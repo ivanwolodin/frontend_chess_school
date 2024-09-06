@@ -12,5 +12,10 @@
   margin-top: 90px;
   margin-right: auto;
   margin-left: auto;
+  background-color: rgb(163 232 150);
   cursor: pointer;
+}
+
+.managestudentregistration__button:hover{
+  background-color: rgb(66 208 37);
 }

@@ -484,17 +484,20 @@ export const groupsDataColumnsSettings: TableColumn<GroupTableRowData>[] = [
     selector: (row: GroupTableRowData) => row.name,
     sortable: true,
     grow: 2,
+    width: '150px',
   },
   {
     name: 'расписание',
     selector: (row: GroupTableRowData) => row.schedule,
     sortable: true,
     grow: 2,
+    maxWidth: '300px',
   },
   {
     name: 'учителя',
     selector: (row: GroupTableRowData) => row.teachers,
     sortable: true,
+    minWidth: '200px',
     hide: 'sm' as unknown as Media,
   },
   {
