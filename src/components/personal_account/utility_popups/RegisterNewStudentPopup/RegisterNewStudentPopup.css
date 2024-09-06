@@ -1,0 +1,66 @@
+.register-popup {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.popup-overlay {
+  background-color: rgb(0 0 0 / 70%);
+}
+
+.register-popup__title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.register-popup__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-popup__form-group {
+  margin-bottom: 15px;
+}
+
+.register-popup__label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.register-popup__input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+.register-popup__submit {
+  padding: 10px 20px;
+  color: #ffffff;
+  font-size: 16px;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register-popup__submit:hover {
+  background-color: #45a049;
+}
+
+.register-popup__button {
+  padding: 10px 20px;
+  color: white;
+  background-color: #008cba;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register-popup__button:hover {
+  background-color: #007bb5;
+}

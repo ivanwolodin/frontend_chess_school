@@ -33,6 +33,7 @@ const MainStudentPage: React.FC<MainStudentProps> = ({
   const [showPopup, setShowPopup] = useState(false);
   const [titlePopup, setTitlePopup] = useState('');
   const [textPopup, setTextPopup] = useState('');
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();

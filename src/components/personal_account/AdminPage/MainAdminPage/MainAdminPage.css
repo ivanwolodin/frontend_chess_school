@@ -1,0 +1,14 @@
+p {
+  margin: 0;
+}
+
+.adminpage__general {
+  display: flex;
+  flex-direction: row;
+}
+
+.adminpagepage__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

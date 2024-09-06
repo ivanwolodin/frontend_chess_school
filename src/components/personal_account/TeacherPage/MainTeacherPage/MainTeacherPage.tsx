@@ -5,10 +5,10 @@ import { TeachersMenuItems, personalData } from '../../../../utils/constants';
 import { UserRole } from '../../../../utils/interfaces';
 import AdditionalHorizontalInfoLine from '../../common_comps/AdditionalHorizontalInfoLine/AdditionalHorizontalInfoLine';
 import SideBar from '../../common_comps/SideBar/SideBar';
+import TeacherPersonalData from '../../common_comps/StudentsPersonalData/TeacherPersonalData';
 import Dashboard from '../Dashboard/Dashboard';
 import ManageAttendance from '../ManageAttendance/ManageAttendance';
 import ManageHomework from '../ManageHomework/ManageHomework';
-import TeacherPersonalData from '../TeacherPersonalData/TeacherPersonalData';
 
 import './MainTeacherPage.css';
 

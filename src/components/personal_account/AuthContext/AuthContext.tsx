@@ -10,7 +10,10 @@ import {
   UserLoginData,
   UserRole,
 } from '../../../utils/interfaces';
-import { saveUserDataToLocalStorage } from '../../../utils/usefulFunctions';
+import {
+  saveAdminDataToLocalStorage,
+  saveUserDataToLocalStorage,
+} from '../../../utils/usefulFunctions';
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
@@ -36,26 +39,30 @@ export const AuthProvider: FC<{
 
     const decodedToken = decodeToken<TokenData>(accessToken);
     if (decodedToken?.role === 'student') {
-      const user_data = await apiService.sendGetStudentRequest(accessToken);
-      saveUserDataToLocalStorage(user_data);
+      const userData = await apiService.sendGetStudentRequest(accessToken);
+      saveUserDataToLocalStorage(userData);
       handleUSerRole({ role: 'student' });
     } else if (decodedToken?.role === 'teacher') {
-      const user_data = await apiService.sendGetStudentRequest(accessToken);
+      const userData = await apiService.sendGetStudentRequest(accessToken);
       handleUSerRole({ role: 'teacher' });
-      localStorage.setItem('name', user_data.name);
+      localStorage.setItem('name', userData.name);
       // localStorage.setItem('email', user_data.email);
       localStorage.setItem(
         'attendanceInfo',
-        JSON.stringify(user_data.attendance_info),
+        JSON.stringify(userData.attendance_info),
       );
 
-      localStorage.setItem('groupsName', JSON.stringify(user_data.groupsName));
+      localStorage.setItem('groupsName', JSON.stringify(userData.groupsName));
       localStorage.setItem('role', 'teacher');
+    } else if (decodedToken?.role === 'admin') {
+      const userData = await apiService.sendGetAdminData(accessToken);
+      handleUSerRole({ role: 'admin' });
+      saveAdminDataToLocalStorage(userData);
+
+      localStorage.setItem('accessToken', accessToken);
+
+      navigate('/personal_account');
     }
-
-    localStorage.setItem('accessToken', accessToken);
-
-    navigate('/personal_account');
   };
 
   const logout = () => {

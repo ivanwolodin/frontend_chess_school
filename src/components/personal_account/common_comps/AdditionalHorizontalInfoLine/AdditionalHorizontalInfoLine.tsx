@@ -43,6 +43,12 @@ const AdditionalHorizontalInfoLine: React.FC<
         {'    '}Задолженности нет! &#128522;
       </p>
     );
+  } else if (userRole.role === 'admin') {
+    message = (
+      <p className="additionalhorizontalinfoline__name">
+        Добрый день, <b>Елена!</b>
+      </p>
+    );
   }
 
   const [menuIcon, setMenuIcon] = useState(

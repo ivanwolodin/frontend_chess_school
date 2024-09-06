@@ -86,6 +86,39 @@ class ApiService {
     return response;
   }
 
+  async sendGetAdminData(access_token) {
+    const response = await this.sendRequest('admin/fetch_data', {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${access_token}`,
+      },
+    });
+
+    if (response.error) {
+      return null;
+    }
+
+    return response;
+  }
+
+  async sendAddStudent(data) {
+    const response = await this.sendRequest('admin/student', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.error) {
+      return null;
+    }
+
+    return response;
+  }
+
   async getPaymentUrl(sumToPay) {
     const response = await this.sendRequest('student/make_payment', {
       method: 'POST',

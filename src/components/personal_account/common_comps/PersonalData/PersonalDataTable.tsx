@@ -1,27 +1,19 @@
 import React from 'react';
 
 import DataTable from 'react-data-table-component';
-import './PersonalDataTable.css';
 
-import { personalDataColumnsSettings } from '../../../../utils/constants';
+import './PersonalDataTable.css';
 import {
+  groupsDataColumnsSettings,
+  personalDataColumnsSettings,
+} from '../../../../utils/constants';
+import {
+  GroupDataTableProps,
   PersonalDataTableProps,
-  PersonalTableRowData,
 } from '../../../../utils/interfaces';
 
+// Компонент для отображения персональных данных
 const PersonalDataTable: React.FC<PersonalDataTableProps> = ({ data }) => {
-  const handleRowClicked = (row: PersonalTableRowData) => {
-    alert(`Имя: ${row.name}, Возраст: ${row.fat}`);
-  };
-  const conditionalRowStyles = [
-    {
-      when: (row: PersonalTableRowData) => row.fat > 9,
-      style: {
-        backgroundColor: 'lightblue',
-      },
-    },
-  ];
-
   return (
     <div className="personaldatatable__general">
       <DataTable
@@ -32,11 +24,25 @@ const PersonalDataTable: React.FC<PersonalDataTableProps> = ({ data }) => {
         pagination
         paginationPerPage={10}
         paginationRowsPerPageOptions={[10]}
-        onRowClicked={handleRowClicked}
-        conditionalRowStyles={conditionalRowStyles}
       />
     </div>
   );
 };
 
-export default PersonalDataTable;
+const GroupDataTable: React.FC<GroupDataTableProps> = ({ data }) => {
+  return (
+    <div className="groupdatatable__general">
+      <DataTable
+        className="groupdatatable__data"
+        title="Групповые данные"
+        data={data}
+        columns={groupsDataColumnsSettings}
+        pagination
+        paginationPerPage={10}
+        paginationRowsPerPageOptions={[10]}
+      />
+    </div>
+  );
+};
+
+export { PersonalDataTable, GroupDataTable };
