@@ -491,7 +491,7 @@ export const groupsDataColumnsSettings: TableColumn<GroupTableRowData>[] = [
     selector: (row: GroupTableRowData) => row.schedule,
     sortable: true,
     grow: 2,
-    maxWidth: '300px',
+    // maxWidth: '300px',
   },
   {
     name: 'учителя',
