@@ -67,6 +67,7 @@
 
   .why-we__img {
     width: 100%;
+
     /* min-height: unset; */
     max-height: 300px;
   }
