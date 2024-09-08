@@ -68,6 +68,7 @@
 
   .studentpayment__buttons {
     align-items: center;
+    gap: 0;
     margin-top: 20px;
   }
 }

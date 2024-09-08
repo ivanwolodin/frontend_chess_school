@@ -27,7 +27,8 @@ const PaymentPopup: React.FC<PaymentInfoPopupProps> = ({
       const urlToRedirect = paymentUrl ?? '';
 
       if (urlToRedirect) {
-        window.open(urlToRedirect);
+        window.location.href = urlToRedirect;
+        // window.open(urlToRedirect);
       } else {
         alert(
           'В данный момент функционал оплат недоступен. Мы работаем над восстановлением',
