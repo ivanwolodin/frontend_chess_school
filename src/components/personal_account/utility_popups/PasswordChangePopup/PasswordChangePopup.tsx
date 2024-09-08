@@ -34,7 +34,10 @@ const PasswordChangePopup: React.FC<ChangePasswordPopupProps> = ({
     <Popup open={open} onClose={closeModal} closeOnEscape={true}>
       <div className="password-change-popup">
         <div className="password-change-popup__header">
-          <h2 className="password-change-popup__title">Изменить пароль</h2>
+          <h2 className="password-change-popup__title">
+            Изменить пароль{' '}
+            <span className="password-change-popup_icon">&#9999;</span>
+          </h2>
           <button className="password-change-popup__close" onClick={closeModal}>
             &times;
           </button>

@@ -12,15 +12,16 @@
 }
 
 .studentattendance__title {
-  padding-left: 80px;
-  font-size: 20px;
-  color: rgb(95, 6, 6);
   margin-left: 170px;
+  padding-left: 80px;
+  color: rgb(95 6 6);
+  font-size: 20px;
+
   /* align-self: center; */
 }
 
 .react-calendar__navigation__label {
-  color: rgb(103, 14, 14);
+  color: rgb(103 14 14);
   font-size: 30px;
 }
 
@@ -100,11 +101,12 @@
 }
 
 @media (width <= 650px) {
-  .studentattendance__general{
-    padding-left: 0;
+  .studentattendance__general {
     align-items: center;
+    padding-left: 0;
   }
-  .studentattendance__title{
+
+  .studentattendance__title {
     margin-left: 0;
     padding: 0;
   }
