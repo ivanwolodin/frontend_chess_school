@@ -1,4 +1,4 @@
-import zlata from '../../../assets/comercial_imgs/zlata.jpeg';
+import luka from '../../../assets/comercial_imgs/luka.png';
 import { NewYearAdmissionProps } from '../../../utils/interfaces';
 
 import './NewYearAdmission.css';
@@ -27,8 +27,8 @@ const NewYearAdmission: React.FC<NewYearAdmissionProps> = ({
         </div>
         <img
           className="newyearadmission__comercial_girl"
-          src={zlata}
-          alt="zlata"
+          src={luka}
+          alt="luka"
         ></img>
       </div>
     </section>

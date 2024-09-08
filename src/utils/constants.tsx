@@ -131,6 +131,12 @@ export const teachersData: TeacherCardProps[] = [
     alt: 'Психолог',
   },
   {
+    name: 'Клоц Леонид Петрович',
+    src: require('../assets/teachers_images/Leo.png'),
+    position: 'Тренер по шахматам',
+    alt: 'Тренер',
+  },
+  {
     name: 'Володин Иван Валерьевич',
     src: require('../assets/teachers_images/IV.jpeg'),
     position: 'Программист',

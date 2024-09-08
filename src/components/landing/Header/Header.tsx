@@ -52,7 +52,7 @@ const Header = () => {
         </li>
         <li className="header__item rotate">
           <Link className="header__link" to="/log_in">
-            <span className="header__log_in">ВОЙТИ</span>
+            <span className="header__log_in">ВОЙТИ В ЛИЧНЫЙ КАБИНЕТ</span>
           </Link>
         </li>
       </ul>
