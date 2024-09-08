@@ -5,13 +5,13 @@ p {
 .paymentsecurityinfo__buttom_icon {
   width: 150px;
   height: auto;
-  margin-top: 80px;
+  margin-top: 40px;
   padding-bottom: 20px;
 }
 
 .paymentsecurityinfo__title {
   margin-bottom: 20px;
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -30,13 +30,6 @@ p {
   padding: 20px;
   overflow-y: auto;
   font-size: 12px;
-
-  /* background: conic-gradient(
-      from 90deg at 1px 1px,
-      #00000000 90deg,
-      rgb(0 0 255 / 24.2%) 0
-    )
-    0 0/50px 50px; */
   background-color: white;
   background-color: aliceblue;
 
@@ -80,5 +73,24 @@ p {
 }
 
 .paymentsecurityinfo__text {
-  font-size: 20px;
+  font-size: 18px;
+}
+
+@media (width <= 465px) {
+  .paymentsecurityinfo__popup > .close {
+    right: 5px;
+  }
+
+  .paymentsecurityinfo__title {
+    font-size: 15px;
+  }
+
+  .paymentsecurityinfo__text {
+    font-size: 15px;
+  }
+
+  .paymentsecurityinfo__buttom_icon {
+    width: 120px;
+    margin-top: 20px;
+  }
 }

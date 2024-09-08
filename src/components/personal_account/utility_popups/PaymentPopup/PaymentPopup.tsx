@@ -48,7 +48,7 @@ const PaymentPopup: React.FC<PaymentInfoPopupProps> = ({
         </button>
         <div className="paymentpopup__gen">
           <img
-            className="studentpayment__icon"
+            className="paymentpopup__icon"
             src={require('../../../../assets/icons/playing_children.png')}
             alt="btn"
           />

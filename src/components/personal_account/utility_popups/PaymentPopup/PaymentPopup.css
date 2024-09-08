@@ -6,13 +6,6 @@
   padding: 20px;
   overflow-y: auto;
   font-size: 12px;
-
-  /* background: conic-gradient(
-      from 90deg at 1px 1px,
-      #00000000 90deg,
-      rgb(0 0 255 / 24.2%) 0
-    )
-    0 0/50px 50px; */
   background-color: white;
   background-color: #fff3df;
 
@@ -47,7 +40,7 @@
   right: -10px;
   display: block;
   padding: 0 5px 5px;
-  color: #b76206;
+  color: white;
   font-size: 34px;
   line-height: 30px;
   background-color: transparent;
@@ -119,4 +112,69 @@
 .paymentpopup__input:focus {
   color: #b87956;
   outline: none;
+}
+
+.paymentpopup__icon {
+  width: 130px;
+  height: 130px;
+}
+
+@media (width <= 480px) {
+  .paymentpopup > .close {
+    right: 5px;
+  }
+
+  .paymentpopup__info {
+    margin-bottom: 0;
+    padding-top: 90px;
+    padding-bottom: 0;
+  }
+
+  .paymentpopup {
+    max-width: 400px;
+    max-height: 400px;
+  }
+}
+
+@media (width <= 445px) {
+  .paymentpopup {
+    width: 300px;
+    height: 300px;
+    padding: 0;
+  }
+
+  .paymentpopup__gen {
+    gap: 5px;
+  }
+
+  .paymentpopup__general {
+    gap: 3px;
+    font-size: 20px;
+  }
+}
+
+@media (width <= 400px) {
+  .paymentpopup {
+    min-width: unset;
+
+    /* width: 200px; */
+
+    /* height: 200px; */
+  }
+
+  .paymentpopup__gen {
+    flex-direction: column;
+    padding-top: 30px;
+  }
+
+  .paymentpopup__info {
+    display: none;
+    padding-top: 10px;
+    font-size: 25px;
+  }
+
+  .paymentpopup__icon {
+    width: 95px;
+    height: 95px;
+  }
 }

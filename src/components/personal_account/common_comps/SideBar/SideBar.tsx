@@ -14,6 +14,7 @@ const SideBar: React.FC<SideBarProps> = ({
   handleElementChoice,
   toggled,
   handleSideBarToggle,
+  changeUserPassword,
 }) => {
   const [collapsed, setCollapsed] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -27,6 +28,11 @@ const SideBar: React.FC<SideBarProps> = ({
     handleSideBarToggle(!toggled);
   };
   const [toggledSideBar, setToggledSideBar] = useState(toggled);
+
+  const handlePasswordChange = () => {
+    console.log('clicked');
+    changeUserPassword();
+  };
 
   useEffect(() => {
     setToggledSideBar(toggled);
@@ -101,7 +107,11 @@ const SideBar: React.FC<SideBarProps> = ({
           <MenuItem disabled={true} icon={<Icon name="global" />}>
             Lichess
           </MenuItem>
-          <MenuItem disabled={true} icon={<Icon name="diamond" />}>
+          <MenuItem
+            onClick={handlePasswordChange}
+            disabled={false}
+            icon={<Icon name="diamond" />}
+          >
             Сменить пароль
           </MenuItem>
         </Menu>

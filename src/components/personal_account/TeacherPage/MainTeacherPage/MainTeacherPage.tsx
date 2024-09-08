@@ -24,12 +24,14 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({ userRole }) => {
 
   const handleSelectedItemClick = (itemName: string) => {
     setSelectedItemName(itemName);
-    // console.log('Нажато:' + itemName);
   };
   const [toggled, setToggled] = useState(false);
 
   const handleSideBarToggle = () => {
     setToggled(!toggled);
+  };
+  const changeUserPassword = async () => {
+    console.log('меняю пароль и мир');
   };
   return (
     <div className="teacherpage__general">
@@ -38,6 +40,7 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({ userRole }) => {
         handleElementChoice={handleSelectedItemClick}
         toggled={toggled}
         handleSideBarToggle={handleSideBarToggle}
+        changeUserPassword={changeUserPassword}
       />
       <div className="teacherpage__maincontent">
         <AdditionalHorizontalInfoLine

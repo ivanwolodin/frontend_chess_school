@@ -19,6 +19,7 @@ export interface SideBarProps {
   handleElementChoice: (item: string) => void;
   toggled: boolean;
   handleSideBarToggle: (item: boolean) => void;
+  changeUserPassword: () => void;
 }
 
 export interface TeacherCardProps {
@@ -108,6 +109,11 @@ export interface AttendancePopupProps {
   handleRightArrowClick: () => void;
 }
 export interface PaymentInfoPopupProps {
+  open: boolean;
+  closeModal: () => void;
+  apiService?: Api;
+}
+export interface ChangePasswordPopupProps {
   open: boolean;
   closeModal: () => void;
   apiService?: Api;

@@ -13,6 +13,7 @@ import Loader from '../../../general/Loader/Loader';
 import InfoPopup from '../../../landing/InfoPopup/InfoPopup';
 import AdditionalHorizontalInfoLine from '../../common_comps/AdditionalHorizontalInfoLine/AdditionalHorizontalInfoLine';
 import SideBar from '../../common_comps/SideBar/SideBar';
+import PasswordChangePopup from '../../utility_popups/PasswordChangePopup/PasswordChangePopup';
 import StudentAttendance from '../StudentAttendance/StudentAttendance';
 import StudentPayment from '../StudentPayment/StudentPayment';
 
@@ -30,9 +31,11 @@ const MainStudentPage: React.FC<MainStudentProps> = ({
     'Расписание',
   );
   const [loading, setLoading] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
+  const [showInfoPopup, setShowInfoPopup] = useState(false);
   const [titlePopup, setTitlePopup] = useState('');
   const [textPopup, setTextPopup] = useState('');
+
+  const [showPasswordChangePopup, setPasswordChangePopup] = useState(false);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchParams, setSearchParams] = useSearchParams();
@@ -46,6 +49,11 @@ const MainStudentPage: React.FC<MainStudentProps> = ({
   const handleSideBarToggle = () => {
     setToggled(!toggled);
   };
+
+  const changeUserPassword = () => {
+    setPasswordChangePopup(true);
+  };
+
   const fetchPaymentStatus = async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const orderId = urlParams.get('order_id');
@@ -64,19 +72,19 @@ const MainStudentPage: React.FC<MainStudentProps> = ({
             const user_data =
               await apiService.sendGetStudentRequest(accessToken);
             saveUserDataToLocalStorage(user_data);
-            setShowPopup(true);
+            setShowInfoPopup(true);
             setLoading(false);
           } else {
             setTitlePopup('Не получилось');
             setTextPopup('Оплата не прошла');
-            setShowPopup(true);
+            setShowInfoPopup(true);
             setLoading(false);
           }
         } catch (error) {
           console.error('Error fetching payment status:', error);
           setTitlePopup('Не получилось');
           setTextPopup('Оплата не прошла');
-          setShowPopup(true);
+          setShowInfoPopup(true);
           setLoading(false);
         }
       }
@@ -100,6 +108,7 @@ const MainStudentPage: React.FC<MainStudentProps> = ({
           handleElementChoice={handleSelectedItemClick}
           toggled={toggled}
           handleSideBarToggle={handleSideBarToggle}
+          changeUserPassword={changeUserPassword}
         />
         <div className="studentpage__content">
           <AdditionalHorizontalInfoLine
@@ -112,11 +121,18 @@ const MainStudentPage: React.FC<MainStudentProps> = ({
           )}
         </div>
         {loading && <Loader />}
-        {showPopup && (
+        {showInfoPopup && (
           <InfoPopup
-            onClose={() => setShowPopup(false)}
+            onClose={() => setShowInfoPopup(false)}
             title={titlePopup}
             text={textPopup}
+          />
+        )}
+        {showPasswordChangePopup && (
+          <PasswordChangePopup
+            open={showPasswordChangePopup}
+            apiService={apiService}
+            closeModal={() => setPasswordChangePopup(false)}
           />
         )}
       </div>

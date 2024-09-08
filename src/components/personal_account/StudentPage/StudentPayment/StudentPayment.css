@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: row;
   gap: 50px;
-  margin-top: 200px;
+  margin-top: 100px;
   margin-left: 10px;
 }
 
@@ -58,6 +58,17 @@
     /* align-items:self-end; */
     align-items: flex-start;
     margin-top: 80px;
+  }
+}
+
+@media (width <= 730px) {
+  .studentpayment__general {
+    padding-left: 0;
+  }
+
+  .studentpayment__buttons {
+    align-items: center;
+    margin-top: 20px;
   }
 }
 

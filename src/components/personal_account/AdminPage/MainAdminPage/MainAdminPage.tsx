@@ -40,7 +40,9 @@ const MainAdminPage: React.FC<MainAdminProps> = ({ apiService, userRole }) => {
   const handleSideBarToggle = () => {
     setToggled(!toggled);
   };
-
+  const changeUserPassword = async () => {
+    console.log('меняю пароль и мир');
+  };
   const [students, setStudents] = useState([
     {
       id: '1',
@@ -97,6 +99,7 @@ const MainAdminPage: React.FC<MainAdminProps> = ({ apiService, userRole }) => {
           handleElementChoice={handleSelectedItemClick}
           toggled={toggled}
           handleSideBarToggle={handleSideBarToggle}
+          changeUserPassword={changeUserPassword}
         />
         <div className="adminpagepage__content">
           <AdditionalHorizontalInfoLine
