@@ -153,6 +153,26 @@ class ApiService {
 
     return response;
   }
+
+  async changeUserPassword(old_password, new_password) {
+    const response = await this.sendRequest('auth/password', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      },
+      body: JSON.stringify({
+        old_password: old_password,
+        new_password: new_password,
+      }),
+    });
+
+    if (response.error) {
+      return null;
+    }
+
+    return response;
+  }
 }
 
 export default ApiService;

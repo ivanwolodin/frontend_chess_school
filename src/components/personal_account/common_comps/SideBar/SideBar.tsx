@@ -30,7 +30,6 @@ const SideBar: React.FC<SideBarProps> = ({
   const [toggledSideBar, setToggledSideBar] = useState(toggled);
 
   const handlePasswordChange = () => {
-    console.log('clicked');
     changeUserPassword();
   };
 
