@@ -11,7 +11,7 @@
 
   /* background-color: aliceblue; */
   border-radius: 40px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .paymentpopup > .header {
@@ -93,10 +93,10 @@
 
 .paymentpopup__confirm_button {
   min-width: 190px;
-  color: #742f11;
   min-height: 50px;
   margin-top: 20px;
   padding: 10px;
+  color: #742f11;
   font-size: 20px;
   background-color: #eb9f56;
   border: none;
