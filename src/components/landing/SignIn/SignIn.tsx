@@ -2,14 +2,23 @@ import React, { useState, useEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
+import ApiService from '../../../api/ApiService';
 import Loader from '../../general/Loader/Loader';
 import { useAuth } from '../../personal_account/AuthContext/AuthContext';
+import ResetPasswordPopup from '../../personal_account/utility_popups/ResetPasswordPopup/ResetPasswordPopup';
 import Header from '../Header/Header';
 import './SignIn.css';
 import InfoPopup from '../InfoPopup/InfoPopup';
 
-const SignIn = () => {
-  const [showPopup, setShowPopup] = useState(false);
+interface SignInProps {
+  apiService: ApiService;
+}
+
+const SignIn: React.FC<SignInProps> = ({ apiService }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [showResetPasswordPopup, setShowResetPasswordPopup] = useState(false);
+
+  const [showInfoPopup, setShowInfoPopup] = useState(false);
   const [titlePopup, setTitlePopup] = useState('');
   const [textPopup, setTextPopup] = useState('');
 
@@ -25,10 +34,10 @@ const SignIn = () => {
     await login({ username: loginFrom, password: passwordForm });
 
     if (!localStorage.getItem('name')) {
-      setShowPopup(false);
+      setShowInfoPopup(false);
       setTitlePopup('Не можем вас найти! 🧐');
       setTextPopup('Пользователя с таким логином и паролем нет в нашей базе');
-      setShowPopup(true);
+      setShowInfoPopup(true);
     }
 
     setLoading(false);
@@ -38,11 +47,12 @@ const SignIn = () => {
 
   const handleResetPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    setTitlePopup('Сброс пароля');
-    setTextPopup(
-      'Мы работаем над этим функционалом. Пока пароль можно сбросить, написав нам на почту: admin@шахматыпермь.рф',
-    );
-    setShowPopup(true);
+    setShowResetPasswordPopup(true);
+    // setTitlePopup('Сброс пароля');
+    // setTextPopup(
+    //   'Мы работаем над этим функционалом. Пока пароль можно сбросить, написав нам на почту: admin@шахматыпермь.рф',
+    // );
+    // setShowInfoPopup(true);
   };
 
   const navigate = useNavigate();
@@ -101,11 +111,18 @@ const SignIn = () => {
             Восстановить пароль
           </button>
         </div>
-        {showPopup && (
+        {showInfoPopup && (
           <InfoPopup
-            onClose={() => setShowPopup(false)}
+            onClose={() => setShowInfoPopup(false)}
             title={titlePopup}
             text={textPopup}
+          />
+        )}
+        {showResetPasswordPopup && (
+          <ResetPasswordPopup
+            open={showResetPasswordPopup}
+            closeModal={() => setShowResetPasswordPopup(false)}
+            apiService={apiService}
           />
         )}
         {loading && <Loader />}

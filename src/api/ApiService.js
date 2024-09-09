@@ -173,6 +173,42 @@ class ApiService {
 
     return response;
   }
+
+  async resetUserPassword(email) {
+    const response = await this.sendRequest('auth/reset_password', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+      }),
+    });
+
+    if (response.error) {
+      return null;
+    }
+
+    return response;
+  }
+
+  async checkResetPasswordLink(resetLink) {
+    const response = await this.sendRequest('auth/reset_password_url', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        reset_link: resetLink,
+      }),
+    });
+
+    if (response.error) {
+      return null;
+    }
+
+    return response;
+  }
 }
 
 export default ApiService;

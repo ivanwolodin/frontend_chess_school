@@ -14,6 +14,7 @@ import Footer from './components/landing/Footer/Footer';
 import Header from './components/landing/Header/Header';
 import NewYearAdmission from './components/landing/NewYearAdmission/NewYearAdmission';
 import NotFoundPage from './components/landing/NotFoundPage/NotFoundPage';
+import PasswordReset from './components/landing/PasswordReset/PasswordReset';
 import Reviews from './components/landing/Reviews/Reviews';
 import Schedule from './components/landing/Schedule/Schedule';
 import ScheduleCommercial from './components/landing/ScheduleCommercial/ScheduleCommercial';
@@ -100,12 +101,19 @@ function App() {
               path="/schedule"
               element={<Schedule apiService={apiService} />}
             />
-            <Route path="/log_in" element={<SignIn />} />
+            <Route
+              path="/log_in"
+              element={<SignIn apiService={apiService} />}
+            />
             <Route
               path="/personal_account"
               element={
                 <PrivateWrapper apiService={apiService} userRole={userRole} />
               }
+            />
+            <Route
+              path="/reset_pswd_link"
+              element={<PasswordReset apiService={apiService} />}
             />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

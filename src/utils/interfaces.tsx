@@ -118,6 +118,13 @@ export interface ChangePasswordPopupProps {
   closeModal: () => void;
   apiService?: Api;
 }
+
+export interface ResetPasswordPopupProps {
+  open: boolean;
+  closeModal: () => void;
+  apiService: Api;
+}
+
 export interface AdditionalHorizontalInfoLineProps {
   setToggled: () => void;
   userRole: UserRole;
