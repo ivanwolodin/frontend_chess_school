@@ -25,6 +25,7 @@ export const AuthProvider: FC<{
   const navigate = useNavigate();
 
   const login = async (UserLoginData: UserLoginData) => {
+    localStorage.clear();
     const accessToken = await apiService.sendLoginRequest({
       grant_type: 'password',
       username: UserLoginData.username,
