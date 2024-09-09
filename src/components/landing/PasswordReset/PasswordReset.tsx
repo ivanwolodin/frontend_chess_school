@@ -39,7 +39,11 @@ const PasswordReset: React.FC<PasswordResetProps> = ({ apiService }) => {
       const res = await apiService.checkResetPasswordLink(resetLink);
       const status = res?.status;
       if (status) {
-        handlePopup('Сделано!', 'Пароль изменен!', '/log_in');
+        handlePopup(
+          'Сделано! 🚀',
+          'Новые данные отправлены на почту',
+          '/log_in',
+        );
         // navigate('/log_in');
         return;
       } else {
