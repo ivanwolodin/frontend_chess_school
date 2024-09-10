@@ -16,8 +16,11 @@
   padding-left: 80px;
   color: rgb(95 6 6);
   font-size: 20px;
+}
 
-  /* align-self: center; */
+.react-calendar__viewContainer {
+  cursor: pointer;
+  pointer-events: none;
 }
 
 .react-calendar__navigation__label {
@@ -40,8 +43,11 @@
   padding: 90px;
   font-size: 30px;
   opacity: 0.64;
+}
 
-  /* height: 600px; */
+.react-calendar__tile--now {
+  background: transparent;
+  border: 2px solid #04aa6d;
 }
 
 .attended {
@@ -59,11 +65,6 @@
 
 .react-calendar__navigation {
   font-size: 20px;
-}
-
-.react-calendar__tile--now {
-  background: unset;
-  border: 2px solid #04aa6d;
 }
 
 .react-calendar {
