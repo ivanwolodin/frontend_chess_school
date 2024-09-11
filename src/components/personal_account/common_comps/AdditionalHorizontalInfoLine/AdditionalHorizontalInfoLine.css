@@ -49,6 +49,8 @@
 
 @media (width <= 1070px) {
   .additionalhorizontalinfoline__name {
+    padding-left: 10px;
+    padding-right: 10px;
     min-width: 600px;
   }
 }
