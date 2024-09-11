@@ -43,9 +43,15 @@ const StudentAttendance: React.FC = () => {
 
     const monthName = date.toLocaleString('ru-RU', { month: 'long' });
     const day = date.getDate();
+    const currentDate = new Date();
 
     if (days[monthName]) {
       if (days[monthName].attended.includes(day)) {
+        const classDate = new Date(date.getFullYear(), date.getMonth(), day);
+
+        if (classDate.getTime() > currentDate.getTime()) {
+          return 'studying_day';
+        }
         return 'attended';
       } else if (days[monthName].spravka.includes(day)) {
         return 'spravka';
@@ -73,11 +79,30 @@ const StudentAttendance: React.FC = () => {
           locale={'ru-RU'}
           tileClassName={getTileClassName}
           showNeighboringMonth={false}
-          // onClickDay={handleDateClick}
           minDetail="year"
           minDate={minDate}
           maxDate={maxDate}
         />
+        <div className="studentattendance__status-container">
+          <div className="studentattendance__status-item">
+            <div className="studentattendance__circle studying_day"></div>
+            <span className="studentattendance__circle-label">
+              День занятий
+            </span>
+          </div>
+          <div className="studentattendance__status-item">
+            <div className="studentattendance__circle attended"></div>
+            <span className="studentattendance__circle-label">Посещено</span>
+          </div>
+          <div className="studentattendance__status-item">
+            <div className="studentattendance__circle spravka"></div>
+            <span className="studentattendance__circle-label">Справка</span>
+          </div>
+          <div className="studentattendance__status-item">
+            <div className="studentattendance__circle unattended"></div>
+            <span className="studentattendance__circle-label">Пропуск</span>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -43,11 +43,16 @@
   padding: 90px;
   font-size: 30px;
   opacity: 0.64;
+  border-radius: 10px;
 }
 
 .react-calendar__tile--now {
   background: transparent;
   border: 2px solid #04aa6d;
+}
+
+.studying_day {
+  background-color: #04aa6da4;
 }
 
 .attended {
@@ -69,6 +74,45 @@
 
 .react-calendar {
   border: none;
+}
+
+.studentattendance__status-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  width: 600px;
+  margin-top: 50px;
+  margin-left: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 30px;
+  background: white;
+  opacity: 0.64;
+  border-radius: 10px;
+}
+
+.studentattendance__status-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+  padding-left: 25px;
+}
+
+.studentattendance__circle-label {
+  color: rgb(103 14 14);
+  font-size: 30px;
+}
+
+.studentattendance__circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.studentattendance__circle:hover {
+  transform: scale(1.5);
+  transition: all 0.8s ease-in-out 0s;
 }
 
 @media (width <= 990px) {
@@ -99,6 +143,20 @@
   .react-calendar__navigation__label {
     font-size: 20px;
   }
+
+  .studentattendance__circle-label {
+    font-size: 20px;
+  }
+
+  .studentattendance__circle {
+    width: 30px;
+    height: 30px;
+  }
+
+  .studentattendance__status-container {
+    grid-template-columns: 1fr;
+    width: 400px;
+  }
 }
 
 @media (width <= 650px) {
@@ -122,5 +180,9 @@
   .studentattendance__calendar {
     margin: 0;
     padding: 0;
+  }
+
+  .studentattendance__status-container {
+    margin-left: 0;
   }
 }
