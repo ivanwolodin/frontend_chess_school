@@ -27,6 +27,7 @@ export interface TeacherCardProps {
   src: string;
   position: string;
   alt: string;
+  info: string;
 }
 
 export interface WeAreTrustedByProps {

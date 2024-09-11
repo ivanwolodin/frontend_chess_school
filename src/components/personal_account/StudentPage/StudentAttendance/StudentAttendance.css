@@ -42,8 +42,8 @@
   margin-left: 50px;
   padding: 90px;
   font-size: 30px;
-  opacity: 0.64;
   border-radius: 10px;
+  opacity: 0.64;
 }
 
 .react-calendar__tile--now {
@@ -52,7 +52,7 @@
 }
 
 .studying_day {
-  background-color: #C0D0AA;;
+  background-color: #c0d0aa;
 }
 
 .attended {
@@ -87,8 +87,8 @@
   padding-bottom: 15px;
   font-size: 30px;
   background: white;
-  opacity: 0.64;
   border-radius: 10px;
+  opacity: 0.64;
 }
 
 .studentattendance__status-item {

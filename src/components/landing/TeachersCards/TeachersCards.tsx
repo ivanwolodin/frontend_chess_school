@@ -17,6 +17,7 @@ const TeachersCards = () => {
             src={item.src}
             position={item.position}
             alt={item.alt}
+            info={item.info}
           />
         ))}
       </div>
