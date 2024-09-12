@@ -48,11 +48,6 @@ const SignIn: React.FC<SignInProps> = ({ apiService }) => {
   const handleResetPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setShowResetPasswordPopup(true);
-    // setTitlePopup('Сброс пароля');
-    // setTextPopup(
-    //   'Мы работаем над этим функционалом. Пока пароль можно сбросить, написав нам на почту: admin@шахматыпермь.рф',
-    // );
-    // setShowInfoPopup(true);
   };
 
   const navigate = useNavigate();

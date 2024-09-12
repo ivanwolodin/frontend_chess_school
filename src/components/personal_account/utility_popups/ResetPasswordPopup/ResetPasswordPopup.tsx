@@ -76,7 +76,7 @@ const ResetPasswordPopup: React.FC<ResetPasswordPopupProps> = ({
             onSubmit={handleSubmit}
           >
             <label className="resetpassword-change-popup__label">
-              Электронная почта
+              Электронная почта, указанная в договоре
               <input
                 type="email"
                 className="resetpassword-change-popup__input"

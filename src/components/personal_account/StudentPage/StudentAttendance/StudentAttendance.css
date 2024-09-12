@@ -52,7 +52,7 @@
 }
 
 .studying_day {
-  background-color: #c0d0aa;
+  background-color: #b4bca8;
 }
 
 .attended {
@@ -81,14 +81,14 @@
   grid-template-columns: 1fr 1fr;
   gap: 30px;
   width: 600px;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-left: 50px;
   padding-top: 15px;
   padding-bottom: 15px;
   font-size: 30px;
   background: white;
   border-radius: 10px;
-  opacity: 0.64;
+  opacity: 0.74;
 }
 
 .studentattendance__status-item {
@@ -101,7 +101,7 @@
 
 .studentattendance__circle-label {
   color: rgb(103 14 14);
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .studentattendance__circle {

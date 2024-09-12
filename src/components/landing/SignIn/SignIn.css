@@ -65,12 +65,19 @@
 
 .signin__info {
   margin-top: 10px;
+  font-size: 15px;
 }
 
 .signin__reset {
   margin-top: 20px;
-  color: rgb(188 179 58);
+  color: #5b3718;
+  background: none;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 19px;
+}
+
+.signin__reset:hover{
+  opacity: 0.7;
 }

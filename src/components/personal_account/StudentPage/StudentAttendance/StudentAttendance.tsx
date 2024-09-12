@@ -12,7 +12,7 @@ interface DayTypes {
 }
 
 interface MonthData {
-  [monthName: string]: DayTypes; // Ожидается объект с ключами типа string (имена месяцев)
+  [monthName: string]: DayTypes;
 }
 
 interface TileProperties {
