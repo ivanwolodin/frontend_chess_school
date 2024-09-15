@@ -74,7 +74,7 @@
 .newyearadmission__comercial_girl {
   z-index: 0;
   min-width: 540px;
-  height: 450px;
+  height: 550px;
   margin-top: -50px;
   margin-left: -50px;
   background-repeat: no-repeat;
@@ -125,8 +125,8 @@
   }
 
   .newyearadmission__comercial_girl {
-    min-width: 340px;
-    height: 280px;
+    min-width: 365px;
+    height: 380px;
   }
 
   .newyearadmission__title {
