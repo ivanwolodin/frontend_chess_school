@@ -81,6 +81,7 @@
   background-position: center;
   background-size: contain;
   object-fit: cover;
+  object-position: top;
 }
 
 @media (width <= 985px) {
