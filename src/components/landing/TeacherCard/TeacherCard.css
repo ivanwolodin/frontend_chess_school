@@ -56,9 +56,7 @@ h2 {
 }
 
 .teachercard__image-container:hover .teachercard__image-front {
-  transform: rotateY(
-    180deg
-  );
+  transform: rotateY(180deg);
 }
 
 .teachercard__image-container:hover .teachercard__image-back {

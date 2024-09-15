@@ -71,13 +71,13 @@
 .signin__reset {
   margin-top: 20px;
   color: #5b3718;
+  font-size: 19px;
   background: none;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 19px;
 }
 
-.signin__reset:hover{
+.signin__reset:hover {
   opacity: 0.7;
 }
