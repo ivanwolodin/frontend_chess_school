@@ -45,7 +45,7 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({
 
     setLoading(true);
 
-    const result = await apiService.sendNewStudentRequest(formData);
+    const result = await apiService.newStudentReq(formData);
     setLoading(false);
 
     if (result) {

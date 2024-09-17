@@ -64,7 +64,7 @@ const RegisterNewStudentPopup: React.FC<RegisterNewStudentPopupProps> = ({
     const accessToken = localStorage.getItem('accessToken');
     if (isTokenValid(accessToken)) {
       setLoading(true);
-      const student = await apiService.sendAddStudent(formData);
+      const student = await apiService.addNewStudent(formData);
       if (student) {
         const personalData = localStorage.getItem('personalData');
         const existingStudents = personalData ? JSON.parse(personalData) : [];

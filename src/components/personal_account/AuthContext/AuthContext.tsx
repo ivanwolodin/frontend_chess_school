@@ -26,7 +26,7 @@ export const AuthProvider: FC<{
 
   const login = async (UserLoginData: UserLoginData) => {
     localStorage.clear();
-    const accessToken = await apiService.sendLoginRequest({
+    const accessToken = await apiService.getAccessToken({
       grant_type: 'password',
       username: UserLoginData.username,
       password: UserLoginData.password,
@@ -40,14 +40,14 @@ export const AuthProvider: FC<{
 
     const decodedToken = decodeToken<TokenData>(accessToken);
     if (decodedToken?.role === 'student') {
-      const userData = await apiService.sendGetStudentRequest(accessToken);
+      const userData = await apiService.getStudentData(accessToken);
       saveUserDataToLocalStorage(userData);
       handleUSerRole({ role: 'student' });
       localStorage.setItem('accessToken', accessToken);
 
       navigate('/personal_account');
     } else if (decodedToken?.role === 'teacher') {
-      const userData = await apiService.sendGetStudentRequest(accessToken);
+      const userData = await apiService.getStudentData(accessToken);
       handleUSerRole({ role: 'teacher' });
       localStorage.setItem('name', userData.name);
       // localStorage.setItem('email', user_data.email);
@@ -61,7 +61,7 @@ export const AuthProvider: FC<{
 
       navigate('/personal_account');
     } else if (decodedToken?.role === 'admin') {
-      const userData = await apiService.sendGetAdminData(accessToken);
+      const userData = await apiService.getAdminData(accessToken);
       handleUSerRole({ role: 'admin' });
       saveAdminDataToLocalStorage(userData);
 

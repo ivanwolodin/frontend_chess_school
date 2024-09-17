@@ -11,8 +11,8 @@ class ApiService {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  async sendNewStudentRequest(data) {
-    await this.sendRequest('general/student_request', {
+  async newStudentReq(data) {
+    await this._sendRequest('general/student_request', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ class ApiService {
     return true;
   }
 
-  async sendRequest(path, options) {
+  async _sendRequest(path, options) {
     try {
       // console.log(`${this._serverUrl}/${path}`);
       const response = await fetch(`${this._serverUrl}/${path}`, options);
@@ -42,6 +42,8 @@ class ApiService {
         return response;
       }
     } catch (error) {
+      // TODO: сделать обработку 500 нормально
+      window.location.href = '/500';
       console.error('Ошибка при выполнении запроса:', error);
       return {
         error:
@@ -50,8 +52,8 @@ class ApiService {
     }
   }
 
-  async sendLoginRequest(loginData) {
-    const response = await this.sendRequest('auth/login', {
+  async getAccessToken(loginData) {
+    const response = await this._sendRequest('auth/login', {
       method: 'POST',
       headers: {
         accept: 'application/json',
@@ -69,8 +71,8 @@ class ApiService {
     return access_token;
   }
 
-  async sendGetStudentRequest(access_token) {
-    const response = await this.sendRequest('student', {
+  async getStudentData(access_token) {
+    const response = await this._sendRequest('student', {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -85,8 +87,8 @@ class ApiService {
     return response;
   }
 
-  async sendGetAdminData(access_token) {
-    const response = await this.sendRequest('admin/fetch_data', {
+  async getAdminData(access_token) {
+    const response = await this._sendRequest('admin/fetch_data', {
       method: 'GET',
       headers: {
         accept: 'application/json',
@@ -101,8 +103,8 @@ class ApiService {
     return response;
   }
 
-  async sendAddStudent(data) {
-    const response = await this.sendRequest('admin/student', {
+  async addNewStudent(data) {
+    const response = await this._sendRequest('admin/student', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -119,7 +121,7 @@ class ApiService {
   }
 
   async getPaymentUrl(sumToPay) {
-    const response = await this.sendRequest('student/make_payment', {
+    const response = await this._sendRequest('student/make_payment', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -136,7 +138,7 @@ class ApiService {
   }
 
   async validatePaymentStatus(orderId) {
-    const response = await this.sendRequest(
+    const response = await this._sendRequest(
       `student/validate_payment?idempotence_our_order_number=${orderId}`,
       {
         method: 'PUT',
@@ -155,7 +157,7 @@ class ApiService {
   }
 
   async changeUserPassword(old_password, new_password) {
-    const response = await this.sendRequest('auth/password', {
+    const response = await this._sendRequest('auth/password', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -175,7 +177,7 @@ class ApiService {
   }
 
   async resetUserPassword(email) {
-    const response = await this.sendRequest('auth/reset_password', {
+    const response = await this._sendRequest('auth/reset_password', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -193,7 +195,7 @@ class ApiService {
   }
 
   async checkResetPasswordLink(resetLink) {
-    const response = await this.sendRequest('auth/reset_password_url', {
+    const response = await this._sendRequest('auth/reset_password_url', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

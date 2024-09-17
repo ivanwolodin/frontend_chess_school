@@ -1,11 +1,11 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useEffect, useRef, useState } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { decodeToken } from 'react-jwt';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import ApiService from './api/ApiService';
+import ErrorPage from './components/general/ErrorPage/ErrorPage';
+import NotFoundPage from './components/general/NotFoundPage/NotFoundPage';
 import AboutPrograms from './components/landing/AboutPrograms/AboutPrograms';
 import AboutSchool from './components/landing/AboutSchool/AboutSchool';
 import AdmissionForm from './components/landing/AdmissionForm/AdmissionForm';
@@ -13,7 +13,6 @@ import CookieNotification from './components/landing/CookieNotification/CookieNo
 import Footer from './components/landing/Footer/Footer';
 import Header from './components/landing/Header/Header';
 import NewYearAdmission from './components/landing/NewYearAdmission/NewYearAdmission';
-import NotFoundPage from './components/landing/NotFoundPage/NotFoundPage';
 import PasswordReset from './components/landing/PasswordReset/PasswordReset';
 import Reviews from './components/landing/Reviews/Reviews';
 import Schedule from './components/landing/Schedule/Schedule';
@@ -101,6 +100,7 @@ function App() {
               path="/schedule"
               element={<Schedule apiService={apiService} />}
             />
+
             <Route
               path="/log_in"
               element={<SignIn apiService={apiService} />}
@@ -115,6 +115,7 @@ function App() {
               path="/reset_pswd_link"
               element={<PasswordReset apiService={apiService} />}
             />
+            <Route path="/500" element={<ErrorPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </AuthProvider>

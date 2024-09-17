@@ -69,8 +69,7 @@ const MainStudentPage: React.FC<MainStudentProps> = ({
           if (status) {
             setTitlePopup('Успешно');
             setTextPopup('Спасибо за совершенную оплату!');
-            const user_data =
-              await apiService.sendGetStudentRequest(accessToken);
+            const user_data = await apiService.getStudentData(accessToken);
             saveUserDataToLocalStorage(user_data);
             setShowInfoPopup(true);
             setLoading(false);
