@@ -1,6 +1,7 @@
-h1{
-margin: 0;
+h1 {
+  margin: 0;
 }
+
 .not-found {
   display: flex;
   flex-direction: column;
@@ -15,11 +16,11 @@ margin: 0;
 }
 
 .not-found__title {
+  margin-top: 10px;
+  margin-bottom: 40px;
   color: #19110f;
   font-size: 6rem;
   animation: bounce 1s infinite;
-  margin-top: 10px;
-  margin-bottom: 40px;
 }
 
 .not-found__text {
@@ -28,6 +29,8 @@ margin: 0;
 }
 
 .not-found__button {
+  margin-top: 50px;
+  margin-bottom: 40px;
   padding: 15px 40px;
   color: black;
   font-size: 1rem;
@@ -35,8 +38,6 @@ margin: 0;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 50px;
-  margin-bottom: 40px;
   transition: background-color 0.3s ease;
 }
 

@@ -38,10 +38,9 @@
 }
 
 .error-page__button:hover {
-  background-color: #ff4c4c;
+  color: black;
+  background-color: #ebb40e;
 }
-
-/* Анимация для шестеренок */
 
 .error-page__animation {
   display: flex;
