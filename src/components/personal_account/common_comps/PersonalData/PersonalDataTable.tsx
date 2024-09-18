@@ -5,22 +5,43 @@ import DataTable from 'react-data-table-component';
 import './PersonalDataTable.css';
 import {
   groupsDataColumnsSettings,
-  personalDataColumnsSettings,
+  adminPersonalDataColumnsSettings,
+  teacherPersonalDataColumnsSettings,
 } from '../../../../utils/constants';
 import {
   GroupDataTableProps,
-  PersonalDataTableProps,
+  AdminPersonalDataTableProps,
+  TeacherPersonalDataTableProps,
 } from '../../../../utils/interfaces';
 
-// Компонент для отображения персональных данных
-const PersonalDataTable: React.FC<PersonalDataTableProps> = ({ data }) => {
+const AdminPersonalDataTable: React.FC<AdminPersonalDataTableProps> = ({
+  data,
+}) => {
   return (
     <div className="personaldatatable__general">
       <DataTable
         className="personaldatatable__data"
         title="Персональные данные"
         data={data}
-        columns={personalDataColumnsSettings}
+        columns={adminPersonalDataColumnsSettings}
+        pagination
+        paginationPerPage={10}
+        paginationRowsPerPageOptions={[10]}
+      />
+    </div>
+  );
+};
+
+const TeacherPersonalDataTable: React.FC<TeacherPersonalDataTableProps> = ({
+  data,
+}) => {
+  return (
+    <div className="personaldatatable__general">
+      <DataTable
+        className="personaldatatable__data"
+        title="Персональные данные"
+        data={data}
+        columns={teacherPersonalDataColumnsSettings}
         pagination
         paginationPerPage={10}
         paginationRowsPerPageOptions={[10]}
@@ -45,4 +66,4 @@ const GroupDataTable: React.FC<GroupDataTableProps> = ({ data }) => {
   );
 };
 
-export { PersonalDataTable, GroupDataTable };
+export { AdminPersonalDataTable, GroupDataTable, TeacherPersonalDataTable };

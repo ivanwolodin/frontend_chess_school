@@ -103,6 +103,22 @@ class ApiService {
     return response;
   }
 
+  async getTeacherData(access_token) {
+    const response = await this._sendRequest('teacher/fetch_data', {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${access_token}`,
+      },
+    });
+
+    if (response.error) {
+      return null;
+    }
+
+    return response;
+  }
+
   async addNewStudent(data) {
     const response = await this._sendRequest('admin/student', {
       method: 'POST',

@@ -12,6 +12,7 @@ import {
 } from '../../../utils/interfaces';
 import {
   saveAdminDataToLocalStorage,
+  saveTeacherDataToLocalStorage,
   saveUserDataToLocalStorage,
 } from '../../../utils/usefulFunctions';
 
@@ -47,17 +48,10 @@ export const AuthProvider: FC<{
 
       navigate('/personal_account');
     } else if (decodedToken?.role === 'teacher') {
-      const userData = await apiService.getStudentData(accessToken);
+      const userData = await apiService.getTeacherData(accessToken);
       handleUSerRole({ role: 'teacher' });
-      localStorage.setItem('name', userData.name);
-      // localStorage.setItem('email', user_data.email);
-      localStorage.setItem(
-        'attendanceInfo',
-        JSON.stringify(userData.attendance_info),
-      );
-
-      localStorage.setItem('groupsName', JSON.stringify(userData.groupsName));
-      localStorage.setItem('role', 'teacher');
+      saveTeacherDataToLocalStorage(userData);
+      localStorage.setItem('accessToken', accessToken);
 
       navigate('/personal_account');
     } else if (decodedToken?.role === 'admin') {

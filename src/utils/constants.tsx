@@ -7,8 +7,9 @@ import {
   TeacherCardProps,
   WeAreTrustedByProps,
   AttendanceData,
-  PersonalTableRowData,
+  AdminPersonalTableRowData,
   GroupTableRowData,
+  TeacherPersonalTableRowData,
 } from './interfaces';
 
 export const headerItems: string[] = [
@@ -199,7 +200,7 @@ export const partnersData: WeAreTrustedByProps[] = [
 export const TeachersMenuItems: SidebarMainMenuItems[] = [
   { icon: 'bar-chart', label: 'Дэшборд', disabled: true },
   { icon: 'calendar', label: 'Расписание', disabled: false },
-  { icon: 'book-2', label: 'Домашние задания', disabled: true },
+  // { icon: 'book-2', label: 'Домашние задания', disabled: true },
   { icon: 'service', label: 'Персональные данные', disabled: false },
 ];
 
@@ -414,7 +415,7 @@ export const attendanceData: AttendanceData = {
   },
 };
 
-export const personalData: PersonalTableRowData[] = [
+export const personalData: AdminPersonalTableRowData[] = [
   {
     id: '1',
     name: 'Frozen Yogurt',
@@ -437,62 +438,125 @@ export const personalData: PersonalTableRowData[] = [
   },
 ];
 
-export const personalDataColumnsSettings: TableColumn<PersonalTableRowData>[] =
+export const adminPersonalDataColumnsSettings: TableColumn<AdminPersonalTableRowData>[] =
   [
     {
       name: 'Id',
-      selector: (row: PersonalTableRowData) => row.id,
+      selector: (row: AdminPersonalTableRowData) => row.id,
       sortable: true,
       grow: 2,
       width: '80px',
     },
     {
       name: 'Имя',
-      selector: (row: PersonalTableRowData) => row.name,
+      selector: (row: AdminPersonalTableRowData) => row.name,
       sortable: true,
       grow: 2,
     },
     {
       name: 'Группа',
-      selector: (row: PersonalTableRowData) => row.group,
+      selector: (row: AdminPersonalTableRowData) => row.group,
       sortable: true,
       hide: 'sm' as unknown as Media,
     },
     {
       name: 'Родитель',
-      selector: (row: PersonalTableRowData) => row.parent_name,
+      selector: (row: AdminPersonalTableRowData) => row.parent_name,
       sortable: true,
       right: true,
     },
     {
       name: 'Телефон',
-      selector: (row: PersonalTableRowData) => row.phone,
+      selector: (row: AdminPersonalTableRowData) => row.phone,
       sortable: true,
       right: true,
       hide: 'md' as unknown as Media,
     },
     {
       name: 'Почта',
-      selector: (row: PersonalTableRowData) => row.email,
+      selector: (row: AdminPersonalTableRowData) => row.email,
       sortable: true,
       right: true,
       hide: 'md' as unknown as Media,
     },
     {
       name: 'Дата поступления',
-      selector: (row: PersonalTableRowData) => row.admission_date,
+      selector: (row: AdminPersonalTableRowData) => row.admission_date,
       sortable: true,
       right: true,
       hide: 'md' as unknown as Media,
     },
     {
       name: 'Цена одного занятия',
-      selector: (row: PersonalTableRowData) => row.usual_price,
+      selector: (row: AdminPersonalTableRowData) => row.usual_price,
       sortable: true,
       right: true,
       hide: 'md' as unknown as Media,
     },
   ];
+
+export const teacherPersonalDataColumnsSettings: TableColumn<TeacherPersonalTableRowData>[] =
+  [
+    {
+      name: '#',
+      cell: (row: TeacherPersonalTableRowData, index?: number) =>
+        index !== undefined ? index + 1 : '-',
+      width: '50px',
+    },
+    {
+      name: 'Имя',
+      selector: (row: TeacherPersonalTableRowData) => row.name,
+      sortable: true,
+      grow: 2,
+    },
+    {
+      name: 'Группа',
+      selector: (row: TeacherPersonalTableRowData) => row.group,
+      sortable: true,
+      hide: 'sm' as unknown as Media,
+    },
+    {
+      name: 'Дата рождения',
+      selector: (row: TeacherPersonalTableRowData) => row.birthday,
+      sortable: true,
+      hide: 'sm' as unknown as Media,
+    },
+    {
+      name: 'Телефон',
+      selector: (row: TeacherPersonalTableRowData) => row.phone,
+      // sortable: true,
+      right: true,
+      hide: 'md' as unknown as Media,
+    },
+    {
+      name: 'Родитель',
+      selector: (row: TeacherPersonalTableRowData) => row.parent,
+      // sortable: true,
+      right: true,
+    },
+    {
+      name: 'Дата поступления',
+      selector: (row: TeacherPersonalTableRowData) => row.admission_date,
+      // sortable: true,
+      right: true,
+      hide: 'md' as unknown as Media,
+    },
+    {
+      name: 'Почта',
+      selector: (row: TeacherPersonalTableRowData) => row.email,
+      // sortable: true,
+      right: true,
+      hide: 'md' as unknown as Media,
+    },
+    {
+      name: 'Цена одного занятия',
+      selector: (row: TeacherPersonalTableRowData) => row.usual_price,
+      sortable: true,
+      right: true,
+      hide: 'md' as unknown as Media,
+    },
+  ];
+
 export const groupsDataColumnsSettings: TableColumn<GroupTableRowData>[] = [
   {
     name: 'группа',

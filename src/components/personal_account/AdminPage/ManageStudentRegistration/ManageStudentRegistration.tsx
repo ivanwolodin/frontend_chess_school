@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { ManageStudentRegistrationProps } from '../../../../utils/interfaces';
-import { PersonalDataTable } from '../../common_comps/PersonalData/PersonalDataTable';
+import { AdminPersonalDataTable } from '../../common_comps/PersonalData/PersonalDataTable';
 import RegisterNewStudentPopup from '../../utility_popups/RegisterNewStudentPopup/RegisterNewStudentPopup';
 
 import './ManageStudentRegistration.css';
@@ -23,7 +23,7 @@ const ManageStudentRegistration: React.FC<ManageStudentRegistrationProps> = ({
   return (
     <>
       <div className="managestudentregistration__general">
-        <PersonalDataTable data={data} />
+        <AdminPersonalDataTable data={data} />
         <button
           className="managestudentregistration__button"
           onClick={openPopup}

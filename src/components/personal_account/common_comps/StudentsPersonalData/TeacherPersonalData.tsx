@@ -1,14 +1,16 @@
 import React from 'react';
 
-import { PersonalDataTableProps } from '../../../../utils/interfaces';
-import { PersonalDataTable } from '../PersonalData/PersonalDataTable';
+import { TeacherPersonalDataTableProps } from '../../../../utils/interfaces';
+import { TeacherPersonalDataTable } from '../PersonalData/PersonalDataTable';
 
 import './TeacherPersonalData.css';
 
-const TeacherPersonalData: React.FC<PersonalDataTableProps> = ({ data }) => {
+const TeacherPersonalData: React.FC<TeacherPersonalDataTableProps> = ({
+  data,
+}) => {
   return (
     <div className="teacherpersonaldata__general">
-      <PersonalDataTable data={data} />
+      <TeacherPersonalDataTable data={data} />
     </div>
   );
 };

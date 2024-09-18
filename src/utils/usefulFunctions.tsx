@@ -49,6 +49,13 @@ interface AdminData {
   group_data: [];
 }
 
+interface TeacherData {
+  name: string;
+  groups_name: [];
+  personal_data: [];
+  group_data: [];
+}
+
 export const saveAdminDataToLocalStorage = (user_data: AdminData) => {
   localStorage.setItem('name', 'Елена');
   localStorage.setItem(
@@ -56,5 +63,12 @@ export const saveAdminDataToLocalStorage = (user_data: AdminData) => {
     JSON.stringify(user_data.only_groups_name),
   );
   localStorage.setItem('personalData', JSON.stringify(user_data.students));
+  localStorage.setItem('groupData', JSON.stringify(user_data.group_data));
+};
+
+export const saveTeacherDataToLocalStorage = (user_data: TeacherData) => {
+  localStorage.setItem('name', user_data.name);
+  localStorage.setItem('groupNames', JSON.stringify(user_data.groups_name));
+  localStorage.setItem('personalData', JSON.stringify(user_data.personal_data));
   localStorage.setItem('groupData', JSON.stringify(user_data.group_data));
 };

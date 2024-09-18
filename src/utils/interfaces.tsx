@@ -69,7 +69,7 @@ export interface AttendanceData {
   [className: string]: ClassData;
 }
 
-export interface PersonalTableRowData {
+export interface AdminPersonalTableRowData {
   id: string;
   name: string;
   group: string;
@@ -80,12 +80,12 @@ export interface PersonalTableRowData {
   usual_price: string;
 }
 
-export interface PersonalDataTableProps {
-  data: PersonalTableRowData[];
+export interface AdminPersonalDataTableProps {
+  data: AdminPersonalTableRowData[];
 }
 
 export interface ManageStudentRegistrationProps {
-  data: PersonalTableRowData[];
+  data: AdminPersonalTableRowData[];
   apiService: Api;
 }
 
@@ -99,6 +99,22 @@ export interface GroupTableRowData {
 
 export interface GroupDataTableProps {
   data: GroupTableRowData[];
+}
+
+export interface TeacherPersonalTableRowData {
+  // id: string;
+  name: string;
+  group: string;
+  birthday: string;
+  phone: string;
+  parent: string;
+  admission_date: string;
+  email: string;
+  usual_price: string;
+}
+
+export interface TeacherPersonalDataTableProps {
+  data: TeacherPersonalTableRowData[];
 }
 
 export interface AttendancePopupProps {
