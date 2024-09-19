@@ -10,6 +10,7 @@
 }
 
 .attendance__student_name {
+  width: 150px;
   background-color: lightblue;
   border: 3px solid #171717ca;
 }
@@ -40,6 +41,11 @@ th.empty-cell {
 td.name-cell {
   font-weight: bold;
   background-color: black;
+}
+
+.attendance__cell_general{
+  width: 32px;
+  height: 47px;
 }
 
 .attendance__cell_inactive {

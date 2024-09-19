@@ -1,6 +1,4 @@
-// import React, { useEffect, useRef, useState } from 'react';
-
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import {
   AttendanceData,
@@ -9,227 +7,6 @@ import {
 } from '../../../../../utils/interfaces';
 
 import './AttendanceTable.css';
-// import { StudentAttendance, MonthData } from '../../../../../utils/interfaces';
-
-// const AttendanceTable: React.FC<MonthData> = ({ full, ...studentData }) => {
-//   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-//   const [selectedCell, setSelectedCell] = useState<{
-//     studentName: string;
-//     day: string;
-//   } | null>(null);
-//   const [attendanceData, setAttendanceData] = useState(studentData);
-//   const [isSaveButtonActive, setIsSaveButtonActive] = useState(false);
-
-//   useEffect(() => {
-//     if (JSON.stringify(attendanceData) !== JSON.stringify(studentData)) {
-//       setAttendanceData(studentData);
-//     }
-//   }, [attendanceData, studentData]);
-
-//   const handleCellClick = (studentName: string, day: string) => {
-//     const className = getCellClassName(studentName, day);
-//     if (className !== 'attendance__cell_inactive') {
-//       setIsDropdownOpen(true);
-//       setSelectedCell({ studentName, day });
-//     }
-//   };
-
-//   const handleDropdownItemClick = (
-//     status: 'attended' | 'unattended' | 'spravka',
-//   ) => {
-//     if (selectedCell) {
-//       setAttendanceData((prevData) => {
-//         const updatedData = { ...prevData };
-//         const studentAttendance = updatedData[
-//           selectedCell.studentName
-//         ] as StudentAttendance;
-
-//         studentAttendance.attended = studentAttendance.attended.filter(
-//           (day) => day !== selectedCell.day,
-//         );
-//         studentAttendance.unattended = studentAttendance.unattended.filter(
-//           (day) => day !== selectedCell.day,
-//         );
-//         studentAttendance.spravka = studentAttendance.spravka.filter(
-//           (day) => day !== selectedCell.day,
-//         );
-
-//         if (status === 'attended') {
-//           studentAttendance.attended.push(selectedCell.day);
-//         } else if (status === 'unattended') {
-//           studentAttendance.unattended.push(selectedCell.day);
-//         } else if (status === 'spravka') {
-//           studentAttendance.spravka.push(selectedCell.day);
-//         }
-
-//         setIsSaveButtonActive(true);
-//         setIsDropdownOpen(false);
-//         return updatedData;
-//       });
-//     }
-//   };
-
-//   const handleDropdownItemKeyPress = (
-//     event: React.KeyboardEvent<HTMLDivElement>,
-//     status: 'attended' | 'unattended' | 'spravka',
-//   ) => {
-//     if (event.key === 'Enter' || event.key === ' ') {
-//       handleDropdownItemClick(status);
-//     }
-//   };
-
-//   const isStudentAttendance = (
-//     data: StudentAttendance | string[],
-//   ): data is StudentAttendance => {
-//     return (data as StudentAttendance).attended !== undefined;
-//   };
-
-//   const getCellClassName = (studentName: string, day: string): string => {
-//     const studentAttendance = attendanceData[studentName];
-//     if (isStudentAttendance(studentAttendance)) {
-//       if (studentAttendance.attended.includes(day)) {
-//         return 'attendance__cell_attended';
-//       } else if (studentAttendance.spravka.includes(day)) {
-//         return 'attendance__cell_spravka';
-//       } else if (studentAttendance.unattended.includes(day)) {
-//         return 'attendance__cell_unattended';
-//       }
-//     }
-//     return 'attendance__cell_inactive';
-//   };
-
-//   const dropdownRef = useRef<HTMLDivElement>(null);
-//   useEffect(() => {
-//     const handleClickOutside = (event: MouseEvent) => {
-//       if (
-//         dropdownRef.current &&
-//         !dropdownRef.current.contains(event.target as Node)
-//       ) {
-//         setIsDropdownOpen(false);
-//       }
-//     };
-
-//     document.addEventListener('mousedown', handleClickOutside);
-//     return () => {
-//       document.removeEventListener('mousedown', handleClickOutside);
-//     };
-//   }, []);
-
-//   const handleSaveButtonClick = () => {
-//     console.log('Updated attendance data:', attendanceData);
-//     setIsSaveButtonActive(false);
-//   };
-
-//   return (
-//     <div className="attendance__general">
-//       <div className="attendance__table">
-//         <table className="attendance__register">
-//           <thead>
-//             <tr>
-//               <th> </th>
-//               {full.map((key, index) => (
-//                 <th className="attendance__date" key={index}>
-//                   {key}
-//                 </th>
-//               ))}
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {Object.keys(attendanceData).map((studentName, rowIndex) => (
-//               <tr key={rowIndex}>
-//                 <td className="attendance__student_name">{studentName}</td>
-//                 {full.map((day, colIndex) => (
-//                   <td
-//                     key={colIndex}
-//                     className={getCellClassName(studentName, day)}
-//                     onClick={() => handleCellClick(studentName, day)}
-//                   >
-//                     {isDropdownOpen &&
-//                       selectedCell &&
-//                       selectedCell.studentName === studentName &&
-//                       selectedCell.day === day && (
-//                         <div ref={dropdownRef} className="attendance__dropdown">
-//                           <div
-//                             className="attendance__item"
-//                             role="button"
-//                             tabIndex={0}
-//                             onClick={() => handleDropdownItemClick('attended')}
-//                             onKeyPress={(event) =>
-//                               handleDropdownItemKeyPress(event, 'attended')
-//                             }
-//                           >
-//                             <div className="attendance__square attendance__cell_attended"></div>
-//                             <div>Посетил</div>
-//                           </div>
-//                           <div
-//                             className="attendance__item"
-//                             role="button"
-//                             tabIndex={0}
-//                             onClick={() =>
-//                               handleDropdownItemClick('unattended')
-//                             }
-//                             onKeyPress={(event) =>
-//                               handleDropdownItemKeyPress(event, 'unattended')
-//                             }
-//                           >
-//                             <div className="attendance__square attendance__cell_unattended"></div>
-//                             <div>Пропустил</div>
-//                           </div>
-//                           <div
-//                             className="attendance__item"
-//                             role="button"
-//                             tabIndex={0}
-//                             onClick={() => handleDropdownItemClick('spravka')}
-//                             onKeyPress={(event) =>
-//                               handleDropdownItemKeyPress(event, 'spravka')
-//                             }
-//                           >
-//                             <div className="attendance__square attendance__cell_spravka"></div>
-//                             <div>Болел</div>
-//                           </div>
-//                         </div>
-//                       )}
-//                   </td>
-//                 ))}
-//               </tr>
-//             ))}
-//           </tbody>
-//         </table>
-//       </div>
-//       <button
-//         className={`${
-//           isSaveButtonActive
-//             ? 'attendance__save_button'
-//             : 'attendance__save_button attendance__save_button_disabled'
-//         }`}
-//         onClick={handleSaveButtonClick}
-//         disabled={!isSaveButtonActive}
-//       >
-//         Сохранить
-//       </button>
-//     </div>
-//   );
-// };
-
-// export default AttendanceTable;import React from "react";
-
-// interface AttendanceData {
-//   [group: string]: {
-//     [month: string]: Array<{
-//       [student: string]: {
-//         attended: number[];
-//         unattended: number[];
-//         spravka: number[];
-//       };
-//     }>;
-//   };
-// }
-
-// interface ClassDates {
-//   [group: string]: {
-//     [month: string]: number[];
-//   };
-// }
 
 interface Props {
   attendanceInfo: AttendanceData;
@@ -244,44 +21,110 @@ const AttendanceTable: React.FC<Props> = ({
   groupName,
   month,
 }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isSaveButtonActive, setIsSaveButtonActive] = useState(false);
-  const groupAttendance = attendanceInfo[groupName][month];
-  const dates = classDates[groupName][month];
+  const [activeCell, setActiveCell] = useState<{
+    studentName: string;
+    date: number;
+  } | null>(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const groupAttendance = attendanceInfo[groupName]?.[month];
+  const dates = classDates[groupName]?.[month];
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setActiveCell(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   if (!groupAttendance || !dates) {
     return <div>Нет данных за этот период</div>;
   }
 
-  const getColor = (date: number, studentAttendance: AttendanceRecord) => {
+  const getAttendanceClassName = (
+    date: number,
+    studentAttendance: AttendanceRecord,
+  ) => {
     if (studentAttendance.attended.includes(date)) {
-      return 'attendance__cell_attended';
+      return 'attendance__cell_general attendance__cell_attended';
     } else if (studentAttendance.unattended.includes(date)) {
-      return 'attendance__cell_unattended';
+      return 'attendance__cell_general attendance__cell_unattended';
     } else if (studentAttendance.spravka.includes(date)) {
-      return 'attendance__cell_spravka';
+      return 'attendance__cell_general attendance__cell_spravka';
     }
-    return 'attendance__cell_inactive';
+    return 'attendance__cell_general attendance__cell_inactive';
   };
 
-  const handleCellClick = (studentName: string, date: number) => {
-    console.log(studentName, date);
-    // const className = getCellClassName(studentName, date);
-    // if (className !== 'gray') {
-    //   setIsDropdownOpen(true);
-    //   setSelectedCell({ studentName, day });
-    // }
+  const handleCellClick = (
+    studentName: string,
+    date: number,
+    className: string,
+  ) => {
+    if (className === 'attendance__cell_general attendance__cell_inactive')
+      return;
+    setIsDropdownOpen(true);
+    setActiveCell({ studentName, date });
   };
 
+  const handleOptionSelect = (
+    studentName: string,
+    date: number,
+    status: 'attended' | 'unattended' | 'spravka',
+  ) => {
+    setIsDropdownOpen(false);
+    const studentData = groupAttendance.find(
+      (student) => Object.keys(student)[0] === studentName,
+    );
+
+    if (!studentData) {
+      setIsDropdownOpen(false);
+      return;
+    }
+
+    const studentAttendance = studentData[studentName];
+
+    studentAttendance.attended = studentAttendance.attended.filter(
+      (d) => d !== date,
+    );
+    studentAttendance.unattended = studentAttendance.unattended.filter(
+      (d) => d !== date,
+    );
+    studentAttendance.spravka = studentAttendance.spravka.filter(
+      (d) => d !== date,
+    );
+
+    studentAttendance[status].push(date);
+    console.log('closing');
+
+    setIsSaveButtonActive(true);
+    setActiveCell(null);
+  };
+
+  const submitNewAttendance = () => {
+    console.log('Save!');
+  };
+  const handleDropdownClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+  };
   return (
     <div className="attendance__general">
       <table className="attendance__register">
         <thead>
           <tr>
             <th> </th>
-            {dates.map((key, index) => (
+            {dates.map((date, index) => (
               <th className="attendance__date" key={index}>
-                {key}
+                {date}
               </th>
             ))}
           </tr>
@@ -293,13 +136,77 @@ const AttendanceTable: React.FC<Props> = ({
             return (
               <tr key={index}>
                 <td className="attendance__student_name">{studentName}</td>
-                {dates.map((date) => (
-                  <td
-                    key={date}
-                    className={getColor(date, studentAttendance)}
-                    onClick={() => handleCellClick(studentName, date)}
-                  ></td>
-                ))}
+                {dates.map((date) => {
+                  const cellClass = getAttendanceClassName(
+                    date,
+                    studentAttendance,
+                  );
+                  return (
+                    <td
+                      key={date}
+                      className={cellClass}
+                      onClick={() =>
+                        handleCellClick(studentName, date, cellClass)
+                      }
+                    >
+                      {isDropdownOpen &&
+                        activeCell?.studentName === studentName &&
+                        activeCell?.date === date && (
+                          // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+                          <div
+                            className="attendance__dropdown"
+                            ref={dropdownRef}
+                            onClick={handleDropdownClick}
+                          >
+                            <div
+                              className="attendance__item"
+                              role="button"
+                              tabIndex={0}
+                              onClick={() =>
+                                handleOptionSelect(
+                                  studentName,
+                                  date,
+                                  'attended',
+                                )
+                              }
+                              onKeyPress={() => {}}
+                            >
+                              <div className="attendance__square attendance__cell_attended"></div>
+                              <div>Посетил</div>
+                            </div>
+                            <div
+                              className="attendance__item"
+                              role="button"
+                              tabIndex={0}
+                              onClick={() =>
+                                handleOptionSelect(studentName, date, 'spravka')
+                              }
+                              onKeyPress={() => {}}
+                            >
+                              <div className="attendance__square attendance__cell_spravka"></div>
+                              <div>Справка</div>
+                            </div>
+                            <div
+                              className="attendance__item"
+                              role="button"
+                              tabIndex={0}
+                              onClick={() =>
+                                handleOptionSelect(
+                                  studentName,
+                                  date,
+                                  'unattended',
+                                )
+                              }
+                              onKeyPress={() => {}}
+                            >
+                              <div className="attendance__square attendance__cell_unattended"></div>
+                              <div>Пропустил</div>
+                            </div>
+                          </div>
+                        )}
+                    </td>
+                  );
+                })}
               </tr>
             );
           })}
@@ -311,8 +218,7 @@ const AttendanceTable: React.FC<Props> = ({
             ? 'attendance__save_button'
             : 'attendance__save_button attendance__save_button_disabled'
         }`}
-        // onClick={handleSaveButtonClick}
-        // disabled={!isSaveButtonActive}
+        onClick={submitNewAttendance}
       >
         Сохранить
       </button>
