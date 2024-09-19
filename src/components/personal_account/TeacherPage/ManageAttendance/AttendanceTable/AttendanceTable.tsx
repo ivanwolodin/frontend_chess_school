@@ -1,6 +1,6 @@
 // import React, { useEffect, useRef, useState } from 'react';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   AttendanceData,
@@ -8,7 +8,7 @@ import {
   ClassDates,
 } from '../../../../../utils/interfaces';
 
-// import './AttendanceTable.css';
+import './AttendanceTable.css';
 // import { StudentAttendance, MonthData } from '../../../../../utils/interfaces';
 
 // const AttendanceTable: React.FC<MonthData> = ({ full, ...studentData }) => {
@@ -244,6 +244,8 @@ const AttendanceTable: React.FC<Props> = ({
   groupName,
   month,
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [isSaveButtonActive, setIsSaveButtonActive] = useState(false);
   const groupAttendance = attendanceInfo[groupName][month];
   const dates = classDates[groupName][month];
 
@@ -253,43 +255,68 @@ const AttendanceTable: React.FC<Props> = ({
 
   const getColor = (date: number, studentAttendance: AttendanceRecord) => {
     if (studentAttendance.attended.includes(date)) {
-      return 'green';
+      return 'attendance__cell_attended';
     } else if (studentAttendance.unattended.includes(date)) {
-      return 'red';
+      return 'attendance__cell_unattended';
     } else if (studentAttendance.spravka.includes(date)) {
-      return 'yellow';
+      return 'attendance__cell_spravka';
     }
-    return 'gray';
+    return 'attendance__cell_inactive';
+  };
+
+  const handleCellClick = (studentName: string, date: number) => {
+    console.log(studentName, date);
+    // const className = getCellClassName(studentName, date);
+    // if (className !== 'gray') {
+    //   setIsDropdownOpen(true);
+    //   setSelectedCell({ studentName, day });
+    // }
   };
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Имя</th>
-          {dates.map((date) => (
-            <th key={date}>{date}</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {groupAttendance.map((studentData, index) => {
-          const studentName = Object.keys(studentData)[0];
-          const studentAttendance = studentData[studentName];
-          return (
-            <tr key={index}>
-              <td>{studentName}</td>
-              {dates.map((date) => (
-                <td
-                  key={date}
-                  style={{ backgroundColor: getColor(date, studentAttendance) }}
-                ></td>
-              ))}
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+    <div className="attendance__general">
+      <table className="attendance__register">
+        <thead>
+          <tr>
+            <th> </th>
+            {dates.map((key, index) => (
+              <th className="attendance__date" key={index}>
+                {key}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {groupAttendance.map((studentData, index) => {
+            const studentName = Object.keys(studentData)[0];
+            const studentAttendance = studentData[studentName];
+            return (
+              <tr key={index}>
+                <td className="attendance__student_name">{studentName}</td>
+                {dates.map((date) => (
+                  <td
+                    key={date}
+                    className={getColor(date, studentAttendance)}
+                    onClick={() => handleCellClick(studentName, date)}
+                  ></td>
+                ))}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <button
+        className={`${
+          isSaveButtonActive
+            ? 'attendance__save_button'
+            : 'attendance__save_button attendance__save_button_disabled'
+        }`}
+        // onClick={handleSaveButtonClick}
+        // disabled={!isSaveButtonActive}
+      >
+        Сохранить
+      </button>
+    </div>
   );
 };
 
