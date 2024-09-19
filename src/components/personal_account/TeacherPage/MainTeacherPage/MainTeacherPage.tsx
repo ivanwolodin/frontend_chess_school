@@ -48,24 +48,49 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({ userRole }) => {
     },
   ]);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [attendanceData, setAttendanceData] = useState([
-    {
-      АТ: {
-        september: [
-          {
-            Тестовый: {
-              attended: [1],
-              unattended: [2],
-              spravka: [3],
-            },
+  const [attendanceData, setAttendanceData] = useState({
+    АТ: {
+      september: [
+        {
+          Тестовый: {
+            attended: [1],
+            unattended: [2],
+            spravka: [3],
           },
-        ],
-      },
+        },
+      ],
+      october: [
+        {
+          Тестовый: {
+            attended: [1],
+            unattended: [2],
+            spravka: [3],
+          },
+        },
+      ],
+      november: [
+        {
+          Тестовый: {
+            attended: [1],
+            unattended: [2],
+            spravka: [3],
+          },
+        },
+      ],
+      december: [
+        {
+          Тестовый: {
+            attended: [1],
+            unattended: [2],
+            spravka: [3],
+          },
+        },
+      ],
     },
-  ]);
+  });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [groupsName, setGroupsName] = useState(['АТ1']);
+  const [groupsName, setGroupsName] = useState({ АТ1: { september: [12] } });
 
   useEffect(() => {
     const personalData = localStorage.getItem('personalData');
@@ -97,7 +122,12 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({ userRole }) => {
           setToggled={handleSideBarToggle}
           userRole={userRole}
         />
-        {selectedItemName === 'Расписание' && <ManageAttendance />}
+        {selectedItemName === 'Расписание' && (
+          <ManageAttendance
+            attendanceData={attendanceData}
+            groupsInfo={groupsName}
+          />
+        )}
         {selectedItemName === 'Дэшборд' && <Dashboard />}
         {selectedItemName === 'Персональные данные' && (
           <TeacherPersonalData data={students} />

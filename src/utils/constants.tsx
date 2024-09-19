@@ -6,6 +6,7 @@ import {
   NewsCardProps,
   TeacherCardProps,
   WeAreTrustedByProps,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   AttendanceData,
   AdminPersonalTableRowData,
   GroupTableRowData,
@@ -23,18 +24,22 @@ export const headerItems: string[] = [
 ];
 
 export const months = [
-  'Январь',
-  'Февраль',
-  'Март',
-  'Апрель',
-  'Май',
-  'Июнь',
-  'Июль',
-  'Август',
-  'Сентябрь',
-  'Октябрь',
-  'Ноябрь',
-  'Декабрь',
+  // 'Январь',
+  // 'Февраль',
+  // 'Март',
+  // 'Апрель',
+  // 'Май',
+  // 'Июнь',
+  // 'Июль',
+  // 'Август',
+  // 'Сентябрь',
+  // 'Октябрь',
+  // 'Ноябрь',
+  // 'Декабрь',
+  'september',
+  'october',
+  'november',
+  'december',
 ];
 
 export const tinyCardsData: InfoTinyCardProps[] = [
@@ -220,200 +225,6 @@ export const SuperAdminMenuItems: SidebarMainMenuItems[] = [
   { icon: 'book-2', label: 'Ответить на вопрос', disabled: true },
   { icon: 'ink-bottle', label: 'Добавить новость', disabled: true },
 ];
-
-export const attendanceData: AttendanceData = {
-  АТ1: {
-    Июнь: {
-      'Володин Иван': {
-        attended: ['1', '2', '3', '6', '15'],
-        spravka: ['24', '30', '19'],
-        unattended: [],
-      },
-      'Ильин Вова': {
-        attended: ['24', '19'],
-        spravka: ['1', '2', '6', '15'],
-        unattended: ['3', '24', '30'],
-      },
-      'Сотина Алиса': {
-        attended: ['19', '24', '30'],
-        spravka: ['3'],
-        unattended: ['1', '2', '6', '15'],
-      },
-      'Володин ddИван': {
-        attended: ['1', '2', '3', '6', '15'],
-        spravka: ['24', '30', '19'],
-        unattended: [],
-      },
-      'Ильин dddddВова': {
-        attended: ['24', '19'],
-        spravka: ['1', '2', '6', '15'],
-        unattended: ['3', '24', '30'],
-      },
-      'Сотинаd Алиса': {
-        attended: ['19', '24', '30'],
-        spravka: ['3'],
-        unattended: ['1', '2', '6', '15'],
-      },
-      'Володин dИван': {
-        attended: ['1', '2', '3', '6', '15'],
-        spravka: ['24', '30', '19'],
-        unattended: [],
-      },
-      'Ильин dВова': {
-        attended: ['24', '19'],
-        spravka: ['1', '2', '6', '15'],
-        unattended: ['3', '24', '30'],
-      },
-      'Сотина dАлиса': {
-        attended: ['19', '24', '30'],
-        spravka: ['3'],
-        unattended: ['1', '2', '6', '15'],
-      },
-      'Володeeeeeин Иван': {
-        attended: ['1', '2', '3', '6', '15'],
-        spravka: ['24', '30', '19'],
-        unattended: [],
-      },
-      'Ильeeecdddddddeeин Вова': {
-        attended: ['24', '19'],
-        spravka: ['1', '2', '6', '15'],
-        unattended: ['3', '24', '30'],
-      },
-      'Сотweweeeeина Алиса': {
-        attended: ['19', '24', '30'],
-        spravka: ['3'],
-        unattended: ['1', '2', '6', '15'],
-      },
-      'Волоweweдин Иван': {
-        attended: ['1', '2', '3', '6', '15'],
-        spravka: ['24', '30', '19'],
-        unattended: [],
-      },
-      'Ильweweин Вова': {
-        attended: ['24', '19'],
-        spravka: ['1', '2', '6', '15'],
-        unattended: ['3', '24', '30'],
-      },
-      'Сотиweна Алиса': {
-        attended: ['19', '24', '30'],
-        spravka: ['3'],
-        unattended: ['1', '2', '6', '15'],
-      },
-      'Волeодин Иван': {
-        attended: ['1', '2', '3', '6', '15'],
-        spravka: ['24', '30', '19'],
-        unattended: [],
-      },
-      'Ильeин Вова': {
-        attended: ['24', '19'],
-        spravka: ['1', '2', '6', '15'],
-        unattended: ['3', '24', '30'],
-      },
-      'Сотинasdfа Алиса': {
-        attended: ['19', '24', '30'],
-        spravka: ['3'],
-        unattended: ['1', '2', '6', '15'],
-      },
-      'Ильwewefeин Вова': {
-        attended: ['24', '19'],
-        spravka: ['1', '2', '6', '15'],
-        unattended: ['3', '24', '30'],
-      },
-      'Сотиw2eна Алиса': {
-        attended: ['19', '24', '30'],
-        spravka: ['3'],
-        unattended: ['1', '2', '6', '15'],
-      },
-      'Вол22eодин Иван': {
-        attended: ['1', '2', '3', '6', '15'],
-        spravka: ['24', '30', '19'],
-        unattended: [],
-      },
-      'Ильeи2222н Вова': {
-        attended: ['24', '19'],
-        spravka: ['1', '2', '6', '15'],
-        unattended: ['3', '24', '30'],
-      },
-      'Сотинa2222sdfа Алиса': {
-        attended: ['19', '24', '30'],
-        spravka: ['3'],
-        unattended: ['1', '2', '6', '15'],
-      },
-      full: ['1', '2', '3', '6', '15', '19', '24', '30'],
-    },
-    Июль: {
-      'Володин Иван': {
-        attended: ['1'],
-        spravka: [],
-        unattended: [],
-      },
-      'Ильин Вова': {
-        attended: [],
-        spravka: [],
-        unattended: [],
-      },
-      'Володeeeeeин Иван': {
-        attended: ['1', '2', '3', '6', '15'],
-        spravka: ['24', '30', '19'],
-        unattended: [],
-      },
-      'Ильeeeeeин Вова': {
-        attended: ['24', '19'],
-        spravka: ['1', '2', '6', '15'],
-        unattended: ['3', '24', '30'],
-      },
-      'Сотweweeeeина Алиса': {
-        attended: ['19', '24', '30'],
-        spravka: ['3'],
-        unattended: ['1', '2', '6', '15'],
-      },
-      'Волоweweдин Иван': {
-        attended: ['1', '2', '3', '6', '15'],
-        spravka: ['24', '30', '19'],
-        unattended: [],
-      },
-      'Ильweweин Вова': {
-        attended: ['24', '19'],
-        spravka: ['1', '2', '6', '15'],
-        unattended: ['3', '24', '30'],
-      },
-      'Сотиweна Алиса': {
-        attended: ['19', '24', '30'],
-        spravka: ['3'],
-        unattended: ['1', '2', '6', '15'],
-      },
-      full: ['1', '2', '3', '6', '15', '19', '24', '30'],
-    },
-    Август: {
-      'Володин Иван': {
-        attended: ['1'],
-        spravka: [],
-        unattended: [],
-      },
-      'Ильин Вова': {
-        attended: [],
-        spravka: [],
-        unattended: [],
-      },
-      'Сахарова Алиса': {
-        attended: [],
-        spravka: [],
-        unattended: [],
-      },
-      'Гиря Оля': {
-        attended: [],
-        spravka: [],
-        unattended: [],
-      },
-      full: ['1'],
-    },
-  },
-  АТ2: {
-    Июнь: { full: [] },
-    Июль: { full: [] },
-    Август: { full: [] },
-  },
-};
 
 export const personalData: AdminPersonalTableRowData[] = [
   {

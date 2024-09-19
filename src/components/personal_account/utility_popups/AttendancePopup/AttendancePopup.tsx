@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Popup } from 'reactjs-popup';
 
-import { attendanceData, months } from '../../../../utils/constants';
+import { months } from '../../../../utils/constants';
 import { AttendancePopupProps } from '../../../../utils/interfaces';
 import AttendanceTable from '../../TeacherPage/ManageAttendance/AttendanceTable/AttendanceTable';
 import './AttendancePopup.css';
@@ -14,18 +14,21 @@ const AttendancePopup: React.FC<AttendancePopupProps> = ({
   closeModal,
   handleLeftArrowClick,
   handleRightArrowClick,
+  attendanceData,
+  groupsInfo,
 }) => {
-  const getAttendanceForSelectedItem = () => {
-    if (!selectedItem) return null;
+  // const getAttendanceForSelectedItem = () => {
+  //   if (!selectedItem) return null;
 
-    const selectedMonth = months[currentMonth];
-    const groupData = attendanceData[selectedItem];
-    if (!groupData || !groupData[selectedMonth]) return null;
+  //   const selectedMonth = months[currentMonth];
+  //   const groupData = attendanceData[selectedItem];
+  //   // if (!groupData || !groupData[selectedMonth]) return null;
 
-    return groupData[selectedMonth];
-  };
+  //   return groupData[selectedMonth];
+  // };
 
-  const attendanceInfo = getAttendanceForSelectedItem();
+  // const attendanceInfo = getAttendanceForSelectedItem();
+  // console.log(attendanceData);
 
   return (
     <Popup
@@ -66,9 +69,12 @@ const AttendancePopup: React.FC<AttendancePopupProps> = ({
         </div>
         {selectedItem && (
           <>
-            {attendanceInfo ? (
+            {attendanceData ? (
               <AttendanceTable
-                {...attendanceData[selectedItem][months[currentMonth]]}
+                attendanceInfo={attendanceData}
+                classDates={groupsInfo}
+                groupName={selectedItem}
+                month={months[currentMonth]}
               />
             ) : (
               <p className="attendancepopup__no_data">

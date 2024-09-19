@@ -1,15 +1,19 @@
 import React, { useState, useRef } from 'react';
 
 import './ManageAttendance.css';
-import { attendanceData } from '../../../../utils/constants';
+import { ManageAttendanceProps } from '../../../../utils/interfaces';
 import AttendancePopup from '../../utility_popups/AttendancePopup/AttendancePopup';
 
-const ManageAttendance: React.FC = () => {
+const ManageAttendance: React.FC<ManageAttendanceProps> = ({
+  attendanceData,
+  groupsInfo,
+}) => {
   const [width, setWidth] = useState<number>(400);
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
+
   const closeModal = () => setOpen(false);
   const handleLeftArrowClick = () => {
     setCurrentMonth((prevMonth) => (prevMonth === 0 ? 11 : prevMonth - 1));
@@ -18,14 +22,6 @@ const ManageAttendance: React.FC = () => {
   const handleRightArrowClick = () => {
     setCurrentMonth((prevMonth) => (prevMonth === 11 ? 0 : prevMonth + 1));
   };
-
-  const handleItemClick = (item: string) => {
-    setSelectedItem(item);
-    setOpen(true);
-  };
-
-  const items = Object.keys(attendanceData);
-
   const handleMouseDown = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
@@ -46,43 +42,48 @@ const ManageAttendance: React.FC = () => {
     document.addEventListener('mouseup', handleMouseUp);
   };
 
+  const handleItemClick = (item: string) => {
+    setSelectedItem(item);
+    setOpen(true);
+  };
+
   return (
-    <>
+    <div
+      className={`${open ? 'manageattendance__general manageattendance__general_blur' : 'manageattendance__general'}`}
+    >
       <div
-        className={`${open ? 'manageattendance__general manageattendance__general_blur' : 'manageattendance__general'}`}
+        ref={containerRef}
+        className="manageattendance__container"
+        style={{ width: `${width}px` }}
       >
-        <div
-          ref={containerRef}
-          className="manageattendance__container"
-          style={{ width: `${width}px` }}
-        >
-          <div className="manageattendance__title">Список групп</div>
-          <div className="manageattendance__group_list">
-            {items.map((item, index) => (
-              <button
-                key={index}
-                className="manageattendance__group_item"
-                onClick={() => handleItemClick(item)}
-              >
-                {item}
-              </button>
-            ))}
-          </div>
-          <button
-            className="manageattendance__vertical_line"
-            onMouseDown={handleMouseDown}
-          ></button>
+        <div className="manageattendance__title">Список групп</div>
+        <div className="manageattendance__group_list">
+          {Object.keys(attendanceData).map((groupName, index) => (
+            <button
+              className="manageattendance__group_item"
+              key={index}
+              onClick={() => handleItemClick(groupName)}
+            >
+              {groupName}
+            </button>
+          ))}
         </div>
-        <AttendancePopup
-          open={open}
-          selectedItem={selectedItem}
-          currentMonth={currentMonth}
-          closeModal={closeModal}
-          handleLeftArrowClick={handleLeftArrowClick}
-          handleRightArrowClick={handleRightArrowClick}
-        />
+        <button
+          className="manageattendance__vertical_line"
+          onMouseDown={handleMouseDown}
+        ></button>
       </div>
-    </>
+      <AttendancePopup
+        open={open}
+        selectedItem={selectedItem}
+        currentMonth={currentMonth}
+        closeModal={closeModal}
+        handleLeftArrowClick={handleLeftArrowClick}
+        handleRightArrowClick={handleRightArrowClick}
+        attendanceData={attendanceData}
+        groupsInfo={groupsInfo}
+      />
+    </div>
   );
 };
 

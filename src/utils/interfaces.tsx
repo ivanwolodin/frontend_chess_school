@@ -50,23 +50,37 @@ export interface SidebarMainMenuItems {
   disabled: boolean;
 }
 
-export interface StudentAttendance {
-  attended: string[];
-  spravka: string[];
-  unattended: string[];
+export interface AttendanceRecord {
+  attended: number[];
+  unattended: number[];
+  spravka: number[];
 }
 
-export interface MonthData {
-  full: string[];
-  [studentName: string]: StudentAttendance | string[];
+interface GroupAttendance {
+  [studentName: string]: AttendanceRecord;
 }
 
-export interface ClassData {
-  [month: string]: MonthData;
+interface MonthlyAttendance {
+  [september: string]: GroupAttendance[];
+  october: GroupAttendance[];
+  november: GroupAttendance[];
+  december: GroupAttendance[];
+  // TODO: потом добавить остальные
 }
 
 export interface AttendanceData {
-  [className: string]: ClassData;
+  [groupName: string]: MonthlyAttendance;
+}
+
+export interface ClassDates {
+  [group: string]: {
+    [month: string]: number[];
+  };
+}
+
+export interface ManageAttendanceProps {
+  attendanceData: AttendanceData;
+  groupsInfo: ClassDates;
 }
 
 export interface AdminPersonalTableRowData {
@@ -124,6 +138,8 @@ export interface AttendancePopupProps {
   closeModal: () => void;
   handleLeftArrowClick: () => void;
   handleRightArrowClick: () => void;
+  attendanceData: AttendanceData;
+  groupsInfo: ClassDates;
 }
 export interface PaymentInfoPopupProps {
   open: boolean;
