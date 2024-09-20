@@ -200,13 +200,18 @@ export const partnersData: WeAreTrustedByProps[] = [
     text: 'Корпоративный турнир',
   },
   {
-    name: 'Sibur',
-    src: require('../assets/our_partners_logos/sibur.png'),
-    text: 'Корпоративное обучение',
+    name: 'Planeta',
+    src: require('../assets/our_partners_logos/planeta_logo.png'),
+    text: 'Мастер-класс',
   },
   {
     name: 'Lukoil',
     src: require('../assets/our_partners_logos/lukoil_inzhiniring.jpeg'),
+    text: 'Корпоративное обучение',
+  },
+  {
+    name: 'Sibur',
+    src: require('../assets/our_partners_logos/sibur.png'),
     text: 'Корпоративное обучение',
   },
 ];

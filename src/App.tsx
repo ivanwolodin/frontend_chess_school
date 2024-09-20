@@ -21,6 +21,7 @@ import SecondHeader from './components/landing/SecondHeader/SecondHeader';
 import SignIn from './components/landing/SignIn/SignIn';
 import TeachersCards from './components/landing/TeachersCards/TeachersCards';
 import VideoSection from './components/landing/VideoSection/VideoSection';
+import WeAreTrustedBy from './components/landing/WeAreTrustedBy/WeAreTrustedBy';
 import WhyWe from './components/landing/WhyWe/WhyWe';
 import { AuthProvider } from './components/personal_account/AuthContext/AuthContext';
 import PrivateWrapper from './components/personal_account/PrivateWrapper/PrivateWrapper';
@@ -84,6 +85,7 @@ function App() {
                   <ScheduleCommercial />
                   <AboutPrograms />
                   <TeachersCards />
+                  <WeAreTrustedBy />
                   <VideoSection videoId="gor6dptvj1Q" />
                   <AdmissionForm
                     scrollRef={admissionFormRef}

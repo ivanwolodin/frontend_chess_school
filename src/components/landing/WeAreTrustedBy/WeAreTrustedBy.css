@@ -1,7 +1,7 @@
 .wearetrustedby__general {
   display: flex;
   flex-direction: column;
-  margin-top: 150px;
+  margin-top: 80px;
 }
 
 .wearetrustedby__title {
@@ -20,7 +20,8 @@
 }
 
 .wearetrustedby__logo_icon {
-  height: 60px;
+  max-height: 70px;
+  max-width: 240px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -54,6 +55,7 @@
   }
 
   .wearetrustedby__logo_icon {
-    height: 80px;
+    max-height: 80px;
+    max-width: 320px;
   }
 }
