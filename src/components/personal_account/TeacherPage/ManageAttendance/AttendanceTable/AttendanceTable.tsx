@@ -3,8 +3,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   AttendanceData,
   AttendanceRecord,
+  ChangeStudentAttendanceData,
   ClassDates,
 } from '../../../../../utils/interfaces';
+import Loader from '../../../../general/Loader/Loader';
+import InfoPopup from '../../../../landing/InfoPopup/InfoPopup';
 
 import './AttendanceTable.css';
 
@@ -13,6 +16,10 @@ interface Props {
   classDates: ClassDates;
   groupName: string;
   month: string;
+  closeModalOnSaving: () => void;
+  changeStudentAttendance: (
+    data: ChangeStudentAttendanceData,
+  ) => Promise<boolean>;
 }
 
 interface AttendanceChange {
@@ -34,7 +41,14 @@ const AttendanceTable: React.FC<Props> = ({
   classDates,
   groupName,
   month,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  closeModalOnSaving,
+  changeStudentAttendance,
 }) => {
+  const [showPopup, setShowPopup] = useState(false);
+  const [titlePopup, setTitlePopup] = useState('');
+  const [textPopup, setTextPopup] = useState('');
+  const [loading, setLoading] = useState(false);
   const [isSaveButtonActive, setIsSaveButtonActive] = useState(false);
   const [activeCell, setActiveCell] = useState<{
     studentName: string;
@@ -51,6 +65,10 @@ const AttendanceTable: React.FC<Props> = ({
   const groupAttendance = attendanceInfo[groupName]?.[month];
   const dates = classDates[groupName]?.[month];
 
+  const handleCloseAll = () => {
+    setShowPopup(false);
+    closeModalOnSaving();
+  };
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -149,22 +167,20 @@ const AttendanceTable: React.FC<Props> = ({
     setActiveCell(null);
   };
 
-  const submitNewAttendance = () => {
-    console.log('Измененные данные:', attendanceChanges);
-
-    // Логика для отправки изменений на backend
-    /*
-    fetch('/api/update-attendance', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(attendanceChanges),
-    })
-    .then(response => response.json())
-    .then(data => console.log(data));
-    */
-
+  const submitNewAttendance = async () => {
+    setLoading(true);
+    // closeModalOnSaving();
+    const res = await changeStudentAttendance({ data: attendanceChanges });
+    if (res) {
+      setTitlePopup('Успешно');
+      setTextPopup('Данные изменены');
+      setShowPopup(true);
+    } else {
+      setTitlePopup('Что-то пошло не так');
+      setTextPopup('Пожалуйста, попробуйте снова');
+      setShowPopup(true);
+    }
+    setLoading(false);
     setAttendanceChanges({});
     setIsSaveButtonActive(false);
   };
@@ -280,6 +296,14 @@ const AttendanceTable: React.FC<Props> = ({
       >
         Сохранить
       </button>
+      {loading && <Loader />}
+      {showPopup && (
+        <InfoPopup
+          onClose={handleCloseAll}
+          title={titlePopup}
+          text={textPopup}
+        />
+      )}
     </div>
   );
 };

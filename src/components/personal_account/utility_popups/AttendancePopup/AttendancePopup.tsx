@@ -11,34 +11,24 @@ const AttendancePopup: React.FC<AttendancePopupProps> = ({
   open,
   selectedItem,
   currentMonth,
-  closeModal,
+  closeModalWithoutSaving,
+  closeModalOnSaving,
   handleLeftArrowClick,
   handleRightArrowClick,
   attendanceData,
   groupsInfo,
+  changeStudentAttendance,
 }) => {
-  // const getAttendanceForSelectedItem = () => {
-  //   if (!selectedItem) return null;
-
-  //   const selectedMonth = months[currentMonth];
-  //   const groupData = attendanceData[selectedItem];
-  //   // if (!groupData || !groupData[selectedMonth]) return null;
-
-  //   return groupData[selectedMonth];
-  // };
-
-  // const attendanceInfo = getAttendanceForSelectedItem();
-  // console.log(attendanceData);
 
   return (
     <Popup
       open={open}
-      onClose={closeModal}
+      onClose={closeModalWithoutSaving}
       closeOnEscape={true}
       closeOnDocumentClick={false}
     >
       <div className="modal">
-        <button className="close" onClick={closeModal}>
+        <button className="close" onClick={closeModalWithoutSaving}>
           &times;
         </button>
         {selectedItem && (
@@ -74,7 +64,9 @@ const AttendancePopup: React.FC<AttendancePopupProps> = ({
                 attendanceInfo={attendanceData}
                 classDates={groupsInfo}
                 groupName={selectedItem}
+                closeModalOnSaving={closeModalOnSaving}
                 month={months[currentMonth]}
+                changeStudentAttendance={changeStudentAttendance}
               />
             ) : (
               <p className="attendancepopup__no_data">

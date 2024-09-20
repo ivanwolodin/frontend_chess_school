@@ -1,8 +1,14 @@
 import { useEffect, useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import ApiService from '../../../../api/ApiService';
 import { TeachersMenuItems } from '../../../../utils/constants';
-import { UserRole } from '../../../../utils/interfaces';
+import {
+  ChangeStudentAttendanceData,
+  UserRole,
+} from '../../../../utils/interfaces';
+import { isTokenValid } from '../../../../utils/usefulFunctions';
 import AdditionalHorizontalInfoLine from '../../common_comps/AdditionalHorizontalInfoLine/AdditionalHorizontalInfoLine';
 import SideBar from '../../common_comps/SideBar/SideBar';
 import TeacherPersonalData from '../../common_comps/StudentsPersonalData/TeacherPersonalData';
@@ -16,7 +22,11 @@ interface MainTeacherPageProps {
   userRole: UserRole;
 }
 
-const MainTeacherPage: React.FC<MainTeacherPageProps> = ({ userRole }) => {
+const MainTeacherPage: React.FC<MainTeacherPageProps> = ({
+  userRole,
+  apiService,
+}) => {
+  const navigate = useNavigate();
   const [selectedItemName, setSelectedItemName] = useState<string | null>(
     'Дэшборд',
   );
@@ -32,7 +42,39 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({ userRole }) => {
   const changeUserPassword = async () => {
     console.log('меняю пароль и мир');
   };
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+  const changeStudentAttendance = async (data: ChangeStudentAttendanceData) => {
+    console.log(apiService);
+    console.log(data);
+    const accessToken = localStorage.getItem('accessToken');
+    if (isTokenValid(accessToken)) {
+      try {
+        const newStudentAttendanceData =
+          await apiService.getTeacherData(accessToken);
+
+        if (newStudentAttendanceData && newStudentAttendanceData.group_data) {
+          localStorage.setItem(
+            'groupData',
+            JSON.stringify(newStudentAttendanceData.group_data),
+          );
+          setAttendanceData(newStudentAttendanceData.group_data);
+          return true;
+        } else {
+          console.error('Некорректные данные посещаемости');
+          return false;
+        }
+      } catch (error) {
+        console.error('Ошибка при обновлении данных посещаемости', error);
+        return false;
+      }
+    } else {
+      alert('Авторизуйтесь, пожалуйста, заново');
+      localStorage.clear();
+      navigate('/log_in');
+      return false;
+    }
+  };
+
   const [students, setStudents] = useState([
     {
       id: '1',
@@ -47,12 +89,12 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({ userRole }) => {
       parent: 'string',
     },
   ]);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   const [attendanceData, setAttendanceData] = useState({
     АТ: {
       september: [
         {
-          Тестовый: {
+          ИмяУченика: {
             attended: [1],
             unattended: [2],
             spravka: [3],
@@ -61,7 +103,7 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({ userRole }) => {
       ],
       october: [
         {
-          Тестовый: {
+          ИмяУченика: {
             attended: [1],
             unattended: [2],
             spravka: [3],
@@ -70,7 +112,7 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({ userRole }) => {
       ],
       november: [
         {
-          Тестовый: {
+          ИмяУченика: {
             attended: [1],
             unattended: [2],
             spravka: [3],
@@ -79,7 +121,7 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({ userRole }) => {
       ],
       december: [
         {
-          Тестовый: {
+          ИмяУченика: {
             attended: [1],
             unattended: [2],
             spravka: [3],
@@ -89,7 +131,6 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({ userRole }) => {
     },
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [groupsName, setGroupsName] = useState({ АТ1: { september: [12] } });
 
   useEffect(() => {
@@ -126,6 +167,7 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({ userRole }) => {
           <ManageAttendance
             attendanceData={attendanceData}
             groupsInfo={groupsName}
+            changeStudentAttendance={changeStudentAttendance}
           />
         )}
         {selectedItemName === 'Дэшборд' && <Dashboard />}

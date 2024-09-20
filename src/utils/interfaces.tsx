@@ -72,6 +72,19 @@ export interface AttendanceData {
   [groupName: string]: MonthlyAttendance;
 }
 
+interface GroupData {
+  [key: string]: AttendanceRecord;
+}
+
+interface MonthData {
+  // TODO: добавить другие месяцы
+  september?: GroupData;
+}
+
+export interface ChangeStudentAttendanceData {
+  [key: string]: MonthData;
+}
+
 export interface ClassDates {
   [group: string]: {
     [month: string]: number[];
@@ -81,6 +94,9 @@ export interface ClassDates {
 export interface ManageAttendanceProps {
   attendanceData: AttendanceData;
   groupsInfo: ClassDates;
+  changeStudentAttendance: (
+    data: ChangeStudentAttendanceData,
+  ) => Promise<boolean>;
 }
 
 export interface AdminPersonalTableRowData {
@@ -135,11 +151,15 @@ export interface AttendancePopupProps {
   open: boolean;
   selectedItem: string | null;
   currentMonth: number;
-  closeModal: () => void;
+  closeModalWithoutSaving: () => void;
+  closeModalOnSaving: () => void;
   handleLeftArrowClick: () => void;
   handleRightArrowClick: () => void;
   attendanceData: AttendanceData;
   groupsInfo: ClassDates;
+  changeStudentAttendance: (
+    data: ChangeStudentAttendanceData,
+  ) => Promise<boolean>;
 }
 export interface PaymentInfoPopupProps {
   open: boolean;

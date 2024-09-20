@@ -1,12 +1,18 @@
 import React, { useState, useRef } from 'react';
 
-import './ManageAttendance.css';
 import { ManageAttendanceProps } from '../../../../utils/interfaces';
 import AttendancePopup from '../../utility_popups/AttendancePopup/AttendancePopup';
+
+import './ManageAttendance.css';
+
+function deepCopy<T>(obj: T): T {
+  return JSON.parse(JSON.stringify(obj));
+}
 
 const ManageAttendance: React.FC<ManageAttendanceProps> = ({
   attendanceData,
   groupsInfo,
+  changeStudentAttendance,
 }) => {
   const [width, setWidth] = useState<number>(400);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -14,7 +20,14 @@ const ManageAttendance: React.FC<ManageAttendanceProps> = ({
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
 
-  const closeModal = () => setOpen(false);
+  const [deepCopyAttendanceData, setDeepCopyAttendanceData] = useState(
+    deepCopy(attendanceData),
+  );
+
+  const closeModalWithoutSaving = () => {
+    setDeepCopyAttendanceData(deepCopy(attendanceData));
+    setOpen(false);
+  };
   const handleLeftArrowClick = () => {
     setCurrentMonth((prevMonth) => (prevMonth === 0 ? 11 : prevMonth - 1));
   };
@@ -77,11 +90,13 @@ const ManageAttendance: React.FC<ManageAttendanceProps> = ({
         open={open}
         selectedItem={selectedItem}
         currentMonth={currentMonth}
-        closeModal={closeModal}
+        closeModalWithoutSaving={closeModalWithoutSaving}
+        closeModalOnSaving={closeModalWithoutSaving}
         handleLeftArrowClick={handleLeftArrowClick}
         handleRightArrowClick={handleRightArrowClick}
-        attendanceData={attendanceData}
+        attendanceData={deepCopyAttendanceData}
         groupsInfo={groupsInfo}
+        changeStudentAttendance={changeStudentAttendance}
       />
     </div>
   );

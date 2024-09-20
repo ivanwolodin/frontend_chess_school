@@ -227,6 +227,24 @@ class ApiService {
 
     return response;
   }
+
+  async newStudentsAttendanceData(attendanceData) {
+    const response = await this._sendRequest('teacher/student_attendance', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        attendance_data: attendanceData,
+      }),
+    });
+
+    if (response.error) {
+      return null;
+    }
+
+    return response;
+  }
 }
 
 export default ApiService;
