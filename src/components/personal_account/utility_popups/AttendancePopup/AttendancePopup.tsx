@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Popup } from 'reactjs-popup';
 
-import { months } from '../../../../utils/constants';
+import { months, monthsRus } from '../../../../utils/constants';
 import { AttendancePopupProps } from '../../../../utils/interfaces';
 import AttendanceTable from '../../TeacherPage/ManageAttendance/AttendanceTable/AttendanceTable';
 import './AttendancePopup.css';
@@ -45,7 +45,7 @@ const AttendancePopup: React.FC<AttendancePopupProps> = ({
             aria-label="Previous month"
           ></div>
           <p className="attendancepopup__month_controls_monthtitle">
-            {months[currentMonth]}
+            {monthsRus[currentMonth]}
           </p>
           <div
             className="attendancepopup__month_controls_rightarrow"

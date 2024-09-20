@@ -25,22 +25,20 @@ const AdditionalHorizontalInfoLine: React.FC<
   if (userRole.role === 'teacher') {
     message = (
       <p className="additionalhorizontalinfoline__name">
-        Добрый день, <b>{name}</b>
+        Добрый день, <b>{name}</b>!
       </p>
     );
   } else if (userRole.role === 'student' && sumToPay > 0) {
     message = (
       <p className="additionalhorizontalinfoline__name">
-        Добрый день, <b>{name}</b>
-        {'    '}В настоящий момент у Вас есть задолженность в размере{' '}
-        <b>{sumToPay} рублей</b> &#129402;
+        Добрый день, <b>{name}</b>!{'    '}В настоящий момент у Вас есть
+        задолженность в размере <b>{sumToPay} рублей</b> &#129402;
       </p>
     );
   } else if (userRole.role === 'student' && sumToPay === 0) {
     message = (
       <p className="additionalhorizontalinfoline__name">
-        Добрый день, <b>{name}</b>
-        {'    '}Задолженности нет! &#128522;
+        Добрый день, <b>{name}</b>!{'    '}Задолженности нет! &#128522;
       </p>
     );
   } else if (userRole.role === 'admin') {

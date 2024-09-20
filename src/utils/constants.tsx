@@ -6,8 +6,6 @@ import {
   NewsCardProps,
   TeacherCardProps,
   WeAreTrustedByProps,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  AttendanceData,
   AdminPersonalTableRowData,
   GroupTableRowData,
   TeacherPersonalTableRowData,
@@ -24,18 +22,6 @@ export const headerItems: string[] = [
 ];
 
 export const months = [
-  // 'Январь',
-  // 'Февраль',
-  // 'Март',
-  // 'Апрель',
-  // 'Май',
-  // 'Июнь',
-  // 'Июль',
-  // 'Август',
-  // 'Сентябрь',
-  // 'Октябрь',
-  // 'Ноябрь',
-  // 'Декабрь',
   'january',
   'february',
   'march',
@@ -48,6 +34,21 @@ export const months = [
   'october',
   'november',
   'december',
+];
+
+export const monthsRus = [
+  'Январь',
+  'Февраль',
+  'Март',
+  'Апрель',
+  'Май',
+  'Июнь',
+  'Июль',
+  'Август',
+  'Сентябрь',
+  'Октябрь',
+  'Ноябрь',
+  'Декабрь',
 ];
 
 export const tinyCardsData: InfoTinyCardProps[] = [
@@ -211,7 +212,7 @@ export const partnersData: WeAreTrustedByProps[] = [
 ];
 
 export const TeachersMenuItems: SidebarMainMenuItems[] = [
-  { icon: 'bar-chart', label: 'Дэшборд', disabled: true },
+  { icon: 'bar-chart', label: 'Дэшборд', disabled: false },
   { icon: 'calendar', label: 'Расписание', disabled: false },
   // { icon: 'book-2', label: 'Домашние задания', disabled: true },
   { icon: 'service', label: 'Персональные данные', disabled: false },

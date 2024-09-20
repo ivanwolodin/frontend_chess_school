@@ -12,6 +12,7 @@ import { isTokenValid } from '../../../../utils/usefulFunctions';
 import AdditionalHorizontalInfoLine from '../../common_comps/AdditionalHorizontalInfoLine/AdditionalHorizontalInfoLine';
 import SideBar from '../../common_comps/SideBar/SideBar';
 import TeacherPersonalData from '../../common_comps/StudentsPersonalData/TeacherPersonalData';
+import PasswordChangePopup from '../../utility_popups/PasswordChangePopup/PasswordChangePopup';
 import Dashboard from '../Dashboard/Dashboard';
 import ManageAttendance from '../ManageAttendance/ManageAttendance';
 
@@ -27,6 +28,7 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({
   apiService,
 }) => {
   const navigate = useNavigate();
+  const [showPasswordChangePopup, setPasswordChangePopup] = useState(false);
   const [selectedItemName, setSelectedItemName] = useState<string | null>(
     'Дэшборд',
   );
@@ -40,7 +42,7 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({
     setToggled(!toggled);
   };
   const changeUserPassword = async () => {
-    console.log('меняю пароль и мир');
+    setPasswordChangePopup(true);
   };
 
   const changeStudentAttendance = async (data: ChangeStudentAttendanceData) => {
@@ -182,6 +184,13 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({
           <TeacherPersonalData data={students} />
         )}
       </div>
+      {showPasswordChangePopup && (
+        <PasswordChangePopup
+          open={showPasswordChangePopup}
+          apiService={apiService}
+          closeModal={() => setPasswordChangePopup(false)}
+        />
+      )}
     </div>
   );
 };
