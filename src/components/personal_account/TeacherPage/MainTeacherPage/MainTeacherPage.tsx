@@ -44,11 +44,20 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({
   };
 
   const changeStudentAttendance = async (data: ChangeStudentAttendanceData) => {
-    console.log(apiService);
-    console.log(data);
     const accessToken = localStorage.getItem('accessToken');
-    if (isTokenValid(accessToken)) {
-      try {
+
+    if (!isTokenValid(accessToken)) {
+      alert('Авторизуйтесь, пожалуйста, заново');
+      localStorage.clear();
+      navigate('/log_in');
+      return false;
+    }
+
+    try {
+      const attendanceUpdateResponse =
+        await apiService.newStudentsAttendanceData(data);
+
+      if (attendanceUpdateResponse.status) {
         const newStudentAttendanceData =
           await apiService.getTeacherData(accessToken);
 
@@ -63,14 +72,12 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({
           console.error('Некорректные данные посещаемости');
           return false;
         }
-      } catch (error) {
-        console.error('Ошибка при обновлении данных посещаемости', error);
+      } else {
+        console.error('Ошибка при обновлении посещаемости');
         return false;
       }
-    } else {
-      alert('Авторизуйтесь, пожалуйста, заново');
-      localStorage.clear();
-      navigate('/log_in');
+    } catch (error) {
+      console.error('Ошибка при обработке данных', error);
       return false;
     }
   };

@@ -229,15 +229,19 @@ class ApiService {
   }
 
   async newStudentsAttendanceData(attendanceData) {
-    const response = await this._sendRequest('teacher/student_attendance', {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
+    const response = await this._sendRequest(
+      'teacher/change_student_attendance',
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+        body: JSON.stringify({
+          attendance_data: attendanceData,
+        }),
       },
-      body: JSON.stringify({
-        attendance_data: attendanceData,
-      }),
-    });
+    );
 
     if (response.error) {
       return null;

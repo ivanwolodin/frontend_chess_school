@@ -19,7 +19,6 @@ const AttendancePopup: React.FC<AttendancePopupProps> = ({
   groupsInfo,
   changeStudentAttendance,
 }) => {
-
   return (
     <Popup
       open={open}
