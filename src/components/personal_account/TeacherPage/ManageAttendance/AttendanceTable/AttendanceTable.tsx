@@ -15,6 +15,20 @@ interface Props {
   month: string;
 }
 
+interface AttendanceChange {
+  attended: number[];
+  unattended: number[];
+  spravka: number[];
+}
+
+interface AttendanceChanges {
+  [studentName: string]: {
+    [groupName: string]: {
+      [monthName: string]: AttendanceChange;
+    };
+  };
+}
+
 const AttendanceTable: React.FC<Props> = ({
   attendanceInfo,
   classDates,
@@ -28,6 +42,12 @@ const AttendanceTable: React.FC<Props> = ({
   } | null>(null);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  // Структура для хранения изменений
+  const [attendanceChanges, setAttendanceChanges] = useState<AttendanceChanges>(
+    {},
+  );
+
   const groupAttendance = attendanceInfo[groupName]?.[month];
   const dates = classDates[groupName]?.[month];
 
@@ -104,18 +124,55 @@ const AttendanceTable: React.FC<Props> = ({
     );
 
     studentAttendance[status].push(date);
-    console.log('closing');
+
+    setAttendanceChanges((prevChanges) => {
+      const updatedChanges = { ...prevChanges };
+
+      if (!updatedChanges[studentName]) {
+        updatedChanges[studentName] = {};
+      }
+
+      if (!updatedChanges[studentName][groupName]) {
+        updatedChanges[studentName][groupName] = {};
+      }
+
+      updatedChanges[studentName][groupName][month] = {
+        attended: [...studentAttendance.attended],
+        unattended: [...studentAttendance.unattended],
+        spravka: [...studentAttendance.spravka],
+      };
+
+      return updatedChanges;
+    });
 
     setIsSaveButtonActive(true);
     setActiveCell(null);
   };
 
   const submitNewAttendance = () => {
-    console.log('Save!');
+    console.log('Измененные данные:', attendanceChanges);
+
+    // Логика для отправки изменений на backend
+    /*
+    fetch('/api/update-attendance', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(attendanceChanges),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data));
+    */
+
+    setAttendanceChanges({});
+    setIsSaveButtonActive(false);
   };
+
   const handleDropdownClick = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
   };
+
   return (
     <div className="attendance__general">
       <table className="attendance__register">
@@ -219,6 +276,7 @@ const AttendanceTable: React.FC<Props> = ({
             : 'attendance__save_button attendance__save_button_disabled'
         }`}
         onClick={submitNewAttendance}
+        disabled={!isSaveButtonActive}
       >
         Сохранить
       </button>
