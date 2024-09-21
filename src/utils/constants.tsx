@@ -323,12 +323,6 @@ export const adminPersonalDataColumnsSettings: TableColumn<AdminPersonalTableRow
 export const teacherPersonalDataColumnsSettings: TableColumn<TeacherPersonalTableRowData>[] =
   [
     {
-      name: '#',
-      cell: (row: TeacherPersonalTableRowData, index?: number) =>
-        index !== undefined ? index + 1 : '-',
-      width: '50px',
-    },
-    {
       name: 'Имя',
       selector: (row: TeacherPersonalTableRowData) => row.name,
       sortable: true,
@@ -338,7 +332,7 @@ export const teacherPersonalDataColumnsSettings: TableColumn<TeacherPersonalTabl
       name: 'Группа',
       selector: (row: TeacherPersonalTableRowData) => row.group,
       sortable: true,
-      hide: 'sm' as unknown as Media,
+      hide: 'md' as unknown as Media,
     },
     {
       name: 'Дата рождения',
@@ -351,7 +345,7 @@ export const teacherPersonalDataColumnsSettings: TableColumn<TeacherPersonalTabl
       selector: (row: TeacherPersonalTableRowData) => row.phone,
       // sortable: true,
       right: true,
-      hide: 'md' as unknown as Media,
+      // hide: 'md' as unknown as Media,
     },
     {
       name: 'Родитель',
