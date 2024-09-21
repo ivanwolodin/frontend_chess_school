@@ -6,6 +6,7 @@
   overflow-y: auto;
   font-size: 12px;
   background-color: white;
+  border: 3px solid black;
   border-radius: 40px;
 }
 
@@ -44,14 +45,11 @@
 }
 
 .attendancepopup__group_title {
-  max-width: 200px;
-  margin: auto;
-  margin-bottom: 20px;
-  padding: 10px 0;
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-size: 25px;
   text-align: center;
-  background-color: rgb(237 206 112);
-  border-radius: 50px;
 }
 
 .attendancepopup__month_controls {
@@ -65,11 +63,12 @@
 .attendancepopup__month_arrows {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  border: 5px solid rgb(223 162 19 / 89.1%);
 }
 
 .attendancepopup__month_controls_leftarrow {
-  max-width: 28px;
+  min-width: 48px;
   padding-top: 40px;
   padding-left: 80px;
   background: url('../../../../assets/icons/left_arrow.png') no-repeat center
@@ -79,7 +78,7 @@
 }
 
 .attendancepopup__month_controls_rightarrow {
-  max-width: 28px;
+  min-width: 48px;
   padding-top: 40px;
   padding-right: 80px;
   background: url('../../../../assets/icons/right_arrow.png') no-repeat center
@@ -98,8 +97,7 @@
 
 .attendancepopup__month_controls_monthtitle {
   align-self: center;
-  color: rgb(103 172 232);
-  font-size: 32px;
+  font-size: 24px;
   text-shadow: 0 0 2px #ffffff;
 }
 
@@ -122,6 +120,14 @@
   }
 }
 
+@media (width <= 870px) {
+  .modal {
+    max-width: 500px;
+    height: auto;
+  }
+}
+
+
 @media (width <= 781px) {
   .manageattendance__month_controls {
     width: 300px;
@@ -130,7 +136,7 @@
 
 @media (width <= 760px) {
   .modal {
-    min-width: 400px;
+    min-width: 600px;
     min-height: 300px;
   }
 }
@@ -158,7 +164,19 @@
   }
 }
 
-@media (width <= 585px) {
+@media (width <= 670px) {
+  .modal {
+    min-width: unset;
+    min-height: unset;
+    max-width: 600px;
+    height: auto;
+    padding: 0;
+  }
+
+  .modal > .content {
+    width: unset;
+  }
+
   th,
   td {
     min-width: 0;
@@ -174,15 +192,29 @@
   }
 }
 
+
+@media (width <= 630px) {
+  .modal {
+    max-width: 500px;
+  }
+
+}
+
 @media (width <= 585px) {
   .modal {
-    min-width: 300px;
+    max-width: 400px;
   }
 
   table {
-    width: 95%;
+    width: 75%;
   }
 }
+
+/* @media (width <= 520px) {
+  .modal {
+    max-width: 400px;
+  }
+} */
 
 @media (width <= 400px) {
   .attendancepopup__group_title {

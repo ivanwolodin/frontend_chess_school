@@ -113,3 +113,36 @@ td.name-cell {
   background-color: rgb(216 216 121);
   cursor: pointer;
 }
+
+@media (width <= 870px) {
+  .attendance__student_name{
+    width: 90px;
+    font-size: 15px;
+  }
+
+  .attendance__date{
+    font-size: 15px;
+  }
+
+  th, td{
+    min-width: unset;
+  }
+}
+
+@media (width <= 670px) {
+
+  .attendance__register{
+    width: 500px;
+  }
+
+  .attendance__date {
+    font-size: unset;
+}
+}
+
+@media (width <= 520px) {
+  .attendance__register{
+    width: 300px;
+  }
+
+}
