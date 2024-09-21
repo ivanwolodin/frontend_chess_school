@@ -6,7 +6,6 @@
   overflow-y: auto;
   font-size: 12px;
   background-color: white;
-  border: 3px solid black;
   border-radius: 40px;
 }
 
@@ -45,11 +44,16 @@
 }
 
 .attendancepopup__group_title {
-  margin: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 25px;
   text-align: center;
+  width: 200px;
+  background-color: rgb(237 206 112);
+  border-radius: 200px;
 }
 
 .attendancepopup__month_controls {
@@ -63,8 +67,7 @@
 .attendancepopup__month_arrows {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  border: 5px solid rgb(223 162 19 / 89.1%);
+  justify-content: space-around;
 }
 
 .attendancepopup__month_controls_leftarrow {
@@ -97,8 +100,9 @@
 
 .attendancepopup__month_controls_monthtitle {
   align-self: center;
-  font-size: 24px;
+  font-size: 34px;
   text-shadow: 0 0 2px #ffffff;
+  color: rgb(74, 134, 219);
 }
 
 .attendancepopup__no_data {
@@ -145,11 +149,11 @@
   .attendancepopup__group_title {
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 19px;
+    font-size: 25px;
   }
 
   .attendancepopup__month_controls_monthtitle {
-    font-size: 20px;
+    font-size: 25px;
   }
 
   th,
@@ -184,11 +188,15 @@
   }
 
   .attendancepopup__group_title {
+    margin-top: 20px;
+  }
+
+  .attendancepopup__group_title {
     font-size: 17px;
   }
 
   .attendancepopup__month_controls_monthtitle {
-    font-size: 15px;
+    font-size: 25px;
   }
 }
 
