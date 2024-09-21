@@ -1,8 +1,5 @@
 .manageattendance__general {
-  /* display: flex; */
   flex-grow: 1;
-
-  /* flex-direction: column; */
   background: url('../../../../assets/personal_account_images/attendance.jpg')
     no-repeat center center;
   background-size: cover;
@@ -23,10 +20,12 @@
   align-self: center;
   margin-top: 40px;
   margin-bottom: 40px;
-  padding: 10px;
+  padding: 20px;
+  color: #543215;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 30px;
   background: rgb(255 255 255 / 70%);
+  border-radius: 40px;
 }
 
 .manageattendance__group_list {
@@ -34,6 +33,7 @@
   flex: 1;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
   overflow-y: auto;
 }
 
@@ -41,9 +41,12 @@
   position: relative;
   width: 200px;
   padding: 10px;
+  color: #543215;
   text-align: center;
   background: rgb(255 255 255 / 70%);
+  border: none;
   border-bottom: 2px solid #cccccc;
+  border-radius: 40px;
   cursor: pointer;
 }
 
@@ -52,9 +55,10 @@
   top: 0;
   right: 0;
   bottom: 0;
-  width: 10px;
+  width: 5px;
   padding: 0;
-  background-color: rgb(19 162 223 / 89.1%);
+  background-color: rgb(237 206 112);
+  border: none;
   cursor: ew-resize;
 }
 
@@ -93,7 +97,7 @@
 }
 
 .manageattendance__group_item:hover {
-  background: yellow;
+  background: rgb(237 206 112);
 }
 
 .manageattendance__general_blur {

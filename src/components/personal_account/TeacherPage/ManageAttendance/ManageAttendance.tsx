@@ -14,7 +14,7 @@ const ManageAttendance: React.FC<ManageAttendanceProps> = ({
   groupsInfo,
   changeStudentAttendance,
 }) => {
-  const [width, setWidth] = useState<number>(400);
+  const [width, setWidth] = useState<number>(600);
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [selectedItem, setSelectedItem] = useState<string | null>(null);

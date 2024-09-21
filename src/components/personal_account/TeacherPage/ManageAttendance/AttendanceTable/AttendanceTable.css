@@ -11,13 +11,11 @@
 
 .attendance__student_name {
   width: 150px;
-  background-color: lightblue;
-  border: 3px solid #171717ca;
+  border: 1px solid #171717ca;
 }
 
 .attendance__date {
-  background-color: lightblue;
-  border: 3px solid #171717ca;
+  border: 1px solid #171717ca;
 }
 
 table {
@@ -30,7 +28,6 @@ td {
   min-width: 30px;
   padding: 8px;
   font-size: 20px;
-  text-align: center;
   border: 1px solid #cccccc;
 }
 
@@ -73,9 +70,7 @@ td.name-cell {
   z-index: 100000;
   flex-direction: column;
   background-color: white;
-  border: 1px solid #cccccc;
-  border: 3px solid black;
-  box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
+  border: none;
 }
 
 .attendance__item {

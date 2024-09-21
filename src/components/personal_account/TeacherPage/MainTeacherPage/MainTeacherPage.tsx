@@ -30,7 +30,7 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({
   const navigate = useNavigate();
   const [showPasswordChangePopup, setPasswordChangePopup] = useState(false);
   const [selectedItemName, setSelectedItemName] = useState<string | null>(
-    'Дэшборд',
+    'Расписание',
   );
 
   const handleSelectedItemClick = (itemName: string) => {

@@ -6,7 +6,6 @@
   overflow-y: auto;
   font-size: 12px;
   background-color: white;
-  border: 3px solid black;
   border-radius: 40px;
 }
 
@@ -45,11 +44,14 @@
 }
 
 .attendancepopup__group_title {
-  margin: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  max-width: 200px;
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 10px 0;
   font-size: 25px;
   text-align: center;
+  background-color: rgb(237 206 112);
+  border-radius: 50px;
 }
 
 .attendancepopup__month_controls {
@@ -63,12 +65,11 @@
 .attendancepopup__month_arrows {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  border: 5px solid rgb(223 162 19 / 89.1%);
+  justify-content: space-around;
 }
 
 .attendancepopup__month_controls_leftarrow {
-  min-width: 48px;
+  max-width: 28px;
   padding-top: 40px;
   padding-left: 80px;
   background: url('../../../../assets/icons/left_arrow.png') no-repeat center
@@ -78,7 +79,7 @@
 }
 
 .attendancepopup__month_controls_rightarrow {
-  min-width: 48px;
+  max-width: 28px;
   padding-top: 40px;
   padding-right: 80px;
   background: url('../../../../assets/icons/right_arrow.png') no-repeat center
@@ -97,7 +98,8 @@
 
 .attendancepopup__month_controls_monthtitle {
   align-self: center;
-  font-size: 24px;
+  color: rgb(103 172 232);
+  font-size: 32px;
   text-shadow: 0 0 2px #ffffff;
 }
 

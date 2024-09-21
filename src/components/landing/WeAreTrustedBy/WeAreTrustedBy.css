@@ -20,8 +20,8 @@
 }
 
 .wearetrustedby__logo_icon {
-  max-height: 70px;
   max-width: 240px;
+  max-height: 70px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -55,7 +55,7 @@
   }
 
   .wearetrustedby__logo_icon {
-    max-height: 80px;
     max-width: 320px;
+    max-height: 80px;
   }
 }
