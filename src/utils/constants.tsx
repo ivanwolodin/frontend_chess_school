@@ -129,7 +129,7 @@ export const teachersData: TeacherCardProps[] = [
     src: require('../assets/teachers_images/Andrey.jpg'),
     position: 'Старший тренер',
     alt: 'Старший',
-    info: 'Очень хороший тренер и человек, но устал.. Дети его обожают',
+    info: 'Очень хороший тренер и человек. Стаж работы с детьми 40 лет. Дети его обожают',
   },
   {
     name: 'Громов Даниил Александрович',
