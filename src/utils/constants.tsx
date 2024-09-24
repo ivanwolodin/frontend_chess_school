@@ -157,7 +157,7 @@ export const teachersData: TeacherCardProps[] = [
     src: require('../assets/teachers_images/Leo.png'),
     position: 'Тренер по шахматам',
     alt: 'Тренер',
-    info: 'Информация о сотруднике (дополняется)',
+    info: 'Доктор, шахматист и тренер',
   },
   {
     name: 'Володин Иван Валерьевич',
