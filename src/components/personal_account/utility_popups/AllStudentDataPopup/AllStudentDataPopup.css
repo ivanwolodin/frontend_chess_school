@@ -37,6 +37,12 @@
   list-style-type: none;
 }
 
+.allstudentdata__recommended_sum {
+  margin-top: 50px;
+  color: #2b6962;
+  font-size: 20px;
+}
+
 .allstudentdata__payments_item {
   display: flex;
   justify-content: space-between;

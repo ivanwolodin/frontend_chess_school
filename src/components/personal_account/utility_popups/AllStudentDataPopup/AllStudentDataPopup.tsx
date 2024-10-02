@@ -37,6 +37,7 @@ function AllStudentDataPopup({
 }: AllStudentDataPopupProps) {
   const navigate = useNavigate();
   const [days, setDays] = useState<MonthData>({});
+  const [recommendedSum, setRecommendedSum] = useState(0);
   const [payments, setPayments] = useState<Payment[]>([]); // Состояние для хранения оплат
   const [loading, setLoading] = useState(false);
 
@@ -74,7 +75,8 @@ function AllStudentDataPopup({
           const student = await apiService.getAllStudentData(studentId);
           if (student) {
             setDays(student.attendance_info);
-            setPayments(student.all_payments); // Устанавливаем оплаты
+            setPayments(student.all_payments);
+            setRecommendedSum(student.sum_to_pay);
           }
           setLoading(false);
         } else {
@@ -122,6 +124,9 @@ function AllStudentDataPopup({
               </li>
             ))}
           </ul>
+          <p className="allstudentdata__recommended_sum">
+            Сумма к оплате: {recommendedSum} ₽
+          </p>
         </div>
       </div>
       {loading && <Loader />}
