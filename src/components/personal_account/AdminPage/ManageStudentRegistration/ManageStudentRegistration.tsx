@@ -23,7 +23,7 @@ const ManageStudentRegistration: React.FC<ManageStudentRegistrationProps> = ({
   return (
     <>
       <div className="managestudentregistration__general">
-        <AdminPersonalDataTable data={data} />
+        <AdminPersonalDataTable data={data} apiService={apiService} />
         <button
           className="managestudentregistration__button"
           onClick={openPopup}

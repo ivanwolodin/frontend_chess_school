@@ -249,6 +249,25 @@ class ApiService {
 
     return response;
   }
+
+  async getAllStudentData(studentId) {
+    const response = await this._sendRequest(
+      `admin/fetch_student_data/${studentId}`,
+      {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        },
+      },
+    );
+
+    if (response.error) {
+      return null;
+    }
+
+    return response;
+  }
 }
 
 export default ApiService;

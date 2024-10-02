@@ -112,6 +112,7 @@ export interface AdminPersonalTableRowData {
 
 export interface AdminPersonalDataTableProps {
   data: AdminPersonalTableRowData[];
+  apiService: Api;
 }
 
 export interface ManageStudentRegistrationProps {
@@ -189,6 +190,13 @@ export interface InfoPopupProps {
   onClose: () => void;
   title: string;
   text: string;
+}
+
+export interface AllStudentDataPopupProps {
+  onClose: () => void;
+  apiService: Api;
+  studentId: number;
+  studentName: string;
 }
 
 export interface AdmissionFormProps {
