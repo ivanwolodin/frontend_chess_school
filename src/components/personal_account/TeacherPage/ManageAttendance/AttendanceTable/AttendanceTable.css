@@ -115,34 +115,33 @@ td.name-cell {
 }
 
 @media (width <= 870px) {
-  .attendance__student_name{
+  .attendance__student_name {
     width: 90px;
     font-size: 15px;
   }
 
-  .attendance__date{
+  .attendance__date {
     font-size: 15px;
   }
 
-  th, td{
+  th,
+  td {
     min-width: unset;
   }
 }
 
 @media (width <= 670px) {
-
-  .attendance__register{
+  .attendance__register {
     width: 500px;
   }
 
   .attendance__date {
     font-size: unset;
-}
+  }
 }
 
 @media (width <= 520px) {
-  .attendance__register{
+  .attendance__register {
     width: 300px;
   }
-
 }

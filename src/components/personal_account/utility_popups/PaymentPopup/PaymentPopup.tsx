@@ -23,6 +23,9 @@ const PaymentPopup: React.FC<PaymentInfoPopupProps> = ({
     const accessToken = localStorage.getItem('accessToken');
 
     if (isTokenValid(accessToken)) {
+      if (Number(enteredAmount) < 1) {
+        return;
+      }
       const paymentUrl = await apiService?.getPaymentUrl(enteredAmount);
       const urlToRedirect = paymentUrl ?? '';
 
@@ -61,6 +64,8 @@ const PaymentPopup: React.FC<PaymentInfoPopupProps> = ({
               className="paymentpopup__input"
               value={enteredAmount}
               onChange={handleInputChange}
+              required
+              min="1"
             />
             <button
               className="paymentpopup__confirm_button"

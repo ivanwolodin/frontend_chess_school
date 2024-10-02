@@ -44,6 +44,7 @@
 }
 
 .attendancepopup__group_title {
+  width: 200px;
   margin: auto;
   margin-top: 0;
   margin-bottom: 20px;
@@ -51,7 +52,6 @@
   padding-bottom: 10px;
   font-size: 25px;
   text-align: center;
-  width: 200px;
   background-color: rgb(237 206 112);
   border-radius: 200px;
 }
@@ -100,9 +100,9 @@
 
 .attendancepopup__month_controls_monthtitle {
   align-self: center;
+  color: rgb(74 134 219);
   font-size: 34px;
   text-shadow: 0 0 2px #ffffff;
-  color: rgb(74, 134, 219);
 }
 
 .attendancepopup__no_data {
@@ -130,7 +130,6 @@
     height: auto;
   }
 }
-
 
 @media (width <= 781px) {
   .manageattendance__month_controls {
@@ -171,9 +170,9 @@
 @media (width <= 670px) {
   .modal {
     min-width: unset;
-    min-height: unset;
     max-width: 600px;
     height: auto;
+    min-height: unset;
     padding: 0;
   }
 
@@ -189,9 +188,6 @@
 
   .attendancepopup__group_title {
     margin-top: 20px;
-  }
-
-  .attendancepopup__group_title {
     font-size: 17px;
   }
 
@@ -200,12 +196,10 @@
   }
 }
 
-
 @media (width <= 630px) {
   .modal {
     max-width: 500px;
   }
-
 }
 
 @media (width <= 585px) {
