@@ -13,8 +13,20 @@ import {
   AdminPersonalDataTableProps,
   TeacherPersonalDataTableProps,
   AdminPersonalTableRowData,
+  TeacherPersonalTableRowData,
 } from '../../../../utils/interfaces';
 import AllStudentDataPopup from '../../utility_popups/AllStudentDataPopup/AllStudentDataPopup';
+
+const conditionalRowStyles = [
+  {
+    when: (row: AdminPersonalTableRowData | TeacherPersonalTableRowData) =>
+      row.recommended_sum > 700,
+    style: {
+      backgroundColor: 'rgba(255, 0, 0, 0.3)',
+      // color: 'red',
+    },
+  },
+];
 
 const AdminPersonalDataTable: React.FC<AdminPersonalDataTableProps> = ({
   data,
@@ -24,7 +36,6 @@ const AdminPersonalDataTable: React.FC<AdminPersonalDataTableProps> = ({
   const [studentId, setStudentId] = useState(0);
   const [studentName, setStudentName] = useState('Имя Неизвестно');
   const handleRowClicked = (row: AdminPersonalTableRowData) => {
-    console.log(`Имя: ${row.name}, Возраст: ${row.usual_price}`);
     setStudentId(Number(row.id));
     setShowAllStudentDataPopup(true);
     setStudentName(row.name);
@@ -40,6 +51,7 @@ const AdminPersonalDataTable: React.FC<AdminPersonalDataTableProps> = ({
         paginationPerPage={10}
         onRowClicked={handleRowClicked}
         paginationRowsPerPageOptions={[10, 20, 30, 200]}
+        conditionalRowStyles={conditionalRowStyles}
       />
       {showAllStudentDataPopup && (
         <AllStudentDataPopup
@@ -66,6 +78,7 @@ const TeacherPersonalDataTable: React.FC<TeacherPersonalDataTableProps> = ({
         pagination
         paginationPerPage={10}
         paginationRowsPerPageOptions={[10, 20, 40]}
+        conditionalRowStyles={conditionalRowStyles}
       />
     </div>
   );

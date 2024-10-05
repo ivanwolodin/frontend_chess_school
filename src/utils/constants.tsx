@@ -250,6 +250,7 @@ export const personalData: AdminPersonalTableRowData[] = [
     email: 'sdf@m.ru',
     admission_date: '05.12.1994',
     usual_price: '900',
+    recommended_sum: 0,
   },
   {
     id: '2',
@@ -260,6 +261,7 @@ export const personalData: AdminPersonalTableRowData[] = [
     email: 'sdf@m.ru',
     admission_date: '05.12.1994',
     usual_price: '900',
+    recommended_sum: 0,
   },
 ];
 
@@ -318,6 +320,13 @@ export const adminPersonalDataColumnsSettings: TableColumn<AdminPersonalTableRow
       right: true,
       hide: 'md' as unknown as Media,
     },
+    {
+      name: 'Сумма к оплате',
+      selector: (row: AdminPersonalTableRowData) => row.recommended_sum,
+      sortable: true,
+      right: true,
+      // hide: 'md' as unknown as Media,
+    },
   ];
 
 export const teacherPersonalDataColumnsSettings: TableColumn<TeacherPersonalTableRowData>[] =
@@ -373,6 +382,13 @@ export const teacherPersonalDataColumnsSettings: TableColumn<TeacherPersonalTabl
       sortable: true,
       right: true,
       hide: 'md' as unknown as Media,
+    },
+    {
+      name: 'Сумма к оплате',
+      selector: (row: TeacherPersonalTableRowData) => row.recommended_sum,
+      sortable: true,
+      right: true,
+      // hide: 'md' as unknown as Media,
     },
   ];
 

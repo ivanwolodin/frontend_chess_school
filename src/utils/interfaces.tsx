@@ -108,6 +108,7 @@ export interface AdminPersonalTableRowData {
   email: string;
   admission_date: string;
   usual_price: string;
+  recommended_sum: number;
 }
 
 export interface AdminPersonalDataTableProps {
@@ -142,6 +143,7 @@ export interface TeacherPersonalTableRowData {
   admission_date: string;
   email: string;
   usual_price: string;
+  recommended_sum: number;
 }
 
 export interface TeacherPersonalDataTableProps {

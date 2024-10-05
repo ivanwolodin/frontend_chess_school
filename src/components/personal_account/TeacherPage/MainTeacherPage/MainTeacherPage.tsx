@@ -96,6 +96,7 @@ const MainTeacherPage: React.FC<MainTeacherPageProps> = ({
       usual_price: 'string',
       birthday: 'string',
       parent: 'string',
+      recommended_sum: 0,
     },
   ]);
 

@@ -53,6 +53,7 @@ const MainAdminPage: React.FC<MainAdminProps> = ({ apiService, userRole }) => {
       email: 'string',
       admission_date: 'string',
       usual_price: 'string',
+      recommended_sum: 0,
     },
   ]);
   const [groups, setGroups] = useState([
