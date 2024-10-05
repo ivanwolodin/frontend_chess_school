@@ -52,6 +52,8 @@ const AdminPersonalDataTable: React.FC<AdminPersonalDataTableProps> = ({
         onRowClicked={handleRowClicked}
         paginationRowsPerPageOptions={[10, 20, 30, 200]}
         conditionalRowStyles={conditionalRowStyles}
+        defaultSortFieldId={2}
+        defaultSortAsc={true}
       />
       {showAllStudentDataPopup && (
         <AllStudentDataPopup
@@ -79,6 +81,8 @@ const TeacherPersonalDataTable: React.FC<TeacherPersonalDataTableProps> = ({
         paginationPerPage={10}
         paginationRowsPerPageOptions={[10, 20, 40]}
         conditionalRowStyles={conditionalRowStyles}
+        defaultSortFieldId={1}
+        defaultSortAsc={true}
       />
     </div>
   );
