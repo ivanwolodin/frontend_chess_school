@@ -23,7 +23,7 @@ const EmployeesSalaries: React.FC<EmployeesSalariesProps> = ({
     if (isTokenValid(accessToken)) {
       setLoading(true);
       const salary_info = await apiService.getSalary();
-      console.log(salary_info);
+      handleExport(salary_info);
       setLoading(false);
     } else {
       alert('Авторизуйтесь, пожалуйста, заново');
@@ -32,29 +32,73 @@ const EmployeesSalaries: React.FC<EmployeesSalariesProps> = ({
     }
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleExport = () => {
-    // Данные для каждого листа
-    const sheet1Data = [
-      ['Header1', 'Headecdsr2'],
-      ['Row1Col1', 'Rocdw1Col2'],
-    ];
-
-    const sheet2Data = [
-      ['HeaderA', 'HeacsderB'],
-      ['RowA1', 'RowA2'],
-    ];
-
-    // Создание рабочих листов
-    const worksheet1 = XLSX.utils.aoa_to_sheet(sheet1Data);
-    const worksheet2 = XLSX.utils.aoa_to_sheet(sheet2Data);
-
-    // Создание рабочей книги и добавление листов
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleExport = (salary_info: any) => {
+    // Create a new workbook
     const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet1, 'Sheet1');
-    XLSX.utils.book_append_sheet(workbook, worksheet2, 'Sheet2');
 
-    // Генерация файла и сохранение
+    // Iterate through each employee in the salary_info
+    for (const employee in salary_info.explanatory_salary_info) {
+      if (salary_info.explanatory_salary_info.hasOwnProperty(employee)) {
+        const employeeData = salary_info.explanatory_salary_info[employee];
+        const groups = employeeData.group_name;
+        const paidStudents = employeeData.paid_students;
+
+        // Prepare data for the current employee's sheet
+        const sheetData = [];
+
+        // Add headers for group payments
+        sheetData.push(['Группа', 'Сумма оплаченная', 'Сумма от группы']);
+
+        // Add group payment data
+        for (const group in groups) {
+          if (groups.hasOwnProperty(group)) {
+            sheetData.push([
+              group,
+              groups[group].paid_total,
+              groups[group].from_group,
+            ]);
+          }
+        }
+
+        // Add a separator
+        sheetData.push([]);
+
+        // Add headers for paid students
+        sheetData.push(['Ученики', 'Оплачено']);
+
+        // Add student payment data
+        for (const student in paidStudents) {
+          if (paidStudents.hasOwnProperty(student)) {
+            sheetData.push([student, paidStudents[student].how_much_paid]);
+          }
+        }
+
+        // Add another separator
+        sheetData.push([]);
+
+        // Add headers for debtors
+        sheetData.push(['Должники', 'Долг']);
+
+        // Add debtor data
+        for (const student in paidStudents) {
+          if (paidStudents.hasOwnProperty(student)) {
+            const debt = paidStudents[student].debt;
+            if (debt > 0) {
+              sheetData.push([student, debt]);
+            }
+          }
+        }
+
+        // Create a worksheet for the employee
+        const worksheet = XLSX.utils.aoa_to_sheet(sheetData);
+
+        // Append the worksheet to the workbook
+        XLSX.utils.book_append_sheet(workbook, worksheet, employee);
+      }
+    }
+
+    // Generate the Excel file and save it
     const excelBuffer = XLSX.write(workbook, {
       bookType: 'xlsx',
       type: 'array',
@@ -62,7 +106,7 @@ const EmployeesSalaries: React.FC<EmployeesSalariesProps> = ({
     const fileBlob = new Blob([excelBuffer], {
       type: 'application/octet-stream',
     });
-    saveAs(fileBlob, 'MyExcelFile.xlsx');
+    saveAs(fileBlob, 'Employees_Salaries.xlsx');
   };
   return (
     <>

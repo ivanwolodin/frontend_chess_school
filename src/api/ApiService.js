@@ -270,7 +270,7 @@ class ApiService {
   }
 
   async getSalary() {
-    const response = await this._sendRequest('admin/salaries/', {
+    const response = await this._sendRequest('admin/salaries', {
       method: 'GET',
       headers: {
         accept: 'application/json',
