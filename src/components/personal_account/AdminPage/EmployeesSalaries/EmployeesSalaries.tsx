@@ -112,7 +112,9 @@ const EmployeesSalaries: React.FC<EmployeesSalariesProps> = ({
     <>
       <div className="employeessalaries__general">
         <SalaryDataTable data={data} />
-        <button onClick={handleSubmit}>Скачать расшифровку</button>
+        <button className="employeessalaries__button" onClick={handleSubmit}>
+          Скачать расшифровку
+        </button>
         {loading && <Loader />}
       </div>
     </>
