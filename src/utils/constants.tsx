@@ -9,6 +9,7 @@ import {
   AdminPersonalTableRowData,
   GroupTableRowData,
   TeacherPersonalTableRowData,
+  SalaryTableRowData,
 } from './interfaces';
 
 export const headerItems: string[] = [
@@ -235,6 +236,7 @@ export const SuperAdminMenuItems: SidebarMainMenuItems[] = [
   { icon: 'calendar', label: 'Расписание', disabled: true },
   { icon: 'book-2', label: 'Ученики', disabled: false },
   { icon: 'ink-bottle', label: 'Группы', disabled: false },
+  { icon: 'bar-chart', label: 'Зарплаты', disabled: false },
   { icon: 'service', label: 'Оплаты', disabled: true },
   { icon: 'book-2', label: 'Ответить на вопрос', disabled: true },
   { icon: 'ink-bottle', label: 'Добавить новость', disabled: true },
@@ -428,6 +430,51 @@ export const groupsDataColumnsSettings: TableColumn<GroupTableRowData>[] = [
     hide: 'md' as unknown as Media,
   },
 ];
+
+export const salaryDataColumnsSettings: TableColumn<SalaryTableRowData>[] = [
+  {
+    name: 'сотрудник',
+    selector: (row: SalaryTableRowData) => row.employee,
+    // sortable: true,
+    grow: 2,
+    width: '150px',
+  },
+  {
+    name: 'количество групп',
+    selector: (row: SalaryTableRowData) => row.groupNumber,
+    // sortable: true,
+    grow: 2,
+    // maxWidth: '300px',
+  },
+  {
+    name: 'количество учеников',
+    selector: (row: SalaryTableRowData) => row.studentsNumber,
+    // sortable: true,
+    minWidth: '200px',
+    hide: 'sm' as unknown as Media,
+  },
+  {
+    name: 'заплачено',
+    selector: (row: SalaryTableRowData) => row.paid,
+    // sortable: true,
+    right: true,
+  },
+  {
+    name: 'долг',
+    selector: (row: SalaryTableRowData) => row.debt,
+    // sortable: true,
+    right: true,
+    hide: 'md' as unknown as Media,
+  },
+  {
+    name: 'зарплата',
+    selector: (row: SalaryTableRowData) => row.salary,
+    // sortable: true,
+    right: true,
+    hide: 'md' as unknown as Media,
+  },
+];
+
 export const scheduleData = [
   {
     group: 'Школьники',

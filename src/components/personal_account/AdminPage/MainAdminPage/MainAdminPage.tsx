@@ -10,6 +10,7 @@ import Loader from '../../../general/Loader/Loader';
 import InfoPopup from '../../../landing/InfoPopup/InfoPopup';
 import AdditionalHorizontalInfoLine from '../../common_comps/AdditionalHorizontalInfoLine/AdditionalHorizontalInfoLine';
 import SideBar from '../../common_comps/SideBar/SideBar';
+import EmployeesSalaries from '../EmployeesSalaries/EmployeesSalaries';
 import ManageGroups from '../ManageGroups/ManageGroups';
 import ManageStudentRegistration from '../ManageStudentRegistration/ManageStudentRegistration';
 
@@ -65,12 +66,36 @@ const MainAdminPage: React.FC<MainAdminProps> = ({ apiService, userRole }) => {
       students_number: '1',
     },
   ]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [salaryInfo, setSalaryInfo] = useState([
+    {
+      employee: 'string',
+      groupNumber: '3',
+      studentsNumber: '5',
+      paid: '1400432',
+      debt: '4520',
+      salary: '505555',
+    },
+  ]);
   useEffect(() => {
     const students_data = localStorage.getItem('personalData');
     if (students_data) {
       setStudents(JSON.parse(students_data));
     }
-
+    const salary_info = localStorage.getItem('salaryInfo');
+    if (salary_info) {
+      const formattedData = JSON.parse(salary_info);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const salary = formattedData.map((item: { toString: () => any }[]) => ({
+        employee: item[0],
+        groupNumber: item[1].toString(),
+        studentsNumber: item[2].toString(),
+        paid: item[3].toString(),
+        debt: item[4].toString(),
+        salary: item[5].toString(),
+      }));
+      setSalaryInfo(salary);
+    }
     const groups_data = localStorage.getItem('groupData');
     if (groups_data) {
       const parsedGroups = JSON.parse(groups_data);
@@ -114,6 +139,9 @@ const MainAdminPage: React.FC<MainAdminProps> = ({ apiService, userRole }) => {
             />
           )}
           {selectedItemName === 'Группы' && <ManageGroups data={groups} />}
+          {selectedItemName === 'Зарплаты' && (
+            <EmployeesSalaries data={salaryInfo} apiService={apiService} />
+          )}
         </div>
         {/* {selectedItemName === 'Оплаты' && <ManageAttendance />} */}
         {/* {selectedItemName === 'Занести ученика' && <Dashboard />} */}

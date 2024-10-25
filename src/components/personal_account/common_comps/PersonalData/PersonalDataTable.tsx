@@ -7,6 +7,7 @@ import {
   groupsDataColumnsSettings,
   adminPersonalDataColumnsSettings,
   teacherPersonalDataColumnsSettings,
+  salaryDataColumnsSettings,
 } from '../../../../utils/constants';
 import {
   GroupDataTableProps,
@@ -14,6 +15,7 @@ import {
   TeacherPersonalDataTableProps,
   AdminPersonalTableRowData,
   TeacherPersonalTableRowData,
+  SalaryDataTableProps,
 } from '../../../../utils/interfaces';
 import AllStudentDataPopup from '../../utility_popups/AllStudentDataPopup/AllStudentDataPopup';
 
@@ -104,4 +106,25 @@ const GroupDataTable: React.FC<GroupDataTableProps> = ({ data }) => {
   );
 };
 
-export { AdminPersonalDataTable, GroupDataTable, TeacherPersonalDataTable };
+const SalaryDataTable: React.FC<SalaryDataTableProps> = ({ data }) => {
+  return (
+    <div className="groupdatatable__general">
+      <DataTable
+        className="groupdatatable__data"
+        title="Зарплата"
+        data={data}
+        columns={salaryDataColumnsSettings}
+        pagination
+        paginationPerPage={10}
+        paginationRowsPerPageOptions={[10]}
+      />
+    </div>
+  );
+};
+
+export {
+  AdminPersonalDataTable,
+  GroupDataTable,
+  TeacherPersonalDataTable,
+  SalaryDataTable,
+};

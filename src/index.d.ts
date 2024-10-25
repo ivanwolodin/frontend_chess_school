@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { LinkProps, NavLinkProps } from 'react-router-dom';
-
+declare module 'file-saver';
 export interface HashLinkProps extends LinkProps {
   elementId?: string | undefined;
   smooth?: boolean | undefined;

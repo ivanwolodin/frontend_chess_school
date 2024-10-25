@@ -268,6 +268,22 @@ class ApiService {
 
     return response;
   }
+
+  async getSalary() {
+    const response = await this._sendRequest('admin/salaries/', {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      },
+    });
+
+    if (response.error) {
+      return null;
+    }
+
+    return response;
+  }
 }
 
 export default ApiService;

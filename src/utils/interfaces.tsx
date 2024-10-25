@@ -121,6 +121,11 @@ export interface ManageStudentRegistrationProps {
   apiService: Api;
 }
 
+export interface EmployeesSalariesProps {
+  data: SalaryTableRowData[];
+  apiService: Api;
+}
+
 export interface GroupTableRowData {
   name: string;
   schedule: string;
@@ -131,6 +136,19 @@ export interface GroupTableRowData {
 
 export interface GroupDataTableProps {
   data: GroupTableRowData[];
+}
+
+export interface SalaryTableRowData {
+  employee: string;
+  groupNumber: string;
+  studentsNumber: string;
+  paid: string;
+  debt: string;
+  salary: string;
+}
+
+export interface SalaryDataTableProps {
+  data: SalaryTableRowData[];
 }
 
 export interface TeacherPersonalTableRowData {

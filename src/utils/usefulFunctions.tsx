@@ -47,6 +47,7 @@ interface AdminData {
   only_groups_name: [];
   students: [];
   group_data: [];
+  salary_info: [];
 }
 
 interface TeacherData {
@@ -64,6 +65,7 @@ export const saveAdminDataToLocalStorage = (user_data: AdminData) => {
   );
   localStorage.setItem('personalData', JSON.stringify(user_data.students));
   localStorage.setItem('groupData', JSON.stringify(user_data.group_data));
+  localStorage.setItem('salaryInfo', JSON.stringify(user_data.salary_info));
 };
 
 export const saveTeacherDataToLocalStorage = (user_data: TeacherData) => {
