@@ -70,7 +70,10 @@ const EmployeesSalaries: React.FC<EmployeesSalariesProps> = ({
         // Add student payment data
         for (const student in paidStudents) {
           if (paidStudents.hasOwnProperty(student)) {
-            sheetData.push([student, paidStudents[student].how_much_paid]);
+            sheetData.push(
+              [student, paidStudents[student].how_much_paid],
+              paidStudents[student].group,
+            );
           }
         }
 
@@ -85,7 +88,7 @@ const EmployeesSalaries: React.FC<EmployeesSalariesProps> = ({
           if (paidStudents.hasOwnProperty(student)) {
             const debt = paidStudents[student].debt;
             if (debt > 0) {
-              sheetData.push([student, debt]);
+              sheetData.push([student, debt, paidStudents[student].group]);
             }
           }
         }
