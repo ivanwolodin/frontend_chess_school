@@ -30,6 +30,24 @@ const conditionalRowStyles = [
   },
 ];
 
+const conditionalAdminRowStyles = [
+  {
+    when: (row: AdminPersonalTableRowData | TeacherPersonalTableRowData) =>
+      row.recommended_sum > 700,
+    style: {
+      backgroundColor: 'rgba(255, 0, 0, 0.3)',
+      // color: 'red',
+    },
+  },
+  {
+    when: (row: AdminPersonalTableRowData) => row.status['is_student'] == false,
+    style: {
+      backgroundColor: 'rgba(10, 10, 10, 0.3)',
+      color: 'rgba(0, 0, 0, 0.27)',
+    },
+  },
+];
+
 const AdminPersonalDataTable: React.FC<AdminPersonalDataTableProps> = ({
   data,
   apiService,
@@ -53,7 +71,7 @@ const AdminPersonalDataTable: React.FC<AdminPersonalDataTableProps> = ({
         paginationPerPage={10}
         onRowClicked={handleRowClicked}
         paginationRowsPerPageOptions={[10, 20, 30, 200]}
-        conditionalRowStyles={conditionalRowStyles}
+        conditionalRowStyles={conditionalAdminRowStyles}
         defaultSortFieldId={2}
         defaultSortAsc={true}
       />

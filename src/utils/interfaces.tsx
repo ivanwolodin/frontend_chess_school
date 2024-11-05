@@ -99,6 +99,10 @@ export interface ManageAttendanceProps {
   ) => Promise<boolean>;
 }
 
+interface student_status {
+  is_student: boolean;
+}
+
 export interface AdminPersonalTableRowData {
   id: string;
   name: string;
@@ -109,6 +113,7 @@ export interface AdminPersonalTableRowData {
   admission_date: string;
   usual_price: string;
   recommended_sum: number;
+  status: student_status;
 }
 
 export interface AdminPersonalDataTableProps {

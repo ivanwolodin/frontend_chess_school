@@ -253,6 +253,7 @@ export const personalData: AdminPersonalTableRowData[] = [
     admission_date: '05.12.1994',
     usual_price: '900',
     recommended_sum: 0,
+    status: { is_student: true },
   },
   {
     id: '2',
@@ -264,6 +265,7 @@ export const personalData: AdminPersonalTableRowData[] = [
     admission_date: '05.12.1994',
     usual_price: '900',
     recommended_sum: 0,
+    status: { is_student: true },
   },
 ];
 
