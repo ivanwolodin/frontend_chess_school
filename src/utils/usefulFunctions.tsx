@@ -71,6 +71,30 @@ export const saveAdminDataToLocalStorage = (user_data: AdminData) => {
     'groupsPaidData',
     JSON.stringify(user_data.groups_paid_data),
   );
+  const nameIdMap: Record<string, number> = {};
+  const nameCount: Record<string, number> = {};
+
+  user_data.students.forEach((student) => {
+    const { name, id, group } = student;
+
+    // неоптимально, конечно, сделано через доп.структуру, но ладно
+    nameCount[name] = (nameCount[name] || 0) + 1;
+
+    if (nameCount[name] > 1) {
+      nameIdMap[`${name}_${group}`] = id;
+    } else {
+      nameIdMap[name] = id;
+    }
+  });
+
+  // Сортируем по алфавиту по ключам (именам)
+  const sortedNameIdMap = Object.fromEntries(
+    Object.entries(nameIdMap).sort(([nameA], [nameB]) =>
+      nameA.localeCompare(nameB),
+    ),
+  );
+
+  localStorage.setItem('idByStudentName', JSON.stringify(sortedNameIdMap));
 };
 
 export const saveTeacherDataToLocalStorage = (user_data: TeacherData) => {

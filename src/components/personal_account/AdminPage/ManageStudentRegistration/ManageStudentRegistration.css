@@ -5,17 +5,29 @@
   background-size: cover;
 }
 
-.managestudentregistration__button {
-  display: block;
-  width: 200px;
+.managestudentregistration__buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   height: 80px;
   margin-top: 90px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-bottom: 50px;
+}
+
+.managestudentregistration__button {
   background-color: rgb(163 232 150);
+  cursor: pointer;
+}
+
+.managestudentregistration__button_payment {
+  background-color: rgb(240 211 62);
   cursor: pointer;
 }
 
 .managestudentregistration__button:hover {
   background-color: rgb(66 208 37);
+}
+
+.managestudentregistration__button_payment:hover {
+  background-color: rgb(227 191 9);
 }

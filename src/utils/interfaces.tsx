@@ -217,6 +217,11 @@ export interface InfoPopupProps {
   text: string;
 }
 
+export interface StudentExternalPaymentPopupProps {
+  onClose: () => void;
+  apiService: Api;
+}
+
 export interface AllGroupDataPopupProps {
   onClose: () => void;
   groupTitle: string;

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ManageStudentRegistrationProps } from '../../../../utils/interfaces';
 import { AdminPersonalDataTable } from '../../common_comps/PersonalData/PersonalDataTable';
 import RegisterNewStudentPopup from '../../utility_popups/RegisterNewStudentPopup/RegisterNewStudentPopup';
+import StudentExternalPaymentPopup from '../../utility_popups/StudentExternalPaymentPopup/StudentExternalPaymentPopup';
 
 import './ManageStudentRegistration.css';
 
@@ -10,31 +11,52 @@ const ManageStudentRegistration: React.FC<ManageStudentRegistrationProps> = ({
   data,
   apiService,
 }) => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isRegisterNewStudentPopupOpen, setRegisterNewStudentPopupOpen] =
+    useState(false);
 
-  const openPopup = () => {
-    setIsPopupOpen(true);
+  const [isNewPaymentPopupOpen, setNewPaymentPopupOpen] = useState(false);
+
+  const openRegisterPopup = () => {
+    setRegisterNewStudentPopupOpen(true);
   };
 
-  const closePopup = () => {
-    setIsPopupOpen(false);
+  const openExternalPaymentPopup = () => {
+    setNewPaymentPopupOpen(true);
+  };
+
+  const closeRegisterPopup = () => {
+    setRegisterNewStudentPopupOpen(false);
   };
 
   return (
     <>
       <div className="managestudentregistration__general">
         <AdminPersonalDataTable data={data} apiService={apiService} />
-        <button
-          className="managestudentregistration__button"
-          onClick={openPopup}
-        >
-          Добавить нового ученика
-        </button>
+        <div className="managestudentregistration__buttons">
+          <button
+            className="managestudentregistration__button"
+            onClick={openRegisterPopup}
+          >
+            Добавить нового ученика
+          </button>
+          <button
+            className="managestudentregistration__button_payment"
+            onClick={openExternalPaymentPopup}
+          >
+            Добавить новую оплату
+          </button>
+        </div>
       </div>
-      {isPopupOpen && (
+      {isRegisterNewStudentPopupOpen && (
         <RegisterNewStudentPopup
-          open={isPopupOpen}
-          closeModal={closePopup}
+          open={isRegisterNewStudentPopupOpen}
+          closeModal={closeRegisterPopup}
+          apiService={apiService}
+        />
+      )}
+      {isNewPaymentPopupOpen && (
+        <StudentExternalPaymentPopup
+          onClose={() => setNewPaymentPopupOpen(false)}
           apiService={apiService}
         />
       )}

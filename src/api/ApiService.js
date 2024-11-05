@@ -284,6 +284,23 @@ class ApiService {
 
     return response;
   }
+
+  async insertExternalPayment(data) {
+    const response = await this._sendRequest('admin/insert_external_payment', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.error) {
+      return null;
+    }
+
+    return response;
+  }
 }
 
 export default ApiService;
