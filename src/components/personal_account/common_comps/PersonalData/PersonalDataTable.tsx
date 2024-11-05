@@ -16,7 +16,9 @@ import {
   AdminPersonalTableRowData,
   TeacherPersonalTableRowData,
   SalaryDataTableProps,
+  GroupTableRowData,
 } from '../../../../utils/interfaces';
+import AllGroupDataPopup from '../../utility_popups/AllGroupDataPopup/AllGroupDataPopup';
 import AllStudentDataPopup from '../../utility_popups/AllStudentDataPopup/AllStudentDataPopup';
 
 const conditionalRowStyles = [
@@ -55,7 +57,7 @@ const AdminPersonalDataTable: React.FC<AdminPersonalDataTableProps> = ({
   const [showAllStudentDataPopup, setShowAllStudentDataPopup] = useState(false);
   const [studentId, setStudentId] = useState(0);
   const [studentName, setStudentName] = useState('Имя Неизвестно');
-  const handleRowClicked = (row: AdminPersonalTableRowData) => {
+  const handleStudentRowClicked = (row: AdminPersonalTableRowData) => {
     setStudentId(Number(row.id));
     setShowAllStudentDataPopup(true);
     setStudentName(row.name);
@@ -69,7 +71,7 @@ const AdminPersonalDataTable: React.FC<AdminPersonalDataTableProps> = ({
         columns={adminPersonalDataColumnsSettings}
         pagination
         paginationPerPage={10}
-        onRowClicked={handleRowClicked}
+        onRowClicked={handleStudentRowClicked}
         paginationRowsPerPageOptions={[10, 20, 30, 200]}
         conditionalRowStyles={conditionalAdminRowStyles}
         defaultSortFieldId={2}
@@ -109,17 +111,30 @@ const TeacherPersonalDataTable: React.FC<TeacherPersonalDataTableProps> = ({
 };
 
 const GroupDataTable: React.FC<GroupDataTableProps> = ({ data }) => {
+  const [showAllGroupDataPopup, setAllGroupDataPopup] = useState(false);
+  const [groupName, setGroupName] = useState('');
+  const handleGroupRowClicked = (row: GroupTableRowData) => {
+    setGroupName(row.name);
+    setAllGroupDataPopup(true);
+  };
   return (
     <div className="groupdatatable__general">
       <DataTable
         className="groupdatatable__data"
         title="Групповые данные"
         data={data}
+        onRowClicked={handleGroupRowClicked}
         columns={groupsDataColumnsSettings}
         pagination
         paginationPerPage={10}
-        paginationRowsPerPageOptions={[10]}
+        paginationRowsPerPageOptions={[10, 20]}
       />
+      {showAllGroupDataPopup && (
+        <AllGroupDataPopup
+          onClose={() => setAllGroupDataPopup(false)}
+          groupTitle={groupName}
+        />
+      )}
     </div>
   );
 };

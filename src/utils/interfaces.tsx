@@ -217,6 +217,11 @@ export interface InfoPopupProps {
   text: string;
 }
 
+export interface AllGroupDataPopupProps {
+  onClose: () => void;
+  groupTitle: string;
+}
+
 export interface AllStudentDataPopupProps {
   onClose: () => void;
   apiService: Api;
