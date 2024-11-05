@@ -33,9 +33,8 @@
   text-align: left;
 }
 
-select,
-input[type='date'],
-input[type='number'] {
+.externalpayment__popup_select,
+.externalpayment__popup_input {
   box-sizing: border-box;
   width: 100%;
   margin-top: 5px;
@@ -47,9 +46,8 @@ input[type='number'] {
   transition: border-color 0.3s ease;
 }
 
-select:focus,
-input[type='date']:focus,
-input[type='number']:focus {
+.externalpayment__popup_label:focus,
+.externalpayment__popup_input:focus {
   border-color: #4a90e2;
   outline: none;
 }

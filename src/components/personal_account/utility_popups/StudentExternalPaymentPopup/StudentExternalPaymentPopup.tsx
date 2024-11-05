@@ -74,6 +74,7 @@ function StudentExternalPaymentPopup({
         <label className="externalpayment__popup_label">
           Студент:
           <select
+            className="externalpayment__popup_select"
             value={selectedStudent}
             onChange={(e) => setSelectedStudent(e.target.value)}
           >
@@ -91,6 +92,7 @@ function StudentExternalPaymentPopup({
           Тип оплаты:
           <select
             required
+            className="externalpayment__popup_select"
             value={paymentType}
             onChange={(e) => setPaymentType(e.target.value)}
           >
@@ -105,6 +107,7 @@ function StudentExternalPaymentPopup({
           Дата оплаты:
           <input
             required
+            className="externalpayment__popup_input"
             type="date"
             value={paymentDate}
             onChange={(e) => setPaymentDate(e.target.value)}
@@ -113,6 +116,7 @@ function StudentExternalPaymentPopup({
         <label className="externalpayment__popup_label">
           Сумма платежа:
           <input
+            className="externalpayment__popup_input"
             required
             type="number"
             value={paymentAmount}
