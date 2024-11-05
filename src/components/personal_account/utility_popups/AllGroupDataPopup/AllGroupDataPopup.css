@@ -1,0 +1,16 @@
+.info__popup_table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.info__popup_table th,
+.info__popup_table td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #dddddd;
+}
+
+.info__popup_table th {
+  background-color: #f2f2f2;
+}
