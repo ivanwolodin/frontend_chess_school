@@ -70,6 +70,7 @@ const SignIn: React.FC<SignInProps> = ({ apiService }) => {
                 Логин
               </label>
               <input
+                disabled
                 type="text"
                 id="login"
                 value={loginFrom}
@@ -83,6 +84,7 @@ const SignIn: React.FC<SignInProps> = ({ apiService }) => {
                 Пароль
               </label>
               <input
+                disabled
                 type="password"
                 id="password"
                 value={passwordForm}
@@ -91,14 +93,19 @@ const SignIn: React.FC<SignInProps> = ({ apiService }) => {
                 required
               />
             </div>
-            <button type="submit" className="signin__button">
+            <button
+              disabled
+              type="submit"
+              className="signin__button signin__button_disabled"
+            >
               Войти
             </button>
             <p className="signin__info">
-              Логин и пароль придут на почту после подписания договора
+              Кое-что чиним. Функционал будет доступен чуть позже
             </p>
           </form>
           <button
+            disabled
             type="button"
             className="signin__reset"
             onClick={handleResetPassword}
