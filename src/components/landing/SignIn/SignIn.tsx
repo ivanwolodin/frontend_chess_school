@@ -101,7 +101,7 @@ const SignIn: React.FC<SignInProps> = ({ apiService }) => {
               Войти
             </button>
             <p className="signin__info">
-              Кое-что чиним. Функционал будет доступен чуть позже
+              Кое-что улучшаем. Функционал будет доступен чуть позже
             </p>
           </form>
           <button
