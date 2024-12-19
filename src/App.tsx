@@ -19,6 +19,7 @@ import Schedule from './components/landing/Schedule/Schedule';
 import ScheduleCommercial from './components/landing/ScheduleCommercial/ScheduleCommercial';
 import SecondHeader from './components/landing/SecondHeader/SecondHeader';
 import SignIn from './components/landing/SignIn/SignIn';
+import Snowfall from './components/landing/SnowFall/SnowFall';
 import StickyNewYearFooter from './components/landing/StickyNewYearFooter/StickyNewYearFooter';
 import TeachersCards from './components/landing/TeachersCards/TeachersCards';
 import VideoSection from './components/landing/VideoSection/VideoSection';
@@ -48,7 +49,6 @@ function App() {
   };
 
   const checkAndSetUserRole = () => {
-    // Можно вынести эту проверку на серверную часть
     const token = localStorage.getItem('accessToken');
     if (token) {
       const decodedToken = decodeToken<TokenData>(token);
@@ -73,6 +73,7 @@ function App() {
               path="/"
               element={
                 <>
+                  <Snowfall />
                   <Header />
                   <SecondHeader />
                   <NewYearAdmission

@@ -1,4 +1,5 @@
 import logo from '../../../../src/assets/logo/logo_little.png';
+import xs_tree from '../../../../src/assets/newyeartree/new_year_tree.png';
 
 import './SecondHeader.css';
 
@@ -75,8 +76,12 @@ const SecondHeader = () => {
           </a>
         </div>
       </div>
-      <img className="second-header__logo" src={logo} alt="logo"></img>
-      <div className="second-header__quotation">{randomQuote}</div>
+      <div className="second-header__xs_logos">
+        <img className="second-header__xs_tree" src={xs_tree} alt="logo"></img>
+        <img className="second-header__logo" src={logo} alt="logo"></img>
+      </div>
+
+      <p className="second-header__quotation">{randomQuote}</p>
     </section>
   );
 };

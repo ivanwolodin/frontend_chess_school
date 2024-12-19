@@ -6,6 +6,8 @@ import HorizontalLine from '../HorizontalLine/HorizontalLine';
 import InfoTinyCards from '../InfoTinyCards/InfoTinyCards';
 import Intro from '../Intro/Intro';
 import SliderNews from '../SliderNews/SliderNews';
+import Snowfall from '../SnowFall/SnowFall';
+import StickyNewYearFooter from '../StickyNewYearFooter/StickyNewYearFooter';
 import WeAreTrustedBy from '../WeAreTrustedBy/WeAreTrustedBy';
 import YandexMap from '../YandexMap/YandexMap';
 
@@ -23,6 +25,7 @@ const AboutSchool = () => {
   });
   return (
     <>
+      <Snowfall />
       <Header />
       <Intro />
       <InfoTinyCards />
@@ -33,6 +36,7 @@ const AboutSchool = () => {
       <YandexMap />
       <HorizontalLine />
       <Footer />
+      <StickyNewYearFooter />
     </>
   );
 };
