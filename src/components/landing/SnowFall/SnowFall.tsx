@@ -17,7 +17,7 @@ const Snowfall = () => {
       snowflake.style.position = 'absolute';
       snowflake.style.top = `${Math.random() * -100}px`;
       snowflake.style.left = `${Math.random() * 100}vw`;
-      snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      snowflake.style.animationDuration = `${Math.random() * 0.5 + 5}s`;
       snowflake.style.animationDelay = `${Math.random() * 5}s`;
       snowflake.style.width = `${Math.random() * 15 + 10}px`;
       snowflake.style.height = snowflake.style.width;
