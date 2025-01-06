@@ -18,12 +18,12 @@ const Prices = ({
             <p className="prices__card-number">4</p>
             <p className="prices__card-text">занятия</p>
           </div>
-          <div className="prices__card-price">2 800 руб</div>
+          <div className="prices__card-price">3 200 руб</div>
           <div className="prices__card-info">
             <p className="prices__card-info-text">1 занятие в неделю</p>
             <p className="prices__card-info-text">Групповые тренировки</p>
             <p className="prices__card-info-text">
-              Стоимость 1 занятия 700 рублей
+              Стоимость 1 занятия 800 рублей
             </p>
           </div>
           <button
@@ -39,12 +39,12 @@ const Prices = ({
             <p className="prices__card-number">8</p>
             <p className="prices__card-text">занятий</p>
           </div>
-          <div className="prices__card-price">4 800 руб</div>
+          <div className="prices__card-price">5 600 руб</div>
           <div className="prices__card-info">
             <p className="prices__card-info-text">2 занятия в неделю</p>
             <p className="prices__card-info-text">Групповые тренировки</p>
             <p className="prices__card-info-text">
-              Стоимость 1 занятия 600 рублей
+              Стоимость 1 занятия 700 рублей
             </p>
           </div>
           <button
@@ -60,12 +60,12 @@ const Prices = ({
             <p className="prices__card-number">12</p>
             <p className="prices__card-text">занятий</p>
           </div>
-          <div className="prices__card-price">6 900 руб</div>
+          <div className="prices__card-price">7 800 руб</div>
           <div className="prices__card-info">
             <p className="prices__card-info-text">3 занятия в неделю</p>
             <p className="prices__card-info-text">Групповые тренировки</p>
             <p className="prices__card-info-text">
-              Стоимость 1 занятия 575 рублей
+              Стоимость 1 занятия 650 рублей
             </p>
           </div>
           <button
