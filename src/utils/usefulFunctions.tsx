@@ -103,3 +103,8 @@ export const saveTeacherDataToLocalStorage = (user_data: TeacherData) => {
   localStorage.setItem('personalData', JSON.stringify(user_data.personal_data));
   localStorage.setItem('groupData', JSON.stringify(user_data.group_data));
 };
+
+export const formatDate = (dateString: string): string => {
+  const [year, month, day] = dateString.split('-'); // Предполагаем, что дата в формате год-месяц-день
+  return `${day}.${month}.${year}`;
+};

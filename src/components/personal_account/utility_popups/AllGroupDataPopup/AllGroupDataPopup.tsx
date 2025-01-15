@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { AllGroupDataPopupProps } from '../../../../utils/interfaces';
 import './AllGroupDataPopup.css';
+import { formatDate } from '../../../../utils/usefulFunctions';
 
 interface StudentData {
   student_name: string;
@@ -12,10 +13,6 @@ interface StudentData {
 
 function AllGroupDataPopup({ onClose, groupTitle }: AllGroupDataPopupProps) {
   const [students, setStudents] = useState<StudentData[]>([]);
-  const formatDate = (dateString: string): string => {
-    const [year, month, day] = dateString.split('-'); // Предполагаем, что дата в формате год-месяц-день
-    return `${day}.${month}.${year}`;
-  };
 
   useEffect(() => {
     const groupsData = JSON.parse(

@@ -11,6 +11,7 @@ import {
   TeacherPersonalTableRowData,
   SalaryTableRowData,
 } from './interfaces';
+import { formatDate } from './usefulFunctions';
 
 export const headerItems: string[] = [
   'ГЛАВНАЯ',
@@ -246,6 +247,7 @@ export const personalData: AdminPersonalTableRowData[] = [
   {
     id: '1',
     name: 'Frozen Yogurt',
+    birthday: '20.02.2000',
     group: 'group',
     parent_name: 'pn',
     phone: 'sdf',
@@ -258,6 +260,7 @@ export const personalData: AdminPersonalTableRowData[] = [
   {
     id: '2',
     name: 'Frozen Yogurt',
+    birthday: '20.02.2000',
     group: 'group',
     parent_name: 'pn',
     phone: 'sdf',
@@ -281,6 +284,12 @@ export const adminPersonalDataColumnsSettings: TableColumn<AdminPersonalTableRow
     {
       name: 'Имя',
       selector: (row: AdminPersonalTableRowData) => row.name,
+      sortable: true,
+      grow: 2,
+    },
+    {
+      name: 'Дата рождения',
+      selector: (row: AdminPersonalTableRowData) => formatDate(row.birthday),
       sortable: true,
       grow: 2,
     },
@@ -312,7 +321,8 @@ export const adminPersonalDataColumnsSettings: TableColumn<AdminPersonalTableRow
     },
     {
       name: 'Дата поступления',
-      selector: (row: AdminPersonalTableRowData) => row.admission_date,
+      selector: (row: AdminPersonalTableRowData) =>
+        formatDate(row.admission_date),
       sortable: true,
       right: true,
       hide: 'md' as unknown as Media,

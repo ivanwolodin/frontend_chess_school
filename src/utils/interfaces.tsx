@@ -106,6 +106,7 @@ interface student_status {
 export interface AdminPersonalTableRowData {
   id: string;
   name: string;
+  birthday: string;
   group: string;
   parent_name: string;
   phone: string;

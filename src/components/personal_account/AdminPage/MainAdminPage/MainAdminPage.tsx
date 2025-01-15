@@ -48,6 +48,7 @@ const MainAdminPage: React.FC<MainAdminProps> = ({ apiService, userRole }) => {
     {
       id: '1',
       name: 'string',
+      birthday: 'string',
       group: 'string',
       parent_name: 'string',
       phone: 'string',

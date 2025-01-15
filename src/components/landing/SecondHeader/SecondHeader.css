@@ -8,10 +8,11 @@ p{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* padding: 20px 50px 10px; */
-  padding-left: 50px;
   padding-right: 50px;
   padding-bottom: 10px;
+
+  /* padding: 20px 50px 10px; */
+  padding-left: 50px;
 }
 
 .second-header__nav_info {
@@ -81,10 +82,11 @@ p{
   }
 
   .second-header__quotation {
-    /* display: flex; */
-    text-align: center;
     align-items: center;
     margin-top: 0;
+
+    /* display: flex; */
+    text-align: center;
   }
 
   /* .second-header__logo {
