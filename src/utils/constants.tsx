@@ -292,18 +292,21 @@ export const adminPersonalDataColumnsSettings: TableColumn<AdminPersonalTableRow
       selector: (row: AdminPersonalTableRowData) => formatDate(row.birthday),
       sortable: true,
       grow: 2,
+      minWidth: '170px',
     },
     {
       name: 'Группа',
       selector: (row: AdminPersonalTableRowData) => row.group,
       sortable: true,
       hide: 'sm' as unknown as Media,
+      maxWidth: '150px',
     },
     {
       name: 'Родитель',
       selector: (row: AdminPersonalTableRowData) => row.parent_name,
       sortable: true,
       right: true,
+      minWidth: '200px',
     },
     {
       name: 'Телефон',
@@ -318,6 +321,7 @@ export const adminPersonalDataColumnsSettings: TableColumn<AdminPersonalTableRow
       sortable: true,
       right: true,
       hide: 'md' as unknown as Media,
+      minWidth: '250px',
     },
     {
       name: 'Дата поступления',
@@ -326,6 +330,7 @@ export const adminPersonalDataColumnsSettings: TableColumn<AdminPersonalTableRow
       sortable: true,
       right: true,
       hide: 'md' as unknown as Media,
+      minWidth: '170px',
     },
     {
       name: 'Цена одного занятия',
