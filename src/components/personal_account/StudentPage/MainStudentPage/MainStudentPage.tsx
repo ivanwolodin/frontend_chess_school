@@ -14,6 +14,7 @@ import InfoPopup from '../../../landing/InfoPopup/InfoPopup';
 import AdditionalHorizontalInfoLine from '../../common_comps/AdditionalHorizontalInfoLine/AdditionalHorizontalInfoLine';
 import SideBar from '../../common_comps/SideBar/SideBar';
 import PasswordChangePopup from '../../utility_popups/PasswordChangePopup/PasswordChangePopup';
+import RaisingPricePopup from '../../utility_popups/RaisingPricePopup/RaisingPricePopup';
 import StudentAttendance from '../StudentAttendance/StudentAttendance';
 import StudentPayment from '../StudentPayment/StudentPayment';
 
@@ -34,6 +35,10 @@ const MainStudentPage: React.FC<MainStudentProps> = ({
   const [showInfoPopup, setShowInfoPopup] = useState(false);
   const [titlePopup, setTitlePopup] = useState('');
   const [textPopup, setTextPopup] = useState('');
+
+  const [showRaisingPricePopup, setShowRaisingPricePopup] = useState(false);
+  const [titleRaisingPricePopup, setTitleRaisingPricePopup] = useState('');
+  const [textRaisingPricePopup, setTextRaisingPricePopup] = useState('');
 
   const [showPasswordChangePopup, setPasswordChangePopup] = useState(false);
 
@@ -99,6 +104,17 @@ const MainStudentPage: React.FC<MainStudentProps> = ({
     fetchPaymentStatus();
   }, []);
 
+  useEffect(() => {
+    if (!localStorage.getItem('RaisingPricePopup')) {
+      setTitleRaisingPricePopup('Информация');
+      setTextRaisingPricePopup(
+        'С января стоимость оплаты повышается! Повышение уже отражено в ЛК. Просим Вас 🙏 заполнить и принести своему тренеру это доп. соглашение об изменении цены ',
+      );
+      setShowRaisingPricePopup(true);
+      localStorage.setItem('RaisingPricePopup', 'true');
+    }
+  }, []);
+
   return (
     <>
       <div className="studentpage__general">
@@ -132,6 +148,13 @@ const MainStudentPage: React.FC<MainStudentProps> = ({
             open={showPasswordChangePopup}
             apiService={apiService}
             closeModal={() => setPasswordChangePopup(false)}
+          />
+        )}
+        {showRaisingPricePopup && (
+          <RaisingPricePopup
+            onClose={() => setShowRaisingPricePopup(false)}
+            title={titleRaisingPricePopup}
+            text={textRaisingPricePopup}
           />
         )}
       </div>
