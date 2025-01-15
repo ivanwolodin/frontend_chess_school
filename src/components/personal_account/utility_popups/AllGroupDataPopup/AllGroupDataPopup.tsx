@@ -7,10 +7,15 @@ interface StudentData {
   student_name: string;
   paid: number;
   debt: number;
+  birth_day: string;
 }
 
 function AllGroupDataPopup({ onClose, groupTitle }: AllGroupDataPopupProps) {
   const [students, setStudents] = useState<StudentData[]>([]);
+  const formatDate = (dateString: string): string => {
+    const [year, month, day] = dateString.split('-'); // Предполагаем, что дата в формате год-месяц-день
+    return `${day}.${month}.${year}`;
+  };
 
   useEffect(() => {
     const groupsData = JSON.parse(
@@ -22,7 +27,7 @@ function AllGroupDataPopup({ onClose, groupTitle }: AllGroupDataPopupProps) {
     const sortedData = groupData.sort((a: StudentData, b: StudentData) =>
       a.student_name.localeCompare(b.student_name),
     );
-
+    console.log(sortedData);
     setStudents(sortedData);
   }, [groupTitle]);
 
@@ -36,6 +41,7 @@ function AllGroupDataPopup({ onClose, groupTitle }: AllGroupDataPopupProps) {
               <th>Фамилия</th>
               <th>Оплачено</th>
               <th>Долг</th>
+              <th>Дата рождения</th>
             </tr>
           </thead>
           <tbody>
@@ -44,6 +50,7 @@ function AllGroupDataPopup({ onClose, groupTitle }: AllGroupDataPopupProps) {
                 <td>{student.student_name}</td>
                 <td>{student.paid}</td>
                 <td>{student.debt}</td>
+                <td>{formatDate(student.birth_day)}</td>
               </tr>
             ))}
           </tbody>
