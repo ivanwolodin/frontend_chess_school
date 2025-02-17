@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 import Prices from '../Prices/Prices';
 import ScheduleTable from '../ScheduleTable/ScheduleTable';
 // import Snowfall from '../SnowFall/SnowFall';
-import StickyNewYearFooter from '../StickyNewYearFooter/StickyNewYearFooter';
+// import StickyNewYearFooter from '../StickyNewYearFooter/StickyNewYearFooter';
 
 import './Schedule.css';
 
@@ -59,7 +59,7 @@ const Schedule: React.FC<ScheduleProps> = ({ apiService }) => {
         apiService={apiService}
       />
       <Footer />
-      <StickyNewYearFooter />
+      {/* <StickyNewYearFooter /> */}
     </>
   );
 };

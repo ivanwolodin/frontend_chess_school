@@ -20,7 +20,7 @@ import ScheduleCommercial from './components/landing/ScheduleCommercial/Schedule
 import SecondHeader from './components/landing/SecondHeader/SecondHeader';
 import SignIn from './components/landing/SignIn/SignIn';
 // import Snowfall from './components/landing/SnowFall/SnowFall';
-import StickyNewYearFooter from './components/landing/StickyNewYearFooter/StickyNewYearFooter';
+// import StickyNewYearFooter from './components/landing/StickyNewYearFooter/StickyNewYearFooter';
 import TeachersCards from './components/landing/TeachersCards/TeachersCards';
 import VideoSection from './components/landing/VideoSection/VideoSection';
 import WeAreTrustedBy from './components/landing/WeAreTrustedBy/WeAreTrustedBy';
@@ -96,7 +96,7 @@ function App() {
                   <Reviews />
                   <Footer />
                   <CookieNotification />
-                  <StickyNewYearFooter />
+                  {/* <StickyNewYearFooter /> */}
                 </>
               }
             />

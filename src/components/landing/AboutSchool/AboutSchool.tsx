@@ -7,7 +7,7 @@ import InfoTinyCards from '../InfoTinyCards/InfoTinyCards';
 import Intro from '../Intro/Intro';
 import SliderNews from '../SliderNews/SliderNews';
 // import Snowfall from '../SnowFall/SnowFall';
-import StickyNewYearFooter from '../StickyNewYearFooter/StickyNewYearFooter';
+// import StickyNewYearFooter from '../StickyNewYearFooter/StickyNewYearFooter';
 import WeAreTrustedBy from '../WeAreTrustedBy/WeAreTrustedBy';
 import YandexMap from '../YandexMap/YandexMap';
 
@@ -36,7 +36,7 @@ const AboutSchool = () => {
       <YandexMap />
       <HorizontalLine />
       <Footer />
-      <StickyNewYearFooter />
+      {/* <StickyNewYearFooter /> */}
     </>
   );
 };
