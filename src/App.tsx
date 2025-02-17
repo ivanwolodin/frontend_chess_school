@@ -19,7 +19,7 @@ import Schedule from './components/landing/Schedule/Schedule';
 import ScheduleCommercial from './components/landing/ScheduleCommercial/ScheduleCommercial';
 import SecondHeader from './components/landing/SecondHeader/SecondHeader';
 import SignIn from './components/landing/SignIn/SignIn';
-import Snowfall from './components/landing/SnowFall/SnowFall';
+// import Snowfall from './components/landing/SnowFall/SnowFall';
 import StickyNewYearFooter from './components/landing/StickyNewYearFooter/StickyNewYearFooter';
 import TeachersCards from './components/landing/TeachersCards/TeachersCards';
 import VideoSection from './components/landing/VideoSection/VideoSection';
@@ -73,7 +73,7 @@ function App() {
               path="/"
               element={
                 <>
-                  <Snowfall />
+                  {/* <Snowfall /> */}
                   <Header />
                   <SecondHeader />
                   <NewYearAdmission
