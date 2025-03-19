@@ -12,7 +12,7 @@ export default function Footer() {
             <li> ул. Куйбышева 54, </li>
             <li> ИНН: 5905026580, </li>
             <li> ОГРН: 1155958015421, </li>
-            <li> Тел: 239-30-06 , 8 902-632-42-93, </li>
+            <li> Тел: 239-30-06 , 8 919-451-05-86, </li>
             <li> E-mail: chessperm@yandex.ru </li>
           </ul>
         </div>
@@ -99,7 +99,7 @@ export default function Footer() {
           <br />
           <p>
             {' '}
-            © 2016 - 2024 <br />
+            © 2016 - 2025 <br />
             ШАХМАТНАЯ ШКОЛА
           </p>
         </div>

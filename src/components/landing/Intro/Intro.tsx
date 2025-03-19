@@ -10,7 +10,7 @@ const Intro = () => {
             <p>Лицензия на образовательную деятельность</p>
             <p>Сведения об образовательной организации</p>
             <p className="intro__text_yellow_mixin">239-30-06</p>
-            <p className="intro__text_yellow_mixin">8 902-632-42-93</p>
+            <p className="intro__text_yellow_mixin">8 919-451-05-86</p>
             <p className="intro__text_yellow_mixin">
               г. Пермь, ул. Куйбышева, 54
             </p>
