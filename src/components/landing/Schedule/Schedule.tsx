@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import ApiService from '../../../api/ApiService';
-import AdmissionForm from '../AdmissionForm/AdmissionForm';
+// import AdmissionForm from '../AdmissionForm/AdmissionForm';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Prices from '../Prices/Prices';
@@ -12,10 +12,11 @@ import ScheduleTable from '../ScheduleTable/ScheduleTable';
 import './Schedule.css';
 
 interface ScheduleProps {
-  apiService: ApiService;
+  apiService?: ApiService;
 }
-const Schedule: React.FC<ScheduleProps> = ({ apiService }) => {
+const Schedule: React.FC<ScheduleProps> = () => {
   const [scrollToAdmissionForm, setScrollToAdmissionForm] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [cellData, setCellData] = useState({ group: '', day: '', time: '' });
   const scrollRef = useRef<HTMLElement>(null);
 
@@ -53,11 +54,11 @@ const Schedule: React.FC<ScheduleProps> = ({ apiService }) => {
       <Header />
       <ScheduleTable onCellClick={handleCellClick} />
       <Prices handlePriceClick={handlePriceClick} />
-      <AdmissionForm
+      {/* <AdmissionForm
         scrollRef={scrollRef}
         cellData={cellData}
         apiService={apiService}
-      />
+      /> */}
       <Footer />
       {/* <StickyNewYearFooter /> */}
     </>

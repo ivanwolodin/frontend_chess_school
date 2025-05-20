@@ -50,7 +50,8 @@
 }
 
 .cell-clickable {
-  cursor: pointer;
+  /* cursor: not-allowed; */
+  /* cursor: pointer; */
 }
 
 .cell-link {

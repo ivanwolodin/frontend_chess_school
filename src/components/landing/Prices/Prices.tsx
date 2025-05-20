@@ -27,6 +27,7 @@ const Prices = ({
             </p>
           </div>
           <button
+            disabled
             className="prices__card-button"
             onClick={() => handlePriceClick('В группе,', '1 занятие,', '2 800')}
           >
@@ -48,6 +49,7 @@ const Prices = ({
             </p>
           </div>
           <button
+            disabled
             className="prices__card-button"
             onClick={() => handlePriceClick('В группе,', '2 занятия,', '4 800')}
           >
@@ -69,6 +71,7 @@ const Prices = ({
             </p>
           </div>
           <button
+            disabled
             className="prices__card-button"
             onClick={() => handlePriceClick('В группе,', '3 занятия,', '6 900')}
           >

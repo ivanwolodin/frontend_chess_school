@@ -8,7 +8,7 @@ import ErrorPage from './components/general/ErrorPage/ErrorPage';
 import NotFoundPage from './components/general/NotFoundPage/NotFoundPage';
 import AboutPrograms from './components/landing/AboutPrograms/AboutPrograms';
 import AboutSchool from './components/landing/AboutSchool/AboutSchool';
-import AdmissionForm from './components/landing/AdmissionForm/AdmissionForm';
+// import AdmissionForm from './components/landing/AdmissionForm/AdmissionForm';
 import CookieNotification from './components/landing/CookieNotification/CookieNotification';
 import Footer from './components/landing/Footer/Footer';
 import Header from './components/landing/Header/Header';
@@ -89,10 +89,10 @@ function App() {
                   <TeachersCards />
                   <WeAreTrustedBy />
                   <VideoSection videoId="gor6dptvj1Q" />
-                  <AdmissionForm
+                  {/* <AdmissionForm
                     scrollRef={admissionFormRef}
                     apiService={apiService}
-                  />
+                  /> */}
                   <Reviews />
                   <Footer />
                   <CookieNotification />

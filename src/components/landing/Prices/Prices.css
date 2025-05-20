@@ -81,11 +81,12 @@
   background-color: #f3efe9;
   border: 0 solid #222222;
   border-radius: 8px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .prices__card-button:hover {
-  background-color: #d4a867;
+  /* cursor: not-allowed; */
+  /* background-color: #d4a867; */
 }
 
 @media (width <= 768px) {
